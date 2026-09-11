@@ -1,0 +1,13 @@
+{
+  "package": "MEASYMATE_PRODUCTS_STARTER_V1",
+  "status": "STARTER_READY",
+  "actual_product_html_migrated": false,
+  "global_notice_default_enabled": false,
+  "project_notices_default_enabled": false,
+  "projects": [
+    "contact-shift",
+    "report-pro",
+    "factory-daily",
+    "money"
+  ]
+}
