@@ -231,8 +231,17 @@ button,input,select,textarea{font:inherit;color:inherit}button{cursor:pointer}
 <div class="card"><div class="h3">ไม่ต้องกรอกให้ครบตั้งแต่แรก</div><div class="small">ทุกข้อมูลเพิ่ม แก้ไข หรือลบภายหลังได้ การตั้งค่าครั้งแรกมีหน้าที่ให้คุณเริ่มใช้ ไม่ใช่บังคับให้วางระบบทั้งหมดก่อน</div></div>
 <div class="card"><div class="h3">ข้อมูลแอป</div>
 <div class="small">เวอร์ชัน <span data-app-version></span> • Build 12 Sep 2026<br>
-การอัปเดตรุ่นนี้: ย้ายรายละเอียดเวอร์ชันออกจากหน้าเริ่มต้น และจัดข้อความเวอร์ชันให้ตรงกันทั้งแอป</div></div>
+การอัปเดตรุ่นนี้: เพิ่มคำเตือนเมื่อเปิดผ่าน LINE เพื่อป้องกันข้อมูลแยกจากเบราว์เซอร์หลัก และเตรียมรองรับไอคอน Shortcut/PWA</div></div>
 <div class="card"><div class="h3">ข้อมูลและการเตือน</div><div class="small">รุ่นนี้เตือนบิลภายในแอปเมื่อเปิดใช้งาน ส่วนแจ้งเตือนขณะปิดแอปจะเพิ่มภายหลังเมื่อโฮสต์เป็นเว็บและเปิด Notification</div></div>
+<div class="card">
+  <div class="h3">🌐 ข้อมูลเก็บตามเบราว์เซอร์ที่เปิด</div>
+  <div class="small">ถ้าเปิดจาก LINE แล้วบันทึกข้อมูล ข้อมูลนั้นอาจอยู่ในพื้นที่เก็บข้อมูลของ LINE และไม่ตามไป Chrome/Safari อัตโนมัติ แนะนำให้เปิดลิงก์ผ่านเบราว์เซอร์หลักก่อนเริ่มใช้งานประจำ</div>
+</div>
+<div class="card">
+  <div class="h3">💬 ติดต่อ / ขอความช่วยเหลือ</div>
+  <div class="small" style="margin-bottom:10px">สอบถามการใช้งาน แจ้งปัญหา หรือส่งข้อเสนอแนะได้ทาง LINE Official ของ MEasyMate</div>
+  <a class="btn green full" href="https://lin.ee/YlHM4br" target="_blank" rel="noopener" style="display:block;text-align:center;text-decoration:none;box-sizing:border-box">เปิด LINE MEasyMate</a>
+</div>
 <button class="btn outline full" onclick="closeM('infoModal');openAI()">🤖 ดู AI Assistant Pro</button>
 </div></div>
 <div id="aiModal" class="modal"><div class="sheet"><div class="sheetHead"><b>🤖 AI Assistant Pro</b><button class="x" onclick="closeM('aiModal')">✕</button></div>
@@ -263,7 +272,7 @@ const DREAMS=[
 const PROJECT_ID="money";
 const PROJECT_DISPLAY_NAME="MEasyMate Money";
 const PROJECT_SHORT_NAME="Money";
-const APP_VERSION="F2.1.3";
+const APP_VERSION="F2.1.5";
 const DATA_SCHEMA_VERSION=2;
 const DB_NAME="measymate_money_db";
 const DB_VERSION=1;
@@ -612,9 +621,42 @@ document.addEventListener("focusin",e=>{
  }
 });
 
+
+function isLineInAppBrowser(){
+  const ua=(navigator.userAgent||"");
+  return /Line\/[\d.]+/i.test(ua)||/\bLIFF\b/i.test(ua);
+}
+async function copyMainBrowserLink(){
+  const u="https://app.measymate.com/money/";
+  try{
+    await navigator.clipboard.writeText(u);
+    toast("คัดลอกลิงก์แล้ว");
+  }catch(e){
+    prompt("คัดลอกลิงก์นี้ แล้วเปิดใน Chrome / Safari",u);
+  }
+}
+function showLineBrowserNotice(){
+  if(!isLineInAppBrowser()||document.getElementById("lineBrowserGuard"))return;
+  const d=document.createElement("div");
+  d.id="lineBrowserGuard";
+  d.style.cssText="position:fixed;inset:0;z-index:9999;background:rgba(25,50,71,.48);display:flex;align-items:flex-end;justify-content:center;padding:0";
+  d.innerHTML=`
+    <div style="width:min(580px,100%);background:#fff;border-radius:24px 24px 0 0;padding:18px 16px calc(20px + env(safe-area-inset-bottom));box-shadow:0 -12px 40px rgba(0,0,0,.18)">
+      <div style="font-size:18px;font-weight:950;margin-bottom:8px">เปิดผ่าน LINE อยู่ครับ</div>
+      <div style="font-size:12px;line-height:1.7;color:#63788b">
+        LINE และ Chrome/Safari อาจเก็บข้อมูลคนละที่ ถ้ากรอกข้อมูลใน LINE แล้วไปเปิดในเบราว์เซอร์ ข้อมูลอาจไม่ตามไปอัตโนมัติ
+        <br><br><b style="color:#193247">แนะนำ:</b> กดเมนูของ LINE แล้วเลือก “เปิดในเบราว์เซอร์” ก่อนเริ่มใช้งานประจำ
+      </div>
+      <button class="btn primary full" style="margin-top:14px" onclick="copyMainBrowserLink()">📋 คัดลอกลิงก์สำหรับเปิดในเบราว์เซอร์</button>
+      <button class="btn outline full" style="margin-top:8px" onclick="document.getElementById('lineBrowserGuard').remove()">เข้าใจแล้ว ใช้ต่อใน LINE</button>
+    </div>`;
+  document.body.appendChild(d);
+}
+
 if("serviceWorker" in navigator && (location.protocol==="https:"||location.hostname==="localhost")){navigator.serviceWorker.register("./sw.js").catch(()=>{})}
 
 load();
+setTimeout(showLineBrowserNotice,350);
 </script>
 </body>
 </html>

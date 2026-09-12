@@ -31,8 +31,49 @@ jobs:
           mkdir -p _site/money
           mkdir -p _site/projects/money
 
+          # Single source app
           cp projects/money/index.html _site/money/index.html
 
+          # PWA / shortcut assets
+          cp shared/brand/measymate-icon-192.png _site/money/icon-192.png
+          cp shared/brand/measymate-icon-192.png _site/money/icon-180.png
+          cp shared/brand/measymate-icon-512.png _site/money/icon-512.png
+
+          cat > _site/money/manifest.webmanifest <<'JSON'
+          {
+            "name": "MEasyMate Money",
+            "short_name": "Money",
+            "description": "วางแผนเงิน สร้างอนาคต แบบง่ายๆ",
+            "start_url": "/money/",
+            "scope": "/money/",
+            "display": "standalone",
+            "background_color": "#f5fbff",
+            "theme_color": "#1689f5",
+            "icons": [
+              {"src":"./icon-192.png","sizes":"192x192","type":"image/png","purpose":"any"},
+              {"src":"./icon-512.png","sizes":"512x512","type":"image/png","purpose":"any"}
+            ]
+          }
+          JSON
+
+          cat > _site/money/sw.js <<'JS'
+          const CACHE='measymate-money-runtime-v1';
+          self.addEventListener('install',()=>self.skipWaiting());
+          self.addEventListener('activate',e=>e.waitUntil((async()=>{
+            const ks=await caches.keys();
+            await Promise.all(ks.filter(k=>k!==CACHE).map(k=>caches.delete(k)));
+            await self.clients.claim();
+          })()));
+          self.addEventListener('fetch',e=>{
+            if(e.request.method!=='GET')return;
+            e.respondWith(fetch(e.request).then(r=>{
+              const c=r.clone(); caches.open(CACHE).then(x=>x.put(e.request,c)).catch(()=>{});
+              return r;
+            }).catch(()=>caches.match(e.request)));
+          });
+          JS
+
+          # Old URL -> clean URL
           cat > _site/projects/money/index.html <<'HTML'
           <!doctype html>
           <meta charset="utf-8">
