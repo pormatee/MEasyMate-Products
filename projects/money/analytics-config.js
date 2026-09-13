@@ -3,7 +3,7 @@
 
   const config={
     projectId:"money",
-    appVersion:"F2.1.9",
+    appVersion:"F2.1.10",
     dataSchemaVersion:3,
 
     // Local anonymous usage counters are enabled.
