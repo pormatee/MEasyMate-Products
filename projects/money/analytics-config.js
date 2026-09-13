@@ -3,7 +3,7 @@
 
   const config={
     projectId:"money",
-    appVersion:"F2.1.10",
+    appVersion:"F2.1.11",
     dataSchemaVersion:3,
 
     // Local anonymous usage counters are enabled.
@@ -37,6 +37,7 @@
       "dream_updated",
       "week_closed",
       "backup_created",
+      "backup_shared",
       "restore_used",
       "safety_restore_used",
       "app_reset",
