@@ -13,11 +13,17 @@
   "verified_migrations": {
     "money": {
       "source": "projects/money/index.html",
-      "app_version": "F2.1.8",
+      "app_version": "F2.1.9",
       "data_schema_version": 3,
-      "deploy_status": "PASS",
+      "deploy_status": "UNVERIFIED",
       "public_url": "https://app.measymate.com/money/",
-      "real_device_data_continuity": "UNVERIFIED"
+      "real_device_data_continuity": "UNVERIFIED",
+      "analytics": {
+        "instrumentation": "PASS",
+        "privacy_allowlist": "PASS",
+        "central_transport": "DISABLED_FAIL_CLOSED",
+        "endpoint": "UNCONFIGURED"
+      }
     }
   }
 }

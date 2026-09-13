@@ -30,9 +30,14 @@ jobs:
           rm -rf _site
           mkdir -p _site/money
           mkdir -p _site/projects/money
+          mkdir -p _site/shared/analytics
 
           # Single source app
           cp projects/money/index.html _site/money/index.html
+
+          # Analytics Standard assets
+          cp projects/money/analytics-config.js _site/money/analytics-config.js
+          cp shared/analytics/measymate-analytics.js _site/shared/analytics/measymate-analytics.js
 
           # PWA / shortcut assets
           cp shared/brand/measymate-icon-192.png _site/money/icon-192.png
@@ -57,7 +62,7 @@ jobs:
           JSON
 
           cat > _site/money/sw.js <<'JS'
-          const CACHE='measymate-money-runtime-v1';
+          const CACHE='measymate-money-runtime-v2';
           self.addEventListener('install',()=>self.skipWaiting());
           self.addEventListener('activate',e=>e.waitUntil((async()=>{
             const ks=await caches.keys();
