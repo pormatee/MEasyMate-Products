@@ -15,7 +15,7 @@ Project Display Name: `MEasyMate Money`
 ## Migration / Standard Status
 
 - Source migration: PASS
-- GitHub Actions deployment: PASS for F2.1.8; F2.1.9 deploy: UNVERIFIED until pushed
+- GitHub Actions deployment: PASS for F2.1.9
 - Clean public URL: PASS
 - Single source of truth: PASS
 - Shortcut / PWA identity: PASS

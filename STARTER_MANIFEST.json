@@ -15,7 +15,7 @@
       "source": "projects/money/index.html",
       "app_version": "F2.1.9",
       "data_schema_version": 3,
-      "deploy_status": "UNVERIFIED",
+      "deploy_status": "PASS",
       "public_url": "https://app.measymate.com/money/",
       "real_device_data_continuity": "UNVERIFIED",
       "analytics": {
