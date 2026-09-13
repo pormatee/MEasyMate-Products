@@ -1,7 +1,7 @@
 {
   "package": "MEASYMATE_PRODUCTS_STARTER_V1",
-  "status": "STARTER_READY",
-  "actual_product_html_migrated": false,
+  "status": "ACTIVE_PARTIAL_MIGRATION",
+  "actual_product_html_migrated": true,
   "global_notice_default_enabled": false,
   "project_notices_default_enabled": false,
   "projects": [
@@ -9,5 +9,15 @@
     "report-pro",
     "factory-daily",
     "money"
-  ]
+  ],
+  "verified_migrations": {
+    "money": {
+      "source": "projects/money/index.html",
+      "app_version": "F2.1.8",
+      "data_schema_version": 3,
+      "deploy_status": "PASS",
+      "public_url": "https://app.measymate.com/money/",
+      "real_device_data_continuity": "UNVERIFIED"
+    }
+  }
 }
