@@ -13,18 +13,19 @@
   "verified_migrations": {
     "money": {
       "source": "projects/money/index.html",
-      "app_version": "F2.1.11",
+      "app_version": "F2.1.12",
       "data_schema_version": 3,
       "deploy_status": "UNVERIFIED",
       "public_url": "https://app.measymate.com/money/",
       "real_device_data_continuity": "PASS_FROM_F2.1.9_TO_F2.1.10",
       "backup_restore_real_device": "PASS_F2.1.10",
-      "backup_file_discoverability": "IMPROVED_UNVERIFIED_F2.1.11",
-      "analytics": {
-        "instrumentation": "PASS",
-        "privacy_allowlist": "PASS",
-        "central_transport": "DISABLED_FAIL_CLOSED",
-        "endpoint": "UNCONFIGURED"
+      "systems": {
+        "information": "PASS_LOCAL_QA",
+        "notice": "PASS_LOCAL_QA",
+        "analytics_local": "PASS_LOCAL_QA",
+        "usage_insights": "PASS_LOCAL_QA",
+        "test_mode": "PASS_LOCAL_CHROMIUM_QA",
+        "central_analytics": "DISABLED_FAIL_CLOSED"
       }
     }
   }

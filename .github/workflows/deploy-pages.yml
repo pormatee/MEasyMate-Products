@@ -32,16 +32,26 @@ jobs:
           mkdir -p _site/projects/money
           mkdir -p _site/contact-shift
           mkdir -p _site/projects/contact-shift
-          mkdir -p _site/shared/notify
           mkdir -p _site/shared/analytics
+          mkdir -p _site/shared/notify
+          mkdir -p _site/shared/information
 
-          # Single source app
+          # Single source apps
           cp projects/money/index.html _site/money/index.html
           cp projects/contact-shift/index.html _site/contact-shift/index.html
-          cp projects/contact-shift/project-notice.js _site/contact-shift/project-notice.js
-          cp shared/brand/measymate-logo.jpg _site/contact-shift/measymate-logo.jpg
+
+          # Money project integration assets
+          cp projects/money/analytics-config.js _site/money/analytics-config.js
+          cp projects/money/information-config.js _site/money/information-config.js
+          cp projects/money/project-notice.js _site/money/project-notice.js
+          cp projects/money/system-test.js _site/money/system-test.js
+
+          # Shared systems
+          cp shared/information/measymate-information.js _site/shared/information/measymate-information.js
           cp shared/notify/all-project-notice.js _site/shared/notify/all-project-notice.js
           cp shared/notify/measymate-notify-core.js _site/shared/notify/measymate-notify-core.js
+          cp shared/analytics/measymate-analytics.js _site/shared/analytics/measymate-analytics.js
+          cp shared/analytics/measymate-usage-insights.js _site/shared/analytics/measymate-usage-insights.js
 
           # Old Contact Shift URL -> clean URL
           cat > _site/projects/contact-shift/index.html <<'HTML'
@@ -50,10 +60,6 @@ jobs:
           <meta http-equiv="refresh" content="0; url=/contact-shift/">
           <script>location.replace('/contact-shift/')</script>
           HTML
-
-          # Analytics Standard assets
-          cp projects/money/analytics-config.js _site/money/analytics-config.js
-          cp shared/analytics/measymate-analytics.js _site/shared/analytics/measymate-analytics.js
 
           # PWA / shortcut assets
           cp shared/brand/measymate-icon-192.png _site/money/icon-192.png
@@ -78,7 +84,7 @@ jobs:
           JSON
 
           cat > _site/money/sw.js <<'JS'
-          const CACHE='measymate-money-runtime-v2';
+          const CACHE='measymate-money-runtime-v3';
           self.addEventListener('install',()=>self.skipWaiting());
           self.addEventListener('activate',e=>e.waitUntil((async()=>{
             const ks=await caches.keys();
@@ -94,7 +100,7 @@ jobs:
           });
           JS
 
-          # Old URL -> clean URL
+          # Old Money URL -> clean URL
           cat > _site/projects/money/index.html <<'HTML'
           <!doctype html>
           <meta charset="utf-8">
