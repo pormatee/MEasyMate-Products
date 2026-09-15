@@ -30,10 +30,21 @@ jobs:
           rm -rf _site
           mkdir -p _site/money
           mkdir -p _site/projects/money
+          mkdir -p _site/contact-shift
+          mkdir -p _site/projects/contact-shift
           mkdir -p _site/shared/analytics
 
           # Single source app
           cp projects/money/index.html _site/money/index.html
+          cp projects/contact-shift/index.html _site/contact-shift/index.html
+
+          # Old Contact Shift URL -> clean URL
+          cat > _site/projects/contact-shift/index.html <<'HTML'
+          <!doctype html>
+          <meta charset="utf-8">
+          <meta http-equiv="refresh" content="0; url=/contact-shift/">
+          <script>location.replace('/contact-shift/')</script>
+          HTML
 
           # Analytics Standard assets
           cp projects/money/analytics-config.js _site/money/analytics-config.js
