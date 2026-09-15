@@ -31,7 +31,9 @@ jobs:
           mkdir -p _site/money
           mkdir -p _site/projects/money
           mkdir -p _site/contact-shift
+          mkdir -p _site/report-pro
           mkdir -p _site/projects/contact-shift
+          mkdir -p _site/projects/report-pro
           mkdir -p _site/shared/analytics
           mkdir -p _site/shared/notify
           mkdir -p _site/shared/information
@@ -39,6 +41,8 @@ jobs:
           # Single source apps
           cp projects/money/index.html _site/money/index.html
           cp projects/contact-shift/index.html _site/contact-shift/index.html
+          cp projects/report-pro/index.html _site/report-pro/index.html
+          cp projects/report-pro/project-notice.js _site/report-pro/project-notice.js
 
           # Money project integration assets
           cp projects/money/analytics-config.js _site/money/analytics-config.js
