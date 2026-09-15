@@ -144,16 +144,22 @@
       .sort((a, b) => rank(b) - rank(a))
       .slice(0, 3);
 
-    if (!items.length) return;
+    let container = document.getElementById("measymate-notify-container");
+
+    if (!items.length) {
+      container?.remove();
+      return;
+    }
 
     ensureStyles();
 
-    let container = document.getElementById("measymate-notify-container");
     if (!container) {
       container = document.createElement("div");
       container.id = "measymate-notify-container";
       container.setAttribute("aria-live", "polite");
       document.body.prepend(container);
+    } else {
+      container.replaceChildren();
     }
 
     items.forEach(item => renderItem(item, container));

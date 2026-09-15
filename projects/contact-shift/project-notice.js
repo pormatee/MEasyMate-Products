@@ -1,6 +1,7 @@
 /*
- * Contact Shift Project Notices V1
- * Keep notices disabled until intentionally published.
+ * Contact Shift Project Notices
+ * MEasyMate Script Architecture Standard V1.1
+ * Keep disabled until intentionally published.
  */
 window.MEasyMateProjectNotices = [
   {
@@ -8,7 +9,7 @@ window.MEasyMateProjectNotices = [
     scope: "contact-shift",
     type: "info",
     title: "Contact Shift",
-    message: "ตัวอย่างประกาศเฉพาะโปรเจกต์ — ปิดใช้งานอยู่",
+    message: "ตัวอย่างประกาศเฉพาะ Contact Shift — ปิดใช้งานอยู่",
     start_at: null,
     end_at: null,
     priority: 1,

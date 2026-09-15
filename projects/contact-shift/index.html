@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="measymate-project-id" content="contact-shift">
 <title>Contact Shift</title>
 <style>
 :root{--bg:#edf2f6;--card:#fff;--text:#13212c;--muted:#6c7b88;--line:#dfe6ec;--navy:#0b2a45;--navy2:#174f77;--blue:#276c9b;--red:#c43d35;--amber:#c98714;--green:#2b8856;--violet:#6658c8;--shadow:0 10px 28px rgba(15,38,58,.10);--r:18px}
@@ -70,7 +71,7 @@ main{padding:14px}.section{margin-top:18px}.sech{display:flex;justify-content:sp
 </head>
 <body>
 <div class="app">
-<header class="hero"><div class="top"><div><div class="brand">CONTACT SHIFT</div><div class="sub"><span id="headerContext">สมุดส่งต่อกะดิจิทัล • Offline • V10.3.3</span></div></div><div class="pill" id="licensePill">ทดลอง 30 วัน</div></div></header>
+<header class="hero"><div class="top"><div><div class="brand">CONTACT SHIFT</div><div class="sub"><span id="headerContext">สมุดส่งต่อกะดิจิทัล • Offline • V10.3.4</span></div></div><div class="pill" id="licensePill">ทดลอง 30 วัน</div></div></header>
 <main>
 <section id="view-home">
   <div class="quick">
@@ -272,6 +273,25 @@ main{padding:14px}.section{margin-top:18px}.sech{display:flex;justify-content:sp
   <div class="card form"><div class="retention-grid"><div><label>Auto Archive เรื่องที่ปิด</label><select id="autoArchiveDays"><option value="0">ไม่อัตโนมัติ</option><option value="30">หลัง 30 วัน</option><option value="90">หลัง 90 วัน</option><option value="180">หลัง 180 วัน</option></select></div><div><label>ถังขยะเตือนเมื่อครบ</label><select id="trashDays"><option value="7">7 วัน</option><option value="30">30 วัน</option><option value="60">60 วัน</option><option value="90">90 วัน</option></select></div></div><label style="display:flex;align-items:center;gap:8px"><input id="autoPurgeTrash" type="checkbox" style="width:auto"> ลบถาวรอัตโนมัติเมื่อครบกำหนด (ไม่แนะนำ)</label><button class="btn primary full" onclick="saveRetention()">บันทึกนโยบายเก็บข้อมูล</button><div class="helper">Archive ไม่ลบ Timeline/Revision/รูป ส่วน Trash ยัง Restore ได้จนกว่าจะลบถาวร</div></div>
   <div class="sech"><h2>ตั้งค่ารายการ Dropdown / Master Data</h2><span class="hint">เพิ่ม / ลดได้เอง</span></div>
   <div class="helper" style="margin-bottom:10px">รายการเหล่านี้จะไปแสดงในหน้าบันทึกเรื่องใหม่ จึงปรับให้เข้ากับแต่ละโรงงาน/แผนกได้โดยไม่แก้โค้ด</div>
+
+  <div class="sech"><h2>MEasyMate / Information</h2><span class="hint">ข่าวสาร • เว็บไซต์ • LINE</span></div>
+  <div class="card" id="measymateInfoPanelV1">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+      <img src="./measymate-logo.jpg" alt="MEasyMate" style="width:66px;height:66px;border-radius:16px;object-fit:cover;box-shadow:0 6px 18px rgba(15,38,58,.12)">
+      <div>
+        <div style="font-size:18px;font-weight:900">MEasyMate</div>
+        <div class="helper" style="margin-top:2px">Make Everything Easy</div>
+        <div class="helper">Contact Shift by MEasyMate</div>
+      </div>
+    </div>
+    <div class="readonly-note">ประกาศจาก MEasyMate จะแสดงด้านบนของแอปเมื่อมีข่าวสารสำคัญ</div>
+    <div class="actions" style="margin-top:12px">
+      <a class="btn light" href="https://measymate.com/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;text-align:center">🌐 Website</a>
+      <a class="btn good" href="https://lin.ee/YlHM4br" target="_blank" rel="noopener noreferrer" style="text-decoration:none;text-align:center">LINE Official</a>
+    </div>
+    <div class="helper" style="margin-top:8px">เว็บไซต์: measymate.com • ติดต่อ/สอบถามผ่าน LINE Official</div>
+  </div>
+
   <div id="configArea"></div>
 </section>
 </main>
@@ -1598,7 +1618,7 @@ const defaultState={
   ]
 };
 let state=structuredClone(defaultState),newPhotos=[],currentQRText="",currentQRPages=[],currentQRIndex=0,issueView="cards",licenseVerified=false,renewalVerified=false,viewerSession={sid:"",total:1,pages:new Map(),meta:null};
-const APP_VERSION="10.3.3",DATA_SCHEMA_VERSION=2,DB_STORAGE_VERSION=2;
+const APP_VERSION="10.3.4",DATA_SCHEMA_VERSION=2,DB_STORAGE_VERSION=2;
 const DB_NAME="measymate_contact_shift_db",LEGACY_DB_NAME="ContactShiftProV9";
 const STORE="app",KEY="state",BACKUP_STORE="backups";
 const FALLBACK_KEY="measymate_contact_shift_fallback",LEGACY_FALLBACK_KEY="ContactShiftProV9_fallback";
@@ -2226,6 +2246,10 @@ el("restoreInput")?.addEventListener("change",e=>{restoreBackupFile(e.target.fil
 ["issueSearch","filterStatus","filterPriority","filterArea","filterCategory"].forEach(id=>el(id)?.addEventListener(id==="issueSearch"?"input":"change",renderIssueViews));
 loadState();
 </script>
+
+<script src="/shared/notify/all-project-notice.js"></script>
+<script src="./project-notice.js"></script>
+<script src="/shared/notify/measymate-notify-core.js"></script>
 
 <script id="renewalLayoutFixV1033">
 document.addEventListener("DOMContentLoaded",()=>{
