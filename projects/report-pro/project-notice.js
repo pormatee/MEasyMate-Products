@@ -1,18 +1,22 @@
 /*
- * Report Pro Project Notices V1
- * Keep notices disabled until intentionally published.
+ * MEasyMate Report Pro — Project Notice V1.1
+ * Project ID: report-pro
+ * Keep this file as data-only notice configuration.
+ * Add a new object with a NEW id for each new notice campaign.
  */
 window.MEasyMateProjectNotices = [
+  /* Example (disabled by default):
   {
-    id: "REPORT_PRO-TEMPLATE-001",
+    id: "REPORT-PRO-EXAMPLE-001",
     scope: "report-pro",
     type: "info",
-    title: "Report Pro",
-    message: "ตัวอย่างประกาศเฉพาะโปรเจกต์ — ปิดใช้งานอยู่",
+    title: "MEasyMate Report Pro",
+    message: "ข้อความตัวอย่าง — ปิด enabled ก่อนใช้งานจริง",
     start_at: null,
     end_at: null,
     priority: 1,
     dismissible: true,
     enabled: false
   }
+  */
 ];
