@@ -37,6 +37,11 @@ jobs:
           mkdir -p _site/shared/analytics
           mkdir -p _site/shared/notify
           mkdir -p _site/shared/information
+          mkdir -p _site/admin/analytics
+
+          # Protected Admin (Cloudflare Access protects /admin/*)
+          cp admin/index.html _site/admin/index.html
+          cp admin/analytics/index.html _site/admin/analytics/index.html
 
           # Single source apps
           cp projects/money/index.html _site/money/index.html
