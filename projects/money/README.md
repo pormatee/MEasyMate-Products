@@ -16,7 +16,7 @@ Project Display Name: `MEasyMate Money`
 Integrated:
 - Information System V1
 - Notice System V1
-- Privacy-first Local Analytics
+- Privacy-first Local + Central Analytics
 - Local Usage Insights
 - System Test Mode: `/money/?test=1`
 
@@ -24,7 +24,7 @@ Test Mode checks Information, Notice, Analytics, Usage Insights and local runtim
 
 ### Privacy / production gate
 - Financial data remains local-first.
-- Central analytics transport remains OFF until a verified endpoint is configured.
+- Central analytics transport: ON to verified endpoint `https://measymate-central-analytics.onrender.com/v1/events`.
 - Production notices remain OFF by default.
 - The test notice is visible only with `?test=1`.
 
@@ -33,6 +33,7 @@ Test Mode checks Information, Notice, Analytics, Usage Insights and local runtim
 - Information integration: PASS
 - Notice integration: PASS
 - Analytics local integration: PASS
+- Central Analytics endpoint/security/privacy/allowlist verification: PASS
 - Usage Insights integration: PASS
 - Normal mode hides test notice/panel: PASS
 - Automated Chromium System Test: PASS
@@ -40,3 +41,20 @@ Test Mode checks Information, Notice, Analytics, Usage Insights and local runtim
 - Financial calculation logic: no intentional change
 - GitHub live deployment F2.1.12: UNVERIFIED until pushed
 - Real-device Android Test Mode: UNVERIFIED until tested after deployment
+
+
+## Analytics Declaration — Central Pilot
+
+- Analytics Mode: `CENTRAL`
+- Shared Core: `shared/analytics/measymate-analytics.js`
+- Project Config: `projects/money/analytics-config.js`
+- Central Transport: `ON`
+- Central Endpoint: `https://measymate-central-analytics.onrender.com/v1/events`
+- Private / Financial Content Analytics: `FORBIDDEN`
+- Raw Install / Session ID at rest: `NOT STORED` (HMAC hash only)
+- Raw IP at rest: `NOT STORED`
+- Central Event Retention: `90 days`
+- Analytics Failure Mode: `NON-BLOCKING`
+- Synthetic/System Test Event: `EXCLUDED FROM USER METRICS`
+
+This project follows MEasyMate Analytics & Privacy Standard V1.1.

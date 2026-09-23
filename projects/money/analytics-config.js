@@ -5,8 +5,8 @@
     appVersion:"F2.1.12",
     dataSchemaVersion:3,
     localStatsEnabled:true,
-    transportEnabled:false,
-    endpoint:"",
+    transportEnabled:true,
+    endpoint:"https://measymate-central-analytics.onrender.com/v1/events",
     includeInstallId:true,
     retentionDays:90,
     allowEvents:[

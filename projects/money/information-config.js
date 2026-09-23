@@ -9,7 +9,7 @@
     publicUrl:"https://app.measymate.com/money/",
     website:"https://measymate.com/",
     supportLine:"https://lin.ee/YlHM4br",
-    storageMode:"Local-first • ข้อมูลการเงินหลักอยู่ในเครื่องผู้ใช้"
+    storageMode:"Local-first • ข้อมูลการเงินอยู่ในเครื่องผู้ใช้ • ส่งเฉพาะสถิติการใช้งานแบบไม่ระบุตัวตนเพื่อปรับปรุงแอป"
   };
   window.MEasyMateInformationConfig=config;
   if(window.MEasyMateInformation)window.MEasyMateInformation.init(config);

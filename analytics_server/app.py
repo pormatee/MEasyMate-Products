@@ -255,7 +255,7 @@ async def ingest(request: Request, event: EventIn):
     if occurred < now - timedelta(days=7) or occurred > now + timedelta(minutes=15):
         raise HTTPException(status_code=422, detail="event timestamp outside allowed window")
 
-    synthetic = request.headers.get("x-measymate-synthetic") == "1"
+    synthetic = request.headers.get("x-measymate-synthetic") == "1" or event.event == "system_test"
 
     # Privacy: Central V1 deliberately discards meta; it is never stored.
     with connect() as conn:

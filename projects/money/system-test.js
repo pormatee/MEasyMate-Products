@@ -26,7 +26,7 @@
         <div>Notice ${pass(!!window.MEasyMateNotify&&notice())} <span style="color:#708397">เห็นประกาศทดสอบด้านบน = ผ่าน</span></div>
         <div>Analytics Local ${pass(a.initialized&&a.local_stats_enabled===true)}</div>
         <div>Usage Insights ${pass(!!window.MEasyMateUsageInsights)}</div>
-        <div>Central Analytics <b style="color:#1475b6">${a.transport_enabled?"ON":"SAFE OFF"}</b> <span style="color:#708397">(ยังไม่มี endpoint กลาง)</span></div>
+        <div>Central Analytics ${pass(a.transport_enabled===true&&a.endpoint_configured===true)} <b style="color:#1475b6">${a.transport_enabled?"ON":"OFF"}</b> <span style="color:#708397">(ส่งเฉพาะ anonymous usage ที่อยู่ใน Allowlist)</span></div>
         <hr style="border:0;border-top:1px solid #dfeaf1;width:100%">
         <div><b>เหตุการณ์ในเครื่อง:</b> ${Number(s.total_events||0)}</div>
         <div><b>วันที่ใช้งาน:</b> ${Number(u.active_days||0)}</div>
