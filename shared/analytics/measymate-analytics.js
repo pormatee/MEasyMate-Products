@@ -112,12 +112,25 @@
     if(cfg.includeInstallId)p.install_id=installId();
     return p;
   }
+  function isSystemTestMode(){
+    try{return new URLSearchParams(global.location.search).get("test")==="1"}catch(_){return false}
+  }
   function send(p){
     if(!cfg.transportEnabled||!cfg.endpoint)return false;
     try{
       const body=JSON.stringify(p);
-      if(navigator.sendBeacon&&navigator.sendBeacon(cfg.endpoint,new Blob([body],{type:"application/json"})))return true;
-      fetch(cfg.endpoint,{method:"POST",headers:{"content-type":"application/json"},body,keepalive:true,credentials:"omit",cache:"no-store",referrerPolicy:"no-referrer"}).catch(()=>{});
+      const headers={"content-type":"application/json"};
+      if(isSystemTestMode())headers["x-measymate-synthetic"]="1";
+
+      fetch(cfg.endpoint,{
+        method:"POST",
+        headers,
+        body,
+        keepalive:true,
+        credentials:"omit",
+        cache:"no-store",
+        referrerPolicy:"no-referrer"
+      }).catch(()=>{});
       return true;
     }catch(_){return false}
   }

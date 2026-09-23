@@ -58,3 +58,9 @@ Test Mode checks Information, Notice, Analytics, Usage Insights and local runtim
 - Synthetic/System Test Event: `EXCLUDED FROM USER METRICS`
 
 This project follows MEasyMate Analytics & Privacy Standard V1.1.
+
+
+### Central transport field fix
+- Central transport uses non-blocking `fetch()` for cross-origin JSON delivery.
+- `?test=1` sends Central events with the synthetic marker and is excluded from User metrics.
+- Analytics transport failure remains non-blocking and must never affect Money core behavior.
