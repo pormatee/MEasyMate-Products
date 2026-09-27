@@ -16,7 +16,7 @@ body.layer-open{position:fixed;left:0;right:0;width:100%;overflow:hidden;touch-a
 .sheet,.action-sheet{touch-action:none!important}
 .sheet input,.sheet textarea,.sheet select,.sheet button,
 .action-sheet input,.action-sheet textarea,.action-sheet select,.action-sheet button{touch-action:manipulation}
-button,input,select,textarea{font:inherit}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.5}.shell{max-width:620px;min-height:100vh;margin:auto;background:linear-gradient(180deg,#fff 0,#F4FAFC 220px)}
+button,input,select,textarea{font:inherit}button,[role="button"]{touch-action:manipulation;-webkit-tap-highlight-color:rgba(0,0,0,0)}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.5}.shell{max-width:620px;min-height:100vh;margin:auto;background:linear-gradient(180deg,#fff 0,#F4FAFC 220px)}
 .topbar{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}.topinner{height:56px;padding:0 14px;display:flex;align-items:center;justify-content:space-between;gap:10px}.brandwrap{display:flex;align-items:center;gap:10px;min-width:0}.brandlogo{width:34px;height:34px;border-radius:50%;object-fit:cover;border:1px solid #D9EDF2;background:#fff;flex:0 0 auto}.brandname{font-size:17px;font-weight:950;color:var(--navy);letter-spacing:-.4px;line-height:1}.brandname b{color:var(--blue)}.subbrand{font-size:10px;color:var(--muted);font-weight:750;line-height:1.2;margin-top:3px}.version{font-size:9px;font-weight:900;background:var(--soft);border:1px solid #D1EBF1;color:var(--blue);padding:6px 8px;border-radius:999px;white-space:nowrap;flex:0 0 auto}
 main{padding:14px 14px 104px}.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--navy),#17445F);border-radius:22px;color:#fff;padding:12px 14px;box-shadow:var(--shadow)}.hero:after{content:"";position:absolute;width:120px;height:120px;border-radius:50%;right:-42px;top:-52px;background:rgba(120,209,218,.16)}.hero-mini{display:flex;gap:12px;align-items:flex-start}.hero-logo{width:56px;height:56px;border-radius:50%;object-fit:cover;border:1px solid rgba(255,255,255,.18);background:#fff;flex:0 0 auto}.hero-copy{min-width:0}.eyebrow{font-size:9px;letter-spacing:.08em;color:var(--cyan);font-weight:900}.hero h1{font-size:18px;line-height:1.12;margin:4px 0 5px}.hero p{margin:0;font-size:10.5px;line-height:1.5;color:#DDEDF4;max-width:470px}.promise{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px}.pill{font-size:8.5px;padding:4px 7px;border-radius:999px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.14)}
 .section{margin-top:14px}.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:15px;box-shadow:0 8px 22px rgba(12,30,49,.045)}.section-title{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}.section-title h2{margin:0;font-size:17px}.badge{font-size:9.5px;font-weight:900;background:var(--soft);color:var(--blue);border:1px solid #D2EBF1;border-radius:999px;padding:5px 8px}.lead{font-size:11.5px;line-height:1.65;color:var(--muted);margin:0 0 12px}
@@ -32,30 +32,30 @@ label.small{display:block;margin:10px 0 5px;font-size:10.5px;font-weight:850;col
 .length-hint{font-size:9px;color:var(--muted);margin-top:5px;line-height:1.45}
 
 .btn{width:100%;min-height:46px;border:0;border-radius:14px;padding:10px 13px;display:flex;align-items:center;justify-content:center;gap:7px;font-weight:900}.btn.primary{background:var(--navy);color:#fff;box-shadow:0 7px 16px rgba(12,30,49,.15)}.btn.blue{background:var(--blue);color:#fff}.btn.light{background:var(--soft);color:var(--navy);border:1px solid #D2EBF1}.btn.ghost{background:#fff;color:var(--navy);border:1px solid var(--line)}.btn.warn{background:#FFF7E9;color:var(--warn);border:1px solid #F1DFBB}.row{display:flex;gap:8px}.row>*{flex:1}
-.result{display:none;margin-top:14px}.result.show{display:block}.preview{position:relative;width:100%;aspect-ratio:4/5;max-height:420px;overflow:hidden;border-radius:18px;background:#E8F1F4;border:1px solid var(--line)}.preview img{width:100%;height:100%;object-fit:cover}.preview canvas{width:100%;height:100%;display:block}.preview-layer{position:absolute;inset:0;display:flex;padding:16px;pointer-events:none}.preview-text{max-width:88%;font-weight:900;line-height:1.45;white-space:pre-wrap;text-shadow:0 2px 9px rgba(0,0,0,.25)}.preview-brand{font-size:9px;margin-top:5px;opacity:.86}.captionbox{margin-top:10px;border:1px solid var(--line);border-radius:15px;padding:13px;background:#F9FCFD}.captionbox p{margin:0;font-size:13.5px;line-height:1.68;white-space:pre-wrap}.meta-line{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}.meta{font-size:9px;background:#EEF8FA;color:#52717F;padding:4px 7px;border-radius:999px}.actiongrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:9px}.actiongrid .wide{grid-column:1/-1}.advanced-intro{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px;padding:9px 10px;border:1px solid #D8ECF1;background:#F4FBFC;border-radius:13px}
+.result{display:none;margin-top:14px}.result.show{display:block}.preview{position:relative;width:100%;aspect-ratio:4/5;max-height:420px;overflow:hidden;border-radius:18px;background:#E8F1F4;border:1px solid var(--line)}.preview img{width:100%;height:100%;object-fit:cover}.preview canvas{width:100%;height:100%;display:block}.preview-layer{position:absolute;inset:0;display:flex;padding:16px;pointer-events:none}.preview-text{max-width:88%;font-weight:900;line-height:1.45;white-space:pre-wrap;text-shadow:0 2px 9px rgba(0,0,0,.25)}.preview-brand{font-size:9px;margin-top:5px;opacity:.86}.captionbox{margin-top:10px;border:1px solid var(--line);border-radius:15px;padding:13px;background:#F9FCFD}.captionbox p{margin:0;font-size:16px;line-height:1.72;white-space:pre-wrap}.meta-line{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}.meta{font-size:9px;background:#EEF8FA;color:#52717F;padding:4px 7px;border-radius:999px}.actiongrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:9px}.actiongrid .wide{grid-column:1/-1}.advanced-intro{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px;padding:9px 10px;border:1px solid #D8ECF1;background:#F4FBFC;border-radius:13px}
 .advanced-intro span{font-size:9.5px;line-height:1.45;color:#55717D}
 .advanced-toggle{flex:0 0 auto;border:1px solid var(--line);background:#fff;color:var(--navy);border-radius:999px;padding:7px 10px;font-size:9px;font-weight:900}
 .advanced-panel{display:none}.advanced-panel.open{display:block}
 .smart-share-zone{margin-top:12px;text-align:center}
 .smart-share-main{width:100%;min-height:54px;font-size:16px!important;border-radius:16px!important}
-.smart-share-sub{margin-top:6px;color:var(--muted);font-size:9.5px;line-height:1.45}
+.smart-share-sub{margin-top:7px;color:var(--muted);font-size:11.5px;line-height:1.55}
 .share-before-note{margin:9px 0 1px;padding:10px 12px;border:1px solid #BFE0EC;border-radius:13px;background:#F0FAFD;text-align:left}
-.share-before-note>b{display:block;color:var(--navy);font-size:10.5px;margin-bottom:3px}
-.share-before-note>span{display:block;color:#557482;font-size:9.2px;line-height:1.55}
+.share-before-note>b{display:block;color:var(--navy);font-size:12.5px;margin-bottom:4px}
+.share-before-note>span{display:block;color:#557482;font-size:11px;line-height:1.6}
 .share-before-note>span b{color:var(--blue)}
-.smart-share-options{margin-top:5px;border:0;background:transparent;color:var(--blue);font-size:10px;font-weight:850;padding:7px 10px}
+.smart-share-options{margin-top:6px;border:0;background:transparent;color:var(--blue);font-size:11.5px;font-weight:850;padding:8px 10px}
 .share-options-panel{margin-top:9px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .share-options-panel[hidden]{display:none}
 .share-option-card{border:1px solid #CFE4EC;background:#fff;border-radius:13px;padding:11px;text-align:left;min-height:70px}
-.share-option-card b{display:block;color:var(--navy);font-size:11px;margin-bottom:4px}
-.share-option-card span{display:block;color:var(--muted);font-size:8.8px;line-height:1.45}
+.share-option-card b{display:block;color:var(--navy);font-size:12.5px;margin-bottom:4px}
+.share-option-card span{display:block;color:var(--muted);font-size:10.5px;line-height:1.5}
 .share-option-card.compact{min-height:62px}
 .secondary-actions{margin-top:10px}
-.share-assist{margin-top:9px;padding:10px 12px;border:1px solid #CFE8F3;border-radius:12px;background:#F4FBFE;color:#456879;font-size:9.6px;line-height:1.55}
+.share-assist{margin-top:9px;padding:11px 12px;border:1px solid #CFE8F3;border-radius:12px;background:#F4FBFE;color:#456879;font-size:11px;line-height:1.6}
 .share-assist.success{border-color:#BFE7D2;background:#F1FBF6;color:#286846}
 .share-assist.warn{border-color:#F1DBA8;background:#FFF9EB;color:#805F19}
 .share-assist b{color:var(--navy)}
-.my-caption-note{font-size:9px;color:var(--muted);margin-top:6px;line-height:1.45}
+.my-caption-note{font-size:10.5px;color:var(--muted);margin-top:7px;line-height:1.5}
 .current-edit-sheet textarea{min-height:180px}
 
 .notice{margin-top:10px;border:1px solid #F0DFB8;background:#FFF8EB;color:#72531E;padding:10px 11px;border-radius:13px;font-size:10.5px;line-height:1.55}.notice.success{background:#ECFAF5;border-color:#C7EBDD;color:var(--ok)}.notice.info{background:#EDF8FC;border-color:#CAE8F1;color:#315C6E}
@@ -89,8 +89,8 @@ label.small{display:block;margin:10px 0 5px;font-size:10.5px;font-weight:850;col
 .preview-control-block{margin-top:7px}.captionbox.compact p{display:block}.captionbox.compact.expanded p{display:block}.caption-toggle{display:none}
 .captionbox.coherent p{display:block;margin-top:10px;font-size:13.5px;line-height:1.72;white-space:pre-wrap}
 .caption-sync-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
-.caption-sync-head b{font-size:11px;color:var(--navy)}
-.caption-sync-head span{max-width:62%;font-size:8.8px;line-height:1.4;text-align:right;color:var(--muted)}
+.caption-sync-head b{font-size:13px;color:var(--navy)}
+.caption-sync-head span{max-width:60%;font-size:10.5px;line-height:1.45;text-align:right;color:var(--muted)}
 .verified-caption-info{display:none;margin-top:10px;padding:9px 10px;border-radius:11px;background:#F2F9FB;color:#52717F;font-size:9.5px;line-height:1.55;white-space:pre-wrap}
 .verified-caption-info.show{display:block}.preview-tools{margin-top:8px;border:1px solid var(--line);background:#FBFDFE;border-radius:15px;padding:10px}.toolrow{display:grid;grid-template-columns:72px 1fr;gap:8px;align-items:start;margin-top:7px}.toolrow:first-child{margin-top:0}.toolrow>span{font-size:10px;font-weight:850;color:var(--muted);padding-top:7px}.seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:5px}.seg button{border:1px solid var(--line);background:#fff;color:var(--muted);padding:7px 5px;border-radius:9px;font-size:9px;font-weight:850}.seg button.active{background:var(--navy);color:#fff;border-color:var(--navy)}.template-chips{display:flex;gap:6px;overflow:auto;overscroll-behavior-inline:contain;scrollbar-width:none;padding:1px 0}.template-chips::-webkit-scrollbar{display:none}.template-chip{flex:0 0 auto;border:1px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:7px 10px;font-size:9.5px;font-weight:850;white-space:nowrap}.template-chip.active{background:var(--navy);color:#fff;border-color:var(--navy)}.font-chips{display:flex;gap:6px;overflow:auto;overscroll-behavior-inline:contain;scrollbar-width:none;padding:1px 0}.font-chips::-webkit-scrollbar{display:none}
 .font-chip{flex:0 0 auto;border:1px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:7px 10px;font-size:9.5px;font-weight:850;white-space:nowrap}
@@ -181,7 +181,7 @@ label.small{display:block;margin:10px 0 5px;font-size:10.5px;font-weight:850;col
 .sale-structure-note{font-size:9.5px;line-height:1.55;color:#486473;background:#F0F9FB;border:1px solid #D6EEF3;border-radius:12px;padding:9px;margin-top:8px}
 
 
-/* ===== V2.11.1 PRE-PUSH RC — SALE BLUE BOLD ===== */
+/* ===== V2.13 SMART MIXED ORIENTATION LAYOUT ===== */
 .topbar{
   background:linear-gradient(180deg,rgba(255,255,255,.99),rgba(247,252,255,.98));
   border-bottom:1px solid #D4EAF4;
@@ -451,6 +451,42 @@ main{padding:9px 11px 104px}
   .create-head-copy p{font-size:8.2px}
 }
 
+
+/* V2.13.2 Portrait Focus Layout + Offline Activation + Purchase Flow */
+#activationCode{min-height:70px;resize:vertical;line-height:1.35;font-size:10px;word-break:break-all}
+#copyInstallationIdBtn{margin-left:6px;vertical-align:middle}
+.purchase-option.selectable{cursor:pointer;transition:.16s ease;min-height:76px}
+.purchase-option.selectable:active{transform:scale(.98)}
+.purchase-option.selectable.selected{border-color:#0A8FDB;box-shadow:0 0 0 2px rgba(10,143,219,.10);background:linear-gradient(180deg,#FFFFFF,#F0F9FF)}
+.purchase-option.selectable.selected b{color:#0C5D93}
+.purchase-flow-packages{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:11px 0 8px}
+.purchase-flow-choice{border:1px solid #D6E8F1;background:#fff;border-radius:13px;padding:9px 6px;text-align:center;color:var(--text);min-height:70px}
+.purchase-flow-choice b{display:block;font-size:10px;color:var(--navy)}
+.purchase-flow-choice strong{display:block;font-size:16px;color:#118FD0;margin-top:2px}
+.purchase-flow-choice small{display:block;font-size:8px;color:var(--muted);margin-top:2px}
+.purchase-flow-choice.active{border-color:#0A8FDB;background:linear-gradient(180deg,#EFF9FF,#FFFFFF);box-shadow:0 0 0 2px rgba(10,143,219,.10)}
+.purchase-cat-wrap{margin-top:9px;padding:10px;border:1px solid #DDECF3;background:#F8FCFE;border-radius:13px}
+.purchase-cat-title{font-size:10.5px;font-weight:900;color:#173B54;margin-bottom:7px}
+.purchase-cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.purchase-cat{display:flex;align-items:center;gap:6px;border:1px solid #DFEBF0;background:#fff;border-radius:10px;padding:8px;font-size:9.5px;font-weight:800;color:#3E5C6D;min-height:39px}
+.purchase-cat input{accent-color:#0A8FDB}
+.purchase-cat.disabled{opacity:.45}
+.purchase-summary{margin-top:9px;border:1px solid #CCE6F0;background:linear-gradient(180deg,#F6FCFF,#FFFFFF);border-radius:13px;padding:10px}
+.purchase-summary b{display:block;font-size:10.5px;color:#0C3551;margin-bottom:5px}
+.purchase-summary pre{margin:0;white-space:pre-wrap;word-break:break-word;font:inherit;font-size:9.5px;line-height:1.55;color:#405B69}
+.purchase-help{margin-top:7px;font-size:8.8px;line-height:1.5;color:#718692}
+@media(max-width:390px){.purchase-flow-choice strong{font-size:14px}.purchase-cat{font-size:8.9px;padding:7px}}
+/* V2.13.2 Smart Mixed Orientation controls */
+.smart-image-controls{margin-top:8px;padding:9px;border:1px solid #D9EBF2;border-radius:13px;background:linear-gradient(180deg,#FCFEFF,#F6FBFD)}
+.smart-image-controls .toolrow{margin:0 0 7px}.smart-image-controls .toolrow:last-child{margin-bottom:0}
+.smart-image-controls .seg{display:flex;gap:4px;overflow:auto;scrollbar-width:none}.smart-image-controls .seg::-webkit-scrollbar{display:none}
+.smart-image-controls .seg button{min-width:58px;white-space:nowrap}
+.smart-layout-hint{font-size:8.5px;line-height:1.45;color:#617C8B;margin-top:6px}
+#layoutDecision.smart-mixed{background:linear-gradient(135deg,#EEF9FF,#EEFFF8);border-color:#CDEAF2;color:#17627F}
+
+
+/* Sale-UX cleanup: internal engine notes stay in DOM but are not shown to customers. */
+.typography-rule-note,.visual-max-note,.decor-policy-note,.sales-layout-note,.stability-rule-note,.layout-decision{display:none!important}
 </style>
 </head>
 <body>
@@ -480,7 +516,7 @@ main{padding:9px 11px 104px}
     <span class="hero-badge">⊘ 0 AI</span>
     <span class="hero-badge">✓ ใช้งานง่าย</span>
   </div>
-  <div class="hero-version">V2.11.1</div>
+  <div class="hero-version">V2.13.32 SALE RC18</div>
 </section>
 <div class="modebar modebar3">
       <button id="beginnerModeBtn" class="active"><b>Beginner</b><small>ง่ายที่สุด</small></button>
@@ -504,7 +540,7 @@ main{padding:9px 11px 104px}
 <option value="อาหาร" data-category="food">🍰 อาหาร / เครื่องดื่ม</option>
 <option value="ของใช้" data-category="home">🏠 ของใช้ / ไลฟ์สไตล์</option>
 <option value="ทั่วไป" data-category="general">📦 สินค้าทั่วไป</option>
-</select></div><div><label class="small">ชื่อสินค้า (ไม่บังคับ)</label><input id="productName" type="text" placeholder="เช่น เสื้อยืด Oversize"></div></div><label class="small">วันนี้อยากขายแบบไหน?</label><div id="styleChips" class="chips"></div>
+</select></div><div><label class="small">ชื่อสินค้า (ไม่บังคับ)</label><input id="productName" type="text" placeholder="เช่น เสื้อยืด Oversize"></div></div><label class="small">แนวแคปชั่น</label><div id="styleChips" class="chips"></div><div class="hint" style="margin-top:4px">เปลี่ยนเฉพาะแนว/โทน Caption · ไม่เปลี่ยน Template</div>
 <div class="length-wrap"><label class="small">ความยาว Caption</label><div id="captionLengthChips" class="length-chips"></div><div class="length-hint">Caption เต็มอยู่ใต้ภาพ · ข้อความบนภาพใช้ Hook สั้นไม่เกิน 1–2 บรรทัดจริง · ทั้ง 3 ความยาวเป็นเรื่องเดียวกัน</div></div></div></div>
     <div id="standardBeforeTools" class="mode-tools hidden">
       <div class="mode-tool-title"><b>Standard · ปรับได้เท่าที่จำเป็น</b><span>ไม่เป็น Canva ย่อส่วน</span></div>
@@ -512,16 +548,16 @@ main{padding:9px 11px 104px}
     </div>
     <div id="advanceBeforeTools" class="mode-tools hidden">
       <div class="mode-tool-title"><b>Advance · ข้อมูลร้านและการขาย</b><span>กรอกเฉพาะข้อมูลจริง</span></div>
-      <div class="grid2"><div><label class="small">ชื่อร้าน</label><input id="quickShopName" type="text" placeholder="เช่น Everyday Style"></div><div><label class="small">LINE / ติดต่อ</label><input id="quickShopContact" type="text" placeholder="เช่น LINE @yourshop"></div></div>
-      <div class="grid2"><div><label class="small">ราคา</label><input id="quickPrice" type="text" placeholder="เช่น 199.-"></div><div><label class="small">โปร / ราคาพิเศษ</label><input id="quickPromo" type="text" placeholder="เช่น วันนี้ลด 20%"></div></div>
-      <label class="small">ข้อความเพิ่มเติม (ไม่บังคับ)</label><input id="quickExtra" type="text" placeholder="เช่น สอบถามสี/ไซซ์ได้ทาง LINE">
-      <label class="small">CTA</label><input id="quickCTA" type="text" placeholder="เช่น ทักแชท / สั่งซื้อ / ดูรายละเอียด">
+      <div class="grid2"><div><label class="small">ชื่อร้าน</label><input id="quickShopName" type="text" placeholder=""></div><div><label class="small">LINE / ติดต่อ</label><input id="quickShopContact" type="text" placeholder=""></div></div>
+      <div class="grid2"><div><label class="small">ราคา</label><input id="quickPrice" type="text" placeholder=""></div><div><label class="small">โปร / ราคาพิเศษ</label><input id="quickPromo" type="text" placeholder=""></div></div>
+      <label class="small">ข้อความเพิ่มเติม (ไม่บังคับ)</label><input id="quickExtra" type="text" placeholder="เช่น สอบถามสี/ไซซ์ได้ทาง LINE"><div class="hint" style="margin-top:4px">จะแสดงเป็น “เพิ่มเติม: …” ในกล่องข้อมูลขาย และต่อท้าย Caption</div>
+      <label class="small">CTA</label><input id="quickCTA" type="text" placeholder="เช่น ทักแชท / สั่งซื้อ / ดูรายละเอียด"><div class="hint" style="margin-top:4px">CTA คือข้อความปุ่มด้านล่าง เช่น “ดูรายละเอียด”, “ทักแชท”, “สั่งซื้อเลย”</div>
       <div class="my-template-grid" style="margin-top:8px">
         <label class="color-field"><input id="quickPromoColor" type="color" value="#159FCA"><span>สีโปร</span></label>
         <label class="color-field"><input id="quickShopColor" type="color" value="#34495E"><span>สีข้อมูลร้าน</span></label>
         <label class="color-field"><input id="quickCTAColor" type="color" value="#159FCA"><span>สี CTA</span></label>
       </div>
-      <div class="hint">ราคา โปร และข้อมูลร้านจะถูกใช้เฉพาะเมื่อคุณกรอกเอง ระบบไม่แต่งข้อมูลขึ้นมา · สีแต่ละกลุ่มแยกกันได้</div>
+      <div class="hint">ราคา โปร และข้อมูลร้านจะถูกใช้เฉพาะเมื่อคุณกรอกเอง ระบบไม่แต่งข้อมูลขึ้นมา · สีโปร / ข้อมูลร้าน / CTA ใช้สีที่คุณเลือกจริง</div>
     </div>
     <div class="step"><div class="stepno">3</div><div><h3>กดสร้างโพสต์</h3><p>MEasyMate เลือกแคปชั่นและ Template ให้ก่อน คุณเปลี่ยนได้ภายหลัง</p></div></div>
     <button id="generateBtn" class="btn primary" disabled>✨ สร้างโพสต์ให้เลย</button>
@@ -535,17 +571,22 @@ main{padding:9px 11px 104px}
         <div class="advanced-intro"><span>อยากปรับอีกนิด?</span><button id="advancedToggleBtn" class="advanced-toggle" type="button">⚙️ ปรับรูปแบบ</button></div>
         <div id="advancedPanel" class="preview-control-block advanced-panel">
           <div class="preview-tools">
-            <div class="toolrow"><span>Template</span><div id="templateChips" class="template-chips"></div></div>
+            <div class="toolrow"><span>Template<br><small style="font-weight:700">หน้าตาโพสต์</small></span><div id="templateChips" class="template-chips"></div></div>
             <div class="toolrow"><span>Font</span><div id="fontChips" class="font-chips"></div></div>
             <div class="toolrow"><span>สีข้อความ</span><div id="textColorChips" class="color-chips"></div></div>
             <div class="toolrow"><span>ขนาด</span><div id="sizeSeg" class="seg"><button type="button" data-value="normal">ปกติ</button><button type="button" data-value="large">เด่น</button></div></div>
+            <div class="smart-image-controls">
+              <div class="toolrow"><span>การจัดรูป</span><div id="imageFitSeg" class="seg"><button type="button" data-value="auto">Smart Auto</button><button type="button" data-value="fill">เต็มกรอบ</button><button type="button" data-value="fit">เห็นครบ</button></div></div>
+              <div class="toolrow"><span>จุดโฟกัส</span><div id="cropSeg" class="seg"><button type="button" data-value="center">กลาง</button><button type="button" data-value="top">บน</button><button type="button" data-value="bottom">ล่าง</button><button type="button" data-value="left">ซ้าย</button><button type="button" data-value="right">ขวา</button></div></div>
+              <div class="smart-layout-hint">Smart Auto เน้นเห็นภาพครบก่อน · ถ้าสัดส่วนรูปกับกรอบต่างกันจะใช้ Fit อัตโนมัติ · Fill = เต็มกรอบและอาจตัดภาพ · Fit = เห็นรูปครบ</div>
+            </div>
             <div class="hint">ตำแหน่งข้อความใช้ Auto Layout เป็นหลัก เพื่อไม่ให้ทับสินค้าโดยไม่จำเป็น</div>
           </div>
         </div>
       </div>
-      <div class="typography-rule-note">Typography V1 · Hook ดำเข้ม · ราคา/ส่วนลดเด่นกว่า · ร้าน/เงื่อนไขลดน้ำหนัก · CTA แยกจากโปร</div><div class="visual-max-note"><b>0 AI Design Engine</b> · สีและบรรยากาศของโพสต์คำนวณจากภาพจริงบนเครื่อง ไม่ส่งรูปออกไปวิเคราะห์ภายนอก</div><div class="decor-policy-note">Decor Rule · ไม่สุ่ม Sticker/Emoji ที่อาจไม่เข้ากับสินค้า · ใช้ accent geometry เล็กๆ เมื่อมีพื้นที่ว่างจริง</div><div class="sales-layout-note"><b>3-Image Sales Rule</b> · รูปหลักดึงสายตา → รูปรองช่วยยืนยัน → Hook เต็มแถว → ราคา/โปร/ร้าน/CTA เต็มแถว ไม่ทิ้งช่องล่างซ้าย</div><div class="stability-rule-note">Sales Layout V1 · 1–2 รูปคงโครงเดิมแต่ขยายข้อความ · 3 รูปใช้ Hero + Support 2 + Hook เต็มแถว + Sales Card เต็มแถว · 0 AI</div><div id="layoutDecision" class="layout-decision">🛍️ Sales Layout · 3 รูปไม่แบ่ง Hook/Info คนละครึ่งแล้ว · ข้อมูลขายได้พื้นที่เต็มแถว · Local 100%</div>
+      <div class="typography-rule-note">Typography V1 · Hook ดำเข้ม · ราคาคงเดิม · โปร/ข้อมูลร้าน/CTA ใช้ขนาดข้อความเท่ากัน · เงื่อนไขเป็นข้อความรอง</div><div class="visual-max-note"><b>0 AI Design Engine</b> · สีและบรรยากาศของโพสต์คำนวณจากภาพจริงบนเครื่อง ไม่ส่งรูปออกไปวิเคราะห์ภายนอก</div><div class="decor-policy-note">Decor Rule · ไม่สุ่ม Sticker/Emoji ที่อาจไม่เข้ากับสินค้า · ใช้ accent geometry เล็กๆ เมื่อมีพื้นที่ว่างจริง</div><div class="sales-layout-note"><b>Smart Mixed Layout V1.2</b> · ตรวจแนวนอน/แนวตั้ง/จัตุรัสจากขนาดรูปจริง → รูปตั้งทั้ง 3 ใช้ Portrait Focus → รูปแรกยังเป็นภาพหลัก</div><div class="stability-rule-note">Mixed Orientation · รูปตั้งทั้ง 3 ไม่เรียงเป็น 3 เสาแล้ว · Auto จะให้เห็นภาพครบก่อน และใช้ Fit เมื่อมีโอกาสตัดส่วนสำคัญ · Standard/Advance เลือก Auto / Fill / Fit และจุดโฟกัสได้ · 0 AI</div><div id="layoutDecision" class="layout-decision">🛍️ Sales Layout · 3 รูปไม่แบ่ง Hook/Info คนละครึ่งแล้ว · ข้อมูลขายได้พื้นที่เต็มแถว · Local 100%</div>
       <div class="content-map">
-        <span><b>HOOK</b> ดำเข้ม</span><span><b>PRICE/PROMO</b> ใหญ่และเด่น</span><span><b>SHOP</b> ข้อมูลรอง</span><span><b>CTA</b> ปุ่มการกระทำ</span><span><b>FULL CAPTION</b> ใต้ภาพ</span>
+        <span><b>HOOK</b> ดำเข้ม</span><span><b>PRICE/PROMO</b> ใหญ่และเด่น</span><span><b>SHOP</b> ขนาดเท่า PROMO</span><span><b>CTA</b> ขนาดเท่า PROMO</span><span><b>FULL CAPTION</b> ใต้ภาพ</span>
       </div>
 
       <div id="captionBox" class="captionbox coherent">
@@ -555,24 +596,17 @@ main{padding:9px 11px 104px}
         <div class="meta-line"><span id="resultStyleMeta" class="meta"></span><span id="resultTemplateMeta" class="meta"></span><span id="resultLengthRule" class="meta"></span></div>
       </div>
       <div class="smart-share-zone">
-        <button id="shareBtn" class="btn blue smart-share-main">🚀 แชร์โพสต์</button>
-        <div class="smart-share-sub">1 แตะ · รูปพร้อมแชร์ + Caption เต็มเตรียมให้อัตโนมัติ</div>
+        <button id="shareBtn" class="btn blue smart-share-main">🚀 แชร์รูป</button>
+        <button id="shareWithCaptionBtn" class="btn light smart-share-main" type="button" style="margin-top:8px">📝 แชร์รูป + Caption</button>
+        <div class="smart-share-sub"><b>แชร์รูป</b> = เสถียรกว่า · <b>แชร์รูป + Caption</b> = ให้ Chrome ส่งรูปและข้อความพร้อมกันเมื่อแอปปลายทางรองรับ</div>
         <div class="share-before-note">
-          <b>📋 ถ้าปลายทางขึ้นเฉพาะรูป</b>
-          <span>บางแอปไม่รับ Caption ที่ส่งมาพร้อมไฟล์จาก Web Share — MEasyMate จะคัดลอก Caption ไว้ให้ก่อน คุณเพียงกด <b>วาง</b> ในช่องข้อความ</span>
+          <b>✅ เลือกวิธีแชร์ได้</b>
+          <span><b>แชร์รูป</b> จะคัดลอก Caption ไว้ให้วางเอง · <b>แชร์รูป + Caption</b> จะให้ Chrome ส่งทั้งสองอย่างพร้อมกัน</span>
         </div>
-        <button id="shareOptionsBtn" class="smart-share-options" type="button">⋯ ตัวเลือกแชร์</button>
+        <button id="shareOptionsBtn" class="smart-share-options" type="button">⋯ ตัวเลือกเพิ่มเติม</button>
       </div>
-      <div id="shareAssist" class="share-assist">พร้อมแชร์ · ระบบจะพยายามส่ง <b>รูป + Caption</b> พร้อมกัน และเตรียม Caption สำรองไว้ให้</div>
+      <div id="shareAssist" class="share-assist">พร้อมแชร์บน Chrome · เลือกแชร์เฉพาะรูป หรือแชร์รูป + Caption ได้</div>
       <div id="shareOptionsPanel" class="share-options-panel" hidden>
-        <button id="shareWithCaptionBtn" class="share-option-card" type="button">
-          <b>🚀 แชร์พร้อม Caption</b>
-          <span>แนะนำ · ส่งรูป + Caption และคัดลอก Caption สำรอง</span>
-        </button>
-        <button id="shareImageCopyBtn" class="share-option-card" type="button">
-          <b>🖼️ แชร์รูป + คัดลอก Caption</b>
-          <span>ใช้เมื่อแอปปลายทางไม่รับข้อความพร้อมรูป</span>
-        </button>
         <button id="copyBtn" class="share-option-card compact" type="button">
           <b>📋 คัดลอก Caption อย่างเดียว</b>
           <span>สำหรับนำไปวางเอง</span>
@@ -582,9 +616,9 @@ main{padding:9px 11px 104px}
           <span>เก็บภาพลงเครื่อง</span>
         </button>
       </div>
-      <div class="actiongrid secondary-actions"><button id="regenBtn" class="btn ghost">🔄 เปลี่ยน Caption</button><button id="editCurrentCaptionBtn" class="btn light">✏️ แก้ข้อความ</button><button id="saveCurrentCaptionBtn" class="btn ghost">♡ บันทึกของฉัน</button></div>
+      <div class="actiongrid secondary-actions"><button id="regenBtn" class="btn ghost">🔄 เปลี่ยน Caption ใหม่</button><button id="editCurrentCaptionBtn" class="btn light">✏️ แก้ข้อความ</button><button id="saveCurrentCaptionBtn" class="btn ghost">♡ บันทึกของฉัน</button></div>
       <div class="my-caption-note">ข้อความของ MEasyMate แก้ได้ทั้งหมด · คุณพิมพ์เองและบันทึกกลับมาใช้ครั้งต่อไปได้</div>
-      <div class="notice">Preview และรูปที่บันทึกใช้ Canvas เดียวกัน · บนภาพใช้เฉพาะบรรทัดเปิดจาก Caption เดียวกันและคุมไม่เกิน 2 บรรทัดจริง · Caption เต็มอยู่ใต้ภาพและไปกับการแชร์</div>
+      <div class="notice">Preview และรูปที่บันทึกใช้ Canvas เดียวกัน · บนภาพใช้เฉพาะบรรทัดเปิดจาก Caption เดียวกันและคุมไม่เกิน 2 บรรทัดจริง · Caption เต็มอยู่ใต้ภาพและคัดลอกพร้อมใช้เมื่อบันทึกรูป</div>
     </div>
   </div></div>
 
@@ -617,34 +651,37 @@ main{padding:9px 11px 104px}
 <section id="screenOwner" class="screen"><div class="section">
   <div class="activation-card">
     <div class="activation-top">
-      <div><h3>🔑 แพ็กของฉัน</h3><p>กรอกรหัสหลังซื้อเพื่อเพิ่มหมวดหรืออัปเกรด สิทธิ์ที่ Activate แล้วใช้ Offline ต่อได้</p></div>
+      <div><h3>🔑 แพ็กของฉัน</h3><p>หลังซื้อ ส่ง Installation ID ให้ MEasyMate แล้วกรอก Signed Activation Code ครั้งเดียว จากนั้นใช้งาน Offline ได้ และเก็บ License Passport ไว้สำหรับการอัปเดต</p></div>
       <span id="packageStatusBadge" class="entitlement-badge">DEMO</span>
     </div>
     <div id="ownedCategoryChips" class="category-rights"></div>
     <div class="code-row">
-      <input id="activationCode" class="code-input" type="text" inputmode="text" autocomplete="off" placeholder="Package Code">
+      <textarea id="activationCode" class="code-input" autocomplete="off" autocapitalize="off" spellcheck="false" rows="3" placeholder="Activation Code"></textarea>
       <button id="activateCodeBtn" class="btn primary">Activate</button>
     </div>
     <div id="activationMessage" class="lock-note">Demo ฟรี · ทดลองครบ 5 หมวด หมวดละ 2 Caption</div>
-    <div class="lock-note">Installation ID: <span id="installationIdText" class="install-id"></span></div>
+    <div id="legacyMigrationBox" class="lock-note hidden"><b>พบสิทธิ์รุ่นเก่า: <span id="legacyPackageText">-</span></b><br>รุ่นขายจริงจะไม่ใช้สิทธิ์ DEV เดิมโดยตรงเพื่อความปลอดภัย กดคัดลอกคำขอย้ายสิทธิ์ แล้ว MEasyMate จะออก Signed Activation ตามแพ็กเดิมให้โดยไม่ต้องซื้อใหม่<div class="row" style="margin-top:8px"><button id="copyMigrationRequestBtn" class="btn light" type="button">คัดลอกคำขอย้ายสิทธิ์ฟรี</button><button id="jumpActivationFromLegacyBtn" class="btn ghost" type="button">มี Signed Code แล้ว</button></div></div>
+    <div class="lock-note"><b>ป้องกันสิทธิ์หายเวลาอัปเดต</b><br>หลัง Activate แล้ว แนะนำเก็บ License Passport ไว้ในเครื่อง ใช้กู้สิทธิ์บน Installation ID เดิมได้หลังอัปเดต โดย Passport จะไม่เปลี่ยนเครื่องใหม่ให้เป็นเครื่องเดิม<div class="row" style="margin-top:8px"><button id="exportLicenseBtn" class="btn light" type="button">⬇ เก็บ License Passport</button><button id="importLicenseBtn" class="btn ghost" type="button">⬆ กู้สิทธิ์หลังอัปเดต</button></div><input id="licenseInput" type="file" accept=".mmlicense,.json,application/json" class="hidden"><div style="margin-top:6px">License Passport เป็นข้อมูลสิทธิ์ส่วนตัว ห้ามส่งต่อให้ผู้อื่น</div></div>
+    <div class="lock-note">หาก Installation ID เปลี่ยนหรือย้ายเครื่อง ให้ส่ง Installation ID ใหม่ให้ MEasyMate เพื่อออก Signed Activation ทดแทนตามแพ็กเดิม โดยไม่ต้องซื้อซ้ำ</div>
+    <div class="lock-note">Installation ID: <span id="installationIdText" class="install-id"></span> <button id="copyInstallationIdBtn" class="mini-btn" type="button">คัดลอก ID</button></div>
   </div>
 
   <div class="purchase-card">
     <h3>🛒 ซื้อ / อัปเกรด Caption Studio</h3>
-    <p>ซื้อ/อัปเกรดผ่าน LINE Official แล้วรับ Package Code มากรอกในแอป จากนั้นสิทธิ์จะเก็บในเครื่องและใช้งานแบบ Offline ต่อได้</p>
+    <p>ซื้อ/อัปเกรดผ่าน LINE Official → ส่ง Installation ID → รับ Signed Activation Code → กรอกครั้งเดียว แล้วใช้งาน Offline ได้โดยไม่ต้องมี API</p>
     <div class="purchase-options">
-      <div class="purchase-option"><b>2 Pack</b><strong>59฿</strong><small>2 หมวด · 40 แนว × 3 ระดับ</small></div>
-      <div class="purchase-option"><b>3 Pack</b><strong>69฿</strong><small>3 หมวด · 60 แนว × 3 ระดับ</small></div>
-      <div class="purchase-option"><b>Full</b><strong>99฿</strong><small>ครบ 5 หมวด · 100 แนว × 3 ระดับ</small></div>
+      <div class="purchase-option selectable" data-purchase-package="2"><b>2 Pack</b><strong>59฿</strong><small>เลือก 2 หมวด · 40 แนว × 3 ระดับ</small></div>
+      <div class="purchase-option selectable" data-purchase-package="3"><b>3 Pack</b><strong>69฿</strong><small>เลือก 3 หมวด · 60 แนว × 3 ระดับ</small></div>
+      <div class="purchase-option selectable" data-purchase-package="full"><b>Full</b><strong>99฿</strong><small>ครบ 5 หมวด · 100 แนว × 3 ระดับ</small></div>
     </div>
     <div class="purchase-actions">
       <button id="buyUpgradeBtn" class="btn primary" type="button">💬 ซื้อ / อัปเกรดผ่าน LINE</button>
-      <button id="haveCodeBtn" class="btn light" type="button">🔑 มีรหัสแล้ว</button>
+      <button id="haveCodeBtn" class="btn light" type="button">🔑 มี Activation Code แล้ว</button>
     </div>
-    <div id="onlineUpdateStatus" class="update-status">App: V2.11.1 RC · ยังไม่มี Online Update Server</div>
+    <div id="onlineUpdateStatus" class="update-status">App: V2.13.32 SALE RC18 · Signed Activation</div>
   </div>
 
-  <div class="card"><div class="section-title"><h2>ร้านของฉัน</h2><span class="badge">OWNER DATA</span></div><label class="small">ชื่อร้าน</label><input id="shopName" type="text" placeholder="เช่น Everyday Style"><label class="small">ช่องทางติดต่อ</label><input id="shopContact" type="text" placeholder="เช่น LINE @yourshop"><div class="grid2"><div><label class="small">ราคาสินค้า (ไม่บังคับ)</label><input id="defaultPrice" type="text" placeholder="เช่น 199.-"></div><div><label class="small">ข้อความโปร (ไม่บังคับ)</label><input id="promoText" type="text" placeholder="เช่น ลดวันนี้ 20%"></div></div>
+  <div class="card"><div class="section-title"><h2>ร้านของฉัน</h2><span class="badge">OWNER DATA</span></div><label class="small">ชื่อร้าน</label><input id="shopName" type="text" placeholder=""><label class="small">ช่องทางติดต่อ</label><input id="shopContact" type="text" placeholder=""><div class="grid2"><div><label class="small">ราคาสินค้า (ไม่บังคับ)</label><input id="defaultPrice" type="text" placeholder=""></div><div><label class="small">ข้อความโปร (ไม่บังคับ)</label><input id="promoText" type="text" placeholder=""></div></div>
     <div class="my-template-grid" style="margin-top:8px">
       <label class="color-field"><input id="ownerPromoColor" type="color" value="#159FCA"><span>สีโปร</span></label>
       <label class="color-field"><input id="ownerShopColor" type="color" value="#34495E"><span>สีข้อมูลร้าน</span></label>
@@ -666,12 +703,12 @@ main{padding:9px 11px 104px}
     <div id="myTemplateList" style="margin-top:8px"></div>
   </div>
 
-  <div class="card" style="margin-top:11px"><div class="section-title"><h2>แพ็กเสริม / อัปเดต</h2><span class="badge">OPTIONAL</span></div><div class="pack"><h3>Package Code / Content Pack</h3><p>มี Package Code แล้วให้ Activate ด้านบน จากนั้นจึงกด <b>ติดตั้ง / อัปเดต Pack</b> เพื่อเพิ่ม Caption หรืออัปเดตชุดเดิมได้ทันที</p><div id="packAccessMessage" class="lock-note" style="margin-top:7px">Demo: Activate แพ็กเสียเงินก่อนจึงติดตั้ง Pack ได้</div><div class="packline"><span id="packCount" class="packstatus">มีเฉพาะ Caption ในเครื่อง</span><button id="importPackBtn" class="mini-btn">🔒 Activate ก่อน</button></div><div class="row" style="margin-top:8px"><button id="buyPackBtn" class="btn ghost" type="button">🛒 ซื้อ Pack เพิ่ม</button><button id="checkUpdateBtn" class="btn light" type="button">↻ ตรวจสถานะอัปเดต</button></div><div class="local-only-note"><b>Caption Pack Manager</b> · เพิ่ม Pack ใหม่, อัปเดต Pack เดิม, เปิด/ปิดชั่วคราว หรือลบ Pack ออกจากเครื่องได้โดยไม่กระทบตัว HTML หลัก</div><div id="packManagerList" class="pack-manager-list"></div></div><div class="pack"><h3>✨ MEasyMate AI Assist</h3><p>เตรียมโครงไว้เป็น Option เสริมในอนาคต เช่น เขียนใหม่, เปลี่ยนโทน, Hook แรงขึ้น และช่วยเลือก Template ผ่าน MEasyMate AI Hub</p><div class="packline"><span class="packstatus" style="color:#6A6F78;background:#F1F3F4">ยังไม่รวมใน V1</span><span style="font-size:9px;color:var(--muted)">Premium Option</span></div></div><input id="packInput" type="file" accept=".json,.measymate,application/json" class="hidden"></div>
+  <div class="card" style="margin-top:11px"><div class="section-title"><h2>แพ็กเสริม / อัปเดต</h2><span class="badge">OPTIONAL</span></div><div class="pack"><h3>Activation / Content Pack</h3><p>มี Activation Code แล้วให้ Activate ด้านบน จากนั้นจึงกด <b>ติดตั้ง / อัปเดต Pack</b> เพื่อเพิ่ม Caption หรืออัปเดตชุดเดิมได้ทันที</p><div id="packAccessMessage" class="lock-note" style="margin-top:7px">Demo: Activate สิทธิ์ที่ซื้อก่อนจึงติดตั้ง Pack ได้</div><div class="packline"><span id="packCount" class="packstatus">มีเฉพาะ Caption ในเครื่อง</span><button id="importPackBtn" class="mini-btn">🔒 Activate ก่อน</button></div><div class="row" style="margin-top:8px"><button id="buyPackBtn" class="btn ghost" type="button">🛒 ซื้อ Pack เพิ่ม</button><button id="checkUpdateBtn" class="btn light" type="button">↻ ตรวจสถานะอัปเดต</button></div><div class="local-only-note"><b>Caption Pack Manager</b> · เพิ่ม Pack ใหม่, อัปเดต Pack เดิม, เปิด/ปิดชั่วคราว หรือลบ Pack ออกจากเครื่องได้โดยไม่กระทบตัว HTML หลัก</div><div id="packManagerList" class="pack-manager-list"></div></div><div class="pack"><h3>✨ MEasyMate AI Assist</h3><p>เตรียมโครงไว้เป็น Option เสริมในอนาคต เช่น เขียนใหม่, เปลี่ยนโทน, Hook แรงขึ้น และช่วยเลือก Template ผ่าน MEasyMate AI Hub</p><div class="packline"><span class="packstatus" style="color:#6A6F78;background:#F1F3F4">ยังไม่รวมใน V1</span><span style="font-size:9px;color:var(--muted)">Premium Option</span></div></div><input id="packInput" type="file" accept=".json,.measymate,application/json" class="hidden"></div>
 
-  <div class="card" style="margin-top:11px"><div class="section-title"><h2>Backup / Restore</h2><span class="badge">DATA SAFE</span></div><p class="lead">สำรองข้อมูลร้าน แคปชั่นที่เพิ่มเอง และ Content Pack ได้ แต่จะไม่สำรองสิทธิ์ Package Code เพื่อป้องกันการแชร์สิทธิ์</p><div class="row"><button id="backupBtn" class="btn light">⬇ Backup</button><button id="restoreBtn" class="btn ghost">⬆ Restore</button></div><input id="restoreInput" type="file" accept=".json,.measymate,application/json" class="hidden"><div class="statusline"><span>APP_VERSION: <b id="appVersion"></b></span><span>DATA_SCHEMA: <b id="schemaVersion"></b></span></div></div>
+  <div class="card" style="margin-top:11px"><div class="section-title"><h2>Backup / Restore</h2><span class="badge">DATA SAFE</span></div><p class="lead">สำรองข้อมูลร้าน แคปชั่นที่เพิ่มเอง และ Content Pack ได้ แต่จะไม่สำรองสิทธิ์ Activation Code เพื่อป้องกันการแชร์สิทธิ์</p><div class="row"><button id="backupBtn" class="btn light">⬇ Backup</button><button id="restoreBtn" class="btn ghost">⬆ Restore</button></div><input id="restoreInput" type="file" accept=".json,.measymate,application/json" class="hidden"><div class="statusline"><span>APP_VERSION: <b id="appVersion"></b></span><span>DATA_SCHEMA: <b id="schemaVersion"></b></span></div></div>
 </div></section>
 
-<section id="screenHelp" class="screen"><div class="section"><div class="card"><div class="section-title"><h2>MEasyMate Caption Studio</h2><span class="badge">SALE RELEASE</span></div><div class="notice success"><b>หลักของ V1:</b> ดาวน์โหลด Core App จากเว็บ → ใส่ Package Code ครั้งเดียว → ใช้สิทธิ์ที่ซื้อแบบ Offline ต่อได้ ไม่บังคับรายเดือน</div><div class="step"><div class="stepno">1</div><div><h3>เปิดไฟล์เดียว</h3><p>ไม่ต้องติดตั้งระบบ ไม่ต้องตั้ง Server</p></div></div><div class="step"><div class="stepno">2</div><div><h3>เลือกรูป + สไตล์การขาย</h3><p>ไม่ต้องรู้ Prompt หรือเทคนิคการเขียนแคปชั่น</p></div></div><div class="step"><div class="stepno">3</div><div><h3>นำไปโพสต์ได้เลย</h3><p>คัดลอกข้อความ แชร์ หรือบันทึกรูปพร้อมข้อความ</p></div></div><hr><h3 style="font-size:13px;margin:0 0 6px">ทำไมคนถึงเลือก MEasyMate</h3>
+<section id="screenHelp" class="screen"><div class="section"><div class="card"><div class="section-title"><h2>MEasyMate Caption Studio</h2><span class="badge">SALE RC18</span></div><div class="notice success"><b>หลักของ V1:</b> เปิดผ่าน Google Chrome บน Android → กรอก Signed Activation Code ครั้งเดียว → ใช้สิทธิ์ที่ซื้อแบบ Local-first ต่อได้ ไม่บังคับรายเดือน</div><div class="notice info"><b>รองรับอย่างเป็นทางการ:</b> Android + Google Chrome · Browser อื่นอาจเปิดได้แต่ไม่อยู่ใน Release Support ของ V1</div><div class="step"><div class="stepno">1</div><div><h3>เปิดผ่าน Google Chrome</h3><p>รุ่นขายแรกรองรับ Android + Google Chrome อย่างเป็นทางการ</p></div></div><div class="step"><div class="stepno">2</div><div><h3>เลือกรูป + สไตล์การขาย</h3><p>ไม่ต้องรู้ Prompt หรือเทคนิคการเขียนแคปชั่น</p></div></div><div class="step"><div class="stepno">3</div><div><h3>นำไปโพสต์ได้เลย</h3><p>กดแชร์โพสต์เพื่อส่งรูปเข้า Android Share Sheet และวาง Caption ที่คัดลอกไว้ในแอปปลายทาง</p></div></div><hr><h3 style="font-size:13px;margin:0 0 6px">ทำไมคนถึงเลือก MEasyMate</h3>
 <div class="whybuy"><div><b>⚡ ง่าย</b>รูปเดียวก็เริ่มได้ MEasyMate จัดข้อความและรูปแบบให้ก่อน คนใช้ไม่ต้องเก่งออกแบบ</div><div><b>👀 เห็นก่อนแชร์</b>Preview จริง ลดปัญหาข้อความบังสินค้า</div><div><b>💬 Caption เป็นของคุณได้</b>เลือกจากชุดพร้อมใช้ แก้ข้อความเอง หรือบันทึก Caption ของร้านกลับมาใช้ซ้ำได้</div><div><b>📱 Mobile-first</b>ออกแบบให้คนขายของทำงานบนมือถือได้</div></div>
 <hr><h3 style="font-size:13px;margin:0 0 6px">แพ็กเกจที่เตรียมไว้</h3>
 <div class="package-grid">
@@ -680,9 +717,9 @@ main{padding:9px 11px 104px}
   <div class="package-card"><span class="package-label">3 PACK</span><h3>3 Pack — 3 หมวด</h3><p>60 แนว Caption · รวม 180 เวอร์ชันข้อความ</p><ul><li>ได้มากกว่าชุดเริ่มต้น</li><li>เหมาะกับร้านที่มีหลายหมวด</li><li>อัปเกรดเป็น Full ภายหลังได้</li></ul></div>
   <div class="package-card"><span class="package-label">FULL</span><h3>Full — ครบ 5 หมวด</h3><p>100 แนว Caption · 5 หมวด × 20 แนว · รวม 300 เวอร์ชันข้อความ</p><ul><li>Fashion / Beauty / Food / Home / General</li><li>Template/Font ครบ + Import Pack</li><li>ใช้ Offline หลัง Activate</li></ul></div>
 </div>
-<hr><h3 style="font-size:13px;margin:0 0 6px">นโยบาย Update</h3><p class="lead">การแก้บั๊ก/ความเข้ากันได้สามารถออกเป็นรุ่นแก้ไขได้ ส่วน Caption Pack, Template Pack, Major Upgrade และ AI เป็นของเพิ่มมูลค่าและไม่บังคับซื้อ</p><div class="notice info">AI ในอนาคตจะเชื่อมผ่าน <b>MEasyMate AI Hub</b> เท่านั้น ไม่ฝัง Provider API Key ไว้ใน Single HTML</div><hr><p style="font-size:9.5px;line-height:1.6;color:var(--muted)">รุ่นนี้ฝังโลโก้อ้างอิงของ MEasyMate ในหน้าใช้งานแล้ว เพื่อให้ภาพรวมแบรนด์ใกล้มาตรฐานล่าสุดมากขึ้น</p></div></div></section>
+<hr><h3 style="font-size:13px;margin:0 0 6px">นโยบาย Update</h3><p class="lead">การอัปเดตแอปไม่ใช่การซื้อใหม่ · Signed License เดิมยังเป็นสิทธิ์ของลูกค้า โดยระบบคง Signing Key เดิมสำหรับรุ่น SALE และสามารถเก็บ License Passport ไว้กู้สิทธิ์หลังอัปเดตได้ ส่วน Caption Pack, Template Pack, Major Upgrade และ AI เป็นของเพิ่มมูลค่าและไม่บังคับซื้อ</p><div class="notice info">AI ในอนาคตจะเชื่อมผ่าน <b>MEasyMate AI Hub</b> เท่านั้น ไม่ฝัง Provider API Key ไว้ใน Single HTML</div><hr><p style="font-size:9.5px;line-height:1.6;color:var(--muted)">รุ่นนี้ฝังโลโก้อ้างอิงของ MEasyMate ในหน้าใช้งานแล้ว เพื่อให้ภาพรวมแบรนด์ใกล้มาตรฐานล่าสุดมากขึ้น</p></div></div></section>
 
-<div class="footerinfo">MEasyMate Caption Studio · Make Everything Easy.<br>V2.11.1 Pre-Push RC · Single File · Offline Core · Optional Updates</div>
+<div class="footerinfo">MEasyMate Caption Studio · Make Everything Easy.<br>V2.13.32 SALE RC18 · Single File · Offline Core · Signed Activation</div>
 </main>
 <nav class="bottomnav"><div class="inner"><button class="navbtn active" data-screen="screenCreate"><span>✨</span>สร้าง</button><button class="navbtn" data-screen="screenLibrary"><span>💬</span>คลัง</button><button class="navbtn" data-screen="screenOwner"><span>⚙️</span>แพ็ก/อัปเดต</button><button class="navbtn" data-screen="screenHelp"><span>?</span>วิธีใช้</button></div></nav>
 </div>
@@ -695,13 +732,32 @@ main{padding:9px 11px 104px}
 
 <div id="purchaseModal" class="action-modal">
   <div class="action-sheet">
-    <h3>ซื้อ / อัปเกรด MEasyMate</h3>
-    <p>บน Android ที่เปิดจากไฟล์ local บางเครื่องไม่ยอมเปิดลิงก์ภายนอกทันที จึงมีทั้งปุ่มเปิด LINE และปุ่มคัดลอกลิงก์สำรอง</p>
-    <div class="action-link" id="lineUrlText">https://lin.ee/YlHM4br</div>
-    <div class="row">
-      <button id="openLineBtn" class="btn primary" type="button">เปิด LINE</button>
-      <button id="copyLineBtn" class="btn light" type="button">คัดลอกลิงก์</button>
+    <h3>🛒 เลือกแพ็กที่ต้องการ</h3>
+    <p>เลือกแพ็กก่อน หากเป็น 2 Pack หรือ 3 Pack ให้เลือกหมวดสินค้าให้ครบ แล้วแอปจะเตรียมข้อความสั่งซื้อพร้อม Installation ID สำหรับส่งใน LINE</p>
+    <div class="purchase-flow-packages" id="purchasePackageChoices">
+      <button class="purchase-flow-choice" data-buy-package="2" type="button"><b>2 Pack</b><strong>59฿</strong><small>เลือก 2 หมวด</small></button>
+      <button class="purchase-flow-choice" data-buy-package="3" type="button"><b>3 Pack</b><strong>69฿</strong><small>เลือก 3 หมวด</small></button>
+      <button class="purchase-flow-choice" data-buy-package="full" type="button"><b>Full</b><strong>99฿</strong><small>ครบ 5 หมวด</small></button>
     </div>
+    <div id="purchaseCategorySection" class="purchase-cat-wrap hidden">
+      <div id="purchaseCategoryTitle" class="purchase-cat-title">เลือกหมวดสินค้า</div>
+      <div class="purchase-cat-grid" id="purchaseCategoryChoices">
+        <label class="purchase-cat"><input type="checkbox" value="fashion">👕 Fashion</label>
+        <label class="purchase-cat"><input type="checkbox" value="beauty">💄 Beauty</label>
+        <label class="purchase-cat"><input type="checkbox" value="food">🍰 Food</label>
+        <label class="purchase-cat"><input type="checkbox" value="home">🏠 Home</label>
+        <label class="purchase-cat"><input type="checkbox" value="general">📦 General</label>
+      </div>
+    </div>
+    <div class="purchase-summary">
+      <b>ข้อความที่จะส่งให้ MEasyMate</b>
+      <pre id="purchaseMessagePreview">เลือก Package ก่อน</pre>
+    </div>
+    <div class="row" style="margin-top:9px">
+      <button id="copyPurchaseMessageBtn" class="btn light" type="button">คัดลอกข้อความ</button>
+      <button id="openLineBtn" class="btn primary" type="button">คัดลอก + เปิด LINE</button>
+    </div>
+    <div class="purchase-help">เมื่อ LINE เปิด ให้ Paste ข้อความนี้ในแชท MEasyMate แล้วส่งได้เลย · แอปไม่ส่งข้อมูลออกเอง</div>
     <button id="closePurchaseModalBtn" class="btn ghost" type="button" style="margin-top:8px">ปิด</button>
   </div>
 </div>
@@ -709,13 +765,13 @@ main{padding:9px 11px 104px}
 
 <script>
 "use strict";
-/* MEasyMate Caption Studio V2.11.1 Pre-Push RC
+/* MEasyMate Caption Studio V2.13.32 SALE RC18
    PROJECT_ID = caption-studio
    PRODUCT_MODEL = one-core-app + package-code + signed-entitlement + offline-after-activation
+   RELEASE_FIXES = key-ring + current-package-entitlement + same-installation-passport + verbatim-user-sales-text + chrome-release-cleanup + chrome-share-with-caption + larger-result-text + sales-card-space-reserve
    SHORTCUT_IDENTITY_GATE = BRAND_LOGO_EMBEDDED
 */
-var APP_VERSION="2.11.1-pre-push-rc";
-var ACTIVATION_MODE="production"; // sale/source build
+var APP_VERSION="V2.13.32 SALE RC18";
 var CONTENT_VERSION="caption-content-v1.2-coherent";
 var DATA_SCHEMA_VERSION=9;
 var STORAGE_PREFIX="measymate_caption_studio_v2_";
@@ -729,8 +785,15 @@ var KEY_FAVORITE_CAPTIONS=STORAGE_PREFIX+"favorite_caption_concepts_v1";
 
 var KEY_ENTITLEMENTS=STORAGE_PREFIX+"entitlement_wallet_v1";
 var KEY_INSTALLATION=STORAGE_PREFIX+"installation_id";
-var ACTIVATION_ENDPOINT="";        // set real HTTPS activation endpoint before customer release
-var ENTITLEMENT_PUBLIC_KEY_JWK=null; // production: public verification key only, never a secret
+var KEY_PRESALE_CLEAN_V2123=STORAGE_PREFIX+"presale_clean_v2123_done";
+var ENTITLEMENT_PUBLIC_KEYS={
+  "cs-prod-2026-00":{"key_ops":["verify"],"ext":true,"kty":"EC","x":"paEmdz0AdkZ-A1dmtsXax9KpVpw71Yfe8S_TQKVBBDc","y":"9gzjFcuZtR1jPdyzo1qXYU41mTIMXeEJ_lXpsZk847o","crv":"P-256"},
+  "cs-prod-2026-01":{"key_ops":["verify"],"ext":true,"kty":"EC","x":"RbZs_rIn0yKQNQL8JVbUgs6axu_5Dj5OQKX0J-Q1mcg","y":"qlugTQrBdQx2DivxLHic9cbkvpIj0h8ByjmB2qQa1Oc","crv":"P-256"},
+  "cs-prod-2026-02":{"key_ops":["verify"],"ext":true,"kty":"EC","x":"eXQT1NtzZ4i3fXarcb5tHQeYj2xe66ePIVDTptfdMr8","y":"9-GlTs3cLOlBYNhDtjcn_7_7QEYbEvbISMsGsh9_VQk","crv":"P-256"},
+  "cs-prod-2026-03":{"key_ops":["verify"],"ext":true,"kty":"EC","x":"x5J0GE53xRVYQjciHs9vAE-QvGKnsrzQa_vOU7NVxfw","y":"ncCiH8qkVz4G-MtOvqIsAZc2JTGSN-V8CNP7JmlEFMc","crv":"P-256"}
+}; // verification keys only; legacy key remains valid for existing customers
+var ENTITLEMENT_KEY_ID="cs-prod-2026-03"; // current seller signing key id; never reuse/replace an older key id
+var ENTITLEMENT_PUBLIC_KEY_JWK=ENTITLEMENT_PUBLIC_KEYS[ENTITLEMENT_KEY_ID];
 
 var CATEGORY_META=[
  {id:"fashion",value:"แฟชั่น",icon:"👕",name:"Fashion"},
@@ -740,10 +803,9 @@ var CATEGORY_META=[
  {id:"general",value:"ทั่วไป",icon:"📦",name:"General"}
 ];
 
-var DEV_PACKAGE_CODES={/* disabled in sale build */
- };
 var entitlementWallet={walletVersion:1,grants:[]};
 var installationId="";
+var legacyMigrationInfo=null;
 
 
 var STYLE_GROUPS=[
@@ -793,7 +855,7 @@ var postContentModel={
   cta:"",
   layout:{imageCount:0,type:"safe-panel",zone:"bottom",confidence:0}
 };
-var customCaptions=[];var installedPacks=[];var packCaptions=[];var packTemplates=[];var myTemplates=[];var hiddenCaptionKeys=[];var favoriteCaptionKeys=[];var activeLibraryView="active";var selectedStyle="hook";var selectedCaptionLength="medium";var selectedTemplate="clean";var selectedFont="modern";var selectedTextColor="auto";var selectedTextWeight="normal";var selectedTextShadow="off";var activeLibraryStyle="all";var activeLibraryCategory="all";var currentImageUrl="";var currentImageUrls=[];var currentCaption="";var currentCaptionConceptId="";var editingId=null;var previewPosition="auto";var previewSize="normal";var userMode="beginner";var lastLayoutDecision={type:"safe-panel",zone:"bottom",score:999,label:"Safe Panel"};
+var customCaptions=[];var installedPacks=[];var packCaptions=[];var packTemplates=[];var myTemplates=[];var hiddenCaptionKeys=[];var favoriteCaptionKeys=[];var activeLibraryView="active";var selectedStyle="hook";var selectedCaptionLength="medium";var selectedTemplate="clean";var selectedFont="modern";var selectedTextColor="auto";var selectedTextWeight="normal";var selectedTextShadow="off";var activeLibraryStyle="all";var activeLibraryCategory="all";var currentImageUrl="";var currentImageUrls=[];var currentCaption="";var currentCaptionConceptId="";var editingId=null;var previewPosition="auto";var previewSize="normal";var imageFitMode="auto";var imageCropPosition="center";var userMode="beginner";var lastLayoutDecision={type:"safe-panel",zone:"bottom",score:999,label:"Safe Panel"};
 function $(s){return document.querySelector(s)}function $$(s){return Array.prototype.slice.call(document.querySelectorAll(s))}
 function toast(m){var e=$("#toast");e.textContent=m;e.classList.add("show");clearTimeout(window.__t);window.__t=setTimeout(function(){e.classList.remove("show")},1800)}
 function hexToRgba(hex,a){var h=String(hex||"#159FCA").replace("#","");if(h.length===3)h=h.split("").map(function(c){return c+c}).join("");var n=parseInt(h,16);if(!isFinite(n))n=0x159FCA;return "rgba("+((n>>16)&255)+","+((n>>8)&255)+","+(n&255)+","+(a==null?1:a)+")"}
@@ -808,6 +870,9 @@ function loadState(){
   if(!canStore())return;
   customCaptions=safeParse(localStorage.getItem(KEY_CUSTOM),[]).map(normalizeCustomCaption).filter(Boolean);
   owner=Object.assign(owner,safeParse(localStorage.getItem(KEY_OWNER),{}));
+  // SALE data-safety: never clear owner/custom data during an app update.
+  // Keep the historical marker only so older builds do not re-run their pre-sale cleanup.
+  if(localStorage.getItem(KEY_PRESALE_CLEAN_V2123)!=="1")localStorage.setItem(KEY_PRESALE_CLEAN_V2123,"1");
   installedPacks=safeParse(localStorage.getItem(KEY_PACKS),[]);
   myTemplates=safeParse(localStorage.getItem(KEY_MY_TEMPLATES),[]);
   hiddenCaptionKeys=safeParse(localStorage.getItem(KEY_HIDDEN_CAPTIONS),[]);
@@ -824,10 +889,12 @@ function loadState(){
   if(pref.textShadow)selectedTextShadow=pref.textShadow;
   if(pref.previewPosition)previewPosition=pref.previewPosition;
   if(pref.previewSize)previewSize=pref.previewSize;
+  if(["auto","fill","fit"].indexOf(pref.imageFitMode)>=0)imageFitMode=pref.imageFitMode;
+  if(["center","top","bottom","left","right"].indexOf(pref.imageCropPosition)>=0)imageCropPosition=pref.imageCropPosition;
   if(pref.userMode)userMode=pref.userMode;
   rebuildPackData()
 }
-function savePref(){saveJSON(KEY_PREF,{style:selectedStyle,captionLength:selectedCaptionLength,template:selectedTemplate,font:selectedFont,textColor:selectedTextColor,textWeight:selectedTextWeight,textShadow:selectedTextShadow,previewPosition:previewPosition,previewSize:previewSize,userMode:userMode})}
+function savePref(){saveJSON(KEY_PREF,{style:selectedStyle,captionLength:selectedCaptionLength,template:selectedTemplate,font:selectedFont,textColor:selectedTextColor,textWeight:selectedTextWeight,textShadow:selectedTextShadow,previewPosition:previewPosition,previewSize:previewSize,imageFitMode:imageFitMode,imageCropPosition:imageCropPosition,userMode:userMode})}
 function isDemo(){return effectiveEntitlement().isDemo}
 function paidUser(){return !effectiveEntitlement().isDemo}
 function customCaptionLimit(){return isDemo()?2:999}
@@ -908,24 +975,33 @@ function applyTokens(text){
   if(owner.shopName)out=out.replace(/\{\{shop_name\}\}/g,owner.shopName);
   return out
 }
+var lastVerifiedSuffix="";
 function verifiedCaptionSuffix(){
   if(userMode!=="advance")return "";
   var bits=[];
-  if(owner.defaultPrice)bits.push("ราคา "+owner.defaultPrice);
+  if(owner.defaultPrice)bits.push(owner.defaultPrice);
   if(owner.freeShipping)bits.push("มีส่งฟรีตามเงื่อนไขร้าน");
   if(owner.cod)bits.push("รองรับ COD ตามพื้นที่บริการ");
-  if(owner.promo&&owner.promoText)bits.push(owner.promoText);
-  var rows=[];
+  if(owner.promo&&owner.promoText)bits.push(formatPromoDisplay(owner.promoText));
+  var rows=[],pn=exactProductName();
+  if(pn)rows.push(pn);
   if(bits.length)rows.push(bits.join(" · "));
   if(owner.extraText)rows.push(owner.extraText);
   if(owner.shopName)rows.push(owner.shopName);
-  if(owner.shopContact)rows.push("สอบถาม/สั่งซื้อ: "+owner.shopContact);
+  if(owner.shopContact)rows.push(owner.shopContact);
   if(currentCTA())rows.push(currentCTA());
   return rows.length?"\n\n"+rows.join("\n"):""
 }
-function appendVerifiedInfo(text){return String(text||"")+verifiedCaptionSuffix()}
+function appendVerifiedInfo(text){
+  var suffix=verifiedCaptionSuffix();
+  lastVerifiedSuffix=suffix;
+  return String(text||"")+suffix
+}
 function baseCaptionText(text){
   var s=String(text||""),suffix=verifiedCaptionSuffix();
+  if(lastVerifiedSuffix&&s.slice(-lastVerifiedSuffix.length)===lastVerifiedSuffix){
+    return s.slice(0,-lastVerifiedSuffix.length)
+  }
   return suffix&&s.slice(-suffix.length)===suffix?s.slice(0,-suffix.length):s
 }
 
@@ -1013,6 +1089,20 @@ function chooseCaptionConcept(style,category,avoidConcept){
   if(!concepts.length)return "";
   return concepts[Math.floor(Math.random()*concepts.length)]
 }
+function nextCaptionChoice(category,preferredStyle,currentConceptId){
+  var pool=allCaptions().filter(function(c){return c.category===category}),seen={},concepts=[];
+  pool.forEach(function(c){
+    var id=captionConceptId(c)||c.id;
+    if(!seen[id]){seen[id]=true;concepts.push({id:id,style:c.style||preferredStyle})}
+  });
+  if(!concepts.length)return null;
+  var same=concepts.filter(function(x){return x.style===preferredStyle});
+  var candidates=same.length>1?same:concepts;
+  if(candidates.length>1&&currentConceptId)candidates=candidates.filter(function(x){return x.id!==currentConceptId});
+  if(!candidates.length)candidates=concepts;
+  var pick=candidates[0];
+  return pick||null
+}
 function switchCurrentCaptionLength(){
   if(!currentCaption)return;
   if(!currentCaptionConceptId){
@@ -1059,67 +1149,150 @@ function b64urlToBytes(s){
   for(var i=0;i<raw.length;i++)out[i]=raw.charCodeAt(i);
   return out
 }
-function bytesToText(bytes){return new TextDecoder().decode(bytes)}
-function validateGrant(g){
-  if(!g||g.productId!=="caption-studio"||!g.grantId||!Array.isArray(g.categories))return false;
-  for(var i=0;i<g.categories.length;i++)if(!categoryMeta(g.categories[i]))return false;
-  if(g.installationId&&g.installationId!==getInstallationId())return false;
+function bytesToText(bytes){
+  try{if(typeof TextDecoder!=="undefined")return new TextDecoder("utf-8").decode(bytes)}catch(e){}
+  var out="",i=0;
+  while(i<bytes.length){
+    var c=bytes[i++];
+    if(c<128){out+=String.fromCharCode(c);continue}
+    if(c<224){var c2=bytes[i++];out+=String.fromCharCode(((c&31)<<6)|(c2&63));continue}
+    if(c<240){var c2=bytes[i++],c3=bytes[i++];out+=String.fromCharCode(((c&15)<<12)|((c2&63)<<6)|(c3&63));continue}
+    var c2=bytes[i++],c3=bytes[i++],c4=bytes[i++],u=((c&7)<<18)|((c2&63)<<12)|((c3&63)<<6)|(c4&63);u-=65536;out+=String.fromCharCode(55296+(u>>10),56320+(u&1023))
+  }
+  return out
+}
+function fileTextCompat(file){
+  if(file&&typeof file.text==="function"){try{return file.text()}catch(e){}}
+  return new Promise(function(resolve,reject){
+    try{var r=new FileReader();r.onload=function(){resolve(String(r.result||""))};r.onerror=function(){reject(r.error||new Error("file read failed"))};r.readAsText(file,"utf-8")}catch(e){reject(e)}
+  })
+}
+function removeNodeCompat(node){if(node&&node.parentNode)node.parentNode.removeChild(node)}
+function pad2(n){n=String(n);return n.length<2?"0"+n:n}
+if(!Number.isFinite)Number.isFinite=function(v){return typeof v==="number"&&isFinite(v)};
+if(typeof Element!=="undefined"&&!Element.prototype.closest){Element.prototype.closest=function(sel){var el=this;while(el&&el.nodeType===1){var m=el.matches||el.msMatchesSelector||el.webkitMatchesSelector;if(m&&m.call(el,sel))return el;el=el.parentElement||el.parentNode}return null}}
+function validateGrantBase(g){
+  if(!g||g.productId!=="caption-studio"||g.entitlementVersion!==1||!g.grantId||!Array.isArray(g.categories))return false;
+  if(g.categories.length<1||g.categories.length>5)return false;
+  var seen={};
+  for(var i=0;i<g.categories.length;i++){
+    if(!categoryMeta(g.categories[i])||seen[g.categories[i]])return false;
+    seen[g.categories[i]]=true
+  }
+  if(g.label==="2 PACK"&&g.categories.length!==2)return false;
+  if(g.label==="3 PACK"&&g.categories.length!==3)return false;
+  if(g.label==="FULL"&&g.categories.length!==5)return false;
+  if(!g.installationId||typeof g.installationId!=="string")return false;
+  if(!g.keyId||!ENTITLEMENT_PUBLIC_KEYS[g.keyId])return false;
+  if(g.licenseType&&g.licenseType!=="lifetime-offline")return false;
   if(g.expiresAt&&Date.now()>Date.parse(g.expiresAt))return false;
   return true
 }
-async function verifySignedGrantEnvelope(env){
-  if(!env||!env.payloadB64||!env.signatureB64||!ENTITLEMENT_PUBLIC_KEY_JWK)return null;
-  try{
-    var key=await crypto.subtle.importKey("jwk",ENTITLEMENT_PUBLIC_KEY_JWK,{name:"ECDSA",namedCurve:"P-256"},false,["verify"]);
-    var payloadBytes=b64urlToBytes(env.payloadB64),sig=b64urlToBytes(env.signatureB64);
-    var ok=await crypto.subtle.verify({name:"ECDSA",hash:"SHA-256"},key,sig,payloadBytes);
-    if(!ok)return null;
-    var grant=JSON.parse(bytesToText(payloadBytes));
-    return validateGrant(grant)?grant:null
-  }catch(e){return null}
+function validateGrant(g){
+  return validateGrantBase(g)&&g.installationId===getInstallationId()
 }
-async function loadEntitlementWallet(){
+function verifySignedGrantEnvelope(env,allowInstallationMismatch){
+  if(!env||!env.payloadB64||!env.signatureB64||!ENTITLEMENT_PUBLIC_KEYS)return Promise.resolve(null);
+  try{
+    if(typeof crypto==="undefined"||!crypto.subtle)return Promise.resolve(null);
+    var payloadBytes=b64urlToBytes(env.payloadB64),sig=b64urlToBytes(env.signatureB64);
+    var untrusted=JSON.parse(bytesToText(payloadBytes)),publicJwk=ENTITLEMENT_PUBLIC_KEYS[untrusted&&untrusted.keyId];
+    if(!publicJwk)return Promise.resolve(null);
+    return crypto.subtle.importKey("jwk",publicJwk,{name:"ECDSA",namedCurve:"P-256"},false,["verify"]).then(function(key){
+      return crypto.subtle.verify({name:"ECDSA",hash:"SHA-256"},key,sig,payloadBytes)
+    }).then(function(ok){
+      if(!ok)return null;
+      var grant=JSON.parse(bytesToText(payloadBytes));
+      if(!validateGrantBase(grant))return null;
+      if(!allowInstallationMismatch&&grant.installationId!==getInstallationId())return null;
+      return grant
+    }).catch(function(){return null})
+  }catch(e){return Promise.resolve(null)}
+}
+function validateLegacyGrantForMigration(g){
+  if(!g||g.productId!=="caption-studio"||!g.grantId||String(g.grantId).indexOf("dev-")!==0||!Array.isArray(g.categories))return false;
+  if(g.devLocal!==true)return false;
+  if(g.entitlementVersion!=null&&g.entitlementVersion!==1)return false;
+  if(g.installationId&&g.installationId!==getInstallationId())return false;
+  var seen={};
+  for(var i=0;i<g.categories.length;i++){if(!categoryMeta(g.categories[i])||seen[g.categories[i]])return false;seen[g.categories[i]]=true}
+  return g.categories.length>=1&&g.categories.length<=5
+}
+function legacyPackageLike(g){
+  if(!g||!Array.isArray(g.categories))return false;
+  var id=String(g.grantId||"").toLowerCase(),label=String(g.label||"").toLowerCase();
+  return g.categories.length>1||id.indexOf("duo")>=0||id.indexOf("2pack")>=0||id.indexOf("3pack")>=0||id.indexOf("complete")>=0||id.indexOf("plus")>=0||label.indexOf("2 pack")>=0||label.indexOf("3 pack")>=0||label.indexOf("complete")>=0||label.indexOf("full")>=0||label.indexOf("plus")>=0
+}
+function legacyIssuedAt(g){var t=g&&g.issuedAt?Date.parse(g.issuedAt):NaN;return Number.isFinite(t)?t:0}
+function detectLegacyMigration(raw){
+  legacyMigrationInfo=null;
+  if(!raw||!Array.isArray(raw.grants))return null;
+  var valid=[];
+  raw.grants.forEach(function(item,idx){if(item&&item.kind==="dev"&&validateLegacyGrantForMigration(item.grant))valid.push({item:item,idx:idx,time:legacyIssuedAt(item.grant)})});
+  if(!valid.length)return null;
+  var explicit=valid.filter(function(x){return legacyPackageLike(x.item.grant)});
+  var grant=null;
+  if(explicit.length){explicit.sort(function(a,b){return a.time===b.time?a.idx-b.idx:a.time-b.time});grant=explicit[explicit.length-1].item.grant}
+  else{
+    var cats=[],features={},latest=valid[valid.length-1].item.grant;
+    valid.forEach(function(x){var g=x.item.grant;(g.categories||[]).forEach(function(c){if(cats.indexOf(c)<0)cats.push(c)});Object.keys(g.features||{}).forEach(function(k){if(g.features[k])features[k]=true})});
+    grant={productId:"caption-studio",entitlementVersion:1,grantId:"dev-legacy-summary",label:cats.length===2?"2 PACK":cats.length===3?"3 PACK":cats.length>=5?"FULL":"PAID",categories:cats,features:features,installationId:getInstallationId(),issuedAt:(latest&&latest.issuedAt)||"",devLocal:true};
+  }
+  legacyMigrationInfo={packageName:grant.label||((grant.categories||[]).length+" CATEGORY"),categories:(grant.categories||[]).slice(),issuedAt:grant.issuedAt||""};
+  return legacyMigrationInfo
+}
+function grantIssuedAtMs(g){
+  var t=g&&g.issuedAt?Date.parse(g.issuedAt):NaN;
+  return Number.isFinite(t)?t:0
+}
+function latestSignedGrantItem(items){
+  var best=null,bestTime=-1,bestIndex=-1;
+  (items||[]).forEach(function(item,idx){
+    if(!item||item.kind!=="signed"||!item.grant)return;
+    var t=grantIssuedAtMs(item.grant);
+    if(!best||t>bestTime||(t===bestTime&&idx>bestIndex)){best=item;bestTime=t;bestIndex=idx}
+  });
+  return best
+}
+function loadEntitlementWallet(){
   getInstallationId();
   entitlementWallet={walletVersion:1,grants:[]};
-  if(!canStore())return;
+  if(!canStore())return Promise.resolve();
   var raw=safeParse(localStorage.getItem(KEY_ENTITLEMENTS),null);
-  if(!raw||!Array.isArray(raw.grants))return;
-  var valid=[];
-  for(var i=0;i<raw.grants.length;i++){
-    var item=raw.grants[i];
+  if(!raw||!Array.isArray(raw.grants)){legacyMigrationInfo=null;return Promise.resolve()}
+  detectLegacyMigration(raw);
+  var jobs=[];
+  raw.grants.forEach(function(item){
     if(item&&item.kind==="signed"){
-      var g=await verifySignedGrantEnvelope(item.envelope);
-      if(g)valid.push({kind:"signed",envelope:item.envelope,grant:g})
+      jobs.push(verifySignedGrantEnvelope(item.envelope).then(function(g){return g?{kind:"signed",envelope:item.envelope,grant:g}:null}))
     }
-  }
-  entitlementWallet={walletVersion:1,grants:valid};
+  });
+  return Promise.all(jobs).then(function(rows){
+    var valid=rows.filter(function(x){return !!x});
+    var current=latestSignedGrantItem(valid);
+    entitlementWallet={walletVersion:1,grants:current?[current]:[]};
+    if(current)saveEntitlementWallet()
+  })
 }
 function saveEntitlementWallet(){
   if(!canStore())return;
-  var clean={walletVersion:1,grants:entitlementWallet.grants.filter(function(x){return x&&x.kind==="signed"}).map(function(x){
-    return {kind:"signed",envelope:x.envelope}
-  })};
+  var clean={walletVersion:1,grants:entitlementWallet.grants.filter(function(x){
+    return x&&x.kind==="signed"&&x.envelope
+  }).map(function(x){return {kind:"signed",envelope:x.envelope}})};
   localStorage.setItem(KEY_ENTITLEMENTS,JSON.stringify(clean))
 }
 function effectiveEntitlement(){
-  var cats=[],features={},labels=[];
-  entitlementWallet.grants.forEach(function(item){
-    var g=item.grant;
-    if(!g)return;
-    (g.categories||[]).forEach(function(c){if(cats.indexOf(c)<0)cats.push(c)});
-    Object.keys(g.features||{}).forEach(function(k){if(g.features[k])features[k]=true});
-    if(g.label&&labels.indexOf(g.label)<0)labels.push(g.label)
-  });
-  var demo=!entitlementWallet.grants.length;
-  if(demo)cats=CATEGORY_META.map(function(c){return c.id});
+  var item=latestSignedGrantItem(entitlementWallet.grants),g=item&&item.grant;
+  var demo=!g,cats=demo?CATEGORY_META.map(function(c){return c.id}):(g.categories||[]).slice();
+  var features=demo?{}:Object.assign({},g.features||{}),labels=demo?[]:(g.label?[g.label]:[]);
   var packageName="DEMO";
   if(!demo){
-    if(cats.length>=5)packageName="FULL";
-    else if(cats.length===3)packageName="3 PACK";
-    else if(cats.length===2)packageName="2 PACK";
+    if(g.label==="FULL"||cats.length>=5)packageName="FULL";
+    else if(g.label==="3 PACK"||cats.length===3)packageName="3 PACK";
+    else if(g.label==="2 PACK"||cats.length===2)packageName="2 PACK";
     else packageName="PAID"
   }
-  return {categories:cats,features:features,labels:labels,packageName:packageName,isDemo:demo}
+  return {categories:cats,features:features,labels:labels,packageName:packageName,isDemo:demo,grant:g||null}
 }
 function hasCategory(id){return effectiveEntitlement().categories.indexOf(id)>=0}
 function syncProductCategoryRights(){
@@ -1147,11 +1320,11 @@ function syncEntitlementUI(){
   if(host){
     host.innerHTML="";
     CATEGORY_META.forEach(function(c){
-      var s=document.createElement("span");
+      var chip=document.createElement("span");
       var on=e.categories.indexOf(c.id)>=0;
-      s.className="right-chip"+(on?" on":"");
-      s.textContent=e.isDemo?("ทดลอง "+c.icon+" "+c.name):((on?"✓ ":"🔒 ")+c.icon+" "+c.name);
-      host.appendChild(s)
+      chip.className="right-chip"+(on?" on":"");
+      chip.textContent=e.isDemo?("ทดลอง "+c.icon+" "+c.name):((on?"✓ ":"🔒 ")+c.icon+" "+c.name);
+      host.appendChild(chip)
     })
   }
   syncProductCategoryRights();
@@ -1163,42 +1336,86 @@ function syncEntitlementUI(){
   buildTextStyleControls();
   syncPackStatus();
   syncUpdateAccessUI();
+  syncMigrationUI();
   if($("#onlineUpdateStatus")){
     $("#onlineUpdateStatus").textContent="App: "+APP_VERSION+" · สิทธิ์: "+e.packageName+" · Content Packs: "+installedPacks.length
   }
 }
 function addGrantItem(item){
+  if(!item||item.kind!=="signed"||!item.envelope)throw new Error("signed entitlement required");
   var grant=item.grant;
   if(!grant||!validateGrant(grant))throw new Error("invalid entitlement");
-  entitlementWallet.grants=entitlementWallet.grants.filter(function(x){return !x.grant||x.grant.grantId!==grant.grantId});
-  entitlementWallet.grants.push(item);
+  // New activation replaces the prior package as a complete entitlement snapshot (upgrade-safe and rollback-safe).
+  entitlementWallet={walletVersion:1,grants:[{kind:"signed",envelope:item.envelope,grant:grant}]};
   saveEntitlementWallet();
+  legacyMigrationInfo=null;
   syncEntitlementUI()
 }
-async function activateCode(code){
-  code=String(code||"").trim().toUpperCase();
-  if(!code){toast("กรอก Package Code ก่อนค่ะ");return}
-  if(!ACTIVATION_ENDPOINT||ACTIVATION_ENDPOINT.indexOf("https://")!==0){toast("Activation Server ยังไม่ได้ตั้งค่า");return}
+function offlineCodeToEnvelope(code){
+  var clean=String(code||"").trim().replace(/\s+/g,"");
+  if(clean.indexOf("MMCSA1.")!==0)throw new Error("bad prefix");
+  var parts=clean.split(".");
+  if(parts.length!==3||!parts[1]||!parts[2])throw new Error("bad format");
+  return {payloadB64:parts[1],signatureB64:parts[2]}
+}
+function activateCode(code){
+  var rawCode=String(code||"").trim();
+  if(!rawCode){toast("กรอก Activation Code ก่อนค่ะ");return Promise.resolve(false)}
+  if(typeof crypto==="undefined"||!crypto.subtle){toast("Browser นี้ยังไม่รองรับการตรวจ Signed Activation · กรุณาเปิดผ่าน Chrome หรือ URL HTTPS ของ MEasyMate");return Promise.resolve(false)}
   try{
     $("#activateCodeBtn").disabled=true;
-    var res=await fetch(ACTIVATION_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({
-      product_id:"caption-studio",
-      package_code:code,
-      installation_id:getInstallationId(),
-      app_version:APP_VERSION
-    })});
-    if(!res.ok)throw new Error("activation failed");
-    var data=await res.json(),env=data&&data.entitlement;
-    var grant=await verifySignedGrantEnvelope(env);
-    if(!grant)throw new Error("signature invalid");
-    addGrantItem({kind:"signed",envelope:env,grant:grant});
-    $("#activationCode").value="";
-    toast("Activate สำเร็จ — ใช้ Offline ต่อได้")
-  }catch(e){
-    toast("Activate ไม่สำเร็จ กรุณาตรวจรหัสหรืออินเทอร์เน็ต")
-  }finally{
-    $("#activateCodeBtn").disabled=false
-  }
+    var env=offlineCodeToEnvelope(rawCode);
+    return verifySignedGrantEnvelope(env).then(function(grant){
+      if(!grant)throw new Error("invalid activation");
+      addGrantItem({kind:"signed",envelope:env,grant:grant});
+      $("#activationCode").value="";
+      toast("Activate สำเร็จ — ใช้ Offline ได้แล้ว");
+      return true
+    }).catch(function(){toast("Activation Code ไม่ถูกต้อง หรือรหัสนี้เป็นของเครื่องอื่น");return false}).then(function(v){$("#activateCodeBtn").disabled=false;return v},function(e){$("#activateCodeBtn").disabled=false;throw e})
+  }catch(e){$("#activateCodeBtn").disabled=false;toast("Activation Code ไม่ถูกต้อง หรือรหัสนี้เป็นของเครื่องอื่น");return Promise.resolve(false)}
+}
+function licensePassportData(){
+  var item=latestSignedGrantItem(entitlementWallet.grants);
+  if(!item||!item.envelope||!item.grant)return null;
+  var signed=[{payloadB64:item.envelope.payloadB64,signatureB64:item.envelope.signatureB64}];
+  return {format:"MEASYMATE_CAPTION_LICENSE_V1",productId:"caption-studio",licenseVersion:1,exportedAt:new Date().toISOString(),installationId:getInstallationId(),grants:signed}
+}
+function exportLicensePassport(){
+  var p=licensePassportData();
+  if(!p){toast("Activate ก่อนจึงเก็บ License Passport ได้");return}
+  var blob=new Blob([JSON.stringify(p,null,2)],{type:"application/json"}),u=URL.createObjectURL(blob),a=document.createElement("a");
+  a.href=u;a.download="MEasyMate_CaptionStudio_License.mmlicense";document.body.appendChild(a);a.click();removeNodeCompat(a);setTimeout(function(){URL.revokeObjectURL(u)},1200);toast("เก็บ License Passport แล้ว")
+}
+function importLicensePassport(file){
+  return fileTextCompat(file).then(function(raw){
+    var p=JSON.parse(raw);
+    if(!p||p.format!=="MEASYMATE_CAPTION_LICENSE_V1"||p.productId!=="caption-studio"||p.licenseVersion!==1||!p.installationId||!Array.isArray(p.grants)||!p.grants.length)throw new Error("invalid passport");
+    if(p.installationId!==getInstallationId())throw new Error("passport belongs to another installation");
+    return Promise.all(p.grants.map(function(env){return verifySignedGrantEnvelope(env).then(function(g){if(!g||g.installationId!==p.installationId)throw new Error("signature or installation mismatch");return {kind:"signed",envelope:env,grant:g}})})).then(function(checked){
+      var current=latestSignedGrantItem(checked);
+      if(!current)throw new Error("no valid grant");
+      entitlementWallet={walletVersion:1,grants:[current]};
+      saveEntitlementWallet();legacyMigrationInfo=null;syncEntitlementUI();toast("กู้สิทธิ์สำเร็จ — "+effectiveEntitlement().packageName);return true
+    })
+  }).catch(function(){toast("กู้สิทธิ์ไม่สำเร็จ — ต้องเป็น License Passport ของ Installation ID นี้");return false})
+}
+function migrationRequestText(){
+  if(!legacyMigrationInfo)return "";
+  return [
+    "MEasyMate Caption Studio — Legacy Migration Request",
+    "Package: "+legacyMigrationInfo.packageName,
+    "Categories: "+legacyMigrationInfo.categories.join(", "),
+    "Installation ID: "+getInstallationId(),
+    "App: "+APP_VERSION,
+    "Request: เปลี่ยนสิทธิ์เดิมเป็น Signed Activation โดยไม่ซื้อใหม่"
+  ].join("\n")
+}
+function syncMigrationUI(){
+  var box=$("#legacyMigrationBox"),txt=$("#legacyPackageText");
+  if(!box)return;
+  var show=!!legacyMigrationInfo&&effectiveEntitlement().isDemo;
+  box.classList.toggle("hidden",!show);
+  if(txt&&show)txt.textContent=legacyMigrationInfo.packageName+" · "+legacyMigrationInfo.categories.map(function(c){var m=categoryMeta(c);return m?m.name:c}).join(" + ")
 }
 function currentCategoryId(){return categoryIdFromProductValue($("#productType").value)}
 function availableStylesForCategory(category){
@@ -1242,7 +1459,7 @@ var all=document.createElement("button");all.className="chip"+(activeLibraryStyl
     b.className="chip"+(active?" active":"");b.textContent=s.icon+" "+s.name;b.title=s.desc;
     b.onclick=function(){
       if(libraryMode){activeLibraryStyle=s.id;buildStyleChips(hostId,true);renderLibrary()}
-      else{selectedStyle=s.id;var rec=styleById(selectedStyle).template;if(availableTemplates().some(function(t){return t.id===rec}))selectedTemplate=rec;buildStyleChips("#styleChips",false);buildTemplateChips();savePref();if(currentImageUrl&&currentCaption)generateCaption()}
+      else{selectedStyle=s.id;currentCaptionConceptId="";buildStyleChips("#styleChips",false);savePref();if(currentImageUrl&&currentCaption)generateCaption()}
     };
     host.appendChild(b)
   })
@@ -1553,8 +1770,21 @@ function generateCaption(force){
     currentCaptionConceptId="";
     currentCaption=appendVerifiedInfo(applyTokens(force))
   }else{
-    var cid=chooseCaptionConcept(selectedStyle,cat,currentCaptionConceptId);
-    var c=captionVariantForConcept(cid,selectedCaptionLength);
+    var c=null,cid="";
+    if(currentCaptionConceptId){
+      var choice=nextCaptionChoice(cat,selectedStyle,currentCaptionConceptId);
+      if(choice){
+        cid=choice.id;
+        if(choice.style&&choice.style!==selectedStyle){
+          selectedStyle=choice.style;
+          buildStyleChips("#styleChips",false);
+          savePref()
+        }
+      }
+    }else{
+      cid=chooseCaptionConcept(selectedStyle,cat,"")
+    }
+    c=captionVariantForConcept(cid,selectedCaptionLength);
     if(!c)c=randomCaption(selectedStyle,cat,currentCaption,selectedCaptionLength);
     if(c)currentCaptionConceptId=captionConceptId(c);
     var raw=c?c.text:"สนใจสินค้าชิ้นนี้ ทักมาสอบถามรายละเอียดได้เลยค่ะ";
@@ -1578,17 +1808,26 @@ function renderResult(){
   syncPreviewControls();
   $("#quickResult").classList.add("show");
   var renderSeq=++__previewRenderSeq;
-  renderPostCanvas($("#previewCanvas"),renderSeq).catch(function(){
+  clearShareBlobCache();
+  renderPostCanvas($("#previewCanvas"),renderSeq).then(function(canvas){
+    return warmShareBlobFromCanvas(canvas,renderSeq)
+  }).catch(function(){
+    clearShareBlobCache();
     if(renderSeq===__previewRenderSeq)toast("สร้างภาพตัวอย่างไม่สำเร็จ")
   });
 }
 function applyPreviewStyle(){
   $("#resultTemplateMeta").textContent="Template: "+templateById(selectedTemplate).name;
   if($("#quickResult").classList.contains("show")&&currentImageUrl&&currentCaption){
-    var renderSeq=++__previewRenderSeq;renderPostCanvas($("#previewCanvas"),renderSeq).catch(function(){})
+    var renderSeq=++__previewRenderSeq;clearShareBlobCache();renderPostCanvas($("#previewCanvas"),renderSeq).then(function(canvas){return warmShareBlobFromCanvas(canvas,renderSeq)}).catch(function(){clearShareBlobCache()})
   }
 }
-async function copyText(text){try{await navigator.clipboard.writeText(text)}catch(e){var ta=document.createElement("textarea");ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand("copy");ta.remove()}toast("คัดลอกแล้ว")}
+function copyText(text){
+  function fallback(){try{var ta=document.createElement("textarea");ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand("copy");removeNodeCompat(ta)}catch(e){}}
+  var p;
+  try{p=(navigator.clipboard&&navigator.clipboard.writeText)?navigator.clipboard.writeText(text):Promise.reject(new Error("clipboard unavailable"))}catch(e){p=Promise.reject(e)}
+  return p.catch(function(){fallback()}).then(function(){toast("คัดลอกแล้ว");return true})
+}
 
 function segmentThai(text){
   if(typeof Intl!=="undefined"&&typeof Intl.Segmenter==="function"){
@@ -1642,10 +1881,18 @@ function visualPostText(){
   return lines.length?lines[0]:""
 }
 function visualHeadline(){return visualPostText()}
+function cleanSalesDisplayText(text){
+  // Preserve the customer's wording. Only trim accidental whitespace at the edges.
+  return String(text||"").trim()
+}
+function formatPromoDisplay(text){
+  // Sale rule: show promotion exactly as the customer entered it; do not rewrite wording or spacing.
+  return cleanSalesDisplayText(text)
+}
 function verifiedVisualBits(){
   var a=[];
   if(userMode!=="advance")return a;
-  if(owner.defaultPrice)a.push("ราคา "+owner.defaultPrice);
+  if(owner.defaultPrice)a.push(owner.defaultPrice);
   if(owner.promo&&owner.promoText)a.push(owner.promoText);
   if(owner.freeShipping)a.push("ส่งฟรีตามเงื่อนไข");
   if(owner.cod)a.push("COD ตามพื้นที่บริการ");
@@ -1657,26 +1904,78 @@ function currentShopLine(){
 }
 function currentCTA(){
   if(userMode!=="advance")return "";
-  return String(owner.ctaText||"").trim() || (owner.shopContact?"ทักแชท / สั่งซื้อ":"ดูรายละเอียด")
+  return String(owner.ctaText||"").trim()
 }
-function drawImageSmart(ctx,img,x,y,w,h,r){
+function imageOrientation(img){
+  var iw=(img&&((img.naturalWidth||img.width)))||1,ih=(img&&((img.naturalHeight||img.height)))||1,r=iw/Math.max(1,ih);
+  if(r>1.15)return "landscape";
+  if(r<.87)return "portrait";
+  return "square"
+}
+function imageOrientationCode(imgs){
+  return (imgs||[]).map(function(img){var o=imageOrientation(img);return o==="landscape"?"L":o==="portrait"?"P":"S"}).join("")
+}
+function imageOrientationThai(o){return o==="landscape"?"แนวนอน":o==="portrait"?"แนวตั้ง":"จัตุรัส"}
+function cropAnchor(frameW,frameH,imgW,imgH,position){
+  var sc=Math.max(frameW/imgW,frameH/imgH),dw=imgW*sc,dh=imgH*sc,dx=(frameW-dw)/2,dy=(frameH-dh)/2;
+  if(position==="top")dy=0;
+  else if(position==="bottom")dy=frameH-dh;
+  else if(position==="left")dx=0;
+  else if(position==="right")dx=frameW-dw;
+  return {scale:sc,w:dw,h:dh,x:dx,y:dy}
+}
+function drawImageFill(ctx,img,x,y,w,h,r){
   ctx.save();roundedRect(ctx,x,y,w,h,r);ctx.clip();
-  var srcAR=img.width/img.height, frameAR=w/h;
-  var visibleFraction=srcAR>frameAR?frameAR/srcAR:srcAR/frameAR;
-  if(visibleFraction>=0.84){
-    var sc=Math.max(w/img.width,h/img.height),iw=img.width*sc,ih=img.height*sc;
-    ctx.drawImage(img,x+(w-iw)/2,y+(h-ih)/2,iw,ih)
-  }else{
-    var bgSc=Math.max(w/img.width,h/img.height),biw=img.width*bgSc,bih=img.height*bgSc;
-    ctx.save();ctx.filter="blur(22px)";ctx.globalAlpha=.35;
-    ctx.drawImage(img,x+(w-biw)/2,y+(h-bih)/2,biw,bih);ctx.restore();
-    ctx.fillStyle="rgba(255,255,255,.22)";ctx.fillRect(x,y,w,h);
-    var sc2=Math.min(w/img.width,h/img.height),iw2=img.width*sc2,ih2=img.height*sc2;
-    ctx.drawImage(img,x+(w-iw2)/2,y+(h-ih2)/2,iw2,ih2)
-  }
-  ctx.restore()
+  var a=cropAnchor(w,h,img.width,img.height,imageCropPosition);
+  ctx.drawImage(img,x+a.x,y+a.y,a.w,a.h);ctx.restore()
 }
-function drawImageCover(ctx,img,x,y,w,h,r){drawImageSmart(ctx,img,x,y,w,h,r)}
+function drawImageFit(ctx,img,x,y,w,h,r){
+  ctx.save();roundedRect(ctx,x,y,w,h,r);ctx.clip();
+  // Fill the frame with a soft version of the same image, then place the full
+  // source on top. This preserves the entire photo without leaving dead bars.
+  var bgSc=Math.max(w/img.width,h/img.height),biw=img.width*bgSc,bih=img.height*bgSc;
+  ctx.save();
+  ctx.filter="blur(28px) saturate(.82)";
+  ctx.globalAlpha=.62;
+  ctx.drawImage(img,x+(w-biw)/2,y+(h-bih)/2,biw,bih);
+  ctx.restore();
+  ctx.fillStyle="rgba(255,255,255,.10)";ctx.fillRect(x,y,w,h);
+  var sc=Math.min(w/img.width,h/img.height),iw=img.width*sc,ih=img.height*sc;
+  ctx.drawImage(img,x+(w-iw)/2,y+(h-ih)/2,iw,ih);ctx.restore()
+}
+function drawImageSmart(ctx,img,x,y,w,h,r,role){
+  var srcAR=img.width/img.height,frameAR=w/h,
+      visibleFraction=srcAR>frameAR?frameAR/srcAR:srcAR/frameAR;
+  if(imageFitMode==="fill"){drawImageFill(ctx,img,x,y,w,h,r);return}
+  if(imageFitMode==="fit"){drawImageFit(ctx,img,x,y,w,h,r);return}
+  // Smart Auto V2.13.4 = FIT PRIORITY.
+  // Only use Fill when the source and frame are already close enough that
+  // cropping is minimal. Product/detail photos should be preserved by default.
+  var srcPortrait=srcAR<.87,srcLandscape=srcAR>1.15,
+      framePortrait=frameAR<.87,frameLandscape=frameAR>1.15,
+      orientationMismatch=(srcPortrait&&frameLandscape)||(srcLandscape&&framePortrait),
+      minVisible=role==="hero"? .90:.94;
+  if(orientationMismatch||visibleFraction<minVisible){drawImageFit(ctx,img,x,y,w,h,r);return}
+  drawImageFill(ctx,img,x,y,w,h,r)
+}
+function drawImageCover(ctx,img,x,y,w,h,r){drawImageFill(ctx,img,x,y,w,h,r)}
+function chooseSmartImagePlan(imgs){
+  var code=imageOrientationCode(imgs),os=(imgs||[]).map(imageOrientation),type="balanced";
+  if(imgs.length===1)type="single";
+  else if(imgs.length===2){
+    if(os[0]==="portrait"&&os[1]!=="portrait")type="two-portrait-main";
+    else if(os[0]==="landscape"&&os[1]==="portrait")type="two-landscape-portrait";
+    else if(os[0]===os[1])type="two-same";
+    else type="two-mixed"
+  }else if(imgs.length>=3){
+    if(code==="PPP")type="three-portrait-focus";
+    else if(os[0]==="portrait")type="three-left-main-stack";
+    else if(os[1]==="portrait"&&os[2]==="portrait")type="three-top-main-portrait-pair";
+    else if(os[1]!==os[2])type="three-top-main-mixed-pair";
+    else type="three-top-main-pair"
+  }
+  return {type:type,code:code,orientations:os,label:code||"-"}
+}
 
 function typographyById(id){
   for(var i=0;i<FONT_STYLES.length;i++)if(FONT_STYLES[i].id===id)return FONT_STYLES[i];
@@ -1732,14 +2031,14 @@ function drawAccentDecor(ctx,t,W,H){
   else if(t.layout==="social"){ctx.beginPath();ctx.arc(W-84,86,45,0,Math.PI*2);ctx.fill()}
   else {ctx.fillRect(54,50,90,10)}
 }
-function syncPreviewControls(){buildTemplateChips();buildFontChips();buildTextStyleControls();$$("#positionSeg button").forEach(function(b){b.classList.toggle("active",b.getAttribute("data-value")===previewPosition)});$$("#sizeSeg button").forEach(function(b){b.classList.toggle("active",b.getAttribute("data-value")===previewSize)})}
+function syncPreviewControls(){buildTemplateChips();buildFontChips();buildTextStyleControls();$$("#positionSeg button").forEach(function(b){b.classList.toggle("active",b.getAttribute("data-value")===previewPosition)});$$("#sizeSeg button").forEach(function(b){b.classList.toggle("active",b.getAttribute("data-value")===previewSize)});$$("#imageFitSeg button").forEach(function(b){b.classList.toggle("active",b.getAttribute("data-value")===imageFitMode)});$$("#cropSeg button").forEach(function(b){b.classList.toggle("active",b.getAttribute("data-value")===imageCropPosition)})}
 function loadCanvasImage(url){return new Promise(function(res,rej){var img=new Image();img.onload=function(){res(img)};img.onerror=rej;img.src=url})}
 
 var __activeVisualProfile={family:"clean",name:"Clean",accent:"#299AC7",soft:"#EEF7FA",deep:"#173A52",avgLum:.75,avgSat:.2};
 
 function clamp01(v){return Math.max(0,Math.min(1,v))}
 function rgbToHex(r,g,b){
-  function h(v){return Math.max(0,Math.min(255,Math.round(v))).toString(16).padStart(2,"0")}
+  function h(v){return Math.max(0,Math.min(255,Math.round(v))).toString(16).length<2?"0"+Math.max(0,Math.min(255,Math.round(v))).toString(16):Math.max(0,Math.min(255,Math.round(v))).toString(16)}
   return "#"+h(r)+h(g)+h(b)
 }
 function rgbToHsl(r,g,b){
@@ -1788,7 +2087,7 @@ function analyzeVisualPalette(img){
     var br=best.w?best.r/best.w:avgR/n,bg=best.w?best.g/best.w:avgG/n,bb=best.w?best.b/best.w:avgB/n;
     var dh=rgbToHsl(br,bg,bb),avgLum=lumSum/n,avgSat=satSum/n;
     // Boost muted source colors enough to function as a design accent without inventing a new palette.
-    var accent=hslToHex(dh.h,Math.max(.42,Math.min(.72,dh.s*1.45)),avgLum<.38?.58:.43);
+    var accent=hslToHex(dh.h,Math.max(.42,Math.min(.72,dh.s*1.45)),avgLum<.38? .58:.43);
     var soft=hslToHex(dh.h,Math.max(.10,Math.min(.24,dh.s*.55)),.94);
     var deep=hslToHex(dh.h,Math.max(.28,Math.min(.48,dh.s)),.18);
     var family=avgLum<.34?"dramatic":avgSat<.18?"editorial":avgSat>.42?"pop":"lifestyle";
@@ -1827,7 +2126,7 @@ function drawVisualAtmosphere(ctx,t,p,W,H){
   g.addColorStop(1,mixHex(t.bg||"#F5FAFC",p.soft,.48));
   ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
   // Deterministic decorative depth: no text, no invented content.
-  ctx.globalAlpha=p.family==="sale"?.15:.09;
+  ctx.globalAlpha=p.family==="sale"? .15:.09;
   ctx.fillStyle=p.accent;
   ctx.beginPath();ctx.arc(W-70,105,110,0,Math.PI*2);ctx.fill();
   ctx.globalAlpha=.055;
@@ -1843,10 +2142,10 @@ function drawCardShadow(ctx,x,y,w,h,r,strong){
 }
 function drawVisualImage(ctx,img,x,y,w,h,r,role,t,p){
   drawCardShadow(ctx,x,y,w,h,r,role==="hero");
-  drawImageSmart(ctx,img,x,y,w,h,r);
+  drawImageSmart(ctx,img,x,y,w,h,r,role);
   ctx.save();
   roundedRect(ctx,x,y,w,h,r);
-  ctx.strokeStyle=hexToRgba(p.accent,role==="hero"?.18:.25);
+  ctx.strokeStyle=hexToRgba(p.accent,role==="hero"? .18:.25);
   ctx.lineWidth=role==="hero"?2:3;ctx.stroke();
   // Subtle bottom wash gives the composition more depth without obscuring content.
   if(role==="hero"){
@@ -1948,7 +2247,7 @@ function overlayPosition(zone,m,imgW,imgH,cardW,cardH){
 }
 function clampFill(v,min,max){return Math.max(min,Math.min(max,v))}
 function infoScaleForSpace(w,h,count){
-  var area=Math.sqrt(Math.max(1,w*h)/70000),pen=count===3?.94:count===2?1:1.06;
+  var area=Math.sqrt(Math.max(1,w*h)/70000),pen=count===3? .94:count===2?1:1.06;
   return clampFill(area*pen,.94,1.28)
 }
 function drawDecorSpark(ctx,x,y,size,color){
@@ -1957,22 +2256,35 @@ function drawDecorSpark(ctx,x,y,size,color){
   ctx.fillStyle=color;ctx.globalAlpha=.55;ctx.beginPath();ctx.arc(x,y,size*.17,0,Math.PI*2);ctx.fill();ctx.restore()
 }
 function advanceVisualData(){
+  var extra=cleanSalesDisplayText(owner.extraText||"");
   return {
-    price:String(owner.defaultPrice||"").trim(),
-    promo:(owner.promo&&owner.promoText)?String(owner.promoText).trim():"",
+    product:cleanSalesDisplayText(exactProductName()||""),
+    price:cleanSalesDisplayText(owner.defaultPrice||""),
+    promo:formatPromoDisplay(owner.promoText||""),
     shipping:owner.freeShipping?"ส่งฟรีตามเงื่อนไข":"",
     cod:owner.cod?"COD ตามพื้นที่บริการ":"",
-    special:String(owner.extraText||"").trim(),
-    shop:currentShopLine(),
-    cta:currentCTA()
+    special:extra,
+    shop:cleanSalesDisplayText(currentShopLine()),
+    cta:cleanSalesDisplayText(currentCTA())
   }
 }
 function advanceDesiredHeight(){
   if(userMode!=="advance")return 0;
-  var d=advanceVisualData(),h=18;
-  if(d.price)h+=66;if(d.promo)h+=58;if(d.special)h+=60;
-  if(d.shop)h+=46;if(d.shipping||d.cod)h+=28;if(d.cta)h+=68;
-  return Math.max(150,Math.min(340,h))
+  var d=advanceVisualData(),rows=0,h=20;
+  if(d.product){rows++;h+=42}
+  if(d.price){rows++;h+=60}
+  if(d.promo){rows++;h+=66}
+  if(d.special){rows++;h+=50}
+  // RC16: reserve real space for SHOP/CONTACT at PROMO typography size.
+  // This prevents the whole sales card from being scaled down again.
+  if(d.shop){rows++;h+=72}
+  if(d.shipping||d.cod){rows++;h+=30}
+  // CTA uses the same typography size as PROMO, so reserve matching visual space.
+  if(d.cta){rows++;h+=78}
+  // Avoid a large empty card when only a few fields exist.
+  if(rows<=1)return Math.max(104,h);
+  if(rows===2)return Math.max(150,h);
+  return Math.max(190,Math.min(400,h))
 }
 function drawPromoPill(ctx,text,x,y,w,color,family){
   if(!text)return 0;
@@ -1997,84 +2309,146 @@ function drawAdvanceInfo(ctx,t,fs,x,y,w,h){
       baseText=autoContrastText(panelBg,"#15181C","#FFFFFF"),
       muted=relativeLuminance(panelBg)<.36?"#D7DEE5":"#6B737A",
       count=Math.max(1,Math.min(3,currentImageUrls.length||1)),
-      sc=infoScaleForSpace(w,h,count),yy=y,bottom=y+h;
-  shopColor=safeContrastColor(shopColor,panelBg);promoColor=safeContrastColor(promoColor,panelBg);
+      sc=infoScaleForSpace(w,h,count),
+      service=[];
 
-  var blocks=0,need=0;
-  if(d.price){blocks++;need+=54} if(d.promo){blocks++;need+=50} if(d.special){blocks++;need+=50}
-  if(d.shop){blocks++;need+=38} if(d.shipping||d.cod){blocks++;need+=26} if(d.cta){blocks++;need+=58}
-  var gap=blocks>1?clampFill(Math.max(0,h-need-12)/(blocks-1),2,14):0;
+  if(d.shipping)service.push(d.shipping);
+  if(d.cod)service.push(d.cod);
+
+  function makeLines(text,size,weight,maxW){
+    if(!text)return {lines:[],size:size,lh:0};
+    ctx.font=weight+" "+size+"px "+fs.family;
+    var ls=wrapAllLines(ctx,text,Math.max(48,maxW));
+    return {lines:ls,size:size,lh:Math.max(size+2,Math.round(size*1.22))}
+  }
+  function model(scale){
+    var gap=Math.max(3,Math.round(clampFill(7*sc*scale,3,10))),
+        prodSize=Math.max(10,Math.round(19*sc*scale)),
+        priceSize=Math.max(12,Math.round(36*sc*scale)),
+        promoSize=Math.max(10,Math.round(21*sc*scale)),
+        shopSize=promoSize,
+        specialSize=Math.max(9,Math.round(17*sc*scale)),
+        serviceSize=Math.max(8,Math.round(14*sc*scale)),
+        ctaSize=promoSize,
+        product=makeLines(d.product?"สินค้า: "+d.product:"",prodSize,850,w),
+        price=makeLines(d.price?"ราคา "+d.price:"",priceSize,950,w),
+        promo=makeLines(d.promo,promoSize,950,w-32),
+        shop=makeLines(d.shop,shopSize,950,w),
+        special=makeLines(d.special,specialSize,850,w-26),
+        svc=makeLines(service.join("  •  "),serviceSize,650,w),
+        cta=makeLines(d.cta,ctaSize,950,Math.max(120,Math.min(w,Math.round(420*sc)))-34),
+        promoPad=Math.max(7,Math.round(10*scale)),
+        specialPad=Math.max(6,Math.round(9*scale)),
+        ctaPad=Math.max(8,Math.round(12*scale)),
+        blocks=[];
+
+    if(product.lines.length)blocks.push({id:"product",h:product.lines.length*product.lh+2});
+    if(price.lines.length)blocks.push({id:"price",h:price.lines.length*price.lh+3});
+    if(promo.lines.length)blocks.push({id:"promo",h:promo.lines.length*promo.lh+promoPad*2});
+    if(shop.lines.length)blocks.push({id:"shop",h:shop.lines.length*shop.lh+2});
+    if(special.lines.length)blocks.push({id:"special",h:special.lines.length*special.lh+specialPad*2});
+    if(svc.lines.length)blocks.push({id:"service",h:svc.lines.length*svc.lh});
+    var ctaH=cta.lines.length?Math.max(Math.round(42*scale),cta.lines.length*cta.lh+ctaPad*2):0,
+        contentH=blocks.reduce(function(sum,b){return sum+b.h},0)+gap*Math.max(0,blocks.length-1),
+        total=contentH+(ctaH?(contentH?gap:0)+ctaH:0);
+    return {
+      gap:gap,product:product,price:price,promo:promo,shop:shop,special:special,service:svc,cta:cta,
+      promoPad:promoPad,specialPad:specialPad,ctaPad:ctaPad,ctaH:ctaH,blocks:blocks,
+      contentH:contentH,total:total,scale:scale
+    }
+  }
+  function drawLines(block,left,top,color,weight,align,width){
+    if(!block.lines.length)return;
+    ctx.fillStyle=color;ctx.font=weight+" "+block.size+"px "+fs.family;
+    ctx.textAlign=align||"left";
+    var tx=align==="center"?left+(width||w)/2:left;
+    block.lines.forEach(function(line,idx){
+      ctx.fillText(line,tx,top+block.size+idx*block.lh)
+    })
+  }
+
+  // Fit the complete sales block as one unit. We reduce typography and spacing
+  // together until every entered field fits; no field is silently dropped.
+  var scale=1,layout=model(scale),guard=0;
+  while(layout.total>h&&scale>.34&&guard<24){
+    scale=Math.max(.34,scale-.035);
+    layout=model(scale);guard++
+  }
+  if(layout.total>h){
+    scale=Math.max(.20,scale*(h/Math.max(1,layout.total))*.96);
+    layout=model(scale)
+  }
+
+  var yy=y,
+      bottom=y+h,
+      contentBottom=layout.ctaH?bottom-layout.ctaH-layout.gap:bottom;
 
   ctx.save();ctx.textAlign="left";ctx.textBaseline="alphabetic";
 
-  if(d.price&&yy+52<bottom){
-    var ps=Math.round(clampFill(38*sc,36,48));
-    ctx.fillStyle=baseText;ctx.font="950 "+ps+"px "+fs.family;
-    var pf=fitTextMaxLines(ctx,"ราคา "+d.price,w,ps,24,950,fs.family,1);
-    ctx.fillText(pf.lines[0]||("ราคา "+d.price),x,yy+ps);yy+=ps+18+gap
+  if(layout.product.lines.length){
+    drawLines(layout.product,x,yy,baseText,850,"left",w);
+    yy+=layout.product.lines.length*layout.product.lh+2+layout.gap
   }
 
-  if(d.promo&&yy+48<bottom){
-    var prs=Math.round(clampFill(22*sc,21,29)),ph=Math.round(clampFill(48*sc,48,64));
-    ctx.font="950 "+prs+"px "+fs.family;
-    var pfit=fitTextMaxLines(ctx,d.promo,w-36,prs,15,950,fs.family,1),
-        pg=ctx.createLinearGradient(x,yy,x+w,yy);
-    pg.addColorStop(0,promoColor);pg.addColorStop(1,mixHex(promoColor,"#FFFFFF",.18));
-    ctx.fillStyle=pg;roundedRect(ctx,x,yy,w,ph,22);ctx.fill();
-    ctx.fillStyle=autoContrastText(promoColor,"#15181C","#FFFFFF");
-    ctx.fillText(pfit.lines[0]||d.promo,x+18,yy+Math.round(ph*.67));yy+=ph+gap
+  if(layout.price.lines.length){
+    drawLines(layout.price,x,yy,baseText,950,"left",w);
+    yy+=layout.price.lines.length*layout.price.lh+3+layout.gap
   }
 
-  if(d.special&&yy+48<bottom){
-    var ss=Math.round(clampFill(21*sc,20,27)),sh=Math.round(clampFill(52*sc,52,68));
-    ctx.fillStyle=hexToRgba(promoColor,.10);roundedRect(ctx,x,yy,w,sh,18);ctx.fill();
-    ctx.fillStyle=promoColor;ctx.font="900 "+ss+"px "+fs.family;
-    var sp=fitTextMaxLines(ctx,d.special,w-28,ss,14,900,fs.family,1);
-    ctx.fillText(sp.lines[0]||d.special,x+14,yy+Math.round(sh*.67));yy+=sh+gap
+  if(layout.promo.lines.length){
+    var ph=layout.promo.lines.length*layout.promo.lh+layout.promoPad*2;
+    ctx.fillStyle=promoColor;roundedRect(ctx,x,yy,w,ph,Math.max(10,Math.round(20*layout.scale)));ctx.fill();
+    drawLines(layout.promo,x+16,yy+layout.promoPad-layout.promo.size*.10,autoContrastText(promoColor,"#15181C","#FFFFFF"),950,"left",w-32);
+    yy+=ph+layout.gap
   }
 
-  if(d.shop&&yy+34<bottom){
-    var shops=Math.round(clampFill(19*sc,18,24));
-    ctx.fillStyle=shopColor;ctx.font="800 "+shops+"px "+fs.family;
-    var sf=fitTextMaxLines(ctx,d.shop,w,shops,13,800,fs.family,1);
-    ctx.fillText(sf.lines[0]||d.shop,x,yy+shops+2);yy+=shops+13+gap
+  if(layout.shop.lines.length){
+    if(contrastRatio(shopColor,panelBg)<3){
+      ctx.save();ctx.globalAlpha=.45;ctx.strokeStyle=autoContrastText(panelBg,"#15181C","#FFFFFF");ctx.lineWidth=2.5;ctx.lineJoin="round";
+      ctx.font="950 "+layout.shop.size+"px "+fs.family;
+      layout.shop.lines.forEach(function(line,idx){ctx.strokeText(line,x,yy+layout.shop.size+idx*layout.shop.lh)});
+      ctx.restore()
+    }
+    drawLines(layout.shop,x,yy,shopColor,950,"left",w);
+    yy+=layout.shop.lines.length*layout.shop.lh+2+layout.gap
   }
 
-  var service=[];if(d.shipping)service.push(d.shipping);if(d.cod)service.push(d.cod);
-  if(service.length&&yy+24<bottom){
-    var svs=Math.round(clampFill(14*sc,13,17));
-    ctx.fillStyle=muted;ctx.font="650 "+svs+"px "+fs.family;
-    var sv=fitTextMaxLines(ctx,service.join("  •  "),w,svs,10,650,fs.family,1);
-    ctx.fillText(sv.lines[0]||"",x,yy+svs+1);yy+=svs+10+gap
+  if(layout.special.lines.length){
+    var sh=layout.special.lines.length*layout.special.lh+layout.specialPad*2;
+    ctx.fillStyle=hexToRgba(shopColor,.10);roundedRect(ctx,x,yy,w,sh,Math.max(9,Math.round(16*layout.scale)));ctx.fill();
+    drawLines(layout.special,x+13,yy+layout.specialPad-layout.special.size*.10,shopColor,850,"left",w-26);
+    yy+=sh+layout.gap
   }
 
-  var remaining=bottom-yy-(d.cta?62:0);
-  if(remaining>70){
-    drawDecorSpark(ctx,x+w-25,yy+22,10,promoColor);
-    if(remaining>105)drawDecorSpark(ctx,x+w-56,yy+48,6,promoColor)
+  if(layout.service.lines.length){
+    drawLines(layout.service,x,yy,muted,650,"left",w);
+    yy+=layout.service.lines.length*layout.service.lh+layout.gap
   }
 
-  if(d.cta&&bottom-yy>=52){
-    var bh=Math.round(clampFill(54*sc,54,68)),bw=Math.min(w,Math.round(clampFill(360*sc,340,w))),by=bottom-bh;
-    ctx.fillStyle=ctaColor;roundedRect(ctx,x,by,bw,bh,Math.round(bh/2));ctx.fill();
-    ctx.fillStyle=autoContrastText(ctaColor,"#15181C","#FFFFFF");
-    ctx.font="950 "+Math.round(clampFill(20*sc,19,25))+"px "+fs.family;ctx.textAlign="center";
-    ctx.fillText(d.cta,x+bw/2,by+Math.round(bh*.65))
+  if(layout.cta.lines.length){
+    var bw=Math.min(w,Math.round(clampFill(420*sc,Math.min(300,w),w))),
+        by=bottom-layout.ctaH;
+    ctx.fillStyle=ctaColor;roundedRect(ctx,x,by,bw,layout.ctaH,Math.round(layout.ctaH/2));ctx.fill();
+    drawLines(layout.cta,x,by+layout.ctaPad-layout.cta.size*.10,autoContrastText(ctaColor,"#15181C","#FFFFFF"),950,"center",bw)
   }
+
+  // Guard against tiny floating-point overrun without clipping any text.
+  if(yy>contentBottom+2){try{console.warn("Sales text auto-fit reached compact mode",Math.round(scale*100)+"%")}catch(_){}}
   ctx.restore()
 }
 
-async function renderPostCanvas(canvas,previewSeq){
+function renderPostCanvas(canvas,previewSeq){
   if(!currentImageUrl||!currentCaption)throw new Error("missing content");
   var ctx=canvas.getContext("2d"),W=1080,H=1350,
       baseT=templateById(selectedTemplate),
       fs=fontStyleById((baseT&&baseT.fontId)||selectedFont),
       urls=currentImageUrls.length?currentImageUrls:[currentImageUrl];
   urls=urls.slice(0,3);
-  var imgs=[];for(var ii=0;ii<urls.length;ii++)imgs.push(await loadCanvasImage(urls[ii]));
+  var jobs=[];for(var ii=0;ii<urls.length;ii++)jobs.push(loadCanvasImage(urls[ii]));
+  return Promise.all(jobs).then(function(imgs){
   if(previewSeq&&previewSeq!==__previewRenderSeq)return canvas;
   normalizeImageState();
-  var vp=chooseVisualProfile(imgs),t=resolveVisualTheme(baseT,vp);
+  var smartPlan=chooseSmartImagePlan(imgs),vp=chooseVisualProfile(imgs),t=resolveVisualTheme(baseT,vp);
   __activeVisualProfile=vp;
   canvas.width=W;canvas.height=H;ctx.clearRect(0,0,W,H);drawVisualAtmosphere(ctx,t,vp,W,H);
 
@@ -2112,11 +2486,13 @@ async function renderPostCanvas(canvas,previewSeq){
     }
 
   }else if(imgs.length===2){
-    lastLayoutDecision={type:"two-image",zone:"safe-panel",score:0,label:"2 รูป · Hero + Support · Dynamic Balance"};
-    var rowH=userMode==="advance"?485:430,
+    var o2=smartPlan.orientations;
+    lastLayoutDecision={type:smartPlan.type,zone:"safe-panel",score:0,label:"2 รูป · Smart "+smartPlan.code+" · "+imageOrientationThai(o2[0])+" + "+imageOrientationThai(o2[1])};
+    var rowH=userMode==="advance"?550:430,
         heroH=Math.max(610,contentBottom-m-g-rowH),
         rowY=m+heroH+g-8,
-        supportW=Math.round(inner*.44),panelX=m+supportW+g,panelW=inner-supportW-g;
+        supportRatio=o2[1]==="portrait"? .36:o2[1]==="square"? .41:.46,
+        supportW=Math.round(inner*supportRatio),panelX=m+supportW+g,panelW=inner-supportW-g;
     drawVisualImage(ctx,imgs[0],m,m,inner,heroH,24,"hero",t,vp);
     drawVisualImage(ctx,imgs[1],m,rowY,supportW,rowH,22,"support",t,vp);
     if(userMode==="advance"){
@@ -2130,38 +2506,45 @@ async function renderPostCanvas(canvas,previewSeq){
     }
 
   }else{
-    if(userMode==="advance"){
-      lastLayoutDecision={type:"three-image-sales",zone:"safe-panel",score:0,label:"3 รูป · Sales Poster · Hero + Support 2 + Hook + Sales Card"};
-      var salesHookH=150,
-          salesInfoH=286,
-          thumbH=218,
-          heroH3=Math.max(500,contentBottom-m-g-thumbH-g-salesHookH-g-salesInfoH),
-          thumbY=m+heroH3+g,thumbW=(inner-g)/2,
-          hookY=thumbY+thumbH+g,
-          infoY=hookY+salesHookH+g;
-      drawVisualImage(ctx,imgs[0],m,m,inner,heroH3,24,"hero",t,vp);
-      drawVisualImage(ctx,imgs[1],m,thumbY,thumbW,thumbH,22,"support",t,vp);
-      drawVisualImage(ctx,imgs[2],m+thumbW+g,thumbY,thumbW,thumbH,22,"support",t,vp);
+    var o3=smartPlan.orientations,infoH3=userMode==="advance"?Math.max(170,Math.min(390,advanceDesiredHeight())):0,
+        hook3=userMode==="advance"?150:190,
+        imageAreaH=contentBottom-m-hook3-g-(infoH3?infoH3+g:0);
+    lastLayoutDecision={type:smartPlan.type,zone:"safe-panel",score:0,label:"3 รูป · Smart "+smartPlan.code+" · "+smartPlan.type};
 
-      // Full-width Hook: no dead lower-left column.
-      drawHookPanel(ctx,t,fs,m,hookY,inner,salesHookH,false);
-
-      // Full-width Sales Card: lets price/promo/shop/contact grow instead of being squeezed.
-      drawCardShadow(ctx,m,infoY,inner,salesInfoH,24,true);
-      ctx.fillStyle=t.panel||"#fff";roundedRect(ctx,m,infoY,inner,salesInfoH,24);ctx.fill();
-      ctx.fillStyle=vp.accent;roundedRect(ctx,m,infoY,inner,7,4);ctx.fill();
-      drawAdvanceInfo(ctx,t,fs,m+30,infoY+20,inner-60,salesInfoH-34)
+    if(smartPlan.type==="three-left-main-stack"){
+      var mainW=Math.round(inner*.56),sideW=inner-mainW-g,sideH=(imageAreaH-g)/2;
+      drawVisualImage(ctx,imgs[0],m,m,mainW,imageAreaH,24,"hero",t,vp);
+      drawVisualImage(ctx,imgs[1],m+mainW+g,m,sideW,sideH,22,"support",t,vp);
+      drawVisualImage(ctx,imgs[2],m+mainW+g,m+sideH+g,sideW,sideH,22,"support",t,vp)
+    }else if(smartPlan.type==="three-portrait-focus"){
+      // Portrait trio: avoid three narrow vertical columns. Keep the first photo dominant,
+      // then stack the two supporting portraits on the right like a magazine layout.
+      var mainW3=Math.round(inner*.58),sideW3=inner-mainW3-g,sideH3=(imageAreaH-g)/2;
+      drawVisualImage(ctx,imgs[0],m,m,mainW3,imageAreaH,24,"hero",t,vp);
+      drawVisualImage(ctx,imgs[1],m+mainW3+g,m,sideW3,sideH3,22,"support",t,vp);
+      drawVisualImage(ctx,imgs[2],m+mainW3+g,m+sideH3+g,sideW3,sideH3,22,"support",t,vp)
     }else{
-      lastLayoutDecision={type:"three-image",zone:"safe-panel",score:0,label:"3 รูป · Hero + Support 1 + Support 2 · Full Hook"};
-      var bottomH=190,thumbH=254,
-          heroH3=Math.max(510,contentBottom-m-g-thumbH-g-bottomH),
-          thumbY=m+heroH3+g,thumbW=(inner-g)/2,
-          bottomY=thumbY+thumbH+g;
+      var supportPortraits=(o3[1]==="portrait"?1:0)+(o3[2]==="portrait"?1:0),
+          supportH=Math.round(imageAreaH*(supportPortraits===2? .52:supportPortraits===1? .42:.34)),
+          heroH3=Math.max(360,imageAreaH-g-supportH),
+          thumbY=m+heroH3+g,
+          leftShare=o3[1]==="portrait"&&o3[2]!=="portrait"? .38:o3[2]==="portrait"&&o3[1]!=="portrait"? .62:.5,
+          leftW=Math.round((inner-g)*leftShare),rightW=inner-g-leftW;
       drawVisualImage(ctx,imgs[0],m,m,inner,heroH3,24,"hero",t,vp);
-      drawVisualImage(ctx,imgs[1],m,thumbY,thumbW,thumbH,22,"support",t,vp);
-      drawVisualImage(ctx,imgs[2],m+thumbW+g,thumbY,thumbW,thumbH,22,"support",t,vp);
-      drawHookPanel(ctx,t,fs,m,bottomY,inner,bottomH,false)
+      drawVisualImage(ctx,imgs[1],m,thumbY,leftW,supportH,22,"support",t,vp);
+      drawVisualImage(ctx,imgs[2],m+leftW+g,thumbY,rightW,supportH,22,"support",t,vp)
     }
+
+    var hookY3=m+imageAreaH+g;
+    drawHookPanel(ctx,t,fs,m,hookY3,inner,hook3,false);
+    if(userMode==="advance"){
+      var infoY3=hookY3+hook3+g;
+      drawCardShadow(ctx,m,infoY3,inner,infoH3,24,true);
+      ctx.fillStyle=t.panel||"#fff";roundedRect(ctx,m,infoY3,inner,infoH3,24);ctx.fill();
+      ctx.fillStyle=vp.accent;roundedRect(ctx,m,infoY3,inner,7,4);ctx.fill();
+      drawAdvanceInfo(ctx,t,fs,m+30,infoY3+20,inner-60,infoH3-34)
+    }
+
   }
 
   if(owner.creditMark!==false){
@@ -2179,20 +2562,53 @@ async function renderPostCanvas(canvas,previewSeq){
   };
 
   var ld=$("#layoutDecision");
-  if(ld)ld.textContent="🛍️ Sales Layout: "+vp.name+" · Palette จากรูป · "+lastLayoutDecision.label
+  if(ld){ld.classList.add("smart-mixed");ld.textContent="🖼️ Smart Layout: "+vp.name+" · "+lastLayoutDecision.label+" · "+(imageFitMode==="auto"?"Auto · Fit Priority":imageFitMode==="fill"?"Fill":"Fit")}
     +(imgs.length===1&&lastLayoutDecision.score<999
       ?" · พื้นที่ว่าง "+Math.max(0,(100-lastLayoutDecision.score*3)).toFixed(0)+"%"
       :"");
   return canvas
+  })
 }
 
-async function imageBlob(){
+var __shareBlobCache=null;
+var __shareBlobRenderSeq=0;
+var __shareBlobName="";
+function canvasToBlobCompat(canvas){
+  return new Promise(function(res){
+    function fallback(){
+      try{
+        var dataUrl=canvas.toDataURL("image/png",.94),parts=dataUrl.split(","),mime=(parts[0].match(/:(.*?);/)||[])[1]||"image/png",bin=atob(parts[1]||""),len=bin.length,u8=new Uint8Array(len);
+        for(var i=0;i<len;i++)u8[i]=bin.charCodeAt(i);
+        res(new Blob([u8],{type:mime}))
+      }catch(e){res(null)}
+    }
+    if(canvas&&canvas.toBlob){canvas.toBlob(function(blob){if(blob){res(blob);return}fallback()},"image/png",.94)}else fallback()
+  })
+}
+function clearShareBlobCache(){
+  __shareBlobCache=null;__shareBlobRenderSeq=0;__shareBlobName="";
+  var b=$("#shareBtn");if(b)b.disabled=false
+}
+function warmShareBlobFromCanvas(canvas,renderSeq){
+  var b=$("#shareBtn");
+  if(b){b.disabled=true;b.textContent="⏳ กำลังเตรียมรูปแชร์"}
+  return canvasToBlobCompat(canvas).then(function(blob){
+    if(renderSeq!==__previewRenderSeq)return false;
+    if(!blob){clearShareBlobCache();refreshShareCapabilityUI();return false}
+    __shareBlobCache=blob;__shareBlobRenderSeq=renderSeq;__shareBlobName="MEasyMate-Caption-"+fileStamp()+".png";
+    if(b)b.disabled=false;
+    refreshShareCapabilityUI();
+    setShareAssist("พร้อมแชร์ ✅ · รูปถูกเตรียมไว้แล้ว แตะ Share เพื่อเปิดเมนู Android ได้ทันที", "success");
+    return true
+  }).catch(function(){clearShareBlobCache();refreshShareCapabilityUI();return false})
+}
+function imageBlob(){
   var canvas=$("#previewCanvas");
-  await renderPostCanvas(canvas);
-  return await new Promise(function(res){canvas.toBlob(res,"image/png",.94)})
+  syncOwnerFromQuick();
+  return renderPostCanvas(canvas).then(function(){return canvasToBlobCompat(canvas)})
 }
 function fileStamp(){
-  var d=new Date(),p=function(n){return String(n).padStart(2,"0")};
+  var d=new Date(),p=function(n){return pad2(n)};
   return d.getFullYear()+p(d.getMonth()+1)+p(d.getDate())+"-"+p(d.getHours())+p(d.getMinutes())+p(d.getSeconds())
 }
 function setShareAssist(message,state){
@@ -2226,116 +2642,110 @@ function copyCaptionSilent(text){
 }
 function saveBlobAsFile(blob,name){
   var u=URL.createObjectURL(blob),a=document.createElement("a");
-  a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();
+  a.href=u;a.download=name;document.body.appendChild(a);a.click();removeNodeCompat(a);
   setTimeout(function(){URL.revokeObjectURL(u)},1400)
 }
-async function shareImageAndCopyCaption(){
-  if(!currentCaption||!currentImageUrl){toast("สร้างโพสต์ก่อนค่ะ");return}
-  var copied=copyCaptionSilent(currentCaption);
-  setShareAssist(
-copied
-      ?"Caption เต็มคัดลอกไว้แล้ว ✅ กำลังเปิดเมนูแชร์รูป"
-      :"กำลังเปิดเมนูแชร์รูป · หากต้องการ Caption สามารถกดคัดลอกภายหลังได้",
-    ""
-  );
-  try{
-    var blob=await imageBlob(),
-        name="MEasyMate-Caption-"+fileStamp()+".png",
-        file=new File([blob],name,{type:"image/png"});
-    if(navigator.share&&navigator.canShare&&navigator.canShare({files:[file]})){
-      await navigator.share({files:[file],title:"MEasyMate Caption Studio"});
-      setShareAssist(
-        "ส่งรูปไปยัง Share Sheet แล้ว ✅"+
-        (copied?" · Caption เต็มคัดลอกไว้แล้ว ให้กด “วาง” ในช่องข้อความ":"")+
-        "<br>โหมดนี้ตั้งใจส่งเฉพาะรูป เพื่อหลีกเลี่ยงข้อจำกัดของบางแอปที่ไม่รับข้อความพร้อมไฟล์",
-        "success"
-      );
-      return
-    }
-    saveBlobAsFile(blob,name);
-    setShareAssist(
-      "Browser/WebView นี้ไม่รองรับ Share Sheet จึงบันทึกรูปให้แทน"+
-      (copied?" และคัดลอก Caption ไว้แล้ว":"")+
-      "<br>แนะนำเปิดด้วย Chrome หากต้องการแชร์โดยตรง",
-      "warn"
-    )
-  }catch(e){
-    if(e&&e.name==="AbortError"){
-      setShareAssist(copied?"ยกเลิกการแชร์แล้ว · Caption ที่คัดลอกไว้ยังพร้อมวาง":"ยกเลิกการแชร์แล้ว","warn");
-      return
-    }
-    setShareAssist("เปิด Share Sheet ไม่สำเร็จ · ลองเปิดด้วย Chrome","warn")
-  }
-}
-
-async function saveImageOnly(){
-  try{
-    var blob=await imageBlob(),name="MEasyMate-Caption-"+fileStamp()+".png";
-    saveBlobAsFile(blob,name);
-    toast("บันทึกรูปแล้ว")
-  }catch(e){
-    toast("บันทึกรูปไม่สำเร็จ ลองเปิดด้วย Chrome")
-  }
-}
-async function sharePost(){
-  if(!currentCaption||!currentImageUrl){toast("สร้างโพสต์ก่อนค่ะ");return}
-  var copied=copyCaptionSilent(currentCaption);
-  if(copied){
-    setShareAssist("📋 <b>Caption เต็มคัดลอกไว้แล้ว</b> · กำลังเปิดเมนูแชร์รูป + Caption","");
-    toast("Caption คัดลอกแล้ว · ถ้าปลายทางมีแต่รูป ให้กดวาง")
-  }else{
-    setShareAssist("กำลังเปิดเมนูแชร์รูป + Caption · อุปกรณ์นี้ไม่ยืนยันการคัดลอกอัตโนมัติ จึงยังมีปุ่ม 📋 คัดลอก Caption ในตัวเลือกแชร์","warn");
-    toast("กำลังแชร์ · ปลายทางอาจรับเฉพาะรูป")
-  }
-  try{
-    var blob=await imageBlob(),
-        name="MEasyMate-Caption-"+fileStamp()+".png",
-        file=new File([blob],name,{type:"image/png"}),
-        shareData={files:[file],text:currentCaption,title:"MEasyMate Caption Studio"};
-
-    if(navigator.share&&navigator.canShare&&navigator.canShare({files:[file]})){
-      try{
-        await navigator.share(shareData);
-        setShareAssist(
-          "แชร์รูปแล้ว ✅"+
-          (copied?" · <b>Caption เต็มคัดลอกสำรองไว้แล้ว</b>":"")+
-          "<br>ถ้าปลายทางมีเฉพาะรูป แปลว่าแอปนั้น <b>ไม่รองรับ Caption ที่มากับ Web Share</b> ไม่ใช่ MEasyMate ทำข้อความหาย"+
-          (copied?" · กด “วาง” ในช่องข้อความได้ทันที":" · กลับมากด 📋 คัดลอก Caption ได้"),
-          "success"
-        );
-        toast(copied?"แชร์แล้ว · Caption สำรองพร้อมวาง":"แชร์แล้ว");
-        return
-      }catch(e){
-        if(e&&e.name==="AbortError"){
-          setShareAssist(
-            copied
-              ?"ยกเลิกการแชร์แล้ว · Caption ที่เตรียมไว้ยังคัดลอกอยู่ สามารถกดแชร์ใหม่ได้"
-              :"ยกเลิกการแชร์แล้ว · สามารถกดแชร์ใหม่ได้",
-            "warn"
-          );
-          return
-        }
-        throw e
+function nativeSharePreparedImage(copied){
+  var blob=(__shareBlobCache&&__shareBlobRenderSeq===__previewRenderSeq)?__shareBlobCache:null;
+  if(!blob)return null;
+  var name=__shareBlobName||("MEasyMate-Caption-"+fileStamp()+".png");
+  if(typeof File!=="undefined"&&navigator.share){
+    try{
+      var file=new File([blob],name,{type:"image/png",lastModified:Date.now()});
+      var shareData={files:[file]};
+      var canFile=!navigator.canShare||navigator.canShare(shareData);
+      if(canFile){
+        /* RC14: send FILE ONLY for the most compatible Android share payload.
+           Caption copy is performed separately before this synchronous Share API call. */
+        var p=navigator.share(shareData);
+        Promise.resolve(p).then(function(){
+          setShareAssist("ส่งรูปเข้าเมนูแชร์แล้ว ✅"+(copied?" · <b>Caption คัดลอกไว้แล้ว</b>":"")+"<br>ใน LINE ให้เลือกแชท แล้ววาง Caption ในช่องข้อความ","success");
+          toast(copied?"แชร์รูปแล้ว · Caption พร้อมวาง":"แชร์รูปแล้ว")
+        }).catch(function(e){
+          if(e&&e.name==="AbortError"){
+            setShareAssist(copied?"ยกเลิกการแชร์แล้ว · Caption ที่คัดลอกไว้ยังพร้อมวาง":"ยกเลิกการแชร์แล้ว","warn");
+            return
+          }
+          setShareAssist("Browser/LINE รับไฟล์จาก Web Share ไม่สำเร็จ · ยังไม่บันทึกรูปอัตโนมัติเพื่อไม่เปลี่ยน UX โดยไม่ขอผู้ใช้","warn");
+          toast("แชร์ตรงไม่สำเร็จ")
+        });
+        return true
       }
-    }
-
-    saveBlobAsFile(blob,name);
-    setShareAssist(
-      "Browser/WebView นี้ไม่รองรับการส่งไฟล์ผ่าน Share Sheet จึง <b>บันทึกรูปให้แทน</b>"+
-      (copied?" และคัดลอก Caption ไว้แล้ว":"")+
-      "<br>นี่เป็นข้อจำกัดของ Browser/WebView ที่เปิดไฟล์ ไม่ใช่ระบบ Caption · แนะนำเปิดด้วย Chrome เพื่อใช้ปุ่มแชร์โดยตรง",
-      "warn"
-    );
-    toast(copied?"บันทึกรูปแล้ว · Caption พร้อมวาง":"บันทึกรูปแล้ว")
-  }catch(e){
-    setShareAssist(
-      "ยังเปิด Share Sheet ไม่สำเร็จ · MEasyMate ยังเก็บ Caption ไว้ในหน้านี้"+
-      (copied?" และคัดลอกสำรองไว้แล้ว":"")+
-      "<br>ลองเปิดไฟล์ด้วย Chrome แล้วกด “🚀 แชร์โพสต์” อีกครั้ง",
-      "warn"
-    );
-    toast("เปิด Share Sheet ไม่สำเร็จ")
+    }catch(e){}
   }
+  setShareAssist("Browser นี้ไม่รองรับ File Share โดยตรง · ใช้ปุ่มบันทึกรูปเป็นทางสำรอง","warn");
+  toast("Browser ไม่รองรับแชร์ไฟล์ตรง");
+  return false
+}
+
+function shareImageWithCaption(){
+  syncOwnerFromQuick();
+  if(!currentCaption||!currentImageUrl){toast("สร้างโพสต์ก่อนค่ะ");return false}
+  var blob=(__shareBlobCache&&__shareBlobRenderSeq===__previewRenderSeq)?__shareBlobCache:null;
+  if(!blob){
+    setShareAssist("รูปยังเตรียมไม่เสร็จ · รอสักครู่แล้วลองใหม่","warn");
+    toast("กำลังเตรียมรูปแชร์");
+    return false
+  }
+  if(typeof File==="undefined"||!navigator.share){
+    setShareAssist("Chrome/เครื่องนี้ไม่รองรับการแชร์รูป + Caption พร้อมกัน · ใช้ “แชร์รูป” แทน","warn");
+    return false
+  }
+  try{
+    var name=__shareBlobName||("MEasyMate-Caption-"+fileStamp()+".png");
+    var file=new File([blob],name,{type:"image/png",lastModified:Date.now()});
+    var shareData={files:[file],text:String(currentCaption||"")};
+    if(navigator.canShare&&!navigator.canShare({files:[file]})){
+      setShareAssist("เครื่องนี้ไม่รองรับ File Share · ใช้บันทึกรูปเป็นทางสำรอง","warn");
+      return false
+    }
+    navigator.share(shareData).then(function(){
+      setShareAssist("ส่งรูป + Caption เข้าเมนูแชร์แล้ว ✅ หากแอปปลายทางไม่รับข้อความ ให้ใช้ “แชร์รูป” ซึ่งจะคัดลอก Caption ไว้ให้","success");
+      toast("แชร์รูป + Caption แล้ว")
+    }).catch(function(e){
+      if(e&&e.name==="AbortError"){
+        setShareAssist("ยกเลิกการแชร์แล้ว","warn");
+        return
+      }
+      setShareAssist("แอปปลายทางไม่รับรูป + Caption พร้อมกัน · ใช้ “แชร์รูป” แทน","warn");
+      toast("แชร์พร้อม Caption ไม่สำเร็จ")
+    });
+    return true
+  }catch(e){
+    setShareAssist("แชร์รูป + Caption ไม่สำเร็จ · ใช้ “แชร์รูป” แทน","warn");
+    return false
+  }
+}
+
+function shareImageAndCopyCaption(){
+  syncOwnerFromQuick();
+  if(!currentCaption||!currentImageUrl){toast("สร้างโพสต์ก่อนค่ะ");return false}
+  var copied=copyCaptionSilent(currentCaption);
+  var direct=nativeSharePreparedImage(copied);
+  if(direct!==null)return direct;
+  setShareAssist("รูปยังเตรียมไม่เสร็จ · กำลังบันทึกรูปและคัดลอก Caption ให้แทน","warn");
+  imageBlob().then(function(blob){if(!blob)throw new Error("blob-failed");saveBlobAsFile(blob,"MEasyMate-Caption-"+fileStamp()+".png");toast(copied?"บันทึกรูปแล้ว · Caption พร้อมวาง":"บันทึกรูปแล้ว")}).catch(function(){toast("บันทึกรูปไม่สำเร็จ")});
+  return false
+}
+
+function saveImageOnly(){
+  syncOwnerFromQuick();
+  var blob=(__shareBlobCache&&__shareBlobRenderSeq===__previewRenderSeq)?__shareBlobCache:null;
+  if(blob){saveBlobAsFile(blob,__shareBlobName||("MEasyMate-Caption-"+fileStamp()+".png"));toast("บันทึกรูปแล้ว");return true}
+  imageBlob().then(function(b){if(!b)throw new Error("blob-failed");saveBlobAsFile(b,"MEasyMate-Caption-"+fileStamp()+".png");toast("บันทึกรูปแล้ว")}).catch(function(){toast("บันทึกรูปไม่สำเร็จ")});
+  return false
+}
+function sharePost(){
+  syncOwnerFromQuick();
+  if(!currentCaption||!currentImageUrl){toast("สร้างโพสต์ก่อนค่ะ");return false}
+  var copied=copyCaptionSilent(currentCaption);
+  if(copied)setShareAssist("📋 Caption คัดลอกแล้ว · กำลังเปิดเมนูแชร์ <b>เฉพาะรูป</b>","");
+  else setShareAssist("กำลังเปิดเมนูแชร์เฉพาะรูป · ถ้าคัดลอกอัตโนมัติไม่ได้ ใช้ปุ่มคัดลอก Caption ด้านล่าง","warn");
+  var direct=nativeSharePreparedImage(copied);
+  if(direct!==null)return direct;
+  setShareAssist("รูปยังเตรียมไม่เสร็จ · รอจนปุ่มพร้อมแล้วแตะอีกครั้ง","warn");
+  toast("กำลังเตรียมรูปแชร์");
+  return false
 }
 function updateProCaption(){
   var cat=currentCategoryId(),style=$("#proStyle").value||selectedStyle;
@@ -2587,7 +2997,7 @@ function validateTemplate(t){
 }
 function importPack(file){
   if(isDemo()){toast("Demo ยัง Import Content Pack ไม่ได้");return}
-  file.text().then(function(raw){
+  fileTextCompat(file).then(function(raw){
     var p=JSON.parse(raw);
     if(p.product!=="MEasyMate Caption Studio"||p.packFormatVersion!==1||!p.packId||!p.packType)throw new Error("invalid pack");
     if(["caption_pack","template_pack","combo_pack"].indexOf(p.packType)<0)throw new Error("unsupported pack");
@@ -2739,10 +3149,10 @@ function backup(){
     pref:{style:selectedStyle,captionLength:selectedCaptionLength,template:selectedTemplate,font:selectedFont,textColor:selectedTextColor,textWeight:selectedTextWeight,textShadow:selectedTextShadow,previewPosition:previewPosition,previewSize:previewSize,userMode:userMode}
   };
   var blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"}),u=URL.createObjectURL(blob),a=document.createElement("a");
-  a.href=u;a.download="MEasyMate_Caption_Studio_Backup_"+new Date().toISOString().slice(0,10)+".measymate.json";document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(u)},1200);toast("สร้าง Backup แล้ว")
+  a.href=u;a.download="MEasyMate_Caption_Studio_Backup_"+new Date().toISOString().slice(0,10)+".measymate.json";document.body.appendChild(a);a.click();removeNodeCompat(a);setTimeout(function(){URL.revokeObjectURL(u)},1200);toast("สร้าง Backup แล้ว")
 }
 function restore(file){
-  file.text().then(function(raw){
+  fileTextCompat(file).then(function(raw){
     var p=JSON.parse(raw);
     if(p.product!=="MEasyMate Caption Studio"||[2,3,4].indexOf(p.backupFormatVersion)<0||!Array.isArray(p.customCaptions)||!Array.isArray(p.installedPacks))throw new Error("invalid");
     var newCustom=p.customCaptions.map(normalizeCustomCaption).filter(Boolean),
@@ -2772,42 +3182,120 @@ function jumpToActivation(){
 function showUpdateStatus(){
   var e=effectiveEntitlement();
   var s="App: "+APP_VERSION+" · สิทธิ์: "+e.packageName+" · Content Packs: "+installedPacks.length;
-  if($("#onlineUpdateStatus"))$("#onlineUpdateStatus").textContent=s+" · Online Update Server ยังไม่เปิด";
+  if($("#onlineUpdateStatus"))$("#onlineUpdateStatus").textContent=s+" · Offline Activation · No API";
   toast("ตรวจสถานะในเครื่องแล้ว")
 }
 
 var LINE_OFFICIAL_URL="https://lin.ee/YlHM4br";
-function showPurchaseModal(){
+var PURCHASE_PACKAGES={
+  "2":{label:"2 Pack",grantLabel:"2 PACK",price:59,count:2},
+  "3":{label:"3 Pack",grantLabel:"3 PACK",price:69,count:3},
+  "full":{label:"Full",grantLabel:"FULL",price:99,count:5}
+};
+var purchaseSelection={packageKey:"",categories:[]};
+function categoryPurchaseName(id){
+  var c=categoryMeta(id);
+  return c?(c.name+" ("+c.id+")"):id
+}
+function purchaseMessage(){
+  var p=PURCHASE_PACKAGES[purchaseSelection.packageKey];
+  if(!p)return "เลือก Package ก่อน";
+  var cats=purchaseSelection.categories.slice();
+  if(p.count===5)cats=CATEGORY_META.map(function(c){return c.id});
+  var ready=cats.length===p.count;
+  var rows=[
+    "ต้องการซื้อ MEasyMate Caption Studio",
+    "Package: "+p.label+" — "+p.price+" บาท",
+    "หมวด: "+(cats.length?cats.map(categoryPurchaseName).join(", "):"ยังไม่ได้เลือก"),
+    "Installation ID: "+getInstallationId(),
+    "",
+    ready?"กรุณาส่ง Activation Code กลับมาครับ":"กรุณาเลือกหมวดให้ครบก่อนส่ง"
+  ];
+  return rows.join("\n")
+}
+function purchaseReady(){
+  var p=PURCHASE_PACKAGES[purchaseSelection.packageKey];
+  if(!p)return false;
+  return p.count===5||purchaseSelection.categories.length===p.count
+}
+function renderPurchaseFlow(){
+  var p=PURCHASE_PACKAGES[purchaseSelection.packageKey];
+  $$("[data-buy-package]").forEach(function(b){b.classList.toggle("active",b.getAttribute("data-buy-package")===purchaseSelection.packageKey)});
+  $$("[data-purchase-package]").forEach(function(b){b.classList.toggle("selected",b.getAttribute("data-purchase-package")===purchaseSelection.packageKey)});
+  var catSection=$("#purchaseCategorySection"),catTitle=$("#purchaseCategoryTitle");
+  if(catSection)catSection.classList.toggle("hidden",!p||p.count===5);
+  if(catTitle&&p&&p.count<5)catTitle.textContent="เลือก "+p.count+" หมวด · เลือกแล้ว "+purchaseSelection.categories.length+"/"+p.count;
+  $$("#purchaseCategoryChoices input").forEach(function(ch){
+    ch.checked=purchaseSelection.categories.indexOf(ch.value)>=0;
+    var label=ch.closest("label");
+    var blocked=!!p&&p.count<5&&!ch.checked&&purchaseSelection.categories.length>=p.count;
+    ch.disabled=blocked;
+    if(label)label.classList.toggle("disabled",blocked)
+  });
+  if($("#purchaseMessagePreview"))$("#purchaseMessagePreview").textContent=purchaseMessage();
+  if($("#copyPurchaseMessageBtn"))$("#copyPurchaseMessageBtn").disabled=!purchaseReady();
+  if($("#openLineBtn"))$("#openLineBtn").disabled=!purchaseReady()
+}
+function selectPurchasePackage(key){
+  var p=PURCHASE_PACKAGES[key];
+  if(!p)return;
+  purchaseSelection.packageKey=key;
+  purchaseSelection.categories=p.count===5?CATEGORY_META.map(function(c){return c.id}):[];
+  renderPurchaseFlow()
+}
+function togglePurchaseCategory(id,checked){
+  var p=PURCHASE_PACKAGES[purchaseSelection.packageKey];
+  if(!p||p.count===5)return;
+  var a=purchaseSelection.categories.slice(),i=a.indexOf(id);
+  if(checked&&i<0){
+    if(a.length>=p.count){toast("เลือกได้ "+p.count+" หมวดค่ะ");renderPurchaseFlow();return}
+    a.push(id)
+  }
+  if(!checked&&i>=0)a.splice(i,1);
+  purchaseSelection.categories=a;
+  renderPurchaseFlow()
+}
+function showPurchaseModal(packageKey){
+  if(packageKey&&PURCHASE_PACKAGES[packageKey])selectPurchasePackage(packageKey);
+  else renderPurchaseFlow();
   openLayer($("#purchaseModal"))
 }
-function hidePurchaseModal(){
-  closeLayer($("#purchaseModal"))
-}
-function copyLineUrl(){
-  copyText(LINE_OFFICIAL_URL);
+function hidePurchaseModal(){closeLayer($("#purchaseModal"))}
+function copyPurchaseMessage(){
+  if(!purchaseReady()){toast("เลือก Package และหมวดให้ครบก่อนค่ะ");return Promise.resolve(false)}
+  return copyText(purchaseMessage()).then(function(){return true})
 }
 function openLineOfficial(){
-  try{
-    window.location.href=LINE_OFFICIAL_URL;
-    setTimeout(function(){
-      if(document.visibilityState==="visible"){
-        copyLineUrl();
-        toast("ถ้า LINE ไม่เปิด ลิงก์ถูกคัดลอกไว้แล้ว")
-      }
-    },900)
-  }catch(e){
-    copyLineUrl();
-    toast("เปิด LINE ไม่ได้ — คัดลอกลิงก์ให้แล้ว")
+  return copyPurchaseMessage().then(function(ok){
+    if(!ok)return false;
+    try{window.location.href=LINE_OFFICIAL_URL;setTimeout(function(){if(document.visibilityState==="visible")toast("ข้อความถูกคัดลอกแล้ว · เปิด LINE แล้ว Paste ได้เลย")},900)}catch(e){toast("คัดลอกข้อความแล้ว · กรุณาเปิด LINE แล้ว Paste")}
+    return true
+  })
+}
+function refreshShareCapabilityUI(){
+  var btn=$("#shareBtn"),sub=document.querySelector(".smart-share-sub");
+  if(!btn)return;
+  var ready=!!(__shareBlobCache&&__shareBlobRenderSeq===__previewRenderSeq);
+  if(ready){
+    btn.textContent="🚀 แชร์โพสต์";btn.disabled=false;
+    if(sub)sub.textContent="พร้อมแล้ว · ได้รูปลงเครื่องและ Caption พร้อมวางใน LINE / Facebook";
+  }else{
+    btn.textContent="⏳ กำลังเตรียมรูป";btn.disabled=true;
+    if(sub)sub.textContent="กำลังเตรียมภาพสำหรับบันทึก";
   }
 }
+
 function bind(){
   $("#beginnerModeBtn").onclick=function(){setUserMode("beginner")};
   $("#standardModeBtn").onclick=function(){setUserMode("standard")};
   $("#advanceModeBtn").onclick=function(){setUserMode("advance")};
-  if($("#buyUpgradeBtn"))$("#buyUpgradeBtn").onclick=showPurchaseModal;
-  if($("#buyPackBtn"))$("#buyPackBtn").onclick=showPurchaseModal;
+  if($("#buyUpgradeBtn"))$("#buyUpgradeBtn").onclick=function(){showPurchaseModal()};
+  if($("#buyPackBtn"))$("#buyPackBtn").onclick=function(){showPurchaseModal()};
+  $$("[data-purchase-package]").forEach(function(b){b.onclick=function(){showPurchaseModal(b.getAttribute("data-purchase-package"))}});
+  $$("[data-buy-package]").forEach(function(b){b.onclick=function(){selectPurchasePackage(b.getAttribute("data-buy-package"))}});
+  $$("#purchaseCategoryChoices input").forEach(function(ch){ch.onchange=function(){togglePurchaseCategory(ch.value,ch.checked)}});
+  if($("#copyPurchaseMessageBtn"))$("#copyPurchaseMessageBtn").onclick=copyPurchaseMessage;
   if($("#openLineBtn"))$("#openLineBtn").onclick=openLineOfficial;
-  if($("#copyLineBtn"))$("#copyLineBtn").onclick=copyLineUrl;
   if($("#closePurchaseModalBtn"))$("#closePurchaseModalBtn").onclick=hidePurchaseModal;
   if($("#purchaseModal"))$("#purchaseModal").onclick=function(e){if(e.target.id==="purchaseModal")hidePurchaseModal()};
   if($("#haveCodeBtn"))$("#haveCodeBtn").onclick=jumpToActivation;
@@ -2821,6 +3309,14 @@ function bind(){
   $("#addImageInput").onchange=function(e){appendImages(e.target.files);e.target.value=""};
   $("#productType").onchange=function(){refreshCategoryContext();if(currentImageUrl&&currentCaption)$("#quickResult").classList.remove("show")};
   ["quickShopName","quickShopContact","quickPrice","quickPromo","quickExtra","quickCTA","quickPromoColor","quickShopColor","quickCTAColor"].forEach(function(id){var el=$("#"+id);if(el)el.oninput=function(){syncOwnerFromQuick();if(currentCaption){currentCaption=appendVerifiedInfo(baseCaptionText(currentCaption));renderResult()}}});
+  if($("#productName"))$("#productName").oninput=function(){
+    if(currentCaption){
+      var base=baseCaptionText(currentCaption);
+      currentCaption=appendVerifiedInfo(base);
+      renderResult()
+    }
+  };
+  [["ownerPromoColor","promoColor"],["ownerShopColor","shopColor"],["ownerCTAColor","ctaColor"]].forEach(function(pair){var el=$("#"+pair[0]);if(el)el.oninput=function(){owner[pair[1]]=el.value;saveJSON(KEY_OWNER,owner);syncAdvanceQuickFields();if(currentCaption)renderResult()}});
   $("#generateBtn").onclick=function(){generateCaption()};
   $("#regenBtn").onclick=function(){generateCaption()};
   $("#copyBtn").onclick=function(){copyText(currentCaption)};
@@ -2835,8 +3331,7 @@ function bind(){
     this.textContent=on?"✓ ซ่อนการปรับ":"⚙️ ปรับเพิ่ม"
   };
   $("#shareBtn").onclick=sharePost;
-  $("#shareWithCaptionBtn").onclick=sharePost;
-  $("#shareImageCopyBtn").onclick=shareImageAndCopyCaption;
+  if($("#shareWithCaptionBtn"))$("#shareWithCaptionBtn").onclick=shareImageWithCaption;
   $("#saveImageBtn").onclick=saveImageOnly;
   $("#shareOptionsBtn").onclick=function(){
     var panel=$("#shareOptionsPanel");
@@ -2864,6 +3359,8 @@ function bind(){
   $("#creditToggle").onclick=function(){toggleOwner("creditMark",this);if(currentImageUrl&&currentCaption)applyPreviewStyle()};
   $$("#positionSeg button").forEach(function(b){b.onclick=function(){previewPosition=this.getAttribute("data-value");savePref();syncPreviewControls();applyPreviewStyle();syncMyTemplateEditor()}});
   $$("#sizeSeg button").forEach(function(b){b.onclick=function(){previewSize=this.getAttribute("data-value");savePref();syncPreviewControls();applyPreviewStyle();syncMyTemplateEditor()}});
+  $$("#imageFitSeg button").forEach(function(b){b.onclick=function(){imageFitMode=this.getAttribute("data-value");savePref();syncPreviewControls();applyPreviewStyle()}});
+  $$("#cropSeg button").forEach(function(b){b.onclick=function(){imageCropPosition=this.getAttribute("data-value");savePref();syncPreviewControls();applyPreviewStyle()}});
   if($("#captionToggle"))$("#captionToggle").onclick=function(){var box=$("#captionBox"),on=box.classList.toggle("expanded");this.textContent=on?"ย่อ Caption":"ดู Caption เต็ม"};
   $("#saveOwnerBtn").onclick=saveOwner;
   $("#saveMyTemplateBtn").onclick=saveMyTemplate;
@@ -2878,6 +3375,12 @@ function bind(){
   $("#restoreInput").onchange=function(e){var f=e.target.files&&e.target.files[0];if(f)restore(f);e.target.value=""};
   $("#activateCodeBtn").onclick=function(){activateCode($("#activationCode").value)};
   $("#activationCode").onkeydown=function(e){if(e.key==="Enter")activateCode(this.value)};
+  if($("#copyInstallationIdBtn"))$("#copyInstallationIdBtn").onclick=function(){copyText(getInstallationId())};
+  if($("#copyMigrationRequestBtn"))$("#copyMigrationRequestBtn").onclick=function(){var t=migrationRequestText();if(t)copyText(t);else toast("ไม่พบสิทธิ์รุ่นเก่า")};
+  if($("#jumpActivationFromLegacyBtn"))$("#jumpActivationFromLegacyBtn").onclick=jumpToActivation;
+  if($("#exportLicenseBtn"))$("#exportLicenseBtn").onclick=exportLicensePassport;
+  if($("#importLicenseBtn"))$("#importLicenseBtn").onclick=function(){$("#licenseInput").click()};
+  if($("#licenseInput"))$("#licenseInput").onchange=function(e){var f=e.target.files&&e.target.files[0];if(f)importLicensePassport(f);e.target.value=""};
 
   window.addEventListener("beforeunload",function(){currentImageUrls.forEach(function(u){try{URL.revokeObjectURL(u)}catch(e){}})})
 }
@@ -2915,9 +3418,9 @@ function showRuntimeError(err){
 window.addEventListener("error",function(e){showRuntimeError(e.error||e.message)});
 window.addEventListener("unhandledrejection",function(e){showRuntimeError(e.reason||"Promise error")});
 
-async function init(){
+function init(){
   loadState();
-  await loadEntitlementWallet();
+  return loadEntitlementWallet().then(function(){
   $("#appVersion").textContent=APP_VERSION;
   $("#schemaVersion").textContent=DATA_SCHEMA_VERSION;
   syncPreviewControls();buildCaptionLengthChips("#captionLengthChips");buildCaptionLengthChips("#proLengthChips");syncOwner();syncModeUI();syncPackStatus();syncUpdateAccessUI();
@@ -2928,13 +3431,25 @@ async function init(){
   renderLibrary();
   renderPackManager();
   syncMyTemplateEditor();
-  bind();
+  bind();refreshShareCapabilityUI();
   $("#proStyle").value=selectedStyle;
-  updateProCaption()
+  updateProCaption();
+  window.__CS_MAIN_READY__=true;
+  })
 }
 bindCoreSafe();
 installAllIsolatedScroll();
 init().catch(function(e){showRuntimeError(e)});
+</script>
+
+<script>
+(function(){
+  if(!("serviceWorker" in navigator))return;
+  if(!(location.protocol==="https:"||location.hostname==="127.0.0.1"||location.hostname==="localhost"))return;
+  window.addEventListener("load",function(){
+    navigator.serviceWorker.register("./sw.js",{scope:"./"}).catch(function(e){try{console.warn("Caption Studio offline cache unavailable",e)}catch(_){}});
+  });
+})();
 </script>
 </body>
 </html>

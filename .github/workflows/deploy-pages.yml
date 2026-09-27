@@ -32,8 +32,10 @@ jobs:
           mkdir -p _site/projects/money
           mkdir -p _site/contact-shift
           mkdir -p _site/report-pro
+          mkdir -p _site/caption-studio
           mkdir -p _site/projects/contact-shift
           mkdir -p _site/projects/report-pro
+          mkdir -p _site/projects/caption-studio
           mkdir -p _site/shared/analytics
           mkdir -p _site/shared/notify
           mkdir -p _site/shared/information
@@ -48,6 +50,8 @@ jobs:
           cp projects/contact-shift/index.html _site/contact-shift/index.html
           cp projects/report-pro/index.html _site/report-pro/index.html
           cp projects/report-pro/project-notice.js _site/report-pro/project-notice.js
+          cp projects/caption-studio/index.html _site/caption-studio/index.html
+          cp projects/caption-studio/sw.js _site/caption-studio/sw.js
 
           # Money project integration assets
           cp projects/money/analytics-config.js _site/money/analytics-config.js
@@ -68,6 +72,14 @@ jobs:
           <meta charset="utf-8">
           <meta http-equiv="refresh" content="0; url=/contact-shift/">
           <script>location.replace('/contact-shift/')</script>
+          HTML
+
+          # Old Caption Studio project URL -> clean URL
+          cat > _site/projects/caption-studio/index.html <<'HTML'
+          <!doctype html>
+          <meta charset="utf-8">
+          <meta http-equiv="refresh" content="0; url=/caption-studio/">
+          <script>location.replace('/caption-studio/')</script>
           HTML
 
           # PWA / shortcut assets

@@ -2,27 +2,50 @@
 
 Project ID: `caption-studio`
 Source of Truth: `pormatee/MEasyMate-Products/projects/caption-studio/`
-Prepared version: `V2.11.1 PRE_PUSH_RC`
+Sale candidate: `V2.13.32 SALE RC18`
 
-## Source status
+## Official support
 
-- 1–3 images in Beginner / Standard / Advance
-- 3-image Advance uses Sales Layout
-- 100 caption concepts × 3 lengths = 300 authored versions
-- Caption Library Manager: Favorite / Hide / Restore / My Caption
-- Caption Pack Manager: Import / Update / On-Off / Remove
+- Android + Google Chrome
+- Customer delivery target: `https://app.measymate.com/caption-studio/`
+- Local HTML / `content://` is not the customer release path
+- Local-first core with HTTPS service-worker offline cache
+
+## Product
+
+- 1–3 images
+- Beginner / Standard / Advance
+- Caption Library / Favorite / Hide / Restore / My Caption
+- Caption Pack Manager
 - Backup / Restore
-- Local-first / V1 without AI
-- Prices: 2 Pack 59 THB / 3 Pack 69 THB / Full 99 THB
+- Signed Activation + License Passport
+- 2 Pack = 59 THB
+- 3 Pack = 69 THB
+- Full = 99 THB
+- V1 has no AI
 
-## Git / release gates
+## Activation security
 
-`PRE_GIT_AUDIT`: pending final local working-tree/staged-diff verification.
+Customer source contains public verification keys only. Seller private signing key is external and must never be committed or shipped with the customer app.
 
-`PRE_RELEASE_AUDIT`: NOT PASS yet. Paid activation remains blocked until a real HTTPS `ACTIVATION_ENDPOINT` and entitlement verification public key are configured and tested.
+Supported verification key IDs:
+- `cs-prod-2026-00`
+- `cs-prod-2026-01`
+- `cs-prod-2026-02`
+- `cs-prod-2026-03`
 
-This source push does not authorize customer release.
+## Release gate
 
-## Deployment
+`PRE_GIT_AUDIT`: PASS only after the release script completes its checks.
 
-The current GitHub Pages workflow does not publish Caption Studio. Adding this source folder alone is a source-of-truth push, not a Caption Studio public deployment.
+`PRE_RELEASE_AUDIT`: PENDING LIVE FINAL TEST.
+
+Do not label this build `SALE CURRENT` until the live HTTPS URL passes:
+1. load/version check
+2. FULL signed activation on the live origin
+3. restart persistence
+4. share to LINE on Chrome
+5. License Passport export/import
+6. offline reload after one online load
+
+After those pass, promote `V2.13.32` to `SALE CURRENT`.
