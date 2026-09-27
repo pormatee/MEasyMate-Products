@@ -1,0 +1,13 @@
+{
+  "name": "measymate-sale-center",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Private MEasyMate seller center and Caption Studio activation signer",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node --check public/app.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>MEasyMate Sale Center</title>
+<link rel="stylesheet" href="/app.css">
+</head>
+<body>
+<header><div class="brand"><div class="logo">M</div><div><h1>MEasyMate Sale Center</h1><div class="sub">Private Seller • Caption Studio Activation</div></div><button id="logoutBtn" class="ghost smallbtn hidden">ออกจากระบบ</button></div></header>
+
+<main>
+<section id="loginView" class="loginbox">
+  <div class="card">
+    <h2>เข้าสู่ Sale Center</h2>
+    <p class="muted">สำหรับเจ้าของ MEasyMate เท่านั้น</p>
+    <label>รหัสผ่าน</label>
+    <input id="password" type="password" autocomplete="current-password" placeholder="Admin password">
+    <button id="loginBtn" class="primary full">เข้าสู่ระบบ</button>
+    <div id="loginMsg" class="msg"></div>
+  </div>
+</section>
+
+<section id="appView" class="hidden">
+  <div class="metrics">
+    <div class="card"><span>รายการขาย</span><b id="saleCount">0</b></div>
+    <div class="card"><span>รายได้บันทึก</span><b id="revenue">฿0</b></div>
+    <div class="card"><span>Signer</span><b id="signerState">—</b></div>
+  </div>
+
+  <div class="card">
+    <div class="titleRow"><div><h2>ออก Activation • Caption Studio</h2><div class="muted">Code ที่สร้างใช้กับ RC25 ปัจจุบันได้</div></div><span id="keyBadge" class="badge">key —</span></div>
+
+    <div class="grid">
+      <div><label>ชื่อลูกค้า / ร้าน</label><input id="customer" placeholder="เช่น ร้าน ABC"></div>
+      <div><label>ประเภท</label><select id="saleType"><option value="new">ซื้อใหม่</option><option value="upgrade">อัปเกรด</option></select></div>
+      <div class="wide"><label>Installation ID</label><input id="installationId" autocomplete="off" placeholder="วาง Installation ID จากลูกค้า"></div>
+      <div><label>Package</label><select id="pkg"><option value="2pack">2 Pack • 59฿</option><option value="3pack">3 Pack • 69฿</option><option value="full">Full • 99฿</option></select></div>
+      <div><label>ราคา (บาท)</label><input id="price" type="number" min="0" value="59"></div>
+    </div>
+
+    <div id="catSection">
+      <label>หมวดสินค้า</label>
+      <div class="cats">
+        <label><input type="checkbox" value="fashion">👕 Fashion</label>
+        <label><input type="checkbox" value="beauty">💄 Beauty</label>
+        <label><input type="checkbox" value="food">🍰 Food</label>
+        <label><input type="checkbox" value="home">🏠 Home</label>
+        <label><input type="checkbox" value="general">📦 General</label>
+      </div>
+      <div id="catHint" class="muted"></div>
+    </div>
+
+    <label>หมายเหตุ</label><input id="note" placeholder="ไม่บังคับ">
+    <button id="issueBtn" class="primary full">🔐 สร้าง Activation Code</button>
+    <div id="issueMsg" class="msg"></div>
+  </div>
+
+  <div id="resultCard" class="card hidden">
+    <div class="titleRow"><h2>Activation Code</h2><span class="badge ok">SIGNED</span></div>
+    <textarea id="activationCode" readonly></textarea>
+    <div class="row"><button id="copyCodeBtn" class="primary">คัดลอก Code</button><button id="copySaleBtn" class="soft">คัดลอกข้อความส่งลูกค้า</button></div>
+    <div id="grantInfo" class="muted"></div>
+  </div>
+
+  <div class="card">
+    <div class="titleRow"><h2>ประวัติบนเครื่องนี้</h2><button id="exportBtn" class="soft smallbtn">Export Backup</button></div>
+    <div id="history"></div>
+  </div>
+</section>
+</main>
+<script src="/app.js"></script>
+</body>
+</html>
