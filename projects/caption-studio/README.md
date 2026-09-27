@@ -2,7 +2,7 @@
 
 Project ID: `caption-studio`
 Source of Truth: `pormatee/MEasyMate-Products/projects/caption-studio/`
-Sale candidate: `V2.13.37 SALE RC23`
+Sale candidate: `V2.13.39 SALE RC25`
 
 ## Official support
 
@@ -48,4 +48,4 @@ Do not label this build `SALE CURRENT` until the live HTTPS URL passes:
 5. License Passport export/import
 6. offline reload after one online load
 
-After those pass, promote `V2.13.37` to `SALE CURRENT`.
+After those pass, promote `V2.13.39` to `SALE CURRENT`.
