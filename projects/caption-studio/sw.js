@@ -1,4 +1,4 @@
-const CACHE="measymate-caption-studio-v2.13.32";
+const CACHE="measymate-caption-studio-v2.13.35";
 const CORE=["./","./index.html"];
 self.addEventListener("install",event=>{
   event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE)).then(()=>self.skipWaiting()));

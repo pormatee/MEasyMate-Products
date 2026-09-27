@@ -87,10 +87,18 @@ label.small{display:block;margin:10px 0 5px;font-size:10.5px;font-weight:850;col
 .preview-sticky .preview{width:min(62vw,238px);margin:0 auto;box-shadow:0 8px 20px rgba(12,30,49,.10)}
 .preview-studio-note{display:none}
 .preview-control-block{margin-top:7px}.captionbox.compact p{display:block}.captionbox.compact.expanded p{display:block}.caption-toggle{display:none}
-.captionbox.coherent p{display:block;margin-top:10px;font-size:13.5px;line-height:1.72;white-space:pre-wrap}
-.caption-sync-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
-.caption-sync-head b{font-size:13px;color:var(--navy)}
-.caption-sync-head span{max-width:60%;font-size:10.5px;line-height:1.45;text-align:right;color:var(--muted)}
+.captionbox.coherent{padding:10px 11px}
+.captionbox.coherent p{display:block;margin-top:8px;font-size:12.5px;line-height:1.55;white-space:pre-wrap;max-height:190px;overflow:auto;overscroll-behavior:contain;padding-right:3px}
+.caption-actions-near{margin:8px 0 7px}
+.caption-actions-near .btn{min-height:40px}
+.captionbox.caption-updated{animation:captionUpdatedPulse .45s ease}
+@keyframes captionUpdatedPulse{0%{box-shadow:0 0 0 0 rgba(41,154,199,.35)}50%{box-shadow:0 0 0 5px rgba(41,154,199,.10)}100%{box-shadow:0 0 0 0 rgba(41,154,199,0)}}
+.caption-sync-head{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.caption-sync-title{min-width:0}
+.caption-sync-title b{display:block;font-size:13px;color:var(--navy)}
+.caption-sync-title span{display:block;margin-top:2px;font-size:9.5px;line-height:1.35;color:var(--muted)}
+.caption-change-inline{flex:0 0 auto;border:1px solid #CFE4EC;background:#F5FBFD;color:var(--navy);border-radius:10px;padding:8px 10px;font-size:10.5px;font-weight:900;white-space:nowrap}
+.caption-change-inline:active{transform:translateY(1px)}
 .verified-caption-info{display:none;margin-top:10px;padding:9px 10px;border-radius:11px;background:#F2F9FB;color:#52717F;font-size:9.5px;line-height:1.55;white-space:pre-wrap}
 .verified-caption-info.show{display:block}.preview-tools{margin-top:8px;border:1px solid var(--line);background:#FBFDFE;border-radius:15px;padding:10px}.toolrow{display:grid;grid-template-columns:72px 1fr;gap:8px;align-items:start;margin-top:7px}.toolrow:first-child{margin-top:0}.toolrow>span{font-size:10px;font-weight:850;color:var(--muted);padding-top:7px}.seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:5px}.seg button{border:1px solid var(--line);background:#fff;color:var(--muted);padding:7px 5px;border-radius:9px;font-size:9px;font-weight:850}.seg button.active{background:var(--navy);color:#fff;border-color:var(--navy)}.template-chips{display:flex;gap:6px;overflow:auto;overscroll-behavior-inline:contain;scrollbar-width:none;padding:1px 0}.template-chips::-webkit-scrollbar{display:none}.template-chip{flex:0 0 auto;border:1px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:7px 10px;font-size:9.5px;font-weight:850;white-space:nowrap}.template-chip.active{background:var(--navy);color:#fff;border-color:var(--navy)}.font-chips{display:flex;gap:6px;overflow:auto;overscroll-behavior-inline:contain;scrollbar-width:none;padding:1px 0}.font-chips::-webkit-scrollbar{display:none}
 .font-chip{flex:0 0 auto;border:1px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:7px 10px;font-size:9.5px;font-weight:850;white-space:nowrap}
@@ -516,7 +524,7 @@ main{padding:9px 11px 104px}
     <span class="hero-badge">⊘ 0 AI</span>
     <span class="hero-badge">✓ ใช้งานง่าย</span>
   </div>
-  <div class="hero-version">V2.13.32 SALE RC18</div>
+  <div class="hero-version">V2.13.35 SALE RC21</div>
 </section>
 <div class="modebar modebar3">
       <button id="beginnerModeBtn" class="active"><b>Beginner</b><small>ง่ายที่สุด</small></button>
@@ -589,19 +597,24 @@ main{padding:9px 11px 104px}
         <span><b>HOOK</b> ดำเข้ม</span><span><b>PRICE/PROMO</b> ใหญ่และเด่น</span><span><b>SHOP</b> ขนาดเท่า PROMO</span><span><b>CTA</b> ขนาดเท่า PROMO</span><span><b>FULL CAPTION</b> ใต้ภาพ</span>
       </div>
 
+      <div class="actiongrid secondary-actions caption-actions-near"><button id="editCurrentCaptionBtn" class="btn light">✏️ แก้ข้อความ</button><button id="saveCurrentCaptionBtn" class="btn ghost">♡ บันทึกของฉัน</button></div>
+      <div class="my-caption-note">เปลี่ยน Caption ได้จากปุ่มบนกล่องข้อความด้านล่าง · จะเห็นข้อความใหม่ตรงจุดเดิมทันที</div>
       <div id="captionBox" class="captionbox coherent">
-        <div class="caption-sync-head"><b>Caption ที่จะโพสต์</b><span id="captionSyncNote">ภาพใช้ 2 บรรทัดแรกจาก Caption นี้</span></div>
+        <div class="caption-sync-head">
+          <div class="caption-sync-title"><b>Caption ที่จะโพสต์</b><span id="captionSyncNote">ภาพใช้ 2 บรรทัดแรกจาก Caption นี้</span></div>
+          <button id="regenBtn" class="caption-change-inline" type="button">🔄 เปลี่ยน Caption</button>
+        </div>
         <p id="resultCaption"></p>
         <div id="verifiedCaptionInfo" class="verified-caption-info"></div>
         <div class="meta-line"><span id="resultStyleMeta" class="meta"></span><span id="resultTemplateMeta" class="meta"></span><span id="resultLengthRule" class="meta"></span></div>
       </div>
       <div class="smart-share-zone">
-        <button id="shareBtn" class="btn blue smart-share-main">🚀 แชร์รูป</button>
+        <button id="shareBtn" class="btn blue smart-share-main">🚀 โพสต์ + คัดลอก Caption</button>
         <button id="shareWithCaptionBtn" class="btn light smart-share-main" type="button" style="margin-top:8px">📝 แชร์รูป + Caption</button>
-        <div class="smart-share-sub"><b>แชร์รูป</b> = เสถียรกว่า · <b>แชร์รูป + Caption</b> = ให้ Chrome ส่งรูปและข้อความพร้อมกันเมื่อแอปปลายทางรองรับ</div>
+        <div class="smart-share-sub"><b>โพสต์ + คัดลอก Caption</b> = คัดลอกข้อความก่อน แล้วเปิดเมนูแชร์รูป · <b>แชร์รูป + Caption</b> = ให้ Chrome ส่งทั้งสองอย่างพร้อมกันเมื่อแอปปลายทางรองรับ</div>
         <div class="share-before-note">
           <b>✅ เลือกวิธีแชร์ได้</b>
-          <span><b>แชร์รูป</b> จะคัดลอก Caption ไว้ให้วางเอง · <b>แชร์รูป + Caption</b> จะให้ Chrome ส่งทั้งสองอย่างพร้อมกัน</span>
+          <span><b>โพสต์ + คัดลอก Caption</b> จะยืนยันการคัดลอกก่อนเปิด Share · <b>แชร์รูป + Caption</b> จะให้ Chrome ส่งทั้งสองอย่างพร้อมกัน</span>
         </div>
         <button id="shareOptionsBtn" class="smart-share-options" type="button">⋯ ตัวเลือกเพิ่มเติม</button>
       </div>
@@ -616,9 +629,7 @@ main{padding:9px 11px 104px}
           <span>เก็บภาพลงเครื่อง</span>
         </button>
       </div>
-      <div class="actiongrid secondary-actions"><button id="regenBtn" class="btn ghost">🔄 เปลี่ยน Caption ใหม่</button><button id="editCurrentCaptionBtn" class="btn light">✏️ แก้ข้อความ</button><button id="saveCurrentCaptionBtn" class="btn ghost">♡ บันทึกของฉัน</button></div>
-      <div class="my-caption-note">ข้อความของ MEasyMate แก้ได้ทั้งหมด · คุณพิมพ์เองและบันทึกกลับมาใช้ครั้งต่อไปได้</div>
-      <div class="notice">Preview และรูปที่บันทึกใช้ Canvas เดียวกัน · บนภาพใช้เฉพาะบรรทัดเปิดจาก Caption เดียวกันและคุมไม่เกิน 2 บรรทัดจริง · Caption เต็มอยู่ใต้ภาพและคัดลอกพร้อมใช้เมื่อบันทึกรูป</div>
+      <div class="notice">Preview และรูปที่บันทึกใช้ Canvas เดียวกัน · บนภาพใช้เฉพาะบรรทัดเปิดจาก Caption เดียวกันและคุมไม่เกิน 2 บรรทัดจริง · Caption เต็มอยู่ใต้ภาพ · ปุ่มโพสต์จะคัดลอก Caption ก่อนเปิดเมนูแชร์</div>
     </div>
   </div></div>
 
@@ -678,7 +689,7 @@ main{padding:9px 11px 104px}
       <button id="buyUpgradeBtn" class="btn primary" type="button">💬 ซื้อ / อัปเกรดผ่าน LINE</button>
       <button id="haveCodeBtn" class="btn light" type="button">🔑 มี Activation Code แล้ว</button>
     </div>
-    <div id="onlineUpdateStatus" class="update-status">App: V2.13.32 SALE RC18 · Signed Activation</div>
+    <div id="onlineUpdateStatus" class="update-status">App: V2.13.35 SALE RC21 · Signed Activation</div>
   </div>
 
   <div class="card"><div class="section-title"><h2>ร้านของฉัน</h2><span class="badge">OWNER DATA</span></div><label class="small">ชื่อร้าน</label><input id="shopName" type="text" placeholder=""><label class="small">ช่องทางติดต่อ</label><input id="shopContact" type="text" placeholder=""><div class="grid2"><div><label class="small">ราคาสินค้า (ไม่บังคับ)</label><input id="defaultPrice" type="text" placeholder=""></div><div><label class="small">ข้อความโปร (ไม่บังคับ)</label><input id="promoText" type="text" placeholder=""></div></div>
@@ -708,7 +719,7 @@ main{padding:9px 11px 104px}
   <div class="card" style="margin-top:11px"><div class="section-title"><h2>Backup / Restore</h2><span class="badge">DATA SAFE</span></div><p class="lead">สำรองข้อมูลร้าน แคปชั่นที่เพิ่มเอง และ Content Pack ได้ แต่จะไม่สำรองสิทธิ์ Activation Code เพื่อป้องกันการแชร์สิทธิ์</p><div class="row"><button id="backupBtn" class="btn light">⬇ Backup</button><button id="restoreBtn" class="btn ghost">⬆ Restore</button></div><input id="restoreInput" type="file" accept=".json,.measymate,application/json" class="hidden"><div class="statusline"><span>APP_VERSION: <b id="appVersion"></b></span><span>DATA_SCHEMA: <b id="schemaVersion"></b></span></div></div>
 </div></section>
 
-<section id="screenHelp" class="screen"><div class="section"><div class="card"><div class="section-title"><h2>MEasyMate Caption Studio</h2><span class="badge">SALE RC18</span></div><div class="notice success"><b>หลักของ V1:</b> เปิดผ่าน Google Chrome บน Android → กรอก Signed Activation Code ครั้งเดียว → ใช้สิทธิ์ที่ซื้อแบบ Local-first ต่อได้ ไม่บังคับรายเดือน</div><div class="notice info"><b>รองรับอย่างเป็นทางการ:</b> Android + Google Chrome · Browser อื่นอาจเปิดได้แต่ไม่อยู่ใน Release Support ของ V1</div><div class="step"><div class="stepno">1</div><div><h3>เปิดผ่าน Google Chrome</h3><p>รุ่นขายแรกรองรับ Android + Google Chrome อย่างเป็นทางการ</p></div></div><div class="step"><div class="stepno">2</div><div><h3>เลือกรูป + สไตล์การขาย</h3><p>ไม่ต้องรู้ Prompt หรือเทคนิคการเขียนแคปชั่น</p></div></div><div class="step"><div class="stepno">3</div><div><h3>นำไปโพสต์ได้เลย</h3><p>กดแชร์โพสต์เพื่อส่งรูปเข้า Android Share Sheet และวาง Caption ที่คัดลอกไว้ในแอปปลายทาง</p></div></div><hr><h3 style="font-size:13px;margin:0 0 6px">ทำไมคนถึงเลือก MEasyMate</h3>
+<section id="screenHelp" class="screen"><div class="section"><div class="card"><div class="section-title"><h2>MEasyMate Caption Studio</h2><span class="badge">SALE RC21</span></div><div class="notice success"><b>หลักของ V1:</b> เปิดผ่าน Google Chrome บน Android → กรอก Signed Activation Code ครั้งเดียว → ใช้สิทธิ์ที่ซื้อแบบ Local-first ต่อได้ ไม่บังคับรายเดือน</div><div class="notice info"><b>รองรับอย่างเป็นทางการ:</b> Android + Google Chrome · Browser อื่นอาจเปิดได้แต่ไม่อยู่ใน Release Support ของ V1</div><div class="step"><div class="stepno">1</div><div><h3>เปิดผ่าน Google Chrome</h3><p>รุ่นขายแรกรองรับ Android + Google Chrome อย่างเป็นทางการ</p></div></div><div class="step"><div class="stepno">2</div><div><h3>เลือกรูป + สไตล์การขาย</h3><p>ไม่ต้องรู้ Prompt หรือเทคนิคการเขียนแคปชั่น</p></div></div><div class="step"><div class="stepno">3</div><div><h3>นำไปโพสต์ได้เลย</h3><p>กดแชร์โพสต์เพื่อส่งรูปเข้า Android Share Sheet และวาง Caption ที่คัดลอกไว้ในแอปปลายทาง</p></div></div><hr><h3 style="font-size:13px;margin:0 0 6px">ทำไมคนถึงเลือก MEasyMate</h3>
 <div class="whybuy"><div><b>⚡ ง่าย</b>รูปเดียวก็เริ่มได้ MEasyMate จัดข้อความและรูปแบบให้ก่อน คนใช้ไม่ต้องเก่งออกแบบ</div><div><b>👀 เห็นก่อนแชร์</b>Preview จริง ลดปัญหาข้อความบังสินค้า</div><div><b>💬 Caption เป็นของคุณได้</b>เลือกจากชุดพร้อมใช้ แก้ข้อความเอง หรือบันทึก Caption ของร้านกลับมาใช้ซ้ำได้</div><div><b>📱 Mobile-first</b>ออกแบบให้คนขายของทำงานบนมือถือได้</div></div>
 <hr><h3 style="font-size:13px;margin:0 0 6px">แพ็กเกจที่เตรียมไว้</h3>
 <div class="package-grid">
@@ -719,7 +730,7 @@ main{padding:9px 11px 104px}
 </div>
 <hr><h3 style="font-size:13px;margin:0 0 6px">นโยบาย Update</h3><p class="lead">การอัปเดตแอปไม่ใช่การซื้อใหม่ · Signed License เดิมยังเป็นสิทธิ์ของลูกค้า โดยระบบคง Signing Key เดิมสำหรับรุ่น SALE และสามารถเก็บ License Passport ไว้กู้สิทธิ์หลังอัปเดตได้ ส่วน Caption Pack, Template Pack, Major Upgrade และ AI เป็นของเพิ่มมูลค่าและไม่บังคับซื้อ</p><div class="notice info">AI ในอนาคตจะเชื่อมผ่าน <b>MEasyMate AI Hub</b> เท่านั้น ไม่ฝัง Provider API Key ไว้ใน Single HTML</div><hr><p style="font-size:9.5px;line-height:1.6;color:var(--muted)">รุ่นนี้ฝังโลโก้อ้างอิงของ MEasyMate ในหน้าใช้งานแล้ว เพื่อให้ภาพรวมแบรนด์ใกล้มาตรฐานล่าสุดมากขึ้น</p></div></div></section>
 
-<div class="footerinfo">MEasyMate Caption Studio · Make Everything Easy.<br>V2.13.32 SALE RC18 · Single File · Offline Core · Signed Activation</div>
+<div class="footerinfo">MEasyMate Caption Studio · Make Everything Easy.<br>V2.13.35 SALE RC21 · Single File · Offline Core · Signed Activation</div>
 </main>
 <nav class="bottomnav"><div class="inner"><button class="navbtn active" data-screen="screenCreate"><span>✨</span>สร้าง</button><button class="navbtn" data-screen="screenLibrary"><span>💬</span>คลัง</button><button class="navbtn" data-screen="screenOwner"><span>⚙️</span>แพ็ก/อัปเดต</button><button class="navbtn" data-screen="screenHelp"><span>?</span>วิธีใช้</button></div></nav>
 </div>
@@ -765,13 +776,13 @@ main{padding:9px 11px 104px}
 
 <script>
 "use strict";
-/* MEasyMate Caption Studio V2.13.32 SALE RC18
+/* MEasyMate Caption Studio V2.13.35 SALE RC21
    PROJECT_ID = caption-studio
    PRODUCT_MODEL = one-core-app + package-code + signed-entitlement + offline-after-activation
    RELEASE_FIXES = key-ring + current-package-entitlement + same-installation-passport + verbatim-user-sales-text + chrome-release-cleanup + chrome-share-with-caption + larger-result-text + sales-card-space-reserve
    SHORTCUT_IDENTITY_GATE = BRAND_LOGO_EMBEDDED
 */
-var APP_VERSION="V2.13.32 SALE RC18";
+var APP_VERSION="V2.13.35 SALE RC21";
 var CONTENT_VERSION="caption-content-v1.2-coherent";
 var DATA_SCHEMA_VERSION=9;
 var STORAGE_PREFIX="measymate_caption_studio_v2_";
@@ -1807,6 +1818,12 @@ function renderResult(){
   $("#resultLengthRule").textContent=sourceLines+" บรรทัด";
   syncPreviewControls();
   $("#quickResult").classList.add("show");
+  var captionBox=$("#captionBox");
+  if(captionBox){
+    captionBox.classList.remove("caption-updated");
+    void captionBox.offsetWidth;
+    captionBox.classList.add("caption-updated")
+  }
   var renderSeq=++__previewRenderSeq;
   clearShareBlobCache();
   renderPostCanvas($("#previewCanvas"),renderSeq).then(function(canvas){
@@ -2571,6 +2588,7 @@ function renderPostCanvas(canvas,previewSeq){
 }
 
 var __shareBlobCache=null;
+var __shareRetryReady=false;
 var __shareBlobRenderSeq=0;
 var __shareBlobName="";
 function canvasToBlobCompat(canvas){
@@ -2617,28 +2635,55 @@ function setShareAssist(message,state){
   el.className="share-assist"+(state?" "+state:"");
   el.innerHTML=message
 }
-function copyCaptionSilent(text){
+function legacyCopyCaption(text){
   var value=String(text||"");
   if(!value)return false;
-  var copied=false,ta=null;
+  var copied=false,ta=null,active=document.activeElement;
   try{
     ta=document.createElement("textarea");
     ta.value=value;
-    ta.setAttribute("readonly","");
     ta.style.position="fixed";
-    ta.style.left="-9999px";
+    ta.style.left="0";
     ta.style.top="0";
+    ta.style.width="2px";
+    ta.style.height="2px";
+    ta.style.opacity=".01";
+    ta.style.fontSize="16px";
+    ta.style.zIndex="-1";
     document.body.appendChild(ta);
-    ta.focus();ta.select();ta.setSelectionRange(0,ta.value.length);
+    try{ta.focus({preventScroll:true})}catch(e){ta.focus()}
+    ta.select();
+    ta.setSelectionRange(0,ta.value.length);
     copied=!!document.execCommand("copy")
   }catch(e){}
   if(ta&&ta.parentNode)ta.parentNode.removeChild(ta);
+  try{if(active&&active.focus){active.focus({preventScroll:true})}}catch(e){}
+  return copied
+}
+function copyCaptionSilent(text){
+  var value=String(text||"");
+  if(!value)return false;
+  var copied=legacyCopyCaption(value);
+  if(!copied){
+    try{
+      if(navigator.clipboard&&window.isSecureContext){
+        navigator.clipboard.writeText(value).catch(function(){})
+      }
+    }catch(e){}
+  }
+  return copied
+}
+function copyCaptionConfirmed(text){
+  var value=String(text||"");
+  if(!value)return Promise.resolve(false);
   try{
-    if(navigator.clipboard&&window.isSecureContext){
-      navigator.clipboard.writeText(value).catch(function(){})
+    if(navigator.clipboard&&window.isSecureContext&&navigator.clipboard.writeText){
+      return navigator.clipboard.writeText(value).then(function(){return true}).catch(function(){
+        return legacyCopyCaption(value)
+      })
     }
   }catch(e){}
-  return copied
+  return Promise.resolve(legacyCopyCaption(value))
 }
 function saveBlobAsFile(blob,name){
   var u=URL.createObjectURL(blob),a=document.createElement("a");
@@ -2666,7 +2711,13 @@ function nativeSharePreparedImage(copied){
             setShareAssist(copied?"ยกเลิกการแชร์แล้ว · Caption ที่คัดลอกไว้ยังพร้อมวาง":"ยกเลิกการแชร์แล้ว","warn");
             return
           }
-          setShareAssist("Browser/LINE รับไฟล์จาก Web Share ไม่สำเร็จ · ยังไม่บันทึกรูปอัตโนมัติเพื่อไม่เปลี่ยน UX โดยไม่ขอผู้ใช้","warn");
+          if(e&&e.name==="NotAllowedError"&&copied){
+            __shareRetryReady=true;
+            setShareAssist("Caption คัดลอกแล้ว ✅ · Chrome ต้องการการแตะอีกครั้งเพื่อเปิดเมนูแชร์","warn");
+            toast("Caption คัดลอกแล้ว · แตะปุ่มโพสต์อีกครั้ง");
+            return
+          }
+          setShareAssist("Browser/LINE รับไฟล์จาก Web Share ไม่สำเร็จ · Caption ยังใช้ปุ่มคัดลอกด้านล่างได้","warn");
           toast("แชร์ตรงไม่สำเร็จ")
         });
         return true
@@ -2738,14 +2789,37 @@ function saveImageOnly(){
 function sharePost(){
   syncOwnerFromQuick();
   if(!currentCaption||!currentImageUrl){toast("สร้างโพสต์ก่อนค่ะ");return false}
-  var copied=copyCaptionSilent(currentCaption);
-  if(copied)setShareAssist("📋 Caption คัดลอกแล้ว · กำลังเปิดเมนูแชร์ <b>เฉพาะรูป</b>","");
-  else setShareAssist("กำลังเปิดเมนูแชร์เฉพาะรูป · ถ้าคัดลอกอัตโนมัติไม่ได้ ใช้ปุ่มคัดลอก Caption ด้านล่าง","warn");
-  var direct=nativeSharePreparedImage(copied);
-  if(direct!==null)return direct;
-  setShareAssist("รูปยังเตรียมไม่เสร็จ · รอจนปุ่มพร้อมแล้วแตะอีกครั้ง","warn");
-  toast("กำลังเตรียมรูปแชร์");
-  return false
+
+  if(__shareRetryReady){
+    __shareRetryReady=false;
+    setShareAssist("Caption คัดลอกแล้ว ✅ · กำลังเปิดเมนูแชร์รูป","");
+    var retry=nativeSharePreparedImage(true);
+    if(retry!==null)return retry;
+    setShareAssist("รูปยังเตรียมไม่เสร็จ · รอสักครู่แล้วลองใหม่","warn");
+    return false
+  }
+
+  var btn=$("#shareBtn");
+  if(btn){btn.disabled=true;btn.textContent="📋 กำลังคัดลอก Caption"}
+  setShareAssist("กำลังคัดลอก Caption ก่อนเปิดเมนูแชร์…","");
+
+  copyCaptionConfirmed(currentCaption).then(function(copied){
+    refreshShareCapabilityUI();
+    if(copied){
+      setShareAssist("Caption คัดลอกแล้ว ✅ · กำลังเปิดเมนูแชร์รูป","");
+      toast("Caption คัดลอกแล้ว");
+    }else{
+      setShareAssist("คัดลอกอัตโนมัติไม่ได้ · เปิดแชร์รูปให้ก่อน และยังมีปุ่มคัดลอก Caption ด้านล่าง","warn");
+    }
+    var direct=nativeSharePreparedImage(copied);
+    if(direct!==null)return;
+    setShareAssist("รูปยังเตรียมไม่เสร็จ · รอจนปุ่มพร้อมแล้วแตะอีกครั้ง","warn");
+    toast("กำลังเตรียมรูปแชร์")
+  }).catch(function(){
+    refreshShareCapabilityUI();
+    setShareAssist("คัดลอก Caption ไม่สำเร็จ · ใช้ปุ่มคัดลอก Caption ด้านล่าง","warn")
+  });
+  return true
 }
 function updateProCaption(){
   var cat=currentCategoryId(),style=$("#proStyle").value||selectedStyle;
@@ -3277,11 +3351,11 @@ function refreshShareCapabilityUI(){
   if(!btn)return;
   var ready=!!(__shareBlobCache&&__shareBlobRenderSeq===__previewRenderSeq);
   if(ready){
-    btn.textContent="🚀 แชร์โพสต์";btn.disabled=false;
-    if(sub)sub.textContent="พร้อมแล้ว · ได้รูปลงเครื่องและ Caption พร้อมวางใน LINE / Facebook";
+    btn.textContent="🚀 โพสต์ + คัดลอก Caption";btn.disabled=false;
+    if(sub)sub.textContent="พร้อมแล้ว · กดครั้งเดียวเพื่อคัดลอก Caption ก่อนเปิดเมนูแชร์รูป";
   }else{
     btn.textContent="⏳ กำลังเตรียมรูป";btn.disabled=true;
-    if(sub)sub.textContent="กำลังเตรียมภาพสำหรับบันทึก";
+    if(sub)sub.textContent="กำลังเตรียมภาพสำหรับแชร์";
   }
 }
 
@@ -3318,7 +3392,15 @@ function bind(){
   };
   [["ownerPromoColor","promoColor"],["ownerShopColor","shopColor"],["ownerCTAColor","ctaColor"]].forEach(function(pair){var el=$("#"+pair[0]);if(el)el.oninput=function(){owner[pair[1]]=el.value;saveJSON(KEY_OWNER,owner);syncAdvanceQuickFields();if(currentCaption)renderResult()}});
   $("#generateBtn").onclick=function(){generateCaption()};
-  $("#regenBtn").onclick=function(){generateCaption()};
+  $("#regenBtn").onclick=function(){
+    var keepY=window.scrollY||window.pageYOffset||0;
+    generateCaption();
+    setTimeout(function(){
+      var p=$("#resultCaption");
+      if(p)p.scrollTop=0;
+      try{window.scrollTo(0,keepY)}catch(e){}
+    },40)
+  };
   $("#copyBtn").onclick=function(){copyText(currentCaption)};
   $("#editCurrentCaptionBtn").onclick=openCurrentCaptionEditor;
   $("#saveCurrentCaptionBtn").onclick=saveCurrentCaptionAsCustom;
