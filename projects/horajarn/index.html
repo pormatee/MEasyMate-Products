@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#08091c">
+<meta name="description" content="โหราจารย์ HORAJARN — แพลตฟอร์มโหราศาสตร์ไทยสำหรับอ่านพื้นดวง การงาน การเงิน ความรัก และจังหวะชีวิต">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/icon-192.png">
+<title>โหราจารย์ | HORAJARN — Free</title>
+<style>
+:root{
+ --bg:#070817;--panel:#11142a;--panel2:#171632;--ink:#fff9e9;--muted:#bcb7c8;
+ --gold:#e7c46a;--gold2:#ffe9aa;--violet:#8157c7;--line:rgba(233,201,117,.25);
+ --glass:rgba(11,10,30,.76);--ok:#a7e0b8;--warn:#f1c587;--shadow:0 20px 60px rgba(0,0,0,.36);
+}
+*{box-sizing:border-box}html{background:var(--bg);scroll-behavior:smooth}body{margin:0;min-height:100vh;color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans Thai",Tahoma,sans-serif;background:#070817;overflow-x:hidden}button,input{font:inherit}button{cursor:pointer;-webkit-tap-highlight-color:transparent}.app{position:relative;width:min(100%,600px);margin:auto;min-height:100vh;padding-bottom:102px;isolation:isolate}.app:before{content:"";position:fixed;inset:0;z-index:-3;background:url('assets/horajarn-background.webp') center top/cover no-repeat}.app:after{content:"";position:fixed;inset:0;z-index:-2;background:linear-gradient(180deg,rgba(5,6,22,.32) 0,rgba(6,7,20,.78) 35%,rgba(6,7,20,.96) 73%,#070817 100%)}
+.top{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:10px;padding:calc(9px + env(safe-area-inset-top)) 14px 9px;background:rgba(6,7,20,.78);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.06)}.brandMark{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;overflow:hidden;background:rgba(255,255,255,.04);border:1px solid var(--line);box-shadow:0 7px 24px rgba(0,0,0,.25)}.brandMark img{width:54px;height:54px;object-fit:contain}.brand{min-width:0;flex:1}.brandLine{display:flex;align-items:center;gap:7px}.brand strong{font-size:18px;color:var(--gold2);letter-spacing:.1px}.brand small{display:block;color:#b0a9bd;font-size:9px;letter-spacing:1.08px;margin-top:1px}.freeBadge{font-size:8px;border:1px solid rgba(166,224,184,.38);color:#c4eed0;background:rgba(166,224,184,.09);padding:3px 7px;border-radius:99px;letter-spacing:.7px}.profileBtn{width:42px;height:42px;border-radius:14px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.055);color:#f5e8c1;font-size:18px}
+.heroWrap{padding:13px 14px 0}.brandBanner{position:relative;aspect-ratio:16/9;border-radius:25px;overflow:hidden;border:1px solid rgba(232,198,107,.35);box-shadow:var(--shadow);background:#111}.brandBanner>img{width:100%;height:100%;object-fit:cover;display:block}.brandBanner:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(6,5,20,.78) 100%)}.bannerTag{position:absolute;z-index:2;left:13px;bottom:12px;display:flex;align-items:center;gap:6px;padding:6px 9px;border-radius:999px;background:rgba(7,6,23,.7);border:1px solid rgba(255,232,169,.23);font-size:9px;color:#f6e7b5;backdrop-filter:blur(8px)}
+.portal{margin-top:11px;padding:16px;border-radius:24px;background:linear-gradient(145deg,rgba(18,15,44,.94),rgba(10,12,32,.92));border:1px solid var(--line);box-shadow:0 18px 44px rgba(0,0,0,.2)}.portalTop{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}.eyebrow{color:var(--gold);font-size:9px;letter-spacing:1.3px}.portal h1{font-size:23px;line-height:1.28;margin:5px 0 6px}.portal p{font-size:11px;line-height:1.62;color:#cbc4d4;margin:0;max-width:440px}.todayChip{flex:0 0 auto;padding:6px 9px;border:1px solid rgba(255,255,255,.08);border-radius:999px;background:rgba(255,255,255,.04);color:#d7d0df;font-size:9px}
+.profileCard{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;margin-top:14px;padding:11px;border:1px solid rgba(255,255,255,.08);border-radius:17px;background:rgba(255,255,255,.045)}.avatar{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--gold);background:radial-gradient(circle,rgba(231,196,106,.18),rgba(129,87,199,.08));font-size:22px}.profileText{min-width:0}.profileText b{display:block;font-size:13px}.profileText span{display:block;margin-top:2px;color:var(--muted);font-size:9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.edit{border:1px solid var(--line);background:rgba(231,196,106,.08);color:var(--gold2);border-radius:11px;padding:7px 9px;font-size:9px}.astroStrip{display:grid;grid-template-columns:1.35fr .65fr;gap:8px;margin-top:9px}.astroStrip>div{min-height:67px;padding:10px 11px;border-radius:15px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06)}.astroStrip small{display:block;color:#aca6b7;font-size:8px}.astroStrip b{display:block;font-size:11px;line-height:1.5;margin-top:3px}.statusCard{text-align:center}.statusCard b{color:var(--ok);font-size:12px}.statusCard span{display:block;color:#8f8999;font-size:8px;margin-top:3px}.cta{display:grid;grid-template-columns:1.35fr .85fr;gap:8px;margin-top:10px}.cta button{height:45px;border-radius:14px;font-weight:800}.primary{border:0;background:linear-gradient(180deg,#f2d47f,#c99e43);color:#211a0c;box-shadow:0 12px 24px rgba(179,130,39,.15)}.secondary{border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.055);color:#fff}.primary:active,.secondary:active,.serviceCard:active,.tool:active{transform:scale(.985)}
+.section{padding:23px 14px 0}.sectionHead{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:11px}.sectionHead h2{font-size:17px;margin:0}.sectionHead p{font-size:9px;color:#aaa4b5;margin:3px 0 0}.sectionHead button{border:0;background:transparent;color:var(--gold);font-size:9px;padding:4px}.serviceGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.serviceCard{position:relative;min-height:126px;padding:14px;text-align:left;color:var(--ink);border-radius:20px;border:1px solid rgba(255,255,255,.08);background:linear-gradient(145deg,rgba(25,20,54,.94),rgba(13,14,35,.94));overflow:hidden}.serviceCard:before{content:"";position:absolute;right:-20px;top:-25px;width:90px;height:90px;border-radius:50%;background:radial-gradient(circle,rgba(231,196,106,.14),transparent 66%)}.serviceIcon{width:40px;height:40px;border-radius:13px;display:grid;place-items:center;background:rgba(231,196,106,.1);border:1px solid rgba(231,196,106,.18);font-size:21px;color:var(--gold2)}.serviceCard strong{display:block;font-size:14px;margin-top:11px}.serviceCard span{display:block;color:#aaa4b5;font-size:9px;line-height:1.45;margin-top:3px;padding-right:10px}.serviceState{position:absolute;right:9px;bottom:9px;font-size:8px;color:var(--ok)}
+.tools{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.tool{min-height:91px;padding:10px 5px;border-radius:17px;border:1px solid rgba(255,255,255,.075);background:rgba(15,14,36,.7);color:var(--ink);text-align:center}.tool .ico{font-size:21px}.tool strong{display:block;font-size:10px;line-height:1.25;margin-top:6px}.tool span{display:block;font-size:7px;color:#8e8899;margin-top:3px}.tool.enabled span{color:var(--ok)}
+.insight{margin:22px 14px 0;padding:15px;border-radius:20px;background:linear-gradient(135deg,rgba(46,30,74,.75),rgba(14,18,42,.78));border:1px solid rgba(231,196,106,.2)}.insightTop{display:flex;align-items:center;gap:8px}.insightIcon{width:34px;height:34px;display:grid;place-items:center;border-radius:12px;background:rgba(231,196,106,.11);color:var(--gold2)}.insight strong{font-size:12px}.insight p{font-size:9px;color:#aaa4b5;line-height:1.65;margin:6px 0 0}.schools{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}.school{font-size:8px;padding:6px 8px;border-radius:999px;border:1px solid rgba(231,196,106,.16);background:rgba(231,196,106,.06);color:#e8dcc0}
+.freeInfo{margin:22px 14px 0;padding:14px;border-radius:18px;border:1px solid rgba(166,224,184,.18);background:rgba(28,53,48,.23)}.freeInfo strong{font-size:11px;color:#c8edd2}.freeInfo p{font-size:8px;color:#a7a2b0;line-height:1.55;margin:5px 0 0}
+.bottom{position:fixed;left:50%;bottom:0;transform:translateX(-50%);z-index:50;width:min(100%,600px);display:grid;grid-template-columns:repeat(5,1fr);padding:7px 5px calc(7px + env(safe-area-inset-bottom));background:rgba(6,7,20,.94);backdrop-filter:blur(18px);border-top:1px solid rgba(255,255,255,.07)}.nav{border:0;background:transparent;color:#8f899a;font-size:8px;padding:4px 2px}.nav b{display:block;font-size:18px;line-height:1.25}.nav.active{color:var(--gold2)}
+.modal{position:fixed;inset:0;z-index:100;display:none;align-items:flex-end;justify-content:center;padding:12px;background:rgba(0,0,0,.7)}.modal.show{display:flex}.sheet{width:min(100%,540px);max-height:88vh;overflow:auto;border-radius:27px 27px 18px 18px;padding:18px;background:#141228;border:1px solid rgba(255,255,255,.11);box-shadow:var(--shadow)}.sheet h3{font-size:18px;margin:0}.sub{font-size:9px;color:#aaa4b5;margin:4px 0 13px}.field{margin:10px 0}.field label{display:block;font-size:9px;color:#aaa4b5;margin-bottom:5px}.field input{width:100%;height:43px;border-radius:12px;border:1px solid rgba(255,255,255,.11);background:#0a0a18;color:#fff;padding:0 10px;outline:none}.grid3{display:grid;grid-template-columns:.8fr .8fr 1.4fr;gap:7px}.actions{display:flex;gap:8px;margin-top:14px}.actions button{flex:1;height:43px;border-radius:13px}.ghost{border:1px solid rgba(255,255,255,.12);background:transparent;color:#fff}.save{border:0;background:linear-gradient(180deg,#f2d47f,#c99e43);color:#211a0c;font-weight:800}.detail{font-size:12px;line-height:1.72;color:#ddd7e2}.statusPill{display:inline-block;margin:8px 5px 0 0;padding:5px 8px;border-radius:999px;background:rgba(255,255,255,.055);font-size:8px;color:#c7c0cf}.toast{position:fixed;left:50%;bottom:92px;transform:translate(-50%,14px);z-index:120;opacity:0;pointer-events:none;transition:.22s;padding:10px 13px;border-radius:13px;background:#211b36;color:#fff;border:1px solid var(--line);font-size:10px;box-shadow:var(--shadow)}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:400px){.tools{grid-template-columns:repeat(3,1fr)}.astroStrip{grid-template-columns:1fr}.statusCard{text-align:left}.portal h1{font-size:21px}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="top">
+ <div class="brandMark"><img src="assets/horajarn-logo.webp" alt="ตราสัญลักษณ์โหราจารย์"></div>
+ <div class="brand"><div class="brandLine"><strong>โหราจารย์</strong><span class="freeBadge">FREE V1</span></div><small>HORAJARN • THAI ASTROLOGY PLATFORM</small></div>
+ <button type="button" class="profileBtn" onclick="openProfile()" aria-label="เปิดโปรไฟล์">☷</button>
+</header>
+
+<section class="heroWrap">
+ <div class="brandBanner"><img src="assets/horajarn-banner.webp" alt="โหราจารย์ แพลตฟอร์มโหราศาสตร์ไทย"><div class="bannerTag">✦ พื้นดวง • ดวงจร • เลขศาสตร์ • มหาทักษา</div></div>
+ <div class="portal">
+  <div class="portalTop"><div><div class="eyebrow">สำนักโหราศาสตร์ส่วนตัว</div><h1>อ่านดวงให้เป็นเรื่อง<br>รู้จังหวะให้เป็นเวลา</h1><p>สร้างดวงประจำตัวครั้งเดียว แล้วใช้ข้อมูลเดียวกันอ่านพื้นดวง งาน เงิน ความรัก และจังหวะชีวิต</p></div><div class="todayChip" id="todayChip">วันนี้</div></div>
+  <div class="profileCard"><div class="avatar">☾</div><div class="profileText"><b id="profileName">ยังไม่ได้สร้างดวงประจำตัว</b><span id="profileMeta">กรอกวันเกิดครั้งเดียว ใช้ได้กับทุกบริการ</span></div><button type="button" class="edit" onclick="openProfile()">แก้ไข</button></div>
+  <div class="astroStrip"><div><small>ภาพรวมดวงประจำตัว</small><b id="astroSummary">สร้างโปรไฟล์เพื่อเริ่มอ่านพื้นดวงและจังหวะปัจจุบัน</b></div><div class="statusCard"><small>สถานะ</small><b>พร้อมพยากรณ์</b><span>HORAJARN FREE</span></div></div>
+  <div class="cta"><button type="button" class="primary" onclick="openHoroscope()">✦ เปิดดวงของฉัน</button><button type="button" class="secondary" onclick="serviceClick('question')">ถามเฉพาะเรื่อง</button></div>
+ </div>
+</section>
+
+<section class="section">
+ <div class="sectionHead"><div><h2>ห้องพยากรณ์</h2><p>อ่านแต่ละเรื่องจากดวงประจำตัวชุดเดียวกัน</p></div><button type="button" onclick="scrollTools()">บริการทั้งหมด ›</button></div>
+ <div class="serviceGrid" id="majorServices"></div>
+</section>
+
+<section class="section" id="toolsSection">
+ <div class="sectionHead"><div><h2>เครื่องมือโหราศาสตร์</h2><p>บริการเฉพาะด้านที่กำลังต่อยอดจาก Core เดียวกัน</p></div></div>
+ <div class="tools" id="tools"></div>
+</section>
+
+<section class="insight">
+ <div class="insightTop"><div class="insightIcon">⌘</div><div><strong>ศาสตร์ที่อยู่ในระบบ</strong><p>หลังบ้านแยกตำราและกฎแต่ละสำนักออกจากกัน เพื่อเพิ่มความรู้ได้โดยไม่รื้อระบบเดิม</p></div></div>
+ <div class="schools"><span class="school">มหาสัตตเลข 7 ตัว 4 ฐาน</span><span class="school">ทักษา</span><span class="school">มหาทักษา</span><span class="school">เลขศาสตร์ไทย</span><span class="school">จันทรคติไทย</span></div>
+</section>
+
+<div class="freeInfo"><strong>HORAJARN FREE V1</strong><p>FREE V1 เปิดใช้พื้นดวง ดวงปี ดวงเดือน ดวงรายวัน การงาน การเงิน และความรัก พร้อมเสียงอ่านแยกเฉพาะเรื่อง บริการอื่นจะทยอยเพิ่มภายหลัง</p></div>
+</div>
+
+<nav class="bottom" aria-label="เมนูหลัก">
+ <button type="button" class="nav active" onclick="goHome(this)"><b>⌂</b>สำนัก</button>
+ <button type="button" class="nav" onclick="openHoroscope();setNav(this)"><b>✦</b>ดวงฉัน</button>
+ <button type="button" class="nav" onclick="scrollTools();setNav(this)"><b>▦</b>บริการ</button>
+ <button type="button" class="nav" onclick="showSimple('เกี่ยวกับรุ่นฟรี','HORAJARN FREE V1 เปิดใช้พื้นดวง ปี เดือน วัน การงาน การเงิน และความรัก พร้อมเสียงอ่านแยกเรื่อง โดยไม่มี paywall');setNav(this)"><b>◌</b>เกี่ยวกับ</button>
+ <button type="button" class="nav" onclick="openProfile();setNav(this)"><b>●</b>โปรไฟล์</button>
+</nav>
+
+<div class="modal" id="profileModal" onclick="backdropClose(event,'profileModal')"><div class="sheet">
+ <h3>ดวงประจำตัว</h3><div class="sub">ข้อมูลนี้เก็บในเครื่องและใช้ร่วมกับทุกบริการ</div>
+ <div class="field"><label>ชื่อที่ใช้เรียก</label><input id="pName" autocomplete="name" placeholder="เช่น คุณพอร์"></div>
+ <div class="grid3"><div class="field"><label>วัน</label><input id="pDay" inputmode="numeric" placeholder="1"></div><div class="field"><label>เดือน</label><input id="pMonth" inputmode="numeric" placeholder="3"></div><div class="field"><label>ปี พ.ศ.</label><input id="pYear" inputmode="numeric" placeholder="2516"></div></div>
+ <div class="grid3"><div class="field"><label>ชั่วโมง</label><input id="pHour" inputmode="numeric" placeholder="--"></div><div class="field"><label>นาที</label><input id="pMinute" inputmode="numeric" placeholder="--"></div><div class="field"><label>สถานที่เกิด</label><input id="pPlace" placeholder="จังหวัด/เมือง"></div></div>
+ <div class="actions"><button type="button" class="ghost" onclick="closeModal('profileModal')">ยกเลิก</button><button type="button" class="save" onclick="saveProfile()">บันทึกดวงประจำตัว</button></div>
+</div></div>
+<div class="modal" id="serviceModal" onclick="backdropClose(event,'serviceModal')"><div class="sheet"><h3 id="serviceTitle"></h3><div class="sub" id="serviceStatus"></div><div class="detail" id="serviceBody"></div><div class="actions"><button type="button" class="save" onclick="closeModal('serviceModal')">ปิด</button></div></div></div>
+<div class="toast" id="toast"></div>
+
+<script src="core/astrology-core.js"></script>
+<script>
+const SERVICES=[
+ {id:'horoscope',icon:'✦',name:'ดูดวงของฉัน',desc:'พื้นดวง • ปีนี้ • เดือนนี้ • วันนี้ • เสียงอ่านแยกเรื่อง',enabled:true,route:'horoscope.html',major:true},
+ {id:'career',icon:'♜',name:'การงาน',desc:'อาชีพ ความก้าวหน้า และจังหวะงาน',enabled:true,route:'service.html?type=career',major:true},
+ {id:'finance',icon:'◈',name:'การเงิน',desc:'รายได้ ฐานทรัพย์ และโอกาส',enabled:true,route:'service.html?type=finance',major:true},
+ {id:'love',icon:'♥',name:'ความรัก',desc:'คู่ครอง หุ้นส่วน และความสัมพันธ์',enabled:true,route:'service.html?type=love',major:true},
+ {id:'question',icon:'◉',name:'ถามเฉพาะเรื่อง',desc:'ถามจากดวงของคุณ',enabled:false,phase:'กำลังพัฒนา'},
+ {id:'luck',icon:'✧',name:'โชคลาภ',desc:'ลาภะและจังหวะส่งเสริม',enabled:false,phase:'กำลังพัฒนา'},
+ {id:'name',icon:'ก',name:'ชื่อมงคล',desc:'ตั้งชื่อและวิเคราะห์ชื่อ',enabled:false,phase:'กำลังพัฒนา'},
+ {id:'auspicious',icon:'☼',name:'ดูฤกษ์',desc:'ฤกษ์สำหรับเหตุการณ์สำคัญ',enabled:false,phase:'กำลังพัฒนา'},
+ {id:'calendar',icon:'▣',name:'ปฏิทินดวง',desc:'วันเด่นและจังหวะส่วนตัว',enabled:false,phase:'กำลังพัฒนา'},
+ {id:'home',icon:'⌂',name:'บ้าน / ที่อยู่',desc:'ถิ่นฐาน บ้าน และการย้าย',enabled:false,phase:'กำลังพัฒนา'},
+ {id:'health',icon:'✚',name:'สุขภาพตามคติ',desc:'จุดที่ควรใส่ใจตามศาสตร์',enabled:false,phase:'กำลังพัฒนา'}
+];
+const EXPLAIN={
+ question:'ในรุ่นถัดไป คุณจะพิมพ์เรื่องที่อยากรู้ แล้วระบบจะเลือกเรือนและหลักพยากรณ์ที่เกี่ยวข้องจากดวงประจำตัวโดยอัตโนมัติ',
+ luck:'จะวิเคราะห์ลาภะ ศรี มูละ และจังหวะส่งเสริมจากพื้นดวงและดวงจร โดยไม่ใช้การสุ่มเป็นแกนหลัก',
+ name:'จะวิเคราะห์และตั้งชื่อด้วยเลขศาสตร์และทักษา โดยเก็บกฎแต่ละสำนักแยกจากกัน',
+ auspicious:'จะเลือกฤกษ์ตามประเภทเหตุการณ์ เช่น เปิดกิจการ แต่งงาน ย้ายบ้าน หรือเซ็นสัญญา',
+ calendar:'จะจัดจังหวะดวงเป็นปฏิทินส่วนตัว เพื่อให้เห็นช่วงเด่นและช่วงที่ควรระวัง',
+ home:'จะอ่านเรื่องบ้าน ถิ่นฐาน และการเปลี่ยนสภาพแวดล้อมจากตำแหน่งที่เกี่ยวข้อง',
+ health:'เป็นการอ่านตามคติโหราศาสตร์เพื่อช่วยใส่ใจตนเอง ไม่ใช่การวินิจฉัยทางการแพทย์'
+};
+const $=id=>document.getElementById(id);
+function init(){renderServices();loadProfile();setToday()}
+function setToday(){const d=new Date();$('todayChip').textContent=d.toLocaleDateString('th-TH',{day:'numeric',month:'short',year:'2-digit'})}
+function renderServices(){
+ $('majorServices').innerHTML=SERVICES.filter(s=>s.major).map(s=>`<button type="button" class="serviceCard" onclick="serviceClick('${s.id}')"><div class="serviceIcon">${s.icon}</div><strong>${s.name}</strong><span>${s.desc}</span><em class="serviceState">พร้อมใช้ ›</em></button>`).join('');
+ $('tools').innerHTML=SERVICES.filter(s=>!s.major).map(s=>`<button type="button" class="tool ${s.enabled?'enabled':''}" onclick="serviceClick('${s.id}')"><div class="ico">${s.icon}</div><strong>${s.name}</strong><span>${s.enabled?'พร้อมใช้':s.phase}</span></button>`).join('')
+}
+function getProfile(){try{return JSON.parse(localStorage.getItem('astroProfileV1')||'{}')}catch{return{}}}
+function validStored(p){try{return AstroCore.validProfile(AstroCore.normalizeProfile(p))}catch{return false}}
+function loadProfile(){
+ const p=getProfile();
+ if(!p.name){$('profileName').textContent='ยังไม่ได้สร้างดวงประจำตัว';$('profileMeta').textContent='กรอกวันเกิดครั้งเดียว ใช้ได้กับทุกบริการ';$('astroSummary').textContent='สร้างโปรไฟล์เพื่อเริ่มอ่านพื้นดวงและจังหวะปัจจุบัน';return}
+ $('profileName').textContent=p.name;
+ const birth=(p.day&&p.month&&p.year)?`${p.day}/${p.month}/${p.year}`:'ยังไม่ระบุวันเกิด';
+ const time=(p.hour!==''&&p.hour!=null)?` • ${String(p.hour).padStart(2,'0')}:${String(p.minute||0).padStart(2,'0')} น.`:'';
+ $('profileMeta').textContent=birth+time+(p.place?` • ${p.place}`:'');
+ if(validStored(p)){try{const f=AstroCore.buildFacts(p,new Date());$('astroSummary').textContent=`${AstroCore.lunarString(f.lunar)} • ดาวเสวย ${f.mahaTaksa.main} • ดาวแทรก ${f.mahaTaksa.sub}`}catch(e){$('astroSummary').textContent='ข้อมูลพร้อมสำหรับการอ่านดวง'}}
+}
+function openProfile(){const p=getProfile();['Name','Day','Month','Year','Hour','Minute','Place'].forEach(k=>{const e=$('p'+k);if(e)e.value=p[k.toLowerCase()]??''});openModal('profileModal')}
+function saveProfile(){
+ const p={name:$('pName').value.trim(),day:$('pDay').value.trim(),month:$('pMonth').value.trim(),year:$('pYear').value.trim(),hour:$('pHour').value.trim(),minute:$('pMinute').value.trim(),place:$('pPlace').value.trim()};
+ if(!p.name){showToast('กรุณาใส่ชื่อที่ใช้เรียก');return}
+ if(p.day||p.month||p.year){const d=+p.day,m=+p.month,y=+p.year;if(!d||!m||!y||d<1||d>31||m<1||m>12||y<2300||y>2700){showToast('กรุณาตรวจวัน เดือน ปี พ.ศ.');return}const ad=y-543,dt=new Date(ad,m-1,d);if(dt.getFullYear()!=ad||dt.getMonth()!=m-1||dt.getDate()!=d){showToast('วันเกิดไม่ถูกต้อง');return}}
+ if(p.hour!==''&&(+p.hour<0||+p.hour>23)){showToast('ชั่วโมงต้องอยู่ระหว่าง 0–23');return}
+ if(p.minute!==''&&(+p.minute<0||+p.minute>59)){showToast('นาทีต้องอยู่ระหว่าง 0–59');return}
+ localStorage.setItem('astroProfileV1',JSON.stringify(p));closeModal('profileModal');loadProfile();showToast('บันทึกดวงประจำตัวแล้ว')
+}
+function routeWithProfile(route){if(!route)return;const p=getProfile();if(route.startsWith('service.html')&&p&&p.name){const u=new URL(route,location.href);['name','day','month','year','hour','minute','place'].forEach(k=>{if(p[k]!==undefined&&p[k]!==null&&p[k]!=='')u.searchParams.set(k,p[k])});location.href=u.href;return}location.href=route}
+function serviceClick(id){const s=SERVICES.find(x=>x.id===id);if(!s)return;if(s.enabled&&s.route){if(id!=='horoscope'&&!validStored(getProfile())){openProfile();showToast('กรอกวันเกิดให้ครบก่อนเปิดคำพยากรณ์เฉพาะเรื่อง');return}routeWithProfile(s.route);return}$('serviceTitle').textContent=`${s.icon} ${s.name}`;$('serviceStatus').textContent='HORAJARN FREE V1 • กำลังพัฒนา';$('serviceBody').innerHTML=(EXPLAIN[id]||s.desc)+`<br><span class="statusPill">อยู่ในแผนแพลตฟอร์ม</span><span class="statusPill">ยังไม่เปิดผลพยากรณ์</span>`;openModal('serviceModal')}
+function openHoroscope(){serviceClick('horoscope')}
+function scrollTools(){$('toolsSection').scrollIntoView({behavior:'smooth'})}
+function showSimple(t,b){$('serviceTitle').textContent=t;$('serviceStatus').textContent='HORAJARN FREE V1';$('serviceBody').textContent=b;openModal('serviceModal')}
+function openModal(id){$(id).classList.add('show')}function closeModal(id){$(id).classList.remove('show')}function backdropClose(e,id){if(e.target.id===id)closeModal(id)}
+function goHome(el){scrollTo({top:0,behavior:'smooth'});setNav(el)}function setNav(el){document.querySelectorAll('.nav').forEach(n=>n.classList.remove('active'));el.classList.add('active')}
+let toastTimer;function showToast(msg){$('toast').textContent=msg;$('toast').classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').classList.remove('show'),2200)}
+init();
+</script>
+</body>
+</html>
