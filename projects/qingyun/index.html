@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta name="theme-color" content="#991b1b" />
+<meta name="measymate-project-id" content="qingyun" />
+<meta name="application-name" content="QingYun - ชิงยุน (青云) by MEasyMate" />
+<meta name="description" content="QingYun - ชิงยุน (青云) V1 FREE — เรียนจีนสำหรับคนไทยด้วย QingYun Thai Bridge: Pinyin, โทน, อักษรจำง่าย, ลำดับขีด และทบทวนจุดอ่อน" />
+<title>QingYun - ชิงยุน (青云) • V1 FREE</title>
+<style>
+:root{
+  --bg:#f7f7f8;--surface:#fff;--surface2:#fafafa;--ink:#18181b;--muted:#71717a;--line:#e4e4e7;
+  --brand:#b91c1c;--brand2:#dc2626;--brandSoft:#fef2f2;--good:#047857;--goodSoft:#ecfdf5;
+  --amber:#d97706;--amberSoft:#fffbeb;--blue:#1d4ed8;--violet:#6d28d9;--danger:#be123c;
+  --shadow:0 10px 30px rgba(24,24,27,.07);--shadow2:0 18px 60px rgba(24,24,27,.12);
+  --radius:22px;--navh:74px;
+}
+html.dark{--bg:#09090b;--surface:#18181b;--surface2:#111113;--ink:#fafafa;--muted:#a1a1aa;--line:#2b2b30;--brandSoft:#321616;--goodSoft:#0b2a21;--amberSoft:#2b2110;--shadow:0 10px 30px rgba(0,0,0,.25);--shadow2:0 18px 60px rgba(0,0,0,.4)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html{scroll-behavior:smooth}body{margin:0;font-family:system-ui,-apple-system,"Noto Sans Thai","Noto Sans SC",sans-serif;background:var(--bg);color:var(--ink);overscroll-behavior-y:none;-webkit-font-smoothing:antialiased}button,input,select{font:inherit}button{cursor:pointer}.app{min-height:100vh}.zh{font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif}.hidden{display:none!important}
+.topbar{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--surface) 91%,transparent);backdrop-filter:blur(18px);border-bottom:1px solid var(--line);padding:max(env(safe-area-inset-top),8px) 14px 9px}.topin{max-width:920px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{display:flex;align-items:center;gap:10px;min-width:0}.logo{width:42px;height:42px;border-radius:13px;background:#fff;border:1px solid var(--line);overflow:hidden;display:grid;place-items:center;box-shadow:0 5px 15px rgba(0,0,0,.08);flex:0 0 auto}.logo img{width:100%;height:100%;object-fit:contain}.logoFallback{display:none;width:100%;height:100%;place-items:center;background:linear-gradient(135deg,var(--brand),#ef4444,#f59e0b);color:#fff;font-size:20px;font-weight:950}.brandName{font-size:18px;font-weight:950;line-height:1.05;white-space:nowrap}.brandSub{font-size:10.5px;color:var(--muted);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.iconbtn{width:40px;height:40px;border-radius:13px;border:1px solid var(--line);background:var(--surface);color:var(--ink);display:grid;place-items:center;font-size:17px}.topXp{font-size:12px;font-weight:850;color:var(--muted);white-space:nowrap}
+main{max-width:920px;margin:auto;padding:18px 14px calc(var(--navh) + 62px + env(safe-area-inset-bottom))}.stack{display:grid;gap:14px}.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.pad{padding:17px}.soft{background:var(--surface2)}.hero{padding:20px;background:linear-gradient(145deg,#7f1d1d,#b91c1c 45%,#ea580c);color:white;border:0;box-shadow:0 18px 45px rgba(185,28,28,.22);position:relative;overflow:hidden}.hero:after{content:"中文";position:absolute;right:-12px;bottom:-30px;font-size:106px;line-height:1;font-weight:950;opacity:.07}.eyebrow{font-size:11px;font-weight:900;letter-spacing:.07em;text-transform:uppercase;opacity:.78}.hero h1{font-size:30px;line-height:1.08;margin:8px 0 8px}.hero p{font-size:14px;line-height:1.55;opacity:.9;margin:0;max-width:62ch}.row{display:flex;align-items:center;gap:9px;flex-wrap:wrap}.between{display:flex;align-items:center;justify-content:space-between;gap:12px}.muted{color:var(--muted)}.tiny{font-size:11px}.small{font-size:13px}.title{font-size:20px;font-weight:950;margin:0}.subtitle{font-size:13px;color:var(--muted);margin-top:4px}.big{font-size:27px;font-weight:950}.sectionHead{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:4px 1px 10px}.sectionHead h2{font-size:18px;margin:0;font-weight:950}.sectionHead span{font-size:12px;color:var(--muted)}
+.btn{min-height:46px;border:0;border-radius:15px;padding:11px 15px;font-weight:900;display:inline-flex;align-items:center;justify-content:center;gap:7px}.btn:active{transform:scale(.985)}.btn.primary{background:var(--brand2);color:#fff;box-shadow:0 9px 24px rgba(220,38,38,.22)}.btn.dark{background:#18181b;color:#fff}.dark .btn.dark{background:#fafafa;color:#18181b}.btn.softbtn{background:var(--surface2);border:1px solid var(--line);color:var(--ink)}.btn.good{background:var(--good);color:#fff}.btn.warn{background:#f59e0b;color:#18181b}.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--ink)}.btn.full{width:100%}.btn.smallbtn{min-height:38px;padding:8px 11px;border-radius:12px;font-size:12px}.pill{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line);background:var(--surface2);border-radius:999px;padding:6px 10px;font-size:11px;font-weight:850;color:var(--ink)}.badge{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:5px 8px;font-size:10px;font-weight:900;background:var(--brandSoft);color:var(--brand)}.badge.good{background:var(--goodSoft);color:var(--good)}.badge.amber{background:var(--amberSoft);color:var(--amber)}
+.progress{height:9px;background:var(--line);border-radius:999px;overflow:hidden}.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--brand2),#f59e0b);border-radius:999px;transition:width .35s ease}.metric{padding:14px;background:var(--surface);border:1px solid var(--line);border-radius:18px}.metric b{font-size:23px;line-height:1}.metric .label{font-size:11px;color:var(--muted);margin-top:6px}
+.coach{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:start}.coachIcon{width:44px;height:44px;border-radius:14px;background:var(--brandSoft);display:grid;place-items:center;font-size:21px}.coach b{font-size:15px}.coach p{margin:4px 0 0;font-size:13px;line-height:1.5;color:var(--muted)}
+.task{padding:15px;display:grid;grid-template-columns:45px 1fr auto;gap:12px;align-items:center}.taskIcon{width:45px;height:45px;border-radius:15px;display:grid;place-items:center;background:var(--surface2);font-size:21px;border:1px solid var(--line)}.task b{font-size:14px}.task .desc{font-size:11.5px;color:var(--muted);margin-top:3px}.chev{font-size:22px;color:var(--muted)}
+.bottomNav{position:fixed;z-index:60;left:50%;transform:translateX(-50%);bottom:max(env(safe-area-inset-bottom),14px);width:min(900px,calc(100% - 20px));padding:7px 8px;background:color-mix(in srgb,var(--surface) 96%,transparent);backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:22px;box-shadow:0 14px 40px rgba(24,24,27,.16);display:grid;grid-template-columns:repeat(5,1fr);gap:4px}.navBtn{border:0;background:transparent;color:var(--muted);border-radius:16px;min-height:64px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:11px;font-weight:850}.navBtn .ico{font-size:21px;line-height:1}.navBtn.on{color:var(--brand);background:var(--brandSoft)}
+.studyShell{max-width:660px;margin:auto}.sessionBar{display:flex;align-items:center;gap:10px;margin-bottom:12px}.sessionBar .progress{flex:1}.studyCard{padding:18px;min-height:475px;display:flex;flex-direction:column;justify-content:space-between;touch-action:pan-y;user-select:none}.studyTop{display:flex;align-items:center;justify-content:space-between;gap:8px}.wordStage{text-align:center;padding:20px 0 12px}.hanzi{font-size:86px;line-height:1.05;font-weight:950;letter-spacing:-.04em}.pinyin{font-size:19px;font-weight:850;color:var(--brand2);margin-top:8px}.thai{font-size:28px;line-height:1.25;font-weight:950;margin-top:8px}.listenRow{display:flex;justify-content:center;gap:9px;margin-top:16px}.roundAudio{width:48px;height:48px;border-radius:16px;border:1px solid var(--line);background:var(--surface2);color:var(--ink);font-size:20px}.answer{padding:14px;border:1px solid var(--line);border-radius:17px;background:var(--surface2)}.exampleZh{font-size:17px;font-weight:850}.examplePy{font-size:11px;color:var(--muted);margin-top:3px}.exampleTh{font-size:12px;margin-top:3px}.studyHint{text-align:center;color:var(--muted);font-size:11px;margin-top:10px}.studyActions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}.studyActions.three{grid-template-columns:repeat(3,1fr)}.studyActions .btn{min-height:54px}.nextRow{display:grid;grid-template-columns:54px 1fr 54px;gap:8px;margin-top:10px}.nextRow .btn{padding:0}.search{width:100%;min-height:45px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:14px;padding:10px 13px;outline:none}.chips{display:flex;gap:7px;overflow-x:auto;padding:1px 1px 5px;scrollbar-width:none}.chips::-webkit-scrollbar{display:none}.chip{white-space:nowrap;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:8px 12px;font-weight:850;font-size:12px}.chip.on{background:var(--brand);color:#fff;border-color:var(--brand)}
+.reviewHero{padding:17px;background:linear-gradient(135deg,var(--surface),var(--brandSoft));border:1px solid color-mix(in srgb,var(--brand) 20%,var(--line));border-radius:22px}.reviewNumber{font-size:46px;font-weight:950;line-height:1;color:var(--brand)}.queueRow{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}.queueRow:last-child{border:0}.queueRow b{font-size:14px}.queueRow .tiny{margin-top:3px}
+.practiceGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.skill{padding:16px;text-align:left;min-height:145px;position:relative}.skill .icon{font-size:28px}.skill h3{font-size:15px;margin:9px 0 4px}.skill p{font-size:11.5px;line-height:1.45;color:var(--muted);margin:0}.skillScore{position:absolute;right:13px;top:13px;font-size:11px;font-weight:900;color:var(--muted)}.recommend{outline:2px solid color-mix(in srgb,var(--brand) 35%,transparent)}.recommend:after{content:"แนะนำ";position:absolute;right:10px;bottom:10px;background:var(--brand);color:white;font-size:9px;font-weight:900;border-radius:999px;padding:4px 7px}.practiceHead{display:flex;align-items:center;gap:10px;margin-bottom:12px}.back{width:42px;height:42px;border-radius:13px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:20px}.toneBtns{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}.toneBtns button{min-height:58px;border-radius:16px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-weight:950}.quizOpt{width:100%;min-height:50px;text-align:left;padding:12px 14px;border:1px solid var(--line);border-radius:15px;background:var(--surface);color:var(--ink);font-weight:800}.quizOpt.correct{background:var(--goodSoft);border-color:#10b981;color:var(--good)}.quizOpt.wrong{background:#fff1f2;border-color:#fb7185;color:#9f1239}.dark .quizOpt.wrong{background:#351419}.canvasWrap{position:relative;border:2px dashed var(--line);border-radius:20px;overflow:hidden;background:var(--surface)}#writeCanvas{display:block;width:100%;height:350px;touch-action:none;-ms-touch-action:none;overscroll-behavior:contain;-webkit-user-select:none;user-select:none;cursor:crosshair}.guideChar{position:absolute;inset:0;display:grid;place-items:center;font-size:160px;font-weight:950;opacity:.06;pointer-events:none}.cross:before,.cross:after{content:"";position:absolute;background:var(--line);pointer-events:none}.cross:before{left:50%;top:0;bottom:0;width:1px}.cross:after{top:50%;left:0;right:0;height:1px}.bubble{padding:14px;border-radius:18px;background:var(--brandSoft);border:1px solid color-mix(in srgb,var(--brand) 18%,var(--line))}
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:7px;align-items:end;height:150px}.dayCol{height:100%;display:flex;flex-direction:column;justify-content:end;align-items:center;gap:6px}.dayBar{width:100%;max-width:34px;min-height:5px;border-radius:9px 9px 5px 5px;background:linear-gradient(180deg,#ef4444,var(--brand));transition:height .35s}.dayLabel{font-size:9px;color:var(--muted)}.mastery{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.mastery>div{padding:12px;border-radius:16px;background:var(--surface2);border:1px solid var(--line);text-align:center}.mastery b{font-size:22px}.wordRow{display:grid;grid-template-columns:58px 1fr auto;gap:10px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}.wordRow:last-child{border:0}.wordHz{font-size:26px;font-weight:950}.divider{height:1px;background:var(--line);margin:14px 0}.toast{position:fixed;z-index:100;top:80px;left:50%;transform:translateX(-50%);max-width:90vw;background:#18181b;color:white;border-radius:14px;padding:11px 14px;font-size:12px;font-weight:850;box-shadow:var(--shadow2)}
+@media(min-width:761px){.practiceGrid{grid-template-columns:repeat(3,minmax(0,1fr))}.hero h1{font-size:36px}.bottomNav{border-left:1px solid var(--line);border-right:1px solid var(--line);border-radius:20px 20px 0 0}}
+@media(max-width:760px){main{padding-top:13px}.grid2,.grid3{grid-template-columns:1fr}.hero{padding:18px}.hero h1{font-size:27px}.studyCard{min-height:calc(100vh - 210px);max-height:670px;padding:16px}.hanzi{font-size:72px}.thai{font-size:25px}.practiceGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.topXp{display:none}.brandSub{max-width:205px}.mastery{grid-template-columns:repeat(3,1fr)}.studyActions .btn{font-size:13px}}
+@media(max-width:380px){.brandSub{max-width:160px}.hanzi{font-size:64px}.practiceGrid{grid-template-columns:1fr}.studyActions.three .btn{padding:8px 5px;font-size:11px}.navBtn{font-size:9px}}
+
+.readZh{font-size:31px;line-height:1.65;font-weight:900;text-align:center;letter-spacing:.02em}
+.readTools{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:12px}
+.strokeCoach{margin-top:12px;padding:13px;border:1px solid var(--line);border-radius:18px;background:var(--surface2)}
+.strokeTabs{display:flex;gap:7px;overflow-x:auto;padding-bottom:5px;scrollbar-width:none}
+.strokeTabs::-webkit-scrollbar{display:none}
+.strokeTab{min-width:64px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:13px;padding:8px;font-weight:900}
+.strokeTab.on{border-color:var(--brand);background:var(--brandSoft);color:var(--brand)}
+.strokeDemo{display:grid;grid-template-columns:120px 1fr;gap:12px;align-items:center;margin-top:10px}
+.strokeSvg{width:120px;height:90px;border-radius:16px;background:var(--surface);border:1px solid var(--line)}
+.strokeRules{font-size:12px;line-height:1.6;color:var(--muted)}
+@media(max-width:420px){.strokeDemo{grid-template-columns:100px 1fr}.strokeSvg{width:100px;height:84px}.readZh{font-size:27px}}
+
+
+/* QingYun Thai Bridge — V1 FREE UX Core */
+.bridgeBand{padding:14px;border-radius:18px;background:linear-gradient(135deg,var(--brandSoft),var(--surface));border:1px solid color-mix(in srgb,var(--brand) 20%,var(--line))}
+.bridgeTitle{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:950}
+.bridgeFlow{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:11px}
+.bridgeFlow>div{min-width:0;text-align:center;padding:9px 5px;border-radius:13px;background:var(--surface);border:1px solid var(--line)}
+.bridgeFlow b{display:block;font-size:18px}.bridgeFlow span{display:block;font-size:9px;color:var(--muted);margin-top:3px}
+.pinyinMode{display:flex;gap:7px;overflow-x:auto;padding:1px 1px 5px;scrollbar-width:none}
+.pinyinMode::-webkit-scrollbar{display:none}
+.pinyinMode button{white-space:nowrap;min-height:42px;padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink);font-weight:850}
+.pinyinMode button.on{background:var(--brand);border-color:var(--brand);color:#fff}
+.soundCard{text-align:center;padding:18px 14px;border:1px solid var(--line);border-radius:20px;background:var(--surface2)}
+.soundLatin{font-size:58px;line-height:1;font-weight:950;color:var(--brand)}
+.soundThai{font-size:23px;font-weight:950;margin-top:9px}
+.mouthCue{margin-top:8px;font-size:13px;line-height:1.55;color:var(--muted)}
+.soundExample{margin-top:14px;padding:12px;border-radius:15px;background:var(--surface);border:1px solid var(--line)}
+.blendRow{display:grid;grid-template-columns:1fr auto 1fr auto 1.2fr;gap:6px;align-items:center;margin-top:14px}
+.blendPart{padding:12px 7px;text-align:center;border-radius:14px;border:1px solid var(--line);background:var(--surface);font-weight:950}
+.blendPlus{font-weight:950;color:var(--muted)}
+.toneShape{font-size:25px;letter-spacing:.06em;color:var(--brand);font-weight:950}
+.hanziLab{display:grid;gap:12px}
+.memoryHero{display:grid;grid-template-columns:100px 1fr;gap:14px;align-items:center}
+.memoryChar{height:100px;border:1px solid var(--line);border-radius:18px;background:var(--surface2);display:grid;place-items:center;font-size:67px;font-weight:950}
+.componentChips{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.componentChips span{padding:6px 9px;border-radius:999px;background:var(--brandSoft);color:var(--brand);font-size:11px;font-weight:900}
+.memoryStory{margin-top:12px;padding:13px;border-radius:16px;background:var(--amberSoft);border:1px solid color-mix(in srgb,var(--amber) 22%,var(--line));font-size:13px;line-height:1.6}
+.memoryNote{font-size:10px;color:var(--muted);line-height:1.5;margin-top:7px}
+.strokeBoard{position:relative;width:100%;aspect-ratio:1/1;max-width:330px;margin:12px auto 0;border:1px solid var(--line);border-radius:20px;background:var(--surface);overflow:hidden}
+.strokeBoard svg{width:100%;height:100%;display:block}
+.strokeControls{display:grid;grid-template-columns:48px 1fr 48px;gap:8px;margin-top:10px}
+.strokeInfo{text-align:center;padding:9px;border-radius:13px;background:var(--surface2);border:1px solid var(--line)}
+.charPicker{display:flex;gap:7px;overflow-x:auto;padding:3px 1px 7px;scrollbar-width:none}
+.charPicker::-webkit-scrollbar{display:none}
+.charPick{min-width:49px;height:49px;border-radius:14px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:25px;font-weight:900}
+.charPick.on{border-color:var(--brand);background:var(--brandSoft);color:var(--brand)}
+.pathStep{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start;padding:10px 0;border-bottom:1px solid var(--line)}
+.pathStep:last-child{border-bottom:0}.pathNum{width:30px;height:30px;border-radius:10px;background:var(--brandSoft);color:var(--brand);display:grid;place-items:center;font-weight:950}
+@media(max-width:420px){
+  .bridgeFlow{grid-template-columns:repeat(2,1fr)}
+  .memoryHero{grid-template-columns:82px 1fr}.memoryChar{height:82px;font-size:55px}
+  .soundLatin{font-size:51px}.soundThai{font-size:21px}
+}
+
+
+/* V3.1 Focus UX */
+.bottomNav.focusHidden{display:none}
+main.focusMain{padding-bottom:34px}
+.focusHead{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.focusBack{width:44px;height:44px;border-radius:14px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:22px;font-weight:900}
+.focusHeadText{min-width:0}.focusHeadText h2{font-size:22px;margin:0;font-weight:950}.focusHeadText p{margin:3px 0 0;font-size:12px;color:var(--muted)}
+.pinyinMode.simple{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;overflow:visible;padding:0}
+.pinyinMode.simple button{padding:8px 5px;min-height:46px;font-size:12px;white-space:normal;border-radius:13px}
+.lessonProgress{display:flex;align-items:center;gap:9px;margin:10px 0 12px}.lessonProgress .progress{flex:1}
+.simpleSound{padding:16px 12px;border:1px solid var(--line);border-radius:18px;background:var(--surface)}
+.simpleEquation{display:flex;align-items:center;justify-content:center;gap:7px;flex-wrap:wrap;margin-top:8px}
+.eqPart{min-width:62px;padding:9px 11px;border-radius:13px;background:var(--surface2);border:1px solid var(--line);font-weight:950}
+.eqPlus{color:var(--muted);font-weight:950}
+.focusResult{text-align:center;padding:12px 0 4px}.focusResult .soundLatin{font-size:50px}.focusResult .zh{font-size:58px;font-weight:950;line-height:1.05;margin-top:8px}.focusResult .soundThai{font-size:21px;margin-top:5px}
+.listenPrimary{width:100%;margin-top:12px;min-height:52px}
+.strokeBoard.compact{max-width:270px;aspect-ratio:1/1;margin-top:10px}
+.strokeBoard.compact svg{overflow:visible}
+.writeSummary{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.writeSummary .zh{font-size:48px;font-weight:950}
+.studyCard.compactStudy{min-height:0!important;max-height:none!important;padding:15px}
+.compactStudy .wordStage{padding:10px 0 8px}
+.compactStudy .hanzi{font-size:66px}
+.compactStudy .listenRow{margin-top:11px}
+.compactStudy .studyHint{margin-top:7px}
+.compactStudy .nextRow{margin-top:8px}
+.compactStudy .answer{margin-top:8px}
+@media(max-width:760px){
+  .topbar{padding:max(env(safe-area-inset-top),6px) 12px 7px}
+  .logo{width:36px;height:36px;border-radius:11px}.brandName{font-size:17px}.brandSub{font-size:9.5px;max-width:190px}
+  main{padding:12px 12px calc(var(--navh) + 58px + env(safe-area-inset-bottom))}
+  main.focusMain{padding-bottom:28px}
+  .bottomNav{bottom:max(env(safe-area-inset-bottom),9px);width:calc(100% - 14px);padding:5px 6px;border-radius:18px}
+  .navBtn{min-height:56px;font-size:10px;gap:2px}.navBtn .ico{font-size:19px}
+  .pinyinMode.simple{grid-template-columns:repeat(2,1fr)}
+  .focusHeadText h2{font-size:21px}.focusHeadText p{font-size:11px;line-height:1.35}
+  .simpleSound{padding:14px 10px}.focusResult .soundLatin{font-size:45px}.focusResult .zh{font-size:52px}
+  .strokeBoard.compact{max-width:245px}
+  #writeCanvas{height:285px}.guideChar{font-size:132px}
+  .studyCard.compactStudy{padding:14px}.compactStudy .hanzi{font-size:62px}.compactStudy .thai{font-size:22px}
+}
+
+
+/* V3.2 One-Screen Learning */
+body.focusMode .topbar{display:none}
+body.focusMode main{padding-top:8px;padding-bottom:14px}
+.focusHead.compact{margin-bottom:8px}
+.focusHead.compact .focusBack{width:40px;height:40px;border-radius:12px}
+.focusHead.compact .focusHeadText h2{font-size:20px}
+.focusHead.compact .focusHeadText p{font-size:10.5px}
+.pinyinOne{display:grid;gap:8px}
+.pinyinOne .pinyinMode.simple{grid-template-columns:repeat(4,minmax(0,1fr));gap:5px}
+.pinyinOne .pinyinMode.simple button{min-height:40px;padding:6px 4px;font-size:11px;border-radius:11px}
+.pinyinOne .lessonProgress{margin:3px 0 4px}
+.pinyinOne .simpleSound{padding:11px 10px}
+.pinyinOne .focusResult{padding:5px 0 0}
+.pinyinOne .focusResult .soundLatin{font-size:42px}
+.pinyinOne .focusResult .zh{font-size:50px;margin-top:4px}
+.pinyinOne .focusResult .soundThai{font-size:18px}
+.pinyinOne .simpleEquation{gap:5px;margin-top:5px}
+.pinyinOne .eqPart{min-width:52px;padding:7px 8px;font-size:14px}
+.pinyinOne .mouthCue{font-size:11px;line-height:1.35;margin-top:6px}
+.pinyinOne .listenPrimary{min-height:46px;margin-top:8px}
+.pinyinOne .strokeControls{margin-top:7px;grid-template-columns:44px 1fr 44px}
+.pinyinOne .strokeInfo{padding:6px 7px}
+.pinyinOne .strokeInfo b{font-size:12px}.pinyinOne .strokeInfo .tiny{font-size:9px}
+.pinyinOne .soundExample{margin-top:7px;padding:8px}
+.pinyinOne .soundExample .zh{font-size:31px!important}
+.pinyinOne .soundExample .pinyin{font-size:15px;margin-top:3px}
+.pinyinOne .memoryNote{margin-top:5px;font-size:9px}
+.writeOne{display:grid;gap:8px}
+.writeTopRow{display:grid;grid-template-columns:auto 1fr auto;gap:9px;align-items:center}
+.writeCharMini{font-size:44px;font-weight:950;line-height:1}
+.writeMeta{text-align:center}.writeMeta b{font-size:14px}.writeMeta .tiny{margin-top:2px}
+.strokeMiniWrap{display:grid;grid-template-columns:160px 1fr;gap:10px;align-items:center}
+.strokeBoard.mini{width:160px;height:160px;aspect-ratio:auto;max-width:none;margin:0}
+.strokeMiniInfo{min-width:0}
+.strokeMiniInfo .stepBig{font-size:17px;font-weight:950}
+.strokeMiniInfo .dirBig{font-size:14px;font-weight:850;margin-top:4px;color:var(--brand)}
+.strokeMiniInfo .memoryMini{font-size:11px;line-height:1.35;color:var(--muted);margin-top:8px}
+.strokeStepBtns{display:grid;grid-template-columns:42px 1fr 42px;gap:6px;margin-top:8px}
+.strokeStepBtns .btn{min-height:40px;padding:5px}
+.writeCanvasTitle{display:flex;align-items:end;justify-content:space-between;gap:8px;margin-top:1px}
+.writeCanvasTitle b{font-size:15px}.writeCanvasTitle span{font-size:9.5px;color:var(--muted)}
+.writeOne .canvasWrap{margin-top:5px!important}
+.writeOne #writeCanvas{height:225px}
+.writeOne .guideChar{font-size:112px;opacity:.18}
+.writeOne .grid2{gap:7px}.writeOne .grid2 .btn{min-height:44px}
+.writeOne .memoryNote{font-size:9px;margin-top:3px}
+@media(max-width:390px){
+  .strokeMiniWrap{grid-template-columns:145px 1fr}
+  .strokeBoard.mini{width:145px;height:145px}
+  .writeOne #writeCanvas{height:210px}
+  .pinyinOne .focusResult .zh{font-size:45px}
+  .pinyinOne .focusResult .soundLatin{font-size:38px}
+}
+
+
+/* V1 FREE Writing Fix 2 — cumulative strokes + no vertical look-back */
+.writeDuo{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:9px}
+.writePane{min-width:0}
+.writePaneTitle{text-align:center;font-size:11px;font-weight:900;color:var(--muted);margin-bottom:5px}
+.strokeBoard.duo,.canvasWrap.duo{width:100%;aspect-ratio:1/1;height:auto;max-width:none;margin:0;border-radius:16px}
+.writeDuo .strokeBoard svg{width:100%;height:100%}
+.writeDuo .canvasWrap{position:relative}
+.writeDuo #writeCanvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.writeDuo .guideChar{font-size:82px;opacity:.16}
+.writeStepBar{display:grid;grid-template-columns:48px 1fr 48px;gap:7px;margin-top:9px}
+.writeStepBar .btn{min-height:48px;padding:5px}
+.writeStepCenter{text-align:center;border:1px solid var(--line);background:var(--surface2);border-radius:14px;padding:7px 5px;min-width:0}
+.writeStepCenter b{display:block;font-size:14px;line-height:1.2}
+.writeStepCenter span{display:block;font-size:10px;color:var(--muted);margin-top:3px;white-space:normal}
+.writeMemoryCompact{margin-top:7px;padding:8px 10px;border-radius:13px;background:var(--amberSoft);font-size:11px;line-height:1.4}
+.writeActions{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:8px}
+.writeActions .btn{min-height:44px}
+@media(max-width:390px){
+  .writeDuo{gap:7px}
+  .writeDuo .guideChar{font-size:70px}
+  .writeStepBar{grid-template-columns:44px 1fr 44px}
+  .writeStepCenter b{font-size:13px}
+}
+
+</style>
+</head>
+<body>
+<div id="app" class="app">
+  <header class="topbar"><div class="topin">
+    <div class="brand"><div class="logo"><img src="../../shared/brand/measymate-logo.jpg" alt="MEasyMate" onerror="if(!this.dataset.fallback){this.dataset.fallback='1';this.src='https://raw.githubusercontent.com/pormatee/MEasyMate-Products/main/shared/brand/measymate-logo.jpg'}else{this.style.display='none';this.nextElementSibling.style.display='grid'}"><div class="logoFallback">M</div></div><div><div class="brandName">QingYun <span style="font-size:9px;padding:3px 6px;border-radius:999px;background:var(--brandSoft);color:var(--brand);vertical-align:middle">FREE</span></div><div class="brandSub">ชิงยุน (青云) • V1 FREE • by MEasyMate</div></div></div>
+    <div class="row"><span id="topXp" class="topXp"></span><button id="themeBtn" class="iconbtn" aria-label="เปลี่ยนธีม">🌙</button></div>
+  </div></header>
+  <main id="view"></main>
+  <nav id="bottomNav" class="bottomNav" aria-label="เมนูหลัก"></nav>
+  <div id="toast" class="toast hidden"></div>
+</div>
+<script>
+const RAW_VOCAB = [["你好", "nǐ hǎo", "สวัสดี", "greet", 1, 7], ["您好", "nín hǎo", "สวัสดี (สุภาพ)", "greet", 2, 8], ["谢谢", "xièxie", "ขอบคุณ", "greet", 1, 12], ["不客气", "bú kèqi", "ไม่เป็นไร ยินดี", "greet", 2, 12], ["再见", "zàijiàn", "ลาก่อน", "greet", 1, 12], ["对不起", "duìbuqǐ", "ขอโทษ", "greet", 2, 10], ["没关系", "méi guānxi", "ไม่เป็นไร", "greet", 2, 12], ["请问", "qǐngwèn", "ขอถามหน่อย", "greet", 2, 12], ["你叫什么名字", "nǐ jiào shénme míngzì", "คุณชื่ออะไร", "greet", 1, 14], ["我叫...", "wǒ jiào...", "ฉันชื่อ...", "greet", 1, 8], ["很高兴认识你", "hěn gāoxìng rènshi nǐ", "ยินดีที่ได้รู้จัก", "greet", 2, 18], ["你好吗", "nǐ hǎo ma", "สบายดีไหม", "greet", 1, 8], ["我很好", "wǒ hěn hǎo", "ฉันสบายดี", "greet", 1, 9], ["早上好", "zǎoshang hǎo", "อรุณสวัสดิ์", "greet", 2, 12], ["晚上好", "wǎnshang hǎo", "สวัสดีตอนเย็น", "greet", 2, 14], ["好久不见", "hǎo jiǔ bú jiàn", "ไม่ได้เจอกันนาน", "greet", 3, 12], ["欢迎", "huānyíng", "ยินดีต้อนรับ", "greet", 3, 14], ["祝你生日快乐", "zhù nǐ shēngrì kuàilè", "สุขสันต์วันเกิด", "greet", 3, 16], ["没问题", "méi wèntí", "ไม่มีปัญหา", "greet", 2, 12], ["请", "qǐng", "เชิญ/กรุณา", "greet", 2, 10], ["一", "yī", "หนึ่ง", "numbers", 1, 1], ["二", "èr", "สอง", "numbers", 1, 2], ["三", "sān", "สาม", "numbers", 1, 3], ["四", "sì", "สี่", "numbers", 1, 5], ["五", "wǔ", "ห้า", "numbers", 1, 4], ["六", "liù", "หก", "numbers", 1, 4], ["七", "qī", "เจ็ด", "numbers", 1, 2], ["八", "bā", "แปด", "numbers", 1, 2], ["九", "jiǔ", "เก้า", "numbers", 1, 2], ["十", "shí", "สิบ", "numbers", 1, 2], ["零", "líng", "ศูนย์", "numbers", 1, 13], ["百", "bǎi", "ร้อย", "numbers", 2, 6], ["千", "qiān", "พัน", "numbers", 2, 3], ["现在几点", "xiànzài jǐ diǎn", "ตอนนี้กี่โมง", "numbers", 2, 14], ["今天", "jīntiān", "วันนี้", "numbers", 1, 8], ["明天", "míngtiān", "พรุ่งนี้", "numbers", 1, 8], ["昨天", "zuótiān", "เมื่อวาน", "numbers", 1, 9], ["年", "nián", "ปี", "numbers", 1, 6], ["月", "yuè", "เดือน", "numbers", 1, 4], ["星期", "xīngqī", "สัปดาห์", "numbers", 2, 16], ["家", "jiā", "บ้าน/ครอบครัว", "family", 1, 10], ["爸爸", "bàba", "พ่อ", "family", 1, 8], ["妈妈", "māma", "แม่", "family", 1, 8], ["哥哥", "gēge", "พี่ชาย", "family", 2, 10], ["姐姐", "jiějie", "พี่สาว", "family", 2, 10], ["弟弟", "dìdi", "น้องชาย", "family", 2, 7], ["妹妹", "mèimei", "น้องสาว", "family", 2, 8], ["朋友", "péngyou", "เพื่อน", "family", 2, 12], ["孩子", "háizi", "ลูก", "family", 2, 9], ["老公", "lǎogōng", "สามี", "family", 3, 16], ["老婆", "lǎopo", "ภรรยา", "family", 3, 16], ["爷爷", "yéye", "ปู่/ตา", "family", 3, 12], ["奶奶", "nǎinai", "ย่า/ยาย", "family", 3, 10], ["爱", "ài", "รัก", "family", 2, 10], ["人", "rén", "คน", "family", 1, 2], ["水", "shuǐ", "น้ำ", "food", 1, 4], ["茶", "chá", "ชา", "food", 1, 9], ["咖啡", "kāfēi", "กาแฟ", "food", 3, 14], ["米饭", "mǐfàn", "ข้าวสวย", "food", 2, 12], ["面条", "miàntiáo", "บะหมี่", "food", 2, 14], ["好吃", "hǎo chī", "อร่อย", "food", 2, 12], ["喝", "hē", "ดื่ม", "food", 1, 12], ["吃", "chī", "กิน", "food", 1, 6], ["饿", "è", "หิว", "food", 2, 10], ["饱", "bǎo", "อิ่ม", "food", 3, 8], ["辣", "là", "เผ็ด", "food", 3, 14], ["甜", "tián", "หวาน", "food", 3, 11], ["啤酒", "píjiǔ", "เบียร์", "food", 3, 16], ["鸡蛋", "jīdàn", "ไข่ไก่", "food", 2, 14], ["肉", "ròu", "เนื้อ", "food", 2, 6], ["鱼", "yú", "ปลา", "food", 2, 8], ["菜", "cài", "กับข้าว/ผัก", "food", 2, 11], ["筷子", "kuàizi", "ตะเกียบ", "food", 3, 18], ["买单", "mǎidān", "เช็คบิล", "food", 3, 16], ["菜单", "càidān", "เมนู", "food", 3, 18], ["多少钱", "duōshao qián", "ราคาเท่าไหร่", "shopping", 2, 14], ["便宜", "piányi", "ถูก", "shopping", 2, 12], ["贵", "guì", "แพง", "shopping", 2, 9], ["买", "mǎi", "ซื้อ", "shopping", 1, 6], ["卖", "mài", "ขาย", "shopping", 2, 8], ["可以便宜一点吗", "kěyǐ piányi yìdiǎn ma", "ลดได้อีกไหม", "shopping", 3, 18], ["我要这个", "wǒ yào zhège", "ฉันเอาอันนี้", "shopping", 2, 10], ["付款", "fùkuǎn", "จ่ายเงิน", "shopping", 3, 12], ["太贵了", "tài guì le", "แพงเกินไป", "shopping", 2, 10], ["打折", "dǎzhé", "ลดราคา", "shopping", 3, 10], ["钱", "qián", "เงิน", "shopping", 2, 10], ["商店", "shāngdiàn", "ร้านค้า", "shopping", 3, 16], ["试试", "shìshi", "ลองดู", "shopping", 3, 10], ["大", "dà", "ใหญ่", "shopping", 1, 3], ["小", "xiǎo", "เล็ก", "shopping", 1, 3], ["厕所在哪里", "cèsuǒ zài nǎlǐ", "ห้องน้ำอยู่ไหน", "travel", 2, 16], ["地铁", "dìtiě", "รถไฟใต้ดิน", "travel", 2, 14], ["酒店", "jiǔdiàn", "โรงแรม", "travel", 2, 16], ["怎么走", "zěnme zǒu", "ไปอย่างไร", "travel", 2, 10], ["车站", "chēzhàn", "สถานี", "travel", 2, 14], ["票", "piào", "ตั๋ว", "travel", 2, 11], ["护照", "hùzhào", "พาสปอร์ต", "travel", 3, 18], ["飞机", "fēijī", "เครื่องบิน", "travel", 2, 18], ["出租车", "chūzūchē", "แท็กซี่", "travel", 2, 14], ["左边", "zuǒbiān", "ซ้าย", "travel", 2, 10], ["右边", "yòubiān", "ขวา", "travel", 2, 10], ["前面", "qiánmiàn", "ข้างหน้า", "travel", 2, 12], ["后面", "hòumiàn", "ข้างหลัง", "travel", 2, 12], ["附近", "fùjìn", "ใกล้ๆ", "travel", 3, 12], ["地图", "dìtú", "แผนที่", "travel", 3, 14], ["学习", "xuéxí", "เรียน", "study", 2, 16], ["工作", "gōngzuò", "ทำงาน", "study", 2, 14], ["学校", "xuéxiào", "โรงเรียน", "study", 2, 16], ["老师", "lǎoshī", "คุณครู", "study", 1, 12], ["学生", "xuésheng", "นักเรียน", "study", 1, 12], ["中文", "Zhōngwén", "ภาษาจีน", "study", 2, 8], ["英文", "Yīngwén", "ภาษาอังกฤษ", "study", 2, 8], ["书", "shū", "หนังสือ", "study", 1, 4], ["电脑", "diànnǎo", "คอมพิวเตอร์", "study", 2, 14], ["手机", "shǒujī", "มือถือ", "study", 2, 12], ["公司", "gōngsī", "บริษัท", "study", 3, 12], ["会议", "huìyì", "ประชุม", "study", 3, 16], ["忙", "máng", "ยุ่ง", "study", 2, 6], ["休息", "xiūxi", "พักผ่อน", "study", 3, 12], ["会", "huì", "จะ/สามารถ", "study", 2, 6], ["高兴", "gāoxìng", "ดีใจ", "emotion", 2, 18], ["生气", "shēngqì", "โกรธ", "emotion", 2, 12], ["累", "lèi", "เหนื่อย", "emotion", 2, 10], ["生病", "shēngbìng", "ป่วย", "emotion", 3, 14], ["头", "tóu", "หัว", "emotion", 2, 5], ["手", "shǒu", "มือ", "emotion", 1, 4], ["心", "xīn", "หัวใจ", "emotion", 2, 4], ["喜欢", "xǐhuan", "ชอบ", "emotion", 1, 14], ["想", "xiǎng", "คิดถึง/อยาก", "emotion", 2, 13], ["怕", "pà", "กลัว", "emotion", 2, 8], ["开心", "kāixīn", "มีความสุข", "emotion", 2, 12], ["难过", "nánguò", "เศร้า", "emotion", 3, 18], ["身体", "shēntǐ", "ร่างกาย", "emotion", 3, 14], ["眼睛", "yǎnjing", "ตา", "emotion", 3, 16], ["笑", "xiào", "ยิ้ม/หัวเราะ", "emotion", 2, 10], ["我", "wǒ", "ฉัน", "hsk1", 1, 7], ["你", "nǐ", "คุณ", "hsk1", 1, 7], ["他", "tā", "เขา (ชาย)", "hsk1", 1, 5], ["她", "tā", "เขา (หญิง)", "hsk1", 1, 6], ["们", "men", "พวก", "hsk1", 1, 5], ["这", "zhè", "นี่", "hsk1", 1, 7], ["那", "nà", "นั่น", "hsk1", 1, 6], ["哪", "nǎ", "ไหน", "hsk1", 1, 9], ["谁", "shéi", "ใคร", "hsk1", 1, 10], ["什么", "shénme", "อะไร", "hsk1", 1, 14], ["怎么", "zěnme", "อย่างไร", "hsk1", 1, 12], ["为什么", "wèishénme", "ทำไม", "hsk1", 1, 9], ["吗", "ma", "ไหม (คำถาม)", "hsk1", 1, 6], ["呢", "ne", "ล่ะ", "hsk1", 1, 8], ["也", "yě", "ก็ด้วย", "hsk1", 1, 3], ["都", "dōu", "ทั้งหมด", "hsk1", 1, 10], ["很", "hěn", "มาก", "hsk1", 1, 9], ["太", "tài", "เกินไป", "hsk1", 1, 4], ["和", "hé", "และ", "hsk1", 1, 8], ["但是", "dànshì", "แต่", "hsk1", 1, 10], ["的", "de", "ของ", "hsk1", 1, 8], ["了", "le", "แล้ว", "hsk1", 1, 2], ["过", "guò", "เคย", "hsk1", 1, 6], ["在", "zài", "อยู่ที่", "hsk1", 1, 6], ["有", "yǒu", "มี", "hsk1", 1, 6], ["是", "shì", "คือ/เป็น", "hsk1", 1, 9], ["不", "bù", "ไม่", "hsk1", 1, 4], ["没", "méi", "ไม่ (อดีต)", "hsk1", 1, 7], ["要", "yào", "ต้องการ/จะ", "hsk1", 1, 9], ["会", "huì", "จะ/เป็น", "hsk1", 1, 6], ["就", "jiù", "ก็/แล้วก็", "hsk2", 2, 12], ["才", "cái", "เพิ่งจะ/ถึงจะ", "hsk2", 2, 3], ["还", "hái", "ยัง", "hsk2", 2, 7], ["已经", "yǐjīng", "...แล้ว", "hsk2", 2, 10], ["正在", "zhèngzài", "กำลัง...อยู่", "hsk2", 2, 12], ["一起", "yìqǐ", "ด้วยกัน", "hsk2", 2, 10], ["一下", "yíxià", "แป๊บหนึ่ง", "hsk2", 2, 6], ["一些", "yìxiē", "บางส่วน", "hsk2", 2, 8], ["比如", "bǐrú", "เช่น", "hsk2", 2, 10], ["除了", "chúle", "นอกจาก", "hsk2", 2, 12], ["虽然", "suīrán", "ถึงแม้ว่า", "hsk2", 2, 16], ["如果", "rúguǒ", "ถ้า", "hsk2", 2, 14], ["因为", "yīnwèi", "เพราะว่า", "hsk2", 2, 12], ["所以", "suǒyǐ", "ดังนั้น", "hsk2", 2, 12], ["觉得", "juéde", "รู้สึกว่า", "hsk2", 2, 16], ["知道", "zhīdào", "รู้", "hsk2", 2, 12], ["认识", "rènshi", "รู้จัก", "hsk2", 2, 14], ["希望", "xīwàng", "หวังว่า", "hsk2", 2, 16], ["准备", "zhǔnbèi", "เตรียม", "hsk2", 2, 14], ["开始", "kāishǐ", "เริ่ม", "hsk2", 2, 12]];
+const CATEGORIES = [{"id": "greet", "th": "ทักทาย", "icon": "👋"}, {"id": "numbers", "th": "ตัวเลข-เวลา", "icon": "🔢"}, {"id": "family", "th": "ครอบครัว", "icon": "👨‍👩‍👧"}, {"id": "food", "th": "อาหาร", "icon": "🍜"}, {"id": "shopping", "th": "ช้อปปิ้ง", "icon": "🛍️"}, {"id": "travel", "th": "เดินทาง", "icon": "✈️"}, {"id": "study", "th": "เรียน-ทำงาน", "icon": "💼"}, {"id": "emotion", "th": "อารมณ์-ร่างกาย", "icon": "💖"}, {"id": "hsk1", "th": "HSK 1", "icon": "📘"}, {"id": "hsk2", "th": "HSK 2", "icon": "📚"}];
+const CURATED_EXAMPLES = {"你好": [["你好，很高兴认识你！", "Nǐ hǎo, hěn gāoxìng rènshi nǐ!", "สวัสดี ยินดีที่ได้รู้จัก"], ["你好吗？", "Nǐ hǎo ma?", "คุณสบายดีไหม"]], "谢谢": [["谢谢你的帮助。", "Xièxie nǐ de bāngzhù.", "ขอบคุณสำหรับความช่วยเหลือ"], ["谢谢！", "Xièxie!", "ขอบคุณ!"]], "再见": [["明天见，再见！", "Míngtiān jiàn, zàijiàn!", "พรุ่งนี้เจอกัน ลาก่อน"], ["再见！", "Zàijiàn!", "ลาก่อน!"]], "学习": [["我每天学习中文。", "Wǒ měitiān xuéxí Zhōngwén.", "ฉันเรียนภาษาจีนทุกวัน"], ["我们一起学习吧。", "Wǒmen yìqǐ xuéxí ba.", "มาเรียนด้วยกันเถอะ"]], "工作": [["我在公司工作。", "Wǒ zài gōngsī gōngzuò.", "ฉันทำงานที่บริษัท"], ["今天工作很忙。", "Jīntiān gōngzuò hěn máng.", "วันนี้งานยุ่งมาก"]], "多少钱": [["这个多少钱？", "Zhège duōshao qián?", "อันนี้ราคาเท่าไหร่"], ["一共多少钱？", "Yígòng duōshao qián?", "ทั้งหมดเท่าไหร่"]], "厕所在哪里": [["请问，厕所在哪里？", "Qǐngwèn, cèsuǒ zài nǎlǐ?", "ขอถามหน่อย ห้องน้ำอยู่ที่ไหน"], ["厕所在前面。", "Cèsuǒ zài qiánmiàn.", "ห้องน้ำอยู่ข้างหน้า"]]};
+const PHRASES = [
+ {zh:'你好，很高兴认识你！',py:'Nǐ hǎo, hěn gāoxìng rènshi nǐ!',th:'สวัสดี ยินดีที่ได้รู้จัก'},
+ {zh:'请问，地铁站在哪里？',py:'Qǐngwèn, dìtiě zhàn zài nǎlǐ?',th:'ขอถามหน่อย สถานีรถไฟใต้ดินอยู่ที่ไหน'},
+ {zh:'我每天学习中文。',py:'Wǒ měitiān xuéxí Zhōngwén.',th:'ฉันเรียนภาษาจีนทุกวัน'},
+ {zh:'这个多少钱？',py:'Zhège duōshao qián?',th:'อันนี้ราคาเท่าไหร่'},
+ {zh:'太贵了，可以便宜一点吗？',py:'Tài guì le, kěyǐ piányi yìdiǎn ma?',th:'แพงไป ลดได้อีกไหม'},
+ {zh:'我要一杯咖啡，谢谢。',py:'Wǒ yào yì bēi kāfēi, xièxie.',th:'ฉันเอากาแฟหนึ่งแก้ว ขอบคุณ'},
+ {zh:'明天会下雨吗？',py:'Míngtiān huì xià yǔ ma?',th:'พรุ่งนี้ฝนจะตกไหม'},
+ {zh:'因为我很累，所以想休息。',py:'Yīnwèi wǒ hěn lèi, suǒyǐ xiǎng xiūxi.',th:'เพราะฉันเหนื่อยมาก จึงอยากพัก'}
+];
+
+
+const PINYIN_INITIALS = [
+ {py:'b',thai:'ใกล้ “ป”',cue:'ริมฝีปากปิดแล้วปล่อยเสียงสั้น ๆ — ไม่พ่นลมแรง',ex:'八',exPy:'bā',exTh:'แปด'},
+ {py:'p',thai:'ใกล้ “พ/ผ”',cue:'เหมือน b แต่พ่นลมออกชัดเจน',ex:'朋友',exPy:'péngyou',exTh:'เพื่อน'},
+ {py:'m',thai:'“ม”',cue:'ริมฝีปากปิด เสียงออกทางจมูก',ex:'妈妈',exPy:'māma',exTh:'แม่'},
+ {py:'f',thai:'“ฟ”',cue:'ฟันบนแตะริมฝีปากล่างเบา ๆ',ex:'饭',exPy:'fàn',exTh:'ข้าว/อาหาร'},
+ {py:'d',thai:'ใกล้ “ต”',cue:'ปลายลิ้นแตะหลังฟันบน — ไม่พ่นลมแรง',ex:'大',exPy:'dà',exTh:'ใหญ่'},
+ {py:'t',thai:'ใกล้ “ท/ถ”',cue:'ตำแหน่งคล้าย d แต่พ่นลมชัด',ex:'他',exPy:'tā',exTh:'เขา'},
+ {py:'n',thai:'“น”',cue:'ปลายลิ้นแตะด้านหลังฟันบน เสียงออกจมูก',ex:'你',exPy:'nǐ',exTh:'คุณ'},
+ {py:'l',thai:'“ล”',cue:'ปลายลิ้นแตะปุ่มเหงือก แล้วปล่อยลมข้างลิ้น',ex:'六',exPy:'liù',exTh:'หก'},
+ {py:'g',thai:'ใกล้ “ก”',cue:'โคนลิ้นยกแตะเพดานอ่อน — ไม่พ่นลมแรง',ex:'高',exPy:'gāo',exTh:'สูง'},
+ {py:'k',thai:'ใกล้ “ค/ข”',cue:'ตำแหน่งคล้าย g แต่พ่นลมชัด',ex:'看',exPy:'kàn',exTh:'ดู'},
+ {py:'h',thai:'ใกล้ “ฮ/ห”',cue:'ลมเสียดบริเวณคอ ไม่ใช่ ฮ แบบไทยตรง ๆ',ex:'好',exPy:'hǎo',exTh:'ดี'},
+ {py:'j',thai:'ใกล้ “จ” นุ่ม',cue:'ลิ้นส่วนหน้าชิดเพดาน หน้าแบน — ไม่ม้วนลิ้น',ex:'家',exPy:'jiā',exTh:'บ้าน'},
+ {py:'q',thai:'ใกล้ “ช” + ลม',cue:'ตำแหน่งเหมือน j แต่พ่นลมแรงกว่า',ex:'请',exPy:'qǐng',exTh:'กรุณา/เชิญ'},
+ {py:'x',thai:'ใกล้ “ซ/ช” เบา',cue:'ลิ้นแบนใกล้ฟันล่าง ให้ลมเสียดด้านหน้า',ex:'谢谢',exPy:'xièxie',exTh:'ขอบคุณ'},
+ {py:'zh',thai:'ใกล้ “จ” ลิ้นงุ้ม',cue:'ม้วนปลายลิ้นขึ้นเล็กน้อย ไม่พ่นลมแรง',ex:'中国',exPy:'Zhōngguó',exTh:'ประเทศจีน'},
+ {py:'ch',thai:'ใกล้ “ช” ลิ้นงุ้ม',cue:'เหมือน zh แต่พ่นลมแรง',ex:'吃',exPy:'chī',exTh:'กิน'},
+ {py:'sh',thai:'ใกล้ “ช” ลิ้นงุ้ม',cue:'ม้วนลิ้นเล็กน้อย แล้วปล่อยลมเสียด',ex:'十',exPy:'shí',exTh:'สิบ'},
+ {py:'r',thai:'เสียงจีนเฉพาะ',cue:'ลิ้นงุ้มคล้าย sh แต่มีเสียงก้อง — อย่าอ่านเป็น ร ไทยตรง ๆ',ex:'人',exPy:'rén',exTh:'คน'},
+ {py:'z',thai:'ใกล้ “จ/ts”',cue:'ฟันเกือบชิด ไม่พ่นลมแรง',ex:'在',exPy:'zài',exTh:'อยู่ที่'},
+ {py:'c',thai:'“ts” + ลม',cue:'เหมือน z แต่พ่นลมแรง',ex:'菜',exPy:'cài',exTh:'อาหาร/ผัก'},
+ {py:'s',thai:'“ซ”',cue:'ลมผ่านช่องแคบระหว่างลิ้นกับฟัน',ex:'三',exPy:'sān',exTh:'สาม'}
+];
+
+const PINYIN_FINALS = [
+ {py:'a',thai:'อา',cue:'อ้าปากกว้าง เสียงตรงและเปิด',ex:'八',exPy:'bā'},
+ {py:'o',thai:'ออ/โอ ใกล้เคียง',cue:'ห่อปากกลม เสียงสั้นกว่าที่คนไทยมักลาก',ex:'我',exPy:'wǒ'},
+ {py:'e',thai:'เออ/เออะ ใกล้เคียง',cue:'ปากผ่อน เสียงอยู่กลางปาก ไม่ใช่ “เอ” ไทย',ex:'饿',exPy:'è'},
+ {py:'i',thai:'อี',cue:'ยิ้มปากเล็กน้อย; หลัง z/c/s/zh/ch/sh/r เสียง i จะพิเศษ',ex:'你',exPy:'nǐ'},
+ {py:'u',thai:'อู',cue:'ห่อปากชัด',ex:'不',exPy:'bù'},
+ {py:'ü',thai:'ใกล้ “อวี”',cue:'วางลิ้นเหมือนพูด อี แต่ห่อริมฝีปากเหมือน อู',ex:'女',exPy:'nǚ'},
+ {py:'ai',thai:'ไอ',cue:'เริ่ม อา แล้วไหลไป อี',ex:'买',exPy:'mǎi'},
+ {py:'ei',thai:'เอย',cue:'เริ่ม เอ แล้วไหลไป อี',ex:'没',exPy:'méi'},
+ {py:'ao',thai:'เอา',cue:'เริ่ม อา แล้วห่อปากท้ายเสียง',ex:'好',exPy:'hǎo'},
+ {py:'ou',thai:'โอว',cue:'เริ่ม โอ แล้วหุบเสียงท้าย',ex:'口',exPy:'kǒu'},
+ {py:'an',thai:'อัน',cue:'ปิดท้ายด้วย n ปลายลิ้น',ex:'看',exPy:'kàn'},
+ {py:'en',thai:'เอิน',cue:'เสียงกลาง + n',ex:'人',exPy:'rén'},
+ {py:'ang',thai:'อัง',cue:'ท้าย ng เสียงก้องด้านหลังปาก',ex:'忙',exPy:'máng'},
+ {py:'eng',thai:'เอิง',cue:'เสียงกลาง + ng ด้านหลัง',ex:'冷',exPy:'lěng'},
+ {py:'ong',thai:'อง',cue:'ห่อปากและจบด้วย ng',ex:'中',exPy:'zhōng'},
+ {py:'ie',thai:'อี-เอ / เย',cue:'ไหลเร็วจาก i ไป e',ex:'谢谢',exPy:'xièxie'},
+ {py:'iao',thai:'อี-เอา / เยา',cue:'เชื่อม i + ao ให้เป็นพยางค์เดียว',ex:'叫',exPy:'jiào'},
+ {py:'ian',thai:'เอียน',cue:'เสียง i นำ แล้วจบ n',ex:'钱',exPy:'qián'},
+ {py:'ing',thai:'อิง',cue:'เสียง i + ng',ex:'请',exPy:'qǐng'},
+ {py:'uo',thai:'อัว/วอ',cue:'เริ่ม u แล้วเปิดเป็น o',ex:'多',exPy:'duō'},
+ {py:'ui',thai:'อุย/เวย',cue:'รูปเขียนย่อจาก uei ในหลายคำ',ex:'水',exPy:'shuǐ'}
+];
+
+const PINYIN_BLENDS = [
+ {initial:'n',final:'i',tone:'3',result:'nǐ',zh:'你',th:'คุณ',tip:'n + i → ni แล้วใส่เสียง 3'},
+ {initial:'h',final:'ao',tone:'3',result:'hǎo',zh:'好',th:'ดี',tip:'h + ao → hao แล้วกดเสียงลงก่อนยกขึ้น'},
+ {initial:'m',final:'a',tone:'1',result:'mā',zh:'妈',th:'แม่',tip:'m + a → ma เสียง 1 สูงคงที่'},
+ {initial:'b',final:'a',tone:'4',result:'bà',zh:'爸',th:'พ่อ',tip:'b + a → ba เสียง 4 ตกเร็ว'},
+ {initial:'sh',final:'ui',tone:'3',result:'shuǐ',zh:'水',th:'น้ำ',tip:'sh ต้องงุ้มลิ้นเล็กน้อย แล้วต่อ ui'},
+ {initial:'ch',final:'i',tone:'1',result:'chī',zh:'吃',th:'กิน',tip:'i หลัง ch เป็นเสียงพิเศษ อย่าอ่าน “อี” ตรง ๆ'},
+ {initial:'x',final:'ie',tone:'4',result:'xiè',zh:'谢',th:'ขอบคุณ/ขอบ',tip:'x ลิ้นแบนหน้า + ie แล้วเสียง 4'},
+ {initial:'j',final:'ia',tone:'1',result:'jiā',zh:'家',th:'บ้าน',tip:'j ไม่ม้วนลิ้น แล้วต่อ ia'},
+ {initial:'q',final:'ing',tone:'3',result:'qǐng',zh:'请',th:'กรุณา',tip:'q พ่นลมชัด + ing + เสียง 3'},
+ {initial:'z',final:'ai',tone:'4',result:'zài',zh:'在',th:'อยู่ที่',tip:'z ไม่พ่นลม + ai + เสียง 4'}
+];
+
+const PINYIN_TONES = [
+ {n:1,mark:'¯',shape:'55',thai:'สูงคงที่',cue:'วางเสียงสูงแล้วรักษาระดับ',ex:'mā 妈 = แม่'},
+ {n:2,mark:'´',shape:'35',thai:'ไต่ขึ้น',cue:'เริ่มกลางแล้วไต่ขึ้น คล้ายเสียงถาม',ex:'má 麻 = ป่าน'},
+ {n:3,mark:'ˇ',shape:'214',thai:'ลงต่ำแล้วค่อยขึ้น',cue:'ในคำพูดจริงส่วน “ขึ้น” อาจไม่เต็มทุกครั้ง',ex:'mǎ 马 = ม้า'},
+ {n:4,mark:'`',shape:'51',thai:'ตกเร็ว',cue:'เริ่มสูงแล้วกดลงสั้นและชัด',ex:'mà 骂 = ด่า'},
+ {n:5,mark:'·',shape:'เบา',thai:'เสียงเบา/กลาง',cue:'สั้น เบา ไม่มีรูปโทนตายตัว',ex:'ma 吗 = ไหม'}
+];
+
+
+const HANZI_MEMORY = [
+ {char:'人',py:'rén',th:'คน',structure:'อักษรเดี่ยว',parts:['人 = คน'],story:'มองเป็นคนสองขากำลังก้าวเดิน',note:'ภาพจำเพื่อการเรียน ไม่ใช่คำอธิบายรากศัพท์เต็มรูปแบบ'},
+ {char:'大',py:'dà',th:'ใหญ่',structure:'อักษรเดี่ยว',parts:['人 + กางแขน'],story:'คนกางแขนออกกว้าง ๆ → “ใหญ่”',note:'ใช้รูปร่างช่วยจำ'},
+ {char:'木',py:'mù',th:'ต้นไม้/ไม้',structure:'อักษรเดี่ยว',parts:['เส้นตั้ง = ลำต้น','เส้นเฉียง = กิ่ง'],story:'เห็นลำต้นตรงกลางและกิ่งแผ่ออกสองข้าง → ต้นไม้',note:'ใช้ภาพโครงสร้างช่วยจำ'},
+ {char:'林',py:'lín',th:'ป่าเล็ก/ดง',structure:'ซ้าย–ขวา',parts:['木 ต้นไม้','木 ต้นไม้'],story:'ต้นไม้ 2 ต้นอยู่ด้วยกัน → 林 = ดง/ป่า',note:'การประกอบตัวช่วยให้จำความหมาย'},
+ {char:'休',py:'xiū',th:'พัก',structure:'ซ้าย–ขวา',parts:['亻 คน','木 ต้นไม้'],story:'คนเอนอยู่ข้างต้นไม้ → พัก',note:'เป็น mnemonic ที่ช่วยจำส่วนประกอบ'},
+ {char:'明',py:'míng',th:'สว่าง',structure:'ซ้าย–ขวา',parts:['日 ดวงอาทิตย์','月 ดวงจันทร์'],story:'อาทิตย์ + จันทร์ → สว่าง',note:'ใช้ส่วนประกอบเป็นภาพจำ'},
+ {char:'好',py:'hǎo',th:'ดี',structure:'ซ้าย–ขวา',parts:['女','子'],story:'จำเป็นคู่ 女 + 子 = 好 แล้วผูกกับคำว่า “ดี”',note:'ใช้เป็น mnemonic; ไม่อ้างว่าเป็นที่มาทางประวัติศาสตร์ทั้งหมด'},
+ {char:'看',py:'kàn',th:'ดู/มอง',structure:'บน–ล่าง',parts:['手 มือ','目 ตา'],story:'เอามือบังเหนือดวงตาเพื่อมองไกล → 看',note:'ภาพจำจากส่วนประกอบ'},
+ {char:'问',py:'wèn',th:'ถาม',structure:'นอก–ใน',parts:['门 ประตู','口 ปาก'],story:'ปากอยู่ที่ประตู → เปิดปากถาม',note:'ภาพจำเพื่อการเรียน'},
+ {char:'家',py:'jiā',th:'บ้าน/ครอบครัว',structure:'บน–ล่าง',parts:['宀 หลังคา','豕 ส่วนล่าง'],story:'จำรูปหลังคาไว้ก่อน → 家 คือบ้าน',note:'ไม่ใช้ mnemonic แทนการอธิบายรากศัพท์เชิงวิชาการ'}
+];
+
+const STROKE_PACK = [
+ {char:'一',py:'yī',th:'หนึ่ง',memory:'เส้นเดียวจากซ้ายไปขวา',strokes:[
+   {name:'横 hé',dir:'ซ้าย → ขวา',d:'M18 60 L102 60',start:[18,60]}
+ ]},
+ {char:'二',py:'èr',th:'สอง',memory:'สองเส้นนอน — บนสั้น ล่างยาว',strokes:[
+   {name:'横 hé',dir:'ซ้าย → ขวา',d:'M28 42 L92 42',start:[28,42]},
+   {name:'横 hé',dir:'ซ้าย → ขวา',d:'M18 78 L102 78',start:[18,78]}
+ ]},
+ {char:'三',py:'sān',th:'สาม',memory:'สามเส้นนอนเรียงจากบนลงล่าง',strokes:[
+   {name:'横 hé',dir:'ซ้าย → ขวา',d:'M30 31 L90 31',start:[30,31]},
+   {name:'横 hé',dir:'ซ้าย → ขวา',d:'M25 60 L95 60',start:[25,60]},
+   {name:'横 hé',dir:'ซ้าย → ขวา',d:'M16 90 L104 90',start:[16,90]}
+ ]},
+ {char:'十',py:'shí',th:'สิบ',memory:'เส้นนอนก่อน แล้วเส้นตั้งผ่ากลาง',strokes:[
+   {name:'横 hé',dir:'ซ้าย → ขวา',d:'M18 51 L102 51',start:[18,51]},
+   {name:'竖 shù',dir:'บน ↓ ล่าง',d:'M60 18 L60 104',start:[60,18]}
+ ]},
+ {char:'人',py:'rén',th:'คน',memory:'สองขาแยกออกจากด้านบน',strokes:[
+   {name:'撇 piě',dir:'บนขวา ↙ ล่างซ้าย',d:'M67 20 Q56 58 26 99',start:[67,20]},
+   {name:'捺 nà',dir:'บนซ้าย ↘ ล่างขวา',d:'M62 45 Q76 72 101 98',start:[62,45]}
+ ]},
+ {char:'大',py:'dà',th:'ใหญ่',memory:'คน 人 กางแขนเพิ่มเส้นนอน',strokes:[
+   {name:'横 hé',dir:'ซ้าย → ขวา',d:'M20 45 L100 45',start:[20,45]},
+   {name:'撇 piě',dir:'บนขวา ↙ ล่างซ้าย',d:'M64 19 Q58 58 27 101',start:[64,19]},
+   {name:'捺 nà',dir:'กลาง ↘ ล่างขวา',d:'M61 52 Q77 77 102 101',start:[61,52]}
+ ]},
+ {char:'木',py:'mù',th:'ต้นไม้',memory:'นอน → ตั้ง → ซ้าย → ขวา',strokes:[
+   {name:'横 hé',dir:'ซ้าย → ขวา',d:'M20 47 L101 47',start:[20,47]},
+   {name:'竖 shù',dir:'บน ↓ ล่าง',d:'M61 18 L61 105',start:[61,18]},
+   {name:'撇 piě',dir:'กลาง ↙ ล่างซ้าย',d:'M60 54 Q46 77 22 95',start:[60,54]},
+   {name:'捺 nà',dir:'กลาง ↘ ล่างขวา',d:'M62 56 Q78 78 102 96',start:[62,56]}
+ ]},
+ {char:'口',py:'kǒu',th:'ปาก',memory:'ซ้ายก่อน → บนพับลงขวา → ปิดล่าง',strokes:[
+   {name:'竖 shù',dir:'บน ↓ ล่าง',d:'M31 25 L31 96',start:[31,25]},
+   {name:'横折 héngzhé',dir:'ซ้าย → ขวา แล้ว ↓',d:'M31 25 L91 25 L91 96',start:[31,25]},
+   {name:'横 hé',dir:'ซ้าย → ขวา',d:'M31 96 L91 96',start:[31,96]}
+ ]}
+];
+
+const READING_ITEMS = PHRASES.map((p,i)=>({
+  ...p,
+  choices:[p.th,PHRASES[(i+2)%PHRASES.length].th,PHRASES[(i+5)%PHRASES.length].th]
+}));
+const BASIC_STROKES = [
+ {symbol:'一',name:'横 hé',dir:'ซ้าย → ขวา',path:'M18 45 L102 45'},
+ {symbol:'丨',name:'竖 shù',dir:'บน ↓ ล่าง',path:'M60 12 L60 78'},
+ {symbol:'丿',name:'撇 piě',dir:'บนขวา ↙ ล่างซ้าย',path:'M86 16 Q63 45 28 76'},
+ {symbol:'㇏',name:'捺 nà',dir:'บนซ้าย ↘ ล่างขวา',path:'M32 16 Q55 40 94 76'},
+ {symbol:'丶',name:'点 diǎn',dir:'บนซ้าย ↘ สั้น ๆ',path:'M47 28 L70 54'},
+ {symbol:'㇀',name:'提 tí',dir:'ล่างซ้าย ↗ บนขวา',path:'M28 70 L88 24'}
+];
+
+const GRAMMAR = [
+ {name:'是 shì',level:'พื้นฐาน 1',meaning:'เป็น / คือ',formula:'ประธาน + 是 + คำนาม',thai:'ใช้บอกว่า “ใคร/อะไร เป็นอะไร”',exampleZh:'我是泰国人。',examplePy:'Wǒ shì Tàiguó rén.',exampleTh:'ฉันเป็นคนไทย',tip:'จำง่าย ๆ: 我 = ฉัน, 是 = เป็น, 泰国人 = คนไทย',quiz:'我___学生。',answer:'是',choices:['是','在','有'],why:'ประโยคนี้หมายถึง “ฉันเป็นนักเรียน” จึงใช้ 是 = เป็น/คือ'},
+ {name:'有 yǒu',level:'พื้นฐาน 2',meaning:'มี',formula:'ประธาน + 有 + สิ่งของ/คน',thai:'ใช้เวลาจะบอกว่า “มี...”',exampleZh:'我有一本书。',examplePy:'Wǒ yǒu yì běn shū.',exampleTh:'ฉันมีหนังสือหนึ่งเล่ม',tip:'เห็นคำว่า “มี” ในภาษาไทย ให้นึกถึง 有 ก่อน',quiz:'我___两本书。',answer:'有',choices:['有','是','在'],why:'ต้องการบอกว่า “ฉันมีหนังสือสองเล่ม” จึงใช้ 有'},
+ {name:'在 zài',level:'พื้นฐาน 3',meaning:'อยู่ที่ / ที่',formula:'ประธาน + 在 + สถานที่',thai:'ใช้บอกตำแหน่งว่าใครหรืออะไรอยู่ที่ไหน',exampleZh:'我在家。',examplePy:'Wǒ zài jiā.',exampleTh:'ฉันอยู่บ้าน',tip:'在 มักอยู่หน้าสถานที่ เช่น 在家 = อยู่บ้าน, 在学校 = อยู่โรงเรียน',quiz:'我___家。',answer:'在',choices:['在','有','是'],why:'หลังช่องว่างเป็นสถานที่ 家 = บ้าน จึงใช้ 在 = อยู่ที่'},
+ {name:'吗 ma',level:'พื้นฐาน 4',meaning:'ไหม?',formula:'ประโยคบอกเล่า + 吗？',thai:'เปลี่ยนประโยคธรรมดาให้เป็นคำถามแบบ ใช่/ไม่ใช่',exampleZh:'你是泰国人吗？',examplePy:'Nǐ shì Tàiguó rén ma?',exampleTh:'คุณเป็นคนไทยไหม?',tip:'สร้างประโยคธรรมดาก่อน แล้วเติม 吗 ไว้ท้ายประโยค',quiz:'你好吗___',answer:'吗',choices:['吗','呢','了'],why:'ต้องการถามว่า “คุณสบายดีไหม?” จึงเติม 吗 ท้ายประโยค'},
+ {name:'很 hěn',level:'พื้นฐาน 5',meaning:'มาก / คำเชื่อมกับคำคุณศัพท์',formula:'ประธาน + 很 + คำคุณศัพท์',thai:'ใช้กับคำบอกลักษณะ เช่น ดี สวย ยุ่ง สูง',exampleZh:'我很好。',examplePy:'Wǒ hěn hǎo.',exampleTh:'ฉันสบายดี / ฉันดีมาก',tip:'ในภาษาจีนมักพูด 我很好 มากกว่า 我是好',quiz:'我___忙。',answer:'很',choices:['很','是','有'],why:'忙 = ยุ่ง เป็นคำคุณศัพท์ จึงใช้ 很 + 忙'},
+ {name:'要 yào',level:'พื้นฐาน 6',meaning:'ต้องการ / จะ',formula:'ประธาน + 要 + กริยา/สิ่งที่ต้องการ',thai:'ใช้บอกสิ่งที่อยากได้หรืออยากทำ',exampleZh:'我要喝水。',examplePy:'Wǒ yào hē shuǐ.',exampleTh:'ฉันอยากดื่มน้ำ',tip:'我要... = ฉันต้องการ... เป็นรูปที่ใช้บ่อยมากในชีวิตจริง',quiz:'我___吃饭。',answer:'要',choices:['要','在','是'],why:'ประโยคหมายถึง “ฉันอยากกินข้าว” จึงใช้ 要'},
+ {name:'会 huì',level:'พื้นฐาน 7',meaning:'ทำเป็น / สามารถ',formula:'ประธาน + 会 + กริยา',thai:'ใช้กับความสามารถที่เรียนรู้มา เช่น พูด ขับรถ ว่ายน้ำ',exampleZh:'我会说中文。',examplePy:'Wǒ huì shuō Zhōngwén.',exampleTh:'ฉันพูดภาษาจีนเป็น',tip:'会 เน้น “ทำเป็นเพราะเรียนรู้มา”',quiz:'我___说中文。',answer:'会',choices:['会','有','在'],why:'พูดจีน “เป็น” เป็นความสามารถ จึงใช้ 会'},
+ {name:'太...了',level:'ต่อยอด 1',meaning:'...เกินไป / ...มากจริง ๆ',formula:'太 + คำคุณศัพท์ + 了',thai:'ใช้เน้นว่ามากเกินไปหรือมากจริง ๆ ตามบริบท',exampleZh:'太贵了！',examplePy:'Tài guì le!',exampleTh:'แพงเกินไปแล้ว!',tip:'จำเป็นก้อนเดียว: 太 + คุณศัพท์ + 了',quiz:'这个___贵了！',answer:'太',choices:['太','很','有'],why:'รูปแบบคือ 太 + 贵 + 了 จึงเติม 太'},
+ {name:'因为...所以...',level:'ต่อยอด 2',meaning:'เพราะว่า...ดังนั้น...',formula:'因为 + เหตุผล， 所以 + ผลลัพธ์',thai:'ใช้เชื่อมเหตุและผล ค่อยเรียนหลังจากพื้นฐานด้านบน',exampleZh:'因为下雨，所以我不去。',examplePy:'Yīnwèi xià yǔ, suǒyǐ wǒ bú qù.',exampleTh:'เพราะฝนตก ดังนั้นฉันไม่ไป',tip:'คิดเป็น 2 ช่อง: เพราะอะไร? → ผลคืออะไร?',quiz:'___下雨，所以我不去。',answer:'因为',choices:['因为','但是','如果'],why:'ด้านหลังมี 所以 = ดังนั้น ด้านหน้าจึงใช้ 因为 = เพราะว่า'}
+];
+const VOCAB=RAW_VOCAB.map((x,i)=>({id:i+1,hanzi:x[0],pinyin:x[1],thai:x[2],cat:x[3],hsk:x[4],strokes:x[5]}));
+const KEY='qingyun_v1_free';
+const LEGACY_KEYS=['nihao_max_advanced_v1'];
+function readSavedState(){
+  let raw=localStorage.getItem(KEY);
+  if(raw)return raw;
+  for(const k of LEGACY_KEYS){
+    const legacy=localStorage.getItem(k);
+    if(legacy){
+      try{localStorage.setItem(KEY,legacy)}catch{}
+      return legacy;
+    }
+  }
+  return '{}';
+}
+const DEFAULT={xp:0,streak:0,lastStudyDate:null,todayDate:null,todayCompleted:0,totalAnswered:0,totalCorrect:0,toneCorrect:0,dictationCorrect:0,shadowingCorrect:0,dailyGoal:20,srs:{},favorites:[],theme:'light',history:{},skillStats:{tone:{attempts:0,correct:0},dictation:{attempts:0,correct:0},shadowing:{attempts:0,correct:0},reading:{attempts:0,correct:0},grammar:{attempts:0,correct:0}},showPinyin:true};
+let state=loadState();
+let tab='today',cat='greet',learnIndex=0,revealed=false,query='',practiceMode=null,toneWord=null,toneResult=null,dictWord=null,dictResult=null,grammarIndex=0,grammarResult=null,grammarShowQuiz=false,pinyinMode='blend',pinyinIndex=0,readingResult=null,readingShowPinyin=false,hanziMemoryIndex=0,writeCharIndex=0,strokeStepIndex=0,strokeGuideIndex=0,shadowPhrase=PHRASES[0],recognition=null,writeWord=VOCAB[0],reviewQueue=null,reviewLabel='ถึงกำหนด';
+let swipeStart=null;
+// เก็บลายมือที่ผู้ใช้เขียนแยกตามตัวอักษร เพื่อไม่ให้หายเมื่อกดขีดถัดไป
+let writingInk={};
+function localDate(d=new Date()){return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`}
+function dateOffset(n){const d=new Date();d.setDate(d.getDate()+n);return localDate(d)}
+function yesterdayStr(){return dateOffset(-1)}
+function cloneDefault(){return JSON.parse(JSON.stringify(DEFAULT))}
+function loadState(){try{const raw=JSON.parse(readSavedState());return {...cloneDefault(),...raw,srs:raw.srs||{},favorites:Array.isArray(raw.favorites)?raw.favorites:[],history:raw.history||{},skillStats:{...DEFAULT.skillStats,...(raw.skillStats||{})}}}catch{return cloneDefault()}}
+function save(render=true){localStorage.setItem(KEY,JSON.stringify(state));applyTheme();if(render)renderAll()}
+function normalizeDay(){const t=localDate();if(state.todayDate!==t){state.todayDate=t;state.todayCompleted=0;save(false)}}
+function activity(correct=true,xp=5,type='general'){normalizeDay();const today=localDate();if(state.lastStudyDate!==today){state.streak=state.lastStudyDate===yesterdayStr()?state.streak+1:1;state.lastStudyDate=today}state.todayCompleted++;state.totalAnswered++;if(correct)state.totalCorrect++;state.xp+=xp;state.history[today]=(state.history[today]||0)+1;if(type!=='general'&&state.skillStats[type]){state.skillStats[type].attempts++;if(correct)state.skillStats[type].correct++}save(false)}
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+function toast(msg){const el=document.getElementById('toast');el.textContent=msg;el.classList.remove('hidden');clearTimeout(toast.t);toast.t=setTimeout(()=>el.classList.add('hidden'),1900)}
+function speak(text,rate=.82){if(!('speechSynthesis'in window)){toast('เครื่องนี้ยังไม่มีเสียงอ่าน');return}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='zh-CN';u.rate=rate;const vs=speechSynthesis.getVoices();u.voice=vs.find(v=>/zh|cmn/i.test(v.lang))||null;speechSynthesis.speak(u)}
+function toneOf(p){if(/[āēīōūǖ]/i.test(p))return 1;if(/[áéíóúǘ]/i.test(p))return 2;if(/[ǎěǐǒǔǚ]/i.test(p))return 3;if(/[àèìòùǜ]/i.test(p))return 4;return 5}
+function srsFor(id){return state.srs[id]||{reps:0,interval:0,ease:2.5,due:localDate(),lapses:0}}
+function rateSrs(word,quality,origin='learn'){let s={...srsFor(word.id)};if(quality<3){s.reps=0;s.interval=1;s.lapses=(s.lapses||0)+1;s.ease=Math.max(1.3,s.ease-.2)}else{s.reps++;if(s.reps===1)s.interval=1;else if(s.reps===2)s.interval=3;else s.interval=Math.max(1,Math.round(s.interval*s.ease*(quality===5?1.25:quality===3?.78:1)));s.ease=Math.max(1.3,s.ease+(quality===5?.1:quality===3?-.08:0))}s.due=dateOffset(s.interval);state.srs[word.id]=s;activity(quality>=3,quality>=4?12:quality===3?7:2,'general');revealed=false;if(origin==='learn')nextLearn(false);else if(reviewQueue&&reviewQueue.length){reviewQueue=reviewQueue.filter(id=>id!==word.id)}save(false);renderAll();toast(quality>=4?'บันทึกแล้ว • ไปคำถัดไป':'เก็บไว้ทบทวนอีกครั้ง')}
+function learnedCount(){return Object.values(state.srs).filter(s=>s.reps>0).length}
+function masteredCount(){return Object.values(state.srs).filter(s=>s.reps>=4&&(s.lapses||0)<2).length}
+function dueWords(){const t=localDate();return VOCAB.filter(w=>state.srs[w.id]&&state.srs[w.id].due<=t)}
+function newWords(){return VOCAB.filter(w=>!state.srs[w.id]||state.srs[w.id].reps===0)}
+function weakWords(limit=10){return VOCAB.map(w=>({w,s:state.srs[w.id]})).filter(x=>x.s).sort((a,b)=>((b.s.lapses||0)-(a.s.lapses||0))||(a.s.reps-b.s.reps)).slice(0,limit)}
+function accuracy(){return state.totalAnswered?Math.round(state.totalCorrect/state.totalAnswered*100):0}
+function level(){return Math.floor(state.xp/150)+1}
+function filteredLearn(){let a=cat==='all'?VOCAB:VOCAB.filter(w=>w.cat===cat);if(query.trim()){const q=query.trim().toLowerCase();a=VOCAB.filter(w=>w.hanzi.includes(q)||w.pinyin.toLowerCase().includes(q)||w.thai.toLowerCase().includes(q))}return a.length?a:VOCAB}
+function exFor(w){return CURATED_EXAMPLES[w.hanzi]||[[`这是“${w.hanzi}”。`,`${w.pinyin}.`,`คำนี้คือ “${w.thai}”`],[`我在学习“${w.hanzi}”。`,`Wǒ zài xuéxí ${w.pinyin}.`,`ฉันกำลังเรียนคำว่า “${w.thai}”`]]}
+function catName(id){return CATEGORIES.find(c=>c.id===id)?.th||'คำศัพท์'}
+function skillPct(k){const s=state.skillStats[k]||{attempts:0,correct:0};return s.attempts?Math.round(s.correct/s.attempts*100):0}
+function applyTheme(){document.documentElement.classList.toggle('dark',state.theme==='dark');document.getElementById('themeBtn').textContent=state.theme==='dark'?'☀️':'🌙';document.querySelector('meta[name="theme-color"]').content=state.theme==='dark'?'#09090b':'#991b1b'}
+function topStats(){document.getElementById('topXp').textContent=`🔥 ${state.streak} วัน  •  Lv.${level()}  •  ${state.xp} XP`}
+const NAV=[['today','🏠','วันนี้'],['learn','🧠','เรียน'],['review','🔁','ทบทวน'],['practice','🎯','ฝึก'],['progress','📊','พัฒนา']];
+function renderNav(){
+  const nav=document.getElementById('bottomNav'),main=document.querySelector('main');
+  const focus=(tab==='learn'||tab==='review'||(tab==='practice'&&practiceMode));
+  nav.classList.toggle('focusHidden',focus);
+  main.classList.toggle('focusMain',focus);
+  document.body.classList.toggle('focusMode',focus);
+  nav.innerHTML=NAV.map(([id,ico,label])=>`<button class="navBtn ${tab===id?'on':''}" onclick="go('${id}')"><span class="ico">${ico}</span><span>${label}</span></button>`).join('');
+}
+function recommendation(){const due=dueWords().length,weak=weakWords(1);if(due>0)return{icon:'🔁',title:`เริ่มจากทบทวน ${due} คำ`,desc:'คำเหล่านี้ถึงเวลาทบทวนแล้ว การทำก่อนเรียนคำใหม่ช่วยให้จำระยะยาวขึ้น',tab:'review',cta:'เริ่มทบทวน'};if(state.todayCompleted<Math.min(8,state.dailyGoal))return{icon:'🧠',title:'เรียนคำใหม่ต่ออีกเล็กน้อย',desc:'วันนี้ไม่มีคำค้างทบทวน เรียนใหม่ 5–8 คำแล้วหยุดได้ ไม่ต้องอัดคำเยอะ',tab:'learn',cta:'เรียนต่อ'};if(weak.length)return{icon:'🎯',title:`ฝึกจุดอ่อน: ${weak[0].w.hanzi}`,desc:`คำว่า “${weak[0].w.thai}” เคยพลาดมากกว่าคำอื่น ลองฝึกฟังหรือทบทวนอีกครั้ง`,tab:'review',cta:'ฝึกจุดอ่อน'};return{icon:'🎧',title:'จบวันด้วยการฟัง–พูด',desc:'ทำ Dictation หรือ Shadowing สั้น ๆ เพื่อเปลี่ยนคำศัพท์ให้เป็นการใช้งานจริง',tab:'practice',cta:'ไปฝึก'}}
+function dayGoalPct(){return Math.min(100,Math.round((state.todayCompleted/Math.max(1,state.dailyGoal))*100))}
+function today(){
+  const rec=recommendation(),due=dueWords().length,newc=newWords().length,weak=weakWords(8).filter(x=>(x.s.lapses||0)>0).length,pct=dayGoalPct();
+  return `<div class="stack">
+    <section class="card hero">
+      <div class="eyebrow">QingYun Thai Bridge • ${state.streak?`ต่อเนื่อง ${state.streak} วัน`:'เริ่มวันนี้'}</div>
+      <h1>จีนสำหรับคนไทย<br><span class="zh">听得懂 • 读得出 • 写得对</span></h1>
+      <p>ไม่ให้คุณเลือกเรียนแบบสุ่ม ระบบพาไปตามลำดับ: อ่าน Pinyin → เข้าใจคำ → จำตัวจีน → ใช้จริง → ทบทวนจุดอ่อน</p>
+      <div class="row" style="margin-top:16px">
+        <button class="btn" style="background:#fff;color:#991b1b" onclick="go('${rec.tab}')">▶ ${rec.cta}</button>
+        <button class="btn" style="background:rgba(0,0,0,.18);color:#fff" onclick="goPractice('reading')">🔤 ฝึก Pinyin</button>
+      </div>
+    </section>
+
+    <section class="bridgeBand">
+      <div class="between"><div class="bridgeTitle">🆓 V1 FREE</div><span class="badge good">ชุดทดลองจริง</span></div>
+      <div class="small muted" style="margin-top:5px">เรียนพื้นฐานด้วย Pinyin, คำศัพท์ 185 คำ, Hanzi Memory, Stroke Starter, SRS และแบบฝึกหลัก ก่อนยกระดับสู่รุ่นขาย</div>
+    </section>
+    <section class="bridgeBand">
+      <div class="bridgeTitle">🌉 QingYun Thai Bridge <span class="tiny muted">ระบบจำง่ายสำหรับคนไทย</span></div>
+      <div class="bridgeFlow">
+        <div><b>🔤</b><span>Pinyin + เสียงไทยช่วยจำ</span></div>
+        <div><b>🀄</b><span>อักษร + ส่วนประกอบ</span></div>
+        <div><b>✍️</b><span>ลำดับขีด + ตำแหน่ง</span></div>
+        <div><b>🎯</b><span>ทบทวนตามจุดอ่อน</span></div>
+      </div>
+    </section>
+
+    <section class="card pad"><div class="coach"><div class="coachIcon">${rec.icon}</div><div><b>QingYun Coach แนะนำ</b><p>${rec.title} — ${rec.desc}</p></div></div></section>
+
+    <section class="card pad">
+      <div class="between"><div><b>เป้าหมายวันนี้</b><div class="tiny muted" style="margin-top:3px">สั้น แต่ทำทุกวัน — ระบบจะพาไปขั้นถัดไปเอง</div></div><b>${state.todayCompleted}/${state.dailyGoal}</b></div>
+      <div class="progress" style="margin-top:12px"><i style="width:${pct}%"></i></div>
+    </section>
+
+    <section>
+      <div class="sectionHead"><h2>เส้นทางวันนี้</h2><span>ตามลำดับที่คนไทยเรียนง่าย</span></div>
+      <div class="card">
+        ${actionRow('🔤','อ่าน Pinyin 2–3 นาที','ฝึกผสมเสียงและโทนก่อนเห็นตัวจีน','goPractice(\'reading\')','→')}
+        ${taskRow('🔁','ทบทวนคำใกล้ลืม',due?`${due} คำถึงกำหนด`:'ครบแล้ววันนี้',due?'review':'learn',due?`${due}`:'✓')}
+        ${taskRow('🧠','เรียนคำใหม่',`${newc} คำยังไม่เคยเรียน`,'learn','→')}
+        ${actionRow('🀄','จำอักษรจีน 1 ตัว','ดูส่วนประกอบ + ภาพจำ ไม่ท่องรูปทั้งก้อน','goPractice(\'hanzi\')','→')}
+        ${actionRow('✍️','เขียน 1 ตัวให้ถูกทิศ','ดูทีละขีดในช่อง 田字格 แล้วค่อยเขียนเอง','goPractice(\'write\')','→')}
+      </div>
+    </section>
+
+    <section class="grid3"><div class="metric"><b>${learnedCount()}</b><div class="label">คำที่เคยเรียน</div></div><div class="metric"><b>${masteredCount()}</b><div class="label">จำได้มั่นคง</div></div><div class="metric"><b>${accuracy()}%</b><div class="label">ความแม่นรวม</div></div></section>
+  </div>`
+}
+function actionRow(icon,title,desc,action,right){return `<button class="task" style="width:100%;border:0;background:transparent;color:inherit;text-align:left" onclick="${action}"><span class="taskIcon">${icon}</span><span><b>${title}</b><div class="desc">${desc}</div></span><span class="chev">${right}</span></button>`}
+function taskRow(icon,title,desc,dest,right){return `<button class="task" style="width:100%;border:0;background:transparent;color:inherit;text-align:left" onclick="go('${dest}')"><span class="taskIcon">${icon}</span><span><b>${title}</b><div class="desc">${desc}</div></span><span class="chev">${right}</span></button>`}
+function learn(){const a=filteredLearn();if(learnIndex>=a.length)learnIndex=0;const w=a[learnIndex],s=srsFor(w.id),ex=exFor(w),pct=Math.round((learnIndex+1)/a.length*100);return `<div class="studyShell">${focusHead('เรียนคำศัพท์',`${catName(cat)} • ทีละคำ ไม่ต้องรีบ`)}<div class="between" style="margin-bottom:10px"><div></div><button class="iconbtn" onclick="toggleSearch()">⌕</button></div><div id="searchArea" class="${query?'':'hidden'}" style="margin-bottom:10px"><input id="searchInput" class="search" placeholder="ค้นหา 汉字 / pinyin / ไทย" value="${esc(query)}" oninput="query=this.value;learnIndex=0;renderAll()"></div><div class="chips">${[{id:'all',th:'ทั้งหมด',icon:'🗂️'},...CATEGORIES].map(c=>`<button class="chip ${cat===c.id?'on':''}" onclick="setCat('${c.id}')">${c.icon} ${c.th}</button>`).join('')}</div><div class="sessionBar" style="margin-top:12px"><span class="tiny muted">${learnIndex+1}/${a.length}</span><div class="progress"><i style="width:${pct}%"></i></div><span class="tiny muted">${s.reps?`Lv.${Math.min(5,s.reps)}`:'ใหม่'}</span></div><section id="learnCard" class="card studyCard compactStudy" data-swipe="learn"><div class="studyTop"><span class="badge">HSK ${w.hsk} • ${w.strokes} ขีด</span><div class="row"><button class="iconbtn" style="width:36px;height:36px" onclick="toggleFav(${w.id})">${state.favorites.includes(w.id)?'★':'☆'}</button></div></div><div class="wordStage"><div class="hanzi zh">${w.hanzi}</div>${state.showPinyin?`<div class="pinyin">${w.pinyin}</div>`:''}<div class="listenRow"><button class="roundAudio" onclick="speak('${w.hanzi}',.62)" aria-label="ฟังช้า">🐢</button><button class="roundAudio" onclick="speak('${w.hanzi}',.92)" aria-label="ฟังปกติ">🔊</button></div>${revealed?`<div class="thai">${esc(w.thai)}</div>`:`<div class="studyHint">ลองนึกความหมายก่อน แล้วค่อยเปิดคำตอบ</div>`}</div>${revealed?`<div class="answer"><div class="exampleZh zh">${ex[0][0]} <button class="iconbtn" style="width:34px;height:34px;display:inline-grid" onclick="speak('${safeJs(ex[0][0])}',.8)">🔊</button></div><div class="examplePy">${ex[0][1]}</div><div class="exampleTh">${ex[0][2]}</div></div><div><div class="studyActions"><button class="btn softbtn" onclick="rateSrs(VOCAB[${w.id-1}],1,'learn')">↻ ยังไม่แม่น</button><button class="btn good" onclick="rateSrs(VOCAB[${w.id-1}],4,'learn')">✓ จำได้</button></div><div class="studyHint">ตอบแล้วระบบเลื่อนไปคำถัดไปอัตโนมัติ</div></div>`:`<div><button class="btn primary full" onclick="revealed=true;renderAll()">ดูความหมาย</button><div class="nextRow"><button class="btn softbtn" onclick="prevLearn()">‹</button><button class="btn ghost" onclick="nextLearn()">ข้ามไปคำถัดไป →</button><button class="btn softbtn" onclick="nextLearn()">›</button></div><div class="studyHint">ปัดซ้าย = คำถัดไป • ปัดขวา = คำก่อนหน้า</div></div>`}</section></div>`}
+function safeJs(s){return String(s).replace(/\\/g,'\\\\').replace(/'/g,"\\'").replace(/\n/g,' ')}
+function toggleSearch(){const a=document.getElementById('searchArea');a?.classList.toggle('hidden');if(a&&!a.classList.contains('hidden'))setTimeout(()=>document.getElementById('searchInput')?.focus(),0)}
+function setCat(c){cat=c;query='';learnIndex=0;revealed=false;renderAll()}
+function nextLearn(render=true){const a=filteredLearn();learnIndex=(learnIndex+1)%a.length;revealed=false;if(render)renderAll()}
+function prevLearn(){const a=filteredLearn();learnIndex=(learnIndex-1+a.length)%a.length;revealed=false;renderAll()}
+function toggleFav(id){state.favorites=state.favorites.includes(id)?state.favorites.filter(x=>x!==id):[...state.favorites,id];save()}
+function reviewWords(){if(reviewQueue&&reviewQueue.length)return reviewQueue.map(id=>VOCAB.find(w=>w.id===id)).filter(Boolean);return dueWords()}
+function review(){const due=dueWords(),weak=weakWords(6),items=reviewWords();if(!items.length)return `<div class="stack"><section class="reviewHero"><div class="badge good">✓ ทบทวนครบแล้ว</div><div class="reviewNumber" style="margin-top:10px">0</div><div class="title">ไม่มีคำค้างทบทวน</div><p class="subtitle">ไปเรียนคำใหม่ หรือฝึกฟัง–พูดต่อได้เลย</p><div class="row" style="margin-top:14px"><button class="btn primary" onclick="go('learn')">เรียนคำใหม่</button><button class="btn softbtn" onclick="go('practice')">ไปฝึกทักษะ</button></div></section>${weak.length?weakSection(weak):''}</div>`;const w=items[0],s=srsFor(w.id),ex=exFor(w);return `<div class="studyShell">${focusHead('ทบทวน','ทบทวนเฉพาะคำที่ถึงเวลา')}<div class="reviewHero" style="margin-bottom:12px"><div class="between"><div><span class="badge amber">${reviewLabel}</span><div class="title" style="margin-top:8px">เหลือ ${items.length} คำ</div></div><div class="reviewNumber">${items.length}</div></div></div><section class="card studyCard compactStudy"><div class="studyTop"><span class="pill">พลาด ${s.lapses||0} ครั้ง • รอบ ${s.reps||0}</span><button class="iconbtn" style="width:36px;height:36px" onclick="toggleFav(${w.id})">${state.favorites.includes(w.id)?'★':'☆'}</button></div><div class="wordStage">${revealed?`<div class="hanzi zh">${w.hanzi}</div><div class="pinyin">${w.pinyin}</div><div class="thai">${esc(w.thai)}</div>`:`<div class="big" style="margin-bottom:12px">${esc(w.thai)}</div><div class="hanzi zh" style="color:var(--muted)">？</div><div class="studyHint">นึกตัวจีนหรือฟังก่อนเปิดคำตอบ</div>`}<div class="listenRow"><button class="roundAudio" onclick="speak('${w.hanzi}',.7)">🔊</button></div></div>${revealed?`<div class="answer"><div class="exampleZh zh">${ex[0][0]}</div><div class="examplePy">${ex[0][1]}</div><div class="exampleTh">${ex[0][2]}</div></div><div class="studyActions three"><button class="btn softbtn" onclick="rateSrs(VOCAB[${w.id-1}],1,'review')">ลืม</button><button class="btn warn" onclick="rateSrs(VOCAB[${w.id-1}],3,'review')">ยาก</button><button class="btn good" onclick="rateSrs(VOCAB[${w.id-1}],4,'review')">จำได้</button></div>`:`<button class="btn primary full" onclick="revealed=true;renderAll()">เปิดคำตอบ</button>`}</section></div>`}
+function weakSection(weak){return `<section><div class="sectionHead"><h2>คำที่ควรกลับมาฝึก</h2><span>เรียงจากพลาดบ่อย</span></div><div class="card pad">${weak.map(x=>`<div class="wordRow"><div class="wordHz zh">${x.w.hanzi}</div><div><b>${esc(x.w.thai)}</b><div class="tiny muted">${x.w.pinyin} • พลาด ${x.s.lapses||0}</div></div><button class="btn smallbtn softbtn" onclick="startWeakReview(${x.w.id})">ทบทวน</button></div>`).join('')}</div></section>`}
+function startWeakReview(id=null){const ids=id?[id]:weakWords(8).map(x=>x.w.id);reviewQueue=ids;reviewLabel='จุดอ่อน';tab='review';revealed=false;renderAll();scrollTo({top:0,behavior:'smooth'})}
+function practice(){
+  if(practiceMode)return practiceDetail();
+  const scores={tone:skillPct('tone'),dictation:skillPct('dictation'),shadowing:skillPct('shadowing'),reading:skillPct('reading'),grammar:skillPct('grammar')};
+  const recommend=scores.reading<70?'reading':(scores.tone<70?'tone':'hanzi');
+  return `<div class="stack">
+    <section class="bridgeBand">
+      <div class="bridgeTitle">🌉 ฝึกแบบ QingYun Thai Bridge</div>
+      <div class="small muted" style="margin-top:5px">เริ่มจาก “อ่านเสียงให้เป็น” แล้วค่อยเชื่อมเสียง → ความหมาย → ตัวอักษร → การใช้จริง</div>
+    </section>
+    <section class="practiceGrid">
+      ${skillCard('reading','🔤','อ่าน Pinyin','พยัญชนะ + สระ + ผสมเสียง + โทน พร้อมคำช่วยจำไทย',scores.reading,recommend==='reading')}
+      ${skillCard('hanzi','🀄','อักษรจำง่าย','แยกส่วนประกอบ + เรื่องช่วยจำ + โครงสร้างตัวอักษร',null,recommend==='hanzi')}
+      ${skillCard('write','✍️','เขียนตามลำดับ','ดูทีละขีด: จุดเริ่ม → ทิศทาง → ตำแหน่งในช่อง',null,false)}
+      ${skillCard('tone','🎵','โทนเสียง','ฝึก 4 โทน + เสียงเบา จากคำจริง',scores.tone,recommend==='tone')}
+      ${skillCard('dictation','🎧','ฟังแล้วเขียน','ฟังคำจีนแล้วพิมพ์สิ่งที่ได้ยิน',scores.dictation,false)}
+      ${skillCard('shadowing','🗣️','พูดตาม','ฟัง → พูดตาม → ตรวจเมื่อ Browser รองรับ',scores.shadowing,false)}
+      ${skillCard('grammar','📖','ไวยากรณ์แบบไทย','เข้าใจไทย → สูตร → ตัวอย่าง → ค่อยตอบ',scores.grammar,false)}
+      ${skillCard('weak','🧠','จุดอ่อนของฉัน','SRS เลือกคำที่พลาดบ่อยกลับมาฝึก',null,false)}
+    </section>
+  </div>`
+}
+function skillCard(id,icon,title,desc,score,reco){return `<button class="card skill ${reco?'recommend':''}" onclick="${id==='weak'?'startWeakReview()':`openPractice('${id}')`}"><span class="icon">${icon}</span>${score!==null?`<span class="skillScore">${score}%</span>`:''}<h3>${title}</h3><p>${desc}</p></button>`}
+function openPractice(m){practiceMode=m;if(m==='tone'&&!toneWord)newTone();if(m==='dictation'&&!dictWord)newDict();if(m==='reading'){readingResult=null;pinyinIndex=0}if(m==='hanzi')hanziMemoryIndex=Math.min(hanziMemoryIndex,HANZI_MEMORY.length-1);if(m==='write'){writeCharIndex=Math.min(writeCharIndex,STROKE_PACK.length-1);strokeStepIndex=0}if(m==='grammar'){grammarShowQuiz=false;grammarResult=null}renderAll();scrollTo({top:0,behavior:'smooth'})}
+function closePractice(){practiceMode=null;renderAll()}
+function focusHead(title,sub='',dest='today',compact=false){
+  return `<div class="focusHead ${compact?'compact':''}"><button class="focusBack" onclick="go('${dest}')">‹</button><div class="focusHeadText"><h2>${title}</h2>${sub?`<p>${sub}</p>`:''}</div></div>`
+}
+function practiceHead(title,sub=''){return `<div class="practiceHead"><button class="back" onclick="closePractice()">‹</button><div><div class="title">${title}</div>${sub?`<div class="subtitle">${sub}</div>`:''}</div></div>`}
+function practiceDetail(){if(practiceMode==='reading')return pinyinPractice();if(practiceMode==='hanzi')return hanziMemoryPractice();if(practiceMode==='tone')return tonePractice();if(practiceMode==='dictation')return dictationPractice();if(practiceMode==='shadowing')return shadowPractice();if(practiceMode==='write')return writePracticeV3();if(practiceMode==='grammar')return grammarPractice();return ''}
+
+function pinyinDataset(){
+  if(pinyinMode==='initial')return PINYIN_INITIALS;
+  if(pinyinMode==='final')return PINYIN_FINALS;
+  if(pinyinMode==='tone')return PINYIN_TONES;
+  return PINYIN_BLENDS;
+}
+function setPinyinMode(m){pinyinMode=m;pinyinIndex=0;readingResult=null;renderAll()}
+function nextPinyin(){const a=pinyinDataset();pinyinIndex=(pinyinIndex+1)%a.length;readingResult=null;renderAll();scrollTo({top:0,behavior:'smooth'})}
+function prevPinyin(){const a=pinyinDataset();pinyinIndex=(pinyinIndex-1+a.length)%a.length;readingResult=null;renderAll();scrollTo({top:0,behavior:'smooth'})}
+function pinyinPractice(){
+  const modes=[['initial','พยัญชนะ'],['final','สระ'],['blend','ผสม'],['tone','โทน']];
+  const a=pinyinDataset(),x=a[pinyinIndex%a.length],pct=Math.round((pinyinIndex+1)/a.length*100);
+  let core='';
+  if(pinyinMode==='blend'){
+    core=`<div class="simpleSound">
+      <div class="tiny muted" style="text-align:center;font-weight:900">อ่านทีละส่วน</div>
+      <div class="simpleEquation">
+        <div class="eqPart">${x.initial}</div><div class="eqPlus">+</div>
+        <div class="eqPart">${x.final}</div><div class="eqPlus">+</div>
+        <div class="eqPart">เสียง ${x.tone}</div>
+      </div>
+      <div class="focusResult">
+        <div class="tiny muted">รวมเป็น</div>
+        <div class="soundLatin">${x.result}</div>
+        <div class="zh">${x.zh}</div>
+        <div class="soundThai">${x.th}</div>
+      </div>
+      <button class="btn primary listenPrimary" onclick="speak('${safeJs(x.zh)}',.62)">🔊 ฟัง แล้วพูดตาม 3 รอบ</button>
+      <div class="mouthCue" style="text-align:center">${x.tip}</div>
+    </div>`;
+  }else if(pinyinMode==='initial'||pinyinMode==='final'){
+    core=`<div class="simpleSound">
+      <div class="focusResult">
+        <div class="soundLatin">${x.py}</div>
+        <div class="soundThai">ใกล้เสียงไทย: ${x.thai}</div>
+      </div>
+      <div class="mouthCue" style="text-align:center">${x.cue}</div>
+      <div class="soundExample" style="text-align:center">
+        <div class="zh" style="font-size:31px;font-weight:950">${x.ex}</div>
+        <div class="pinyin">${x.exPy}</div>
+        ${x.exTh?`<div class="small">${x.exTh}</div>`:''}
+      </div>
+      <button class="btn primary listenPrimary" onclick="speak('${safeJs(x.ex)}',.62)">🔊 ฟังเสียงจีนจริง</button>
+    </div>`;
+  }else{
+    core=`<div class="simpleSound">
+      <div class="focusResult">
+        <div class="tiny muted">Tone ${x.n}</div>
+        <div class="toneShape">${x.shape}</div>
+        <div class="soundThai">${x.thai}</div>
+      </div>
+      <div class="mouthCue" style="text-align:center">${x.cue}</div>
+      <div class="soundExample" style="text-align:center"><b>${x.ex}</b></div>
+    </div>`;
+  }
+  return `<div class="studyShell pinyinOne">
+    ${focusHead('อ่าน Pinyin','ฟัง → ดูเสียง → พูดตาม','practice',true)}
+    <section class="card pad">
+      <div class="pinyinMode simple">${modes.map(([id,t])=>`<button class="${pinyinMode===id?'on':''}" onclick="setPinyinMode('${id}')">${t}</button>`).join('')}</div>
+      <div class="lessonProgress"><span class="tiny muted">${pinyinIndex+1}/${a.length}</span><div class="progress"><i style="width:${pct}%"></i></div></div>
+      ${core}
+      <div class="strokeControls">
+        <button class="btn softbtn" onclick="prevPinyin()">‹</button>
+        <div class="strokeInfo"><b>ฟังให้ชัดก่อนจำ</b><div class="tiny muted">คำไทยเป็นแค่ตัวช่วย</div></div>
+        <button class="btn primary" onclick="markPinyinPractice()">›</button>
+      </div>
+    </section>
+  </div>`
+}
+function markPinyinPractice(){activity(true,5,'reading');nextPinyin()}
+
+
+function hanziMemoryPractice(){
+  const x=HANZI_MEMORY[hanziMemoryIndex%HANZI_MEMORY.length];
+  return `<div class="studyShell">${focusHead('อักษรจีนจำง่าย','แยกส่วน → สร้างภาพจำ → เขียน','practice')}
+    <section class="card pad hanziLab">
+      <div class="between"><span class="badge">Memory ${hanziMemoryIndex+1}/${HANZI_MEMORY.length}</span><span class="tiny muted">${x.structure}</span></div>
+      <div class="memoryHero">
+        <div class="memoryChar zh">${x.char}</div>
+        <div><div class="pinyin">${x.py}</div><div class="big">${x.th}</div><button class="btn softbtn smallbtn" style="margin-top:8px" onclick="speak('${x.char}',.65)">🔊 ฟัง</button></div>
+      </div>
+      <div>
+        <b>แยกส่วนประกอบ</b>
+        <div class="componentChips">${x.parts.map(p=>`<span>${p}</span>`).join('')}</div>
+      </div>
+      <div class="memoryStory"><b>🧠 ภาพจำสำหรับคนไทย</b><div style="margin-top:5px">${x.story}</div></div>
+      <div class="memoryNote">${x.note}</div>
+      <div class="strokeControls">
+        <button class="btn softbtn" onclick="prevHanziMemory()">‹</button>
+        <div class="strokeInfo"><b>เห็น → แยกส่วน → พูดความหมาย → เขียน</b></div>
+        <button class="btn primary" onclick="nextHanziMemory()">›</button>
+      </div>
+      ${STROKE_PACK.some(s=>s.char===x.char)?`<button class="btn good full" onclick="openWriteChar('${x.char}')">✍️ ไปดู Stroke Order ตัวนี้</button>`:''}
+    </section>
+  </div>`
+}
+function nextHanziMemory(){hanziMemoryIndex=(hanziMemoryIndex+1)%HANZI_MEMORY.length;renderAll();scrollTo({top:0,behavior:'smooth'})}
+function prevHanziMemory(){hanziMemoryIndex=(hanziMemoryIndex-1+HANZI_MEMORY.length)%HANZI_MEMORY.length;renderAll();scrollTo({top:0,behavior:'smooth'})}
+function openWriteChar(ch){const i=STROKE_PACK.findIndex(x=>x.char===ch);writeCharIndex=i>=0?i:0;strokeStepIndex=0;practiceMode='write';renderAll();scrollTo({top:0,behavior:'smooth'})}
+
+function newTone(){const pool=VOCAB.filter(w=>toneOf(w.pinyin)>0);toneWord=pool[Math.floor(Math.random()*pool.length)];toneResult=null}
+function tonePractice(){if(!toneWord)newTone();const t=toneOf(toneWord.pinyin);return `<div class="studyShell">${focusHead('โทนเสียง','ฟังแล้วเลือก Tone','practice')}<section class="card studyCard" style="min-height:430px"><div class="wordStage"><div class="hanzi zh">${toneWord.hanzi}</div><div class="thai" style="font-size:23px">${esc(toneWord.thai)}</div><button class="roundAudio" style="margin-top:15px" onclick="speak('${toneWord.hanzi}',.64)">🔊</button></div><div><div class="toneBtns">${[1,2,3,4,5].map(n=>`<button onclick="answerTone(${n})">${n===5?'เบา':n}</button>`).join('')}</div>${toneResult!==null?`<div class="answer" style="margin-top:12px"><b>${toneResult?'✓ ถูกต้อง':'ลองฟังอีกครั้ง'}</b><div class="pinyin">${toneWord.pinyin} • Tone ${t===5?'เบา':t}</div></div>`:''}</div></section></div>`}
+function answerTone(n){const ok=n===toneOf(toneWord.pinyin);toneResult=ok;if(ok)state.toneCorrect++;activity(ok,ok?8:1,'tone');save(false);renderAll();setTimeout(()=>{newTone();renderAll()},750)}
+function newDict(){dictWord=VOCAB[Math.floor(Math.random()*VOCAB.length)];dictResult=null}
+function dictationPractice(){if(!dictWord)newDict();return `<div class="studyShell">${focusHead('ฟังแล้วเขียน','ฟังซ้ำได้ ไม่ต้องรีบ','practice')}<section class="card pad"><div style="text-align:center;padding:18px 0"><button class="roundAudio" style="width:64px;height:64px;font-size:27px" onclick="speak('${dictWord.hanzi}',.72)">🔊</button><div class="subtitle" style="margin-top:10px">ฟังซ้ำได้ ไม่ต้องรีบ</div></div><input id="dictInput" class="search" placeholder="พิมพ์ตัวจีนที่ได้ยิน" autocomplete="off" onkeydown="if(event.key==='Enter')checkDict()"><button class="btn primary full" style="margin-top:10px" onclick="checkDict()">ตรวจคำตอบ</button>${dictResult!==null?`<div class="answer" style="margin-top:12px"><b>${dictResult?'✓ ถูกต้อง':'คำตอบที่ถูกคือ'}</b><div class="hanzi zh" style="font-size:48px">${dictWord.hanzi}</div><div class="pinyin">${dictWord.pinyin}</div><div>${esc(dictWord.thai)}</div></div>`:''}</section></div>`}
+function checkDict(){const ans=(document.getElementById('dictInput')?.value||'').replace(/\s/g,'');const ok=ans===dictWord.hanzi.replace(/\s/g,'');dictResult=ok;if(ok)state.dictationCorrect++;activity(ok,ok?12:1,'dictation');save(false);renderAll();toast(ok?'ถูกต้อง +12 XP':'ฟังซ้ำแล้วลองใหม่ได้');if(ok)setTimeout(()=>{newDict();renderAll()},900)}
+function shadowPractice(){return `<div class="studyShell">${focusHead('พูดตาม','ฟัง → พูดตาม','practice')}<section class="card pad"><div class="bubble"><div class="exampleZh zh">${shadowPhrase.zh}</div><div class="examplePy">${shadowPhrase.py}</div><div class="exampleTh">${shadowPhrase.th}</div></div><div class="grid2" style="margin-top:12px"><button class="btn softbtn" onclick="speak(shadowPhrase.zh,.68)">1. ฟังช้า</button><button class="btn dark" onclick="speak(shadowPhrase.zh,.95)">2. ฟังปกติ</button></div><button class="btn primary full" style="margin-top:10px" onclick="startShadow()">3. 🎙️ พูดตาม</button><div id="shadowResult" class="answer" style="margin-top:12px">พูดตามให้ใกล้จังหวะและโทนของต้นฉบับ หาก Browser รองรับ ระบบจะช่วยถอดเสียงให้</div><button class="btn softbtn full" style="margin-top:10px" onclick="nextPhrase()">ประโยคถัดไป →</button></section></div>`}
+function nextPhrase(){const i=PHRASES.indexOf(shadowPhrase);shadowPhrase=PHRASES[(i+1)%PHRASES.length];renderAll()}
+function startShadow(){const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){toast('Browser นี้ยังไม่รองรับการถอดเสียงจีน');return}try{recognition&&recognition.abort()}catch{}recognition=new SR();recognition.lang='zh-CN';recognition.interimResults=false;recognition.maxAlternatives=3;const box=document.getElementById('shadowResult');box.textContent='กำลังฟัง…';recognition.onresult=e=>{const heard=e.results[0][0].transcript.replace(/[，。！？\s]/g,''),target=shadowPhrase.zh.replace(/[，。！？\s]/g,'');const ok=heard===target||target.includes(heard)||heard.includes(target.slice(0,Math.max(2,target.length-2)));box.innerHTML=`ได้ยิน: <b>${esc(heard)}</b><br>${ok?'✓ ใกล้เคียง/ถูกต้อง':'↻ ลองพูดตามอีกครั้ง'}`;if(ok)state.shadowingCorrect++;activity(ok,ok?15:1,'shadowing');save(false)};recognition.onerror=()=>box.textContent='ไมค์หรือการถอดเสียงใช้ไม่ได้ในรอบนี้';recognition.start()}
+function strokeSvg(pack){
+  const current=Math.min(strokeStepIndex,pack.strokes.length-1);
+  const complete=current===pack.strokes.length-1;
+  const lines=pack.strokes.map((s,i)=>{
+    const shown=i<=current;
+    const active=i===current;
+    const stroke=shown?(active?'#dc2626':'#b91c1c'):'#d4d4d8';
+    const width=shown?(active?9:8):2;
+    const opacity=shown?1:.16;
+    return `<g opacity="${opacity}">
+      <path d="${s.d}" fill="none" stroke="${stroke}" stroke-width="${width}" stroke-linecap="round" stroke-linejoin="round" ${active?'marker-end="url(#arrowNow)"':''}></path>
+      ${shown?`<circle cx="${s.start[0]}" cy="${s.start[1]}" r="${active?8:6.5}" fill="${active?'#dc2626':'#b91c1c'}"></circle><text x="${s.start[0]}" y="${s.start[1]+3}" text-anchor="middle" font-size="7.5" fill="#fff" font-weight="900">${i+1}</text>`:''}
+    </g>`;
+  }).join('');
+  return `<svg viewBox="0 0 120 120" aria-label="ลำดับขีด ${pack.char}">
+    <defs><marker id="arrowNow" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#dc2626"></path></marker></defs>
+    <path d="M60 0 V120 M0 60 H120 M0 0 L120 120 M120 0 L0 120" stroke="var(--line)" stroke-width=".65" stroke-dasharray="3 3" fill="none"></path>
+    ${lines}
+    ${complete?`<text x="60" y="114" text-anchor="middle" font-size="7" fill="var(--good)" font-weight="900">ครบทุกขีด ✓</text>`:''}
+  </svg>`
+}
+function writePracticeV3(){
+  const pack=STROKE_PACK[writeCharIndex%STROKE_PACK.length];
+  if(strokeStepIndex>=pack.strokes.length)strokeStepIndex=pack.strokes.length-1;
+  const s=pack.strokes[strokeStepIndex];
+  return `<div class="studyShell writeOne">
+    ${focusHead('เขียนจีน','ดูซ้าย แล้วเขียนขวา • ไม่ต้องเลื่อนขึ้นลง','practice',true)}
+    <section class="card pad">
+      <div class="writeTopRow">
+        <button class="btn softbtn smallbtn" onclick="prevWriteChar()">‹</button>
+        <div class="writeMeta">
+          <div class="writeCharMini zh">${pack.char}</div>
+          <b>${pack.py} • ${pack.th}</b>
+          <div class="tiny muted">${pack.strokes.length} ขีด</div>
+        </div>
+        <button class="btn softbtn smallbtn" onclick="nextWriteChar()">›</button>
+      </div>
+
+      <div class="writeDuo">
+        <div class="writePane">
+          <div class="writePaneTitle">ตัวอย่าง</div>
+          <div class="strokeBoard duo">${strokeSvg(pack)}</div>
+        </div>
+        <div class="writePane">
+          <div class="writePaneTitle">เขียนตาม</div>
+          <div class="canvasWrap cross duo"><div class="guideChar zh">${pack.char}</div><canvas id="writeCanvas"></canvas></div>
+        </div>
+      </div>
+
+      <div class="writeStepBar">
+        <button class="btn softbtn" onclick="prevStrokeStep()">‹</button>
+        <div class="writeStepCenter">
+          <b>ขีด ${strokeStepIndex+1}/${pack.strokes.length} • ${s.name}</b>
+          <span>${s.dir} • ตัวอย่างและเส้นที่คุณเขียนจะคงอยู่</span>
+        </div>
+        <button class="btn primary" onclick="nextStrokeStep()">›</button>
+      </div>
+
+      <div class="writeMemoryCompact">🧠 ${pack.memory}</div>
+
+      <div class="writeActions">
+        <button class="btn softbtn" onclick="clearCanvas()">ล้าง</button>
+        <button class="btn good" onclick="nextWriteChar()">ตัวถัดไป →</button>
+      </div>
+    </section>
+  </div>`
+}
+function selectWriteChar(i){writeCharIndex=Math.max(0,Math.min(STROKE_PACK.length-1,Number(i)||0));strokeStepIndex=0;renderAll()}
+function nextStrokeStep(){const p=STROKE_PACK[writeCharIndex];strokeStepIndex=Math.min(p.strokes.length-1,strokeStepIndex+1);renderAll()}
+function prevStrokeStep(){strokeStepIndex=Math.max(0,strokeStepIndex-1);renderAll()}
+function prevWriteChar(){writeCharIndex=(writeCharIndex-1+STROKE_PACK.length)%STROKE_PACK.length;strokeStepIndex=0;renderAll();scrollTo({top:0,behavior:'smooth'})}
+function nextWriteChar(){writeCharIndex=(writeCharIndex+1)%STROKE_PACK.length;strokeStepIndex=0;renderAll();scrollTo({top:0,behavior:'smooth'})}
+function writingInkKey(){
+  const pack=STROKE_PACK[writeCharIndex%STROKE_PACK.length];
+  return pack?pack.char:String(writeCharIndex);
+}
+function initCanvas(){
+  const c=document.getElementById('writeCanvas');
+  if(!c)return;
+  const rect=c.getBoundingClientRect(),dpr=Math.max(1,window.devicePixelRatio||1);
+  const cssW=Math.max(1,rect.width),cssH=Math.max(1,rect.height);
+  c.width=Math.max(1,Math.round(cssW*dpr));
+  c.height=Math.max(1,Math.round(cssH*dpr));
+  const ctx=c.getContext('2d');
+  if(!ctx)return;
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  ctx.lineWidth=8;
+  ctx.lineCap='round';
+  ctx.lineJoin='round';
+  ctx.strokeStyle='#dc2626';
+
+  const key=writingInkKey();
+  if(!Array.isArray(writingInk[key]))writingInk[key]=[];
+
+  const drawPath=(path)=>{
+    if(!path||!path.length)return;
+    ctx.beginPath();
+    const first=path[0];
+    ctx.moveTo(first.x*cssW,first.y*cssH);
+    if(path.length===1){
+      ctx.lineTo(first.x*cssW+.01,first.y*cssH+.01);
+    }else{
+      for(let i=1;i<path.length;i++)ctx.lineTo(path[i].x*cssW,path[i].y*cssH);
+    }
+    ctx.stroke();
+    ctx.closePath();
+  };
+
+  // วาดเส้นเดิมกลับทุกครั้งที่หน้า render ใหม่ (เช่น กดขีดถัดไป)
+  writingInk[key].forEach(drawPath);
+
+  let drawing=false,currentPath=null,lastPx=null;
+  const point=(clientX,clientY)=>{
+    const r=c.getBoundingClientRect();
+    const px=Math.max(0,Math.min(r.width,clientX-r.left));
+    const py=Math.max(0,Math.min(r.height,clientY-r.top));
+    return {px,py,x:px/Math.max(1,r.width),y:py/Math.max(1,r.height)};
+  };
+  const begin=(clientX,clientY)=>{
+    const p=point(clientX,clientY);
+    drawing=true;
+    currentPath=[{x:p.x,y:p.y}];
+    writingInk[key].push(currentPath);
+    lastPx={x:p.px,y:p.py};
+    ctx.beginPath();
+    ctx.moveTo(p.px,p.py);
+    ctx.lineTo(p.px+.01,p.py+.01);
+    ctx.stroke();
+  };
+  const move=(clientX,clientY)=>{
+    if(!drawing||!currentPath)return;
+    const p=point(clientX,clientY);
+    // ลดจำนวนจุดที่เก็บ โดยไม่ทำให้เส้นดูสะดุด
+    if(lastPx && Math.hypot(p.px-lastPx.x,p.py-lastPx.y)<1.6)return;
+    currentPath.push({x:p.x,y:p.y});
+    ctx.lineTo(p.px,p.py);
+    ctx.stroke();
+    lastPx={x:p.px,y:p.py};
+    // ป้องกันการเก็บข้อมูลมากเกินไปใน session
+    if(currentPath.length>2500)currentPath.splice(1,1);
+  };
+  const end=()=>{
+    if(!drawing)return;
+    drawing=false;
+    currentPath=null;
+    lastPx=null;
+    ctx.closePath();
+  };
+
+  c.addEventListener('touchstart',e=>{
+    if(!e.touches.length)return;
+    e.preventDefault();
+    const t=e.touches[0];
+    begin(t.clientX,t.clientY);
+  },{passive:false});
+  c.addEventListener('touchmove',e=>{
+    if(!e.touches.length)return;
+    e.preventDefault();
+    const t=e.touches[0];
+    move(t.clientX,t.clientY);
+  },{passive:false});
+  c.addEventListener('touchend',e=>{e.preventDefault();end()},{passive:false});
+  c.addEventListener('touchcancel',e=>{e.preventDefault();end()},{passive:false});
+
+  c.addEventListener('mousedown',e=>{e.preventDefault();begin(e.clientX,e.clientY)});
+  window.addEventListener('mousemove',e=>{if(drawing)move(e.clientX,e.clientY)});
+  window.addEventListener('mouseup',end);
+
+  if(window.PointerEvent){
+    c.addEventListener('pointerdown',e=>{
+      if(e.pointerType!=='pen')return;
+      e.preventDefault();
+      begin(e.clientX,e.clientY);
+    });
+    c.addEventListener('pointermove',e=>{
+      if(e.pointerType!=='pen')return;
+      e.preventDefault();
+      move(e.clientX,e.clientY);
+    });
+    c.addEventListener('pointerup',e=>{
+      if(e.pointerType==='pen'){e.preventDefault();end()}
+    });
+    c.addEventListener('pointercancel',e=>{
+      if(e.pointerType==='pen'){e.preventDefault();end()}
+    });
+  }
+}
+function clearCanvas(){
+  const key=writingInkKey();
+  writingInk[key]=[];
+  const c=document.getElementById('writeCanvas');
+  if(!c)return;
+  const ctx=c.getContext('2d');
+  if(!ctx)return;
+  ctx.save();
+  ctx.setTransform(1,0,0,1,0,0);
+  ctx.clearRect(0,0,c.width,c.height);
+  ctx.restore();
+}
+function nextWrite(){nextWriteChar()}
+function grammarPractice(){
+  const g=GRAMMAR[grammarIndex%GRAMMAR.length];
+  const quizArea=grammarShowQuiz?`<div class="answer" style="margin-top:14px">
+    <div class="tiny muted" style="font-weight:900;margin-bottom:6px">ลองตอบหลังจากเข้าใจตัวอย่างแล้ว</div>
+    <div class="big zh" style="font-size:26px;margin-bottom:12px">${g.quiz}</div>
+    <div class="stack">${g.choices.map(c=>`<button class="quizOpt ${grammarResult?c===g.answer?'correct':grammarResult.choice===c?'wrong':'' : ''}" onclick="answerGrammar('${safeJs(c)}')">${c}</button>`).join('')}</div>
+    ${grammarResult?`<div style="margin-top:12px;padding:12px;border-radius:14px;background:var(--surface)">
+      <b>${grammarResult.ok?'✓ ถูกต้อง':'ยังไม่ถูก ลองดูเหตุผลก่อน'}</b>
+      <div class="small muted" style="margin-top:5px">${g.why}</div>
+      ${grammarResult.ok?`<button class="btn primary" style="width:100%;margin-top:12px" onclick="nextGrammar()">เข้าใจแล้ว • บทถัดไป →</button>`:`<button class="btn softbtn" style="width:100%;margin-top:12px" onclick="grammarResult=null;renderAll()">ลองอีกครั้ง</button>`}
+    </div>`:''}
+  </div>`:`<button class="btn primary" style="width:100%;margin-top:16px;min-height:54px" onclick="startGrammarQuiz()">เข้าใจแล้ว • ลองตอบ 1 ข้อ</button>`;
+  return `<div class="studyShell">${focusHead('ไวยากรณ์','เข้าใจไทยก่อน แล้วค่อยตอบ','practice')}
+    <section class="card pad">
+      <div class="between"><span class="badge">${g.level}</span><span class="tiny muted">บท ${grammarIndex+1}/${GRAMMAR.length}</span></div>
+      <h2 style="margin:14px 0 4px">${g.name}</h2>
+      <div class="big" style="font-size:28px;color:var(--brand)">${g.meaning}</div>
+
+      <div style="margin-top:16px;padding:14px;border-radius:16px;background:var(--brandSoft)">
+        <div class="tiny muted" style="font-weight:900">เข้าใจแบบไทย</div>
+        <div style="font-weight:850;margin-top:5px;line-height:1.55">${g.thai}</div>
+      </div>
+
+      <div style="margin-top:12px;padding:14px;border:1px solid var(--line);border-radius:16px">
+        <div class="tiny muted" style="font-weight:900">สูตรสั้น ๆ</div>
+        <div style="font-weight:950;font-size:18px;margin-top:6px">${g.formula}</div>
+      </div>
+
+      <div style="margin-top:12px;padding:14px;border:1px solid var(--line);border-radius:16px">
+        <div class="tiny muted" style="font-weight:900">ตัวอย่าง</div>
+        <div class="zh" style="font-size:27px;font-weight:950;margin-top:8px">${g.exampleZh}</div>
+        <div class="pinyin" style="font-size:15px">${g.examplePy}</div>
+        <div style="font-weight:800;margin-top:6px">🇹🇭 ${g.exampleTh}</div>
+        <button class="btn softbtn" style="margin-top:10px" onclick="speak('${safeJs(g.exampleZh)}',.75)">🔊 ฟังประโยค</button>
+      </div>
+
+      <div style="margin-top:12px;padding:12px 14px;border-radius:15px;background:var(--surface2)">
+        <b>💡 จำแบบนี้</b>
+        <div class="small muted" style="margin-top:4px;line-height:1.55">${g.tip}</div>
+      </div>
+
+      ${quizArea}
+
+      <div class="between" style="margin-top:14px">
+        <button class="btn ghost smallbtn" onclick="prevGrammar()" ${grammarIndex===0?'disabled':''}>‹ บทก่อน</button>
+        <button class="btn ghost smallbtn" onclick="nextGrammar(false)">ดูบทถัดไป ›</button>
+      </div>
+    </section>
+  </div>`
+}
+function startGrammarQuiz(){grammarShowQuiz=true;grammarResult=null;renderAll()}
+function answerGrammar(c){
+  const g=GRAMMAR[grammarIndex%GRAMMAR.length],ok=c===g.answer;
+  grammarResult={choice:c,ok};
+  activity(ok,ok?10:1,'grammar');
+  save(false);
+  renderAll();
+}
+function nextGrammar(mark=true){
+  grammarIndex=(grammarIndex+1)%GRAMMAR.length;
+  grammarResult=null;
+  grammarShowQuiz=false;
+  renderAll();
+  scrollTo({top:0,behavior:'smooth'});
+}
+function prevGrammar(){
+  grammarIndex=(grammarIndex-1+GRAMMAR.length)%GRAMMAR.length;
+  grammarResult=null;
+  grammarShowQuiz=false;
+  renderAll();
+  scrollTo({top:0,behavior:'smooth'});
+}
+function progress(){const weak=weakWords(8),learned=learnedCount(),mastered=masteredCount(),learning=Math.max(0,learned-mastered),fresh=Math.max(0,VOCAB.length-learned);const days=last7Days();const max=Math.max(1,...days.map(d=>state.history[d.date]||0));return `<div class="stack"><section class="grid3"><div class="metric"><b>${state.streak}</b><div class="label">🔥 วันต่อเนื่อง</div></div><div class="metric"><b>${accuracy()}%</b><div class="label">ความแม่นรวม</div></div><div class="metric"><b>${dueWords().length}</b><div class="label">ต้องทบทวนวันนี้</div></div></section><section class="card pad"><div class="sectionHead"><h2>7 วันที่ผ่านมา</h2><span>จำนวนกิจกรรม</span></div><div class="week">${days.map(d=>{const n=state.history[d.date]||0;const h=Math.max(5,Math.round(n/max*100));return `<div class="dayCol"><b class="tiny">${n||''}</b><div class="dayBar" style="height:${h}px;opacity:${n?1:.18}"></div><div class="dayLabel">${d.label}</div></div>`}).join('')}</div></section><section class="card pad"><div class="sectionHead"><h2>สถานะคำศัพท์</h2><span>${VOCAB.length} คำในชุดทดลอง</span></div><div class="mastery"><div><b>${fresh}</b><div class="tiny muted">ยังใหม่</div></div><div><b>${learning}</b><div class="tiny muted">กำลังจำ</div></div><div><b>${mastered}</b><div class="tiny muted">มั่นคง</div></div></div><div class="progress" style="margin-top:14px"><i style="width:${Math.round(mastered/VOCAB.length*100)}%"></i></div></section>${weakSection(weak)}<section class="card pad"><div class="sectionHead"><h2>ทักษะ</h2><span>V1 FREE • ทักษะที่ระบบติดตามได้</span></div>${skillLine('อ่าน Pinyin',skillPct('reading'))}${skillLine('โทนเสียง',skillPct('tone'))}${skillLine('ฟังแล้วเขียน',skillPct('dictation'))}${skillLine('พูดตาม',skillPct('shadowing'))}${skillLine('ไวยากรณ์',skillPct('grammar'))}</section><section class="card pad"><div class="between"><div><b>เป้าหมายต่อวัน</b><div class="tiny muted">แนะนำ 10–20 กิจกรรมสั้น ๆ</div></div><select onchange="state.dailyGoal=Number(this.value);save()">${[10,15,20,30].map(n=>`<option value="${n}" ${state.dailyGoal===n?'selected':''}>${n}</option>`).join('')}</select></div><div class="divider"></div><div class="row"><button class="btn softbtn smallbtn" onclick="exportBackup()">⬇ Backup</button><label class="btn softbtn smallbtn">⬆ Restore<input type="file" accept="application/json" style="display:none" onchange="importBackup(this.files[0])"></label><button class="btn ghost smallbtn" onclick="state.showPinyin=!state.showPinyin;save()">${state.showPinyin?'ซ่อน':'แสดง'} Pinyin</button><button class="btn smallbtn" style="background:#fff1f2;color:#9f1239" onclick="resetProgress()">รีเซ็ต</button></div></section></div>`}
+function skillLine(name,pct){return `<div style="margin-top:12px"><div class="between"><span class="small">${name}</span><b class="small">${pct}%</b></div><div class="progress" style="margin-top:6px"><i style="width:${pct}%"></i></div></div>`}
+function last7Days(){const labels=['อา','จ','อ','พ','พฤ','ศ','ส'];return Array.from({length:7},(_,i)=>{const d=new Date();d.setDate(d.getDate()-(6-i));return{date:localDate(d),label:labels[d.getDay()]}})}
+function exportBackup(){const blob=new Blob([JSON.stringify({schemaVersion:2,product:'qingyun',edition:'V1 FREE',exportedAt:new Date().toISOString(),state},null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`qingyun-v1-free-backup-${localDate()}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
+function importBackup(file){if(!file)return;const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result),raw=d.state||d;state={...DEFAULT,...raw,srs:raw.srs||{},favorites:raw.favorites||[],history:raw.history||{},skillStats:{...DEFAULT.skillStats,...(raw.skillStats||{})}};save();toast('นำเข้าความคืบหน้าสำเร็จ')}catch{toast('ไฟล์ Backup ไม่ถูกต้อง')}};r.readAsText(file)}
+function resetProgress(){if(confirm('ล้าง XP, SRS และสถิติทั้งหมดหรือไม่?')){const theme=state.theme;state=cloneDefault();state.theme=theme;save();toast('รีเซ็ตแล้ว')}}
+function go(t){tab=t;practiceMode=null;revealed=false;reviewQueue=null;reviewLabel='ถึงกำหนด';renderAll();scrollTo({top:0,behavior:'smooth'})}
+function goPractice(m){tab='practice';practiceMode=null;openPractice(m)}
+function installSwipe(){const card=document.querySelector('[data-swipe="learn"]');if(!card)return;card.onpointerdown=e=>{if(e.target.closest('button,input'))return;swipeStart={x:e.clientX,y:e.clientY}};card.onpointerup=e=>{if(!swipeStart)return;const dx=e.clientX-swipeStart.x,dy=e.clientY-swipeStart.y;swipeStart=null;if(Math.abs(dx)>70&&Math.abs(dx)>Math.abs(dy)*1.25){dx<0?nextLearn():prevLearn()}}}
+function renderAll(){normalizeDay();renderNav();topStats();applyTheme();const v=document.getElementById('view');v.innerHTML=({today,learn,review,practice,progress}[tab]||today)();if(tab==='learn')installSwipe();if(tab==='practice'&&practiceMode==='write')requestAnimationFrame(initCanvas)}
+document.getElementById('themeBtn').onclick=()=>{state.theme=state.theme==='dark'?'light':'dark';save()};
+Object.assign(window,{go,goPractice,setCat,nextLearn,prevLearn,toggleFav,rateSrs,speak,toggleSearch,startWeakReview,openPractice,closePractice,setPinyinMode,nextPinyin,prevPinyin,markPinyinPractice,nextHanziMemory,prevHanziMemory,openWriteChar,selectWriteChar,nextStrokeStep,prevStrokeStep,prevWriteChar,nextWriteChar,answerTone,checkDict,startShadow,nextPhrase,clearCanvas,nextWrite,startGrammarQuiz,answerGrammar,nextGrammar,prevGrammar,exportBackup,importBackup,resetProgress});
+normalizeDay();renderAll();
+</script>
+<script>
+/* MEasyMate Script Architecture V1.1 — Notice / Promotion integration.
+   Disabled automatically for file:// field-test mode. */
+(function(){"use strict";if(location.protocol==="file:")return;const sources=["../../shared/notify/all-project-notice.js","./project-notice.js","../../shared/notify/measymate-notify-core.js"];const load=src=>new Promise(resolve=>{const el=document.createElement("script");el.src=src;el.async=false;el.onload=resolve;el.onerror=()=>resolve();document.body.appendChild(el)});(async()=>{for(const src of sources)await load(src)})()})();
+</script>
+</body>
+</html>
