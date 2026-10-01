@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#991b1b">
+<meta name="measymate-project-id" content="hanasu">
+<meta name="application-name" content="Hanasu by MEasyMate">
+<meta name="description" content="Hanasu V1 FREE — Japanese Thai Bridge: ภาษาญี่ปุ่นที่คนไทยพูดได้จริง">
+<title>Hanasu by MEasyMate • Japanese Thai Bridge • V1 FREE</title>
+<style>
+:root{--bg:#f7f7f8;--surface:#fff;--surface2:#fafafa;--ink:#18181b;--muted:#71717a;--line:#e4e4e7;--brand:#b91c1c;--brand2:#dc2626;--brandSoft:#fef2f2;--good:#047857;--goodSoft:#ecfdf5;--amber:#d97706;--amberSoft:#fffbeb;--shadow:0 10px 30px rgba(24,24,27,.07);--radius:22px;--navh:72px}
+html.dark{--bg:#09090b;--surface:#18181b;--surface2:#111113;--ink:#fafafa;--muted:#a1a1aa;--line:#2b2b30;--brandSoft:#321616;--goodSoft:#0b2a21;--amberSoft:#2b2110}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html{scroll-behavior:smooth}body{margin:0;font-family:system-ui,-apple-system,"Noto Sans Thai","Noto Sans JP",sans-serif;background:var(--bg);color:var(--ink);overscroll-behavior-y:none;-webkit-font-smoothing:antialiased}button,input{font:inherit}button{cursor:pointer}.hidden{display:none!important}
+.topbar{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--surface) 94%,transparent);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);padding:max(env(safe-area-inset-top),7px) 12px 8px}.topin{max-width:900px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:10px}.brand{display:flex;align-items:center;gap:9px;min-width:0}.logo{width:38px;height:38px;border-radius:12px;background:#fff;border:1px solid var(--line);overflow:hidden;display:grid;place-items:center}.logo img{width:100%;height:100%;object-fit:contain}.logoFallback{display:none;font-weight:950;color:var(--brand)}.brandName{font-size:18px;font-weight:950;white-space:nowrap}.brandSub{font-size:10px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:220px}.iconbtn{width:40px;height:40px;border:1px solid var(--line);border-radius:13px;background:var(--surface);color:var(--ink);display:grid;place-items:center}
+main{max-width:900px;margin:auto;padding:13px 12px calc(var(--navh) + 58px + env(safe-area-inset-bottom))}.stack{display:grid;gap:12px}.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.pad{padding:15px}.row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.between{display:flex;align-items:center;justify-content:space-between;gap:10px}.muted{color:var(--muted)}.tiny{font-size:10px}.small{font-size:12px}.title{font-size:20px;font-weight:950}.subtitle{font-size:12px;color:var(--muted);margin-top:3px}.btn{min-height:46px;border:0;border-radius:15px;padding:10px 14px;font-weight:900;display:inline-flex;align-items:center;justify-content:center;gap:6px}.btn.primary{background:var(--brand2);color:#fff}.btn.soft{background:var(--surface2);border:1px solid var(--line);color:var(--ink)}.btn.good{background:var(--good);color:#fff}.btn.full{width:100%}.badge{display:inline-flex;padding:5px 8px;border-radius:999px;font-size:10px;font-weight:900;background:var(--brandSoft);color:var(--brand)}.progress{height:8px;background:var(--line);border-radius:999px;overflow:hidden}.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--brand2),#f59e0b);border-radius:999px}
+.hero{padding:18px;color:white;background:linear-gradient(145deg,#7f1d1d,#b91c1c 48%,#ea580c);border:0;position:relative;overflow:hidden}.hero:after{content:"光";position:absolute;right:-10px;bottom:-35px;font-size:120px;font-weight:950;opacity:.08}.hero h1{font-size:28px;line-height:1.12;margin:7px 0}.hero p{font-size:13px;line-height:1.55;max-width:60ch;margin:0;opacity:.92}.bridge{padding:13px;border-radius:18px;background:linear-gradient(135deg,var(--brandSoft),var(--surface));border:1px solid color-mix(in srgb,var(--brand) 20%,var(--line))}.bridgeFlow{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:9px}.bridgeFlow>div{text-align:center;padding:8px 4px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}.bridgeFlow b{font-size:18px;display:block}.bridgeFlow span{font-size:9px;color:var(--muted);display:block;margin-top:2px}
+.task{width:100%;border:0;background:transparent;color:inherit;text-align:left;padding:14px;display:grid;grid-template-columns:42px 1fr auto;gap:10px;align-items:center}.taskIcon{width:42px;height:42px;border-radius:14px;background:var(--surface2);border:1px solid var(--line);display:grid;place-items:center;font-size:20px}.task b{font-size:14px}.task .desc{font-size:11px;color:var(--muted);margin-top:2px}.chev{font-size:20px;color:var(--muted)}
+.bottomNav{position:fixed;z-index:60;left:50%;transform:translateX(-50%);bottom:max(env(safe-area-inset-bottom),9px);width:min(880px,calc(100% - 14px));padding:5px 6px;background:color-mix(in srgb,var(--surface) 96%,transparent);backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:18px;display:grid;grid-template-columns:repeat(5,1fr);gap:3px;box-shadow:0 14px 36px rgba(24,24,27,.15)}.navBtn{border:0;background:transparent;color:var(--muted);border-radius:14px;min-height:56px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:10px;font-weight:850}.navBtn .ico{font-size:19px}.navBtn.on{color:var(--brand);background:var(--brandSoft)}.bottomNav.hiddenFocus{display:none}
+body.focus .topbar{display:none}body.focus main{padding-top:8px;padding-bottom:16px}
+.focusHead{display:flex;align-items:center;gap:9px;margin-bottom:9px}.focusBack{width:41px;height:41px;border:1px solid var(--line);border-radius:13px;background:var(--surface);font-size:22px;color:var(--ink)}.focusHead h2{font-size:21px;margin:0}.focusHead p{font-size:10.5px;color:var(--muted);margin:2px 0 0}
+.tabs4{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}.tabs4 button{min-height:42px;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);font-size:11px;font-weight:900;padding:5px}.tabs4 button.on{background:var(--brand);color:#fff;border-color:var(--brand)}
+.kanaHero{text-align:center;padding:12px;border:1px solid var(--line);border-radius:18px;background:var(--surface2)}.kanaBig{font-size:58px;font-weight:950;line-height:1.05}.romaji{font-size:18px;color:var(--brand);font-weight:900;margin-top:4px}.thaiSound{font-size:17px;font-weight:900;margin-top:5px}.cue{font-size:11px;line-height:1.45;color:var(--muted);margin-top:6px}.kanaGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin-top:8px}.kanaCell{border:1px solid var(--line);border-radius:12px;padding:7px 2px;background:var(--surface);text-align:center}.kanaCell b{font-size:24px}.kanaCell span{display:block;font-size:9px;color:var(--muted);margin-top:2px}
+.studyShell{max-width:650px;margin:auto}.studyCard{padding:15px}.wordStage{text-align:center;padding:14px 0}.jpBig{font-size:68px;font-weight:950;line-height:1.05}.kanaLine{font-size:20px;color:var(--brand);font-weight:850;margin-top:6px}.meaning{font-size:25px;font-weight:950;margin-top:8px}.listen{display:flex;justify-content:center;gap:8px;margin-top:12px}.listen button{width:48px;height:48px;border:1px solid var(--line);border-radius:15px;background:var(--surface2);font-size:20px}.studyActions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.chips{display:flex;gap:6px;overflow:auto;padding-bottom:5px}.chip{white-space:nowrap;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 11px;font-size:11px;font-weight:850}.chip.on{background:var(--brand);color:#fff}
+.practiceGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.skill{padding:14px;text-align:left;min-height:125px;position:relative}.skill .icon{font-size:27px}.skill h3{font-size:14px;margin:7px 0 3px}.skill p{font-size:10.5px;line-height:1.4;color:var(--muted);margin:0}.skillScore{position:absolute;right:11px;top:11px;font-size:10px;color:var(--muted);font-weight:900}
+.memory{display:grid;grid-template-columns:86px 1fr;gap:12px;align-items:center}.memoryChar{height:86px;border:1px solid var(--line);border-radius:16px;background:var(--surface2);display:grid;place-items:center;font-size:56px;font-weight:950}.memoryStory{margin-top:9px;padding:11px;border-radius:14px;background:var(--amberSoft);font-size:12px;line-height:1.5}
+.writeDuo{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}.writePaneTitle{text-align:center;font-size:10px;font-weight:900;color:var(--muted);margin-bottom:4px}.strokeBoard,.canvasWrap{position:relative;width:100%;aspect-ratio:1/1;border:1px solid var(--line);border-radius:15px;background:var(--surface);overflow:hidden}.strokeBoard svg{width:100%;height:100%;display:block}.canvasWrap canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none}.guideChar{position:absolute;inset:0;display:grid;place-items:center;font-size:74px;font-weight:950;opacity:.15;pointer-events:none}.cross:before,.cross:after{content:"";position:absolute;background:var(--line);pointer-events:none}.cross:before{left:50%;top:0;bottom:0;width:1px}.cross:after{top:50%;left:0;right:0;height:1px}.writeStep{display:grid;grid-template-columns:46px 1fr 46px;gap:6px;margin-top:8px}.writeStep .btn{min-height:45px;padding:4px}.stepCenter{text-align:center;border:1px solid var(--line);border-radius:13px;background:var(--surface2);padding:6px}.stepCenter b{font-size:13px}.stepCenter span{display:block;font-size:9px;color:var(--muted);margin-top:2px}
+.grammarBox{padding:13px;border:1px solid var(--line);border-radius:16px;background:var(--surface2)}.grammarBox .formula{font-size:18px;font-weight:950;color:var(--brand);margin:6px 0}.opt{width:100%;text-align:left;min-height:47px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:13px;padding:10px 12px;font-weight:850}.opt.correct{background:var(--goodSoft);color:var(--good);border-color:#10b981}.opt.wrong{background:#fff1f2;color:#9f1239;border-color:#fb7185}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.metric{padding:12px;border:1px solid var(--line);border-radius:15px;background:var(--surface);text-align:center}.metric b{font-size:21px}.metric span{display:block;font-size:9px;color:var(--muted);margin-top:3px}
+@media(max-width:390px){.brandSub{max-width:165px}.bridgeFlow{grid-template-columns:repeat(2,1fr)}.kanaBig{font-size:52px}.jpBig{font-size:60px}.practiceGrid{gap:7px}.memory{grid-template-columns:75px 1fr}.memoryChar{height:75px;font-size:49px}}
+
+/* Hanasu V1 FREE — Japanese Thai Bridge */
+.goalPick{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.goalBtn{min-height:58px;border:1px solid var(--line);border-radius:15px;background:var(--surface);color:var(--ink);font-weight:900;padding:7px 5px}
+.goalBtn b{display:block;font-size:18px}.goalBtn span{font-size:10px;color:var(--muted)}
+.goalBtn.on{background:var(--brandSoft);border-color:var(--brand);color:var(--brand)}
+.missionCard{padding:15px;border-radius:20px;background:linear-gradient(145deg,var(--surface),var(--brandSoft));border:1px solid color-mix(in srgb,var(--brand) 20%,var(--line))}
+.missionTop{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.missionScene{font-size:11px;color:var(--muted);margin-top:3px}
+.missionPhrase{margin-top:12px;text-align:center;padding:13px 10px;border-radius:17px;background:var(--surface);border:1px solid var(--line)}
+.missionPhrase .jp{font-size:26px;font-weight:950;line-height:1.35}
+.missionPhrase .kana{font-size:14px;color:var(--brand);font-weight:850;margin-top:4px}
+.missionPhrase .th{font-size:16px;font-weight:900;margin-top:6px}
+.chunkGrid{display:grid;gap:6px;margin-top:10px}.chunk{display:grid;grid-template-columns:minmax(90px,.8fr) 1.2fr;gap:8px;padding:8px 9px;border:1px solid var(--line);border-radius:12px;background:var(--surface2)}.chunk b{font-size:13px}.chunk span{font-size:11px;color:var(--muted)}
+.trap{margin-top:10px;padding:10px;border-radius:14px;background:var(--amberSoft);border:1px solid color-mix(in srgb,var(--amber) 25%,var(--line));font-size:11px;line-height:1.5}
+.roleBox{margin-top:11px;padding:11px;border-radius:16px;background:var(--surface2);border:1px solid var(--line)}
+.rolePrompt{font-size:14px;font-weight:900}.roleTh{font-size:10.5px;color:var(--muted);margin-top:3px}
+.roleOpts{display:grid;gap:7px;margin-top:9px}.roleOpt{width:100%;text-align:left;border:1px solid var(--line);border-radius:13px;background:var(--surface);color:var(--ink);padding:9px 10px}.roleOpt b{display:block;font-size:13px}.roleOpt span{font-size:10.5px;color:var(--muted)}.roleOpt.correct{background:var(--goodSoft);border-color:#10b981}.roleOpt.wrong{background:#fff1f2;border-color:#fb7185}
+.rescue{margin-top:10px;padding:10px;border-radius:14px;background:var(--surface);border:1px dashed var(--line)}.rescue b{font-size:11px}.rescue .jp{font-size:16px;font-weight:900;margin-top:3px}
+.freeValue{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.freeValue>div{padding:10px 6px;text-align:center;border:1px solid var(--line);border-radius:14px;background:var(--surface)}.freeValue b{display:block;font-size:18px}.freeValue span{display:block;font-size:9px;color:var(--muted);margin-top:2px}
+.pathBadge{display:inline-flex;align-items:center;gap:4px;padding:5px 8px;border-radius:999px;background:var(--surface2);border:1px solid var(--line);font-size:10px;font-weight:900}
+@media(max-width:390px){.goalBtn{min-height:54px}.missionPhrase .jp{font-size:23px}.freeValue{gap:5px}.chunk{grid-template-columns:82px 1fr}}
+
+
+/* Hanasu V1 FREE — 4-Step Mission UX */
+.missionShell{max-width:650px;margin:auto}
+.missionProgress{display:flex;align-items:center;gap:7px;margin-bottom:8px}
+.missionProgress .bar{flex:1;height:7px;background:var(--line);border-radius:999px;overflow:hidden}
+.missionProgress .bar i{display:block;height:100%;background:var(--brand2);border-radius:999px;transition:width .25s}
+.missionProgress b{font-size:11px;color:var(--muted);white-space:nowrap}
+.stepDots{display:flex;justify-content:center;gap:7px;margin:6px 0 10px}
+.stepDot{width:8px;height:8px;border-radius:50%;background:var(--line)}
+.stepDot.on{width:24px;border-radius:999px;background:var(--brand2)}
+.missionStepCard{padding:14px;border-radius:20px;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow)}
+.missionStepTitle{text-align:center;font-size:11px;font-weight:900;color:var(--muted);letter-spacing:.02em;margin-bottom:7px}
+.missionCore{text-align:center;padding:12px 10px;border-radius:17px;background:var(--surface2);border:1px solid var(--line)}
+.missionCore .jp{font-size:27px;line-height:1.38;font-weight:950}
+.missionCore .th{font-size:16px;font-weight:900;margin-top:7px}
+.missionReading{margin-top:7px;padding-top:7px;border-top:1px solid var(--line)}
+.missionReading .kana{font-size:13px;color:var(--brand);font-weight:850}
+.missionReading .romaji{font-size:10.5px;color:var(--muted);margin-top:3px}
+.readingToggle{margin-top:7px;min-height:38px!important;font-size:11px}
+.missionStepNav{position:sticky;bottom:8px;z-index:20;display:grid;grid-template-columns:86px 1fr;gap:7px;margin-top:10px;padding:7px;background:color-mix(in srgb,var(--surface) 94%,transparent);backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:17px;box-shadow:0 10px 25px rgba(24,24,27,.12)}
+.missionStepNav .btn{min-height:48px;padding:8px 10px}
+.missionStepNav .next{background:var(--brand2);color:#fff}
+.missionStepNav .next.goodNext{background:var(--good)}
+.missionStepNav .next[disabled]{opacity:.45;cursor:not-allowed}
+.stepChunkList{display:grid;gap:6px}.stepChunk{display:grid;grid-template-columns:minmax(96px,.8fr) 1.2fr;gap:8px;padding:9px;border:1px solid var(--line);border-radius:13px;background:var(--surface2)}.stepChunk b{font-size:13px}.stepChunk span{font-size:11px;color:var(--muted)}
+.stepTrap{margin-top:8px;padding:10px;border-radius:14px;background:var(--amberSoft);font-size:11px;line-height:1.5;border:1px solid color-mix(in srgb,var(--amber) 24%,var(--line))}
+.roleCompact{padding:11px;border:1px solid var(--line);border-radius:16px;background:var(--surface2)}
+.roleCompact .partner{font-size:22px;font-weight:950;line-height:1.35}
+.roleCompact .partnerTh{font-size:11px;color:var(--muted);margin-top:4px}
+.roleCompact .roleOpts{margin-top:8px}
+.roleFeedback{margin-top:8px;padding:9px;border-radius:13px;font-size:11px;line-height:1.45}
+.roleFeedback.ok{background:var(--goodSoft);color:var(--good);border:1px solid #10b981}
+.roleFeedback.no{background:var(--amberSoft);border:1px solid color-mix(in srgb,var(--amber) 25%,var(--line))}
+.finishCard{text-align:center;padding:12px;border-radius:17px;background:linear-gradient(145deg,var(--goodSoft),var(--surface));border:1px solid color-mix(in srgb,var(--good) 22%,var(--line))}
+.finishCard .bigCheck{font-size:38px}
+.finishCard h3{margin:4px 0;font-size:20px}
+.rescueCompact{margin-top:9px;padding:10px;border:1px dashed var(--line);border-radius:14px;text-align:left}
+.rescueCompact .jp{font-size:18px;font-weight:950}
+@media(max-width:390px){
+  .missionCore .jp{font-size:24px}
+  .stepChunk{grid-template-columns:88px 1fr}
+  .roleCompact .partner{font-size:20px}
+  .missionStepNav{grid-template-columns:76px 1fr}
+}
+
+
+/* Hanasu V1 FREE — Conversation Clear UX */
+.convHow{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:9px}
+.convHow>div{text-align:center;padding:8px 5px;border:1px solid var(--line);border-radius:12px;background:var(--surface2)}
+.convHow b{display:block;font-size:18px}.convHow span{display:block;font-size:9px;color:var(--muted);margin-top:2px}
+.chatArea{display:grid;gap:8px}
+.chatBubble{max-width:92%;padding:10px 11px;border-radius:16px;border:1px solid var(--line)}
+.chatBubble.other{justify-self:start;background:var(--surface2);border-bottom-left-radius:5px}
+.chatBubble.me{justify-self:end;background:var(--brandSoft);border-color:color-mix(in srgb,var(--brand) 22%,var(--line));border-bottom-right-radius:5px}
+.chatWho{font-size:9.5px;font-weight:900;color:var(--muted);margin-bottom:4px}
+.chatJP{font-size:21px;line-height:1.35;font-weight:950}
+.chatTH{font-size:10.5px;color:var(--muted);margin-top:3px}
+.yourTurn{text-align:center;padding:7px 9px;border-radius:999px;background:var(--brand);color:#fff;font-size:11px;font-weight:950;margin:2px auto;width:max-content;max-width:90%}
+.answerHelp{text-align:center;font-size:10px;color:var(--muted);margin:3px 0 6px}
+.convAnswer{width:100%;text-align:left;border:1px solid var(--line);border-radius:14px;background:var(--surface);color:var(--ink);padding:10px 11px}
+.convAnswer b{display:block;font-size:14px}.convAnswer span{display:block;font-size:10.5px;color:var(--muted);margin-top:2px}
+.convAnswer.correct{background:var(--goodSoft);border-color:#10b981}
+.convAnswer.wrong{background:var(--amberSoft);border-color:color-mix(in srgb,var(--amber) 35%,var(--line))}
+.convSuccess{margin-top:8px;padding:10px;border-radius:14px;background:var(--goodSoft);border:1px solid #10b981;color:var(--good)}
+.convSuccess b{display:block;font-size:12px}.convSuccess span{display:block;font-size:10.5px;margin-top:3px}
+.demoPair{display:grid;gap:6px;margin-top:8px}
+.demoPair .chatBubble{max-width:100%}
+
+
+/* Hanasu V1 FREE — Compact Home: Mission visible in first viewport */
+.homeCompact{gap:9px}
+.homeCompact .hero{padding:13px 14px;border-radius:20px}
+.homeCompact .hero:after{font-size:88px;right:-8px;bottom:-28px}
+.homeCompact .hero .tiny{font-size:9px}
+.homeCompact .hero h1{font-size:25px;line-height:1.08;margin:5px 0 6px}
+.homeCompact .hero p{font-size:11.5px;line-height:1.42;max-width:48ch}
+.homeCompact .hero .row{margin-top:9px!important;gap:6px}
+.homeCompact .hero .btn{min-height:40px;padding:7px 11px;border-radius:13px;font-size:12px}
+.homeGoal{padding:10px 11px!important}
+.homeGoal .between b{font-size:14px}
+.homeGoal .between .tiny{font-size:9px}
+.homeGoal .between .badge{font-size:9px;padding:4px 7px}
+.homeGoal .goalPick{margin-top:7px!important;gap:5px}
+.homeGoal .goalBtn{min-height:44px;padding:5px 3px;border-radius:12px}
+.homeGoal .goalBtn b{font-size:15px;line-height:1}
+.homeGoal .goalBtn span{font-size:9px;margin-top:3px;display:block}
+.homeMission{padding:11px 12px!important;border-radius:18px}
+.homeMission .missionTop{align-items:center}
+.homeMission .pathBadge{font-size:9px;padding:4px 7px}
+.homeMission .title{font-size:20px;margin-top:5px!important}
+.homeMission .missionScene{font-size:10px;margin-top:2px}
+.homeMission .missionPhrase{margin-top:8px;padding:9px 8px}
+.homeMission .missionPhrase .jp{font-size:20px;line-height:1.28}
+.homeMission .missionPhrase .th{font-size:13px;margin-top:4px}
+.homeMission>.btn{margin-top:7px!important;min-height:42px;font-size:12px}
+.homeCompact .bridge{padding:10px}
+.homeCompact .bridgeFlow{margin-top:7px}
+.homeCompact .bridgeFlow>div{padding:6px 3px}
+.homeCompact .task{padding:11px 12px}
+.homeCompact .taskIcon{width:38px;height:38px;font-size:18px}
+.homeCompact .task b{font-size:13px}
+.homeCompact .task .desc{font-size:10px}
+.homeCompact .freeValue>div{padding:8px 4px}
+.homeCompact .freeValue b{font-size:16px}
+.homeCompact .freeValue span{font-size:8.5px}
+
+/* Compact bottom navigation on phone */
+@media(max-width:760px){
+  main{padding-bottom:calc(62px + env(safe-area-inset-bottom))}
+  .bottomNav{bottom:max(env(safe-area-inset-bottom),6px);padding:4px 5px;border-radius:16px}
+  .navBtn{min-height:49px;font-size:9px;gap:1px;border-radius:12px}
+  .navBtn .ico{font-size:17px}
+}
+@media(max-width:390px){
+  .homeCompact .hero h1{font-size:23px}
+  .homeCompact .hero p{font-size:11px}
+  .homeMission .missionPhrase .jp{font-size:18px}
+}
+
+</style>
+</head>
+<body>
+<div id="app">
+<header class="topbar"><div class="topin">
+<div class="brand"><div class="logo"><img src="../../shared/brand/measymate-logo.jpg" alt="MEasyMate" onerror="if(!this.dataset.f){this.dataset.f='1';this.src='https://raw.githubusercontent.com/pormatee/MEasyMate-Products/main/shared/brand/measymate-logo.jpg'}else{this.style.display='none';this.nextElementSibling.style.display='block'}"><span class="logoFallback">M</span></div><div><div class="brandName">Hanasu <span class="badge">FREE</span></div><div class="brandSub">Japanese Thai Bridge • ญี่ปุ่นที่คนไทยพูดได้จริง</div></div></div>
+<button class="iconbtn" onclick="toggleDark()">🌙</button>
+</div></header>
+<main id="main"></main>
+<nav id="nav" class="bottomNav"></nav>
+</div>
+<script>
+const VOCAB=[{"id":1,"jp":"おはよう","kana":"おはよう","romaji":"ohayou","thai":"สวัสดีตอนเช้า","cat":"greet"},{"id":2,"jp":"こんにちは","kana":"こんにちは","romaji":"konnichiwa","thai":"สวัสดี","cat":"greet"},{"id":3,"jp":"こんばんは","kana":"こんばんは","romaji":"konbanwa","thai":"สวัสดีตอนเย็น","cat":"greet"},{"id":4,"jp":"ありがとう","kana":"ありがとう","romaji":"arigatou","thai":"ขอบคุณ","cat":"greet"},{"id":5,"jp":"すみません","kana":"すみません","romaji":"sumimasen","thai":"ขอโทษ / ขอทาง / เรียกคน","cat":"greet"},{"id":6,"jp":"ごめんなさい","kana":"ごめんなさい","romaji":"gomennasai","thai":"ขอโทษ","cat":"greet"},{"id":7,"jp":"はい","kana":"はい","romaji":"hai","thai":"ใช่ / ครับ / ค่ะ","cat":"greet"},{"id":8,"jp":"いいえ","kana":"いいえ","romaji":"iie","thai":"ไม่ใช่","cat":"greet"},{"id":9,"jp":"お願いします","kana":"おねがいします","romaji":"onegaishimasu","thai":"กรุณา / ฝากด้วย","cat":"greet"},{"id":10,"jp":"どうぞ","kana":"どうぞ","romaji":"douzo","thai":"เชิญ / ได้เลย","cat":"greet"},{"id":11,"jp":"一","kana":"いち","romaji":"ichi","thai":"หนึ่ง","cat":"number"},{"id":12,"jp":"二","kana":"に","romaji":"ni","thai":"สอง","cat":"number"},{"id":13,"jp":"三","kana":"さん","romaji":"san","thai":"สาม","cat":"number"},{"id":14,"jp":"四","kana":"よん","romaji":"yon","thai":"สี่","cat":"number"},{"id":15,"jp":"五","kana":"ご","romaji":"go","thai":"ห้า","cat":"number"},{"id":16,"jp":"六","kana":"ろく","romaji":"roku","thai":"หก","cat":"number"},{"id":17,"jp":"七","kana":"なな","romaji":"nana","thai":"เจ็ด","cat":"number"},{"id":18,"jp":"八","kana":"はち","romaji":"hachi","thai":"แปด","cat":"number"},{"id":19,"jp":"九","kana":"きゅう","romaji":"kyuu","thai":"เก้า","cat":"number"},{"id":20,"jp":"十","kana":"じゅう","romaji":"juu","thai":"สิบ","cat":"number"},{"id":21,"jp":"百","kana":"ひゃく","romaji":"hyaku","thai":"ร้อย","cat":"number"},{"id":22,"jp":"千","kana":"せん","romaji":"sen","thai":"พัน","cat":"number"},{"id":23,"jp":"今","kana":"いま","romaji":"ima","thai":"ตอนนี้","cat":"time"},{"id":24,"jp":"今日","kana":"きょう","romaji":"kyou","thai":"วันนี้","cat":"time"},{"id":25,"jp":"明日","kana":"あした","romaji":"ashita","thai":"พรุ่งนี้","cat":"time"},{"id":26,"jp":"昨日","kana":"きのう","romaji":"kinou","thai":"เมื่อวาน","cat":"time"},{"id":27,"jp":"朝","kana":"あさ","romaji":"asa","thai":"เช้า","cat":"time"},{"id":28,"jp":"昼","kana":"ひる","romaji":"hiru","thai":"กลางวัน","cat":"time"},{"id":29,"jp":"夜","kana":"よる","romaji":"yoru","thai":"กลางคืน","cat":"time"},{"id":30,"jp":"時間","kana":"じかん","romaji":"jikan","thai":"เวลา / ชั่วโมง","cat":"time"},{"id":31,"jp":"私","kana":"わたし","romaji":"watashi","thai":"ฉัน / ผม","cat":"people"},{"id":32,"jp":"あなた","kana":"あなた","romaji":"anata","thai":"คุณ","cat":"people"},{"id":33,"jp":"人","kana":"ひと","romaji":"hito","thai":"คน","cat":"people"},{"id":34,"jp":"友達","kana":"ともだち","romaji":"tomodachi","thai":"เพื่อน","cat":"people"},{"id":35,"jp":"家族","kana":"かぞく","romaji":"kazoku","thai":"ครอบครัว","cat":"people"},{"id":36,"jp":"父","kana":"ちち","romaji":"chichi","thai":"พ่อของฉัน","cat":"people"},{"id":37,"jp":"母","kana":"はは","romaji":"haha","thai":"แม่ของฉัน","cat":"people"},{"id":38,"jp":"兄","kana":"あに","romaji":"ani","thai":"พี่ชายของฉัน","cat":"people"},{"id":39,"jp":"姉","kana":"あね","romaji":"ane","thai":"พี่สาวของฉัน","cat":"people"},{"id":40,"jp":"先生","kana":"せんせい","romaji":"sensei","thai":"ครู / อาจารย์","cat":"people"},{"id":41,"jp":"水","kana":"みず","romaji":"mizu","thai":"น้ำ","cat":"food"},{"id":42,"jp":"お茶","kana":"おちゃ","romaji":"ocha","thai":"ชา","cat":"food"},{"id":43,"jp":"ご飯","kana":"ごはん","romaji":"gohan","thai":"ข้าว / อาหาร","cat":"food"},{"id":44,"jp":"パン","kana":"パン","romaji":"pan","thai":"ขนมปัง","cat":"food"},{"id":45,"jp":"野菜","kana":"やさい","romaji":"yasai","thai":"ผัก","cat":"food"},{"id":46,"jp":"果物","kana":"くだもの","romaji":"kudamono","thai":"ผลไม้","cat":"food"},{"id":47,"jp":"りんご","kana":"りんご","romaji":"ringo","thai":"แอปเปิล","cat":"food"},{"id":48,"jp":"バナナ","kana":"バナナ","romaji":"banana","thai":"กล้วย","cat":"food"},{"id":49,"jp":"豆腐","kana":"とうふ","romaji":"toufu","thai":"เต้าหู้","cat":"food"},{"id":50,"jp":"食べる","kana":"たべる","romaji":"taberu","thai":"กิน","cat":"food"},{"id":51,"jp":"飲む","kana":"のむ","romaji":"nomu","thai":"ดื่ม","cat":"food"},{"id":52,"jp":"おいしい","kana":"おいしい","romaji":"oishii","thai":"อร่อย","cat":"food"},{"id":53,"jp":"駅","kana":"えき","romaji":"eki","thai":"สถานี","cat":"travel"},{"id":54,"jp":"電車","kana":"でんしゃ","romaji":"densha","thai":"รถไฟ","cat":"travel"},{"id":55,"jp":"バス","kana":"バス","romaji":"basu","thai":"รถบัส","cat":"travel"},{"id":56,"jp":"車","kana":"くるま","romaji":"kuruma","thai":"รถยนต์","cat":"travel"},{"id":57,"jp":"空港","kana":"くうこう","romaji":"kuukou","thai":"สนามบิน","cat":"travel"},{"id":58,"jp":"ホテル","kana":"ホテル","romaji":"hoteru","thai":"โรงแรม","cat":"travel"},{"id":59,"jp":"トイレ","kana":"トイレ","romaji":"toire","thai":"ห้องน้ำ","cat":"travel"},{"id":60,"jp":"ここ","kana":"ここ","romaji":"koko","thai":"ที่นี่","cat":"travel"},{"id":61,"jp":"そこ","kana":"そこ","romaji":"soko","thai":"ที่นั่นใกล้ผู้ฟัง","cat":"travel"},{"id":62,"jp":"あそこ","kana":"あそこ","romaji":"asoko","thai":"ที่โน่น","cat":"travel"},{"id":63,"jp":"右","kana":"みぎ","romaji":"migi","thai":"ขวา","cat":"travel"},{"id":64,"jp":"左","kana":"ひだり","romaji":"hidari","thai":"ซ้าย","cat":"travel"},{"id":65,"jp":"行く","kana":"いく","romaji":"iku","thai":"ไป","cat":"travel"},{"id":66,"jp":"来る","kana":"くる","romaji":"kuru","thai":"มา","cat":"travel"},{"id":67,"jp":"いくら","kana":"いくら","romaji":"ikura","thai":"เท่าไร","cat":"shopping"},{"id":68,"jp":"高い","kana":"たかい","romaji":"takai","thai":"แพง / สูง","cat":"shopping"},{"id":69,"jp":"安い","kana":"やすい","romaji":"yasui","thai":"ถูก / ราคาถูก","cat":"shopping"},{"id":70,"jp":"買う","kana":"かう","romaji":"kau","thai":"ซื้อ","cat":"shopping"},{"id":71,"jp":"店","kana":"みせ","romaji":"mise","thai":"ร้าน","cat":"shopping"},{"id":72,"jp":"これ","kana":"これ","romaji":"kore","thai":"อันนี้","cat":"shopping"},{"id":73,"jp":"それ","kana":"それ","romaji":"sore","thai":"อันนั้นใกล้ผู้ฟัง","cat":"shopping"},{"id":74,"jp":"あれ","kana":"あれ","romaji":"are","thai":"อันโน้น","cat":"shopping"},{"id":75,"jp":"ください","kana":"ください","romaji":"kudasai","thai":"ขอ... / กรุณาให้...","cat":"shopping"},{"id":76,"jp":"円","kana":"えん","romaji":"en","thai":"เยน","cat":"shopping"},{"id":77,"jp":"家","kana":"いえ","romaji":"ie","thai":"บ้าน","cat":"daily"},{"id":78,"jp":"学校","kana":"がっこう","romaji":"gakkou","thai":"โรงเรียน","cat":"daily"},{"id":79,"jp":"会社","kana":"かいしゃ","romaji":"kaisha","thai":"บริษัท","cat":"daily"},{"id":80,"jp":"仕事","kana":"しごと","romaji":"shigoto","thai":"งาน","cat":"daily"},{"id":81,"jp":"勉強","kana":"べんきょう","romaji":"benkyou","thai":"การเรียน","cat":"daily"},{"id":82,"jp":"本","kana":"ほん","romaji":"hon","thai":"หนังสือ","cat":"daily"},{"id":83,"jp":"日本語","kana":"にほんご","romaji":"nihongo","thai":"ภาษาญี่ปุ่น","cat":"daily"},{"id":84,"jp":"タイ語","kana":"タイご","romaji":"taigo","thai":"ภาษาไทย","cat":"daily"},{"id":85,"jp":"読む","kana":"よむ","romaji":"yomu","thai":"อ่าน","cat":"daily"},{"id":86,"jp":"書く","kana":"かく","romaji":"kaku","thai":"เขียน","cat":"daily"},{"id":87,"jp":"聞く","kana":"きく","romaji":"kiku","thai":"ฟัง / ถาม","cat":"daily"},{"id":88,"jp":"話す","kana":"はなす","romaji":"hanasu","thai":"พูด","cat":"daily"},{"id":89,"jp":"見る","kana":"みる","romaji":"miru","thai":"ดู","cat":"daily"},{"id":90,"jp":"する","kana":"する","romaji":"suru","thai":"ทำ","cat":"daily"},{"id":91,"jp":"休む","kana":"やすむ","romaji":"yasumu","thai":"พัก / หยุด","cat":"daily"},{"id":92,"jp":"大きい","kana":"おおきい","romaji":"ookii","thai":"ใหญ่","cat":"common"},{"id":93,"jp":"小さい","kana":"ちいさい","romaji":"chiisai","thai":"เล็ก","cat":"common"},{"id":94,"jp":"新しい","kana":"あたらしい","romaji":"atarashii","thai":"ใหม่","cat":"common"},{"id":95,"jp":"古い","kana":"ふるい","romaji":"furui","thai":"เก่า","cat":"common"},{"id":96,"jp":"良い","kana":"いい","romaji":"ii","thai":"ดี","cat":"common"},{"id":97,"jp":"悪い","kana":"わるい","romaji":"warui","thai":"ไม่ดี / แย่","cat":"common"},{"id":98,"jp":"暑い","kana":"あつい","romaji":"atsui","thai":"ร้อน (อากาศ)","cat":"common"},{"id":99,"jp":"寒い","kana":"さむい","romaji":"samui","thai":"หนาว","cat":"common"},{"id":100,"jp":"忙しい","kana":"いそがしい","romaji":"isogashii","thai":"ยุ่ง","cat":"common"},{"id":101,"jp":"楽しい","kana":"たのしい","romaji":"tanoshii","thai":"สนุก","cat":"common"},{"id":102,"jp":"好き","kana":"すき","romaji":"suki","thai":"ชอบ","cat":"common"},{"id":103,"jp":"大丈夫","kana":"だいじょうぶ","romaji":"daijoubu","thai":"ไม่เป็นไร / โอเค","cat":"common"}];
+const CATS=[
+{id:'all',th:'ทั้งหมด',ico:'🗂️'},{id:'greet',th:'ทักทาย',ico:'👋'},{id:'number',th:'ตัวเลข',ico:'🔢'},
+{id:'time',th:'เวลา',ico:'🕒'},{id:'people',th:'คน/ครอบครัว',ico:'👥'},{id:'food',th:'อาหาร',ico:'🍚'},
+{id:'travel',th:'เดินทาง',ico:'🚆'},{id:'shopping',th:'ซื้อของ',ico:'🛍️'},{id:'daily',th:'ชีวิตประจำวัน',ico:'🏠'},{id:'common',th:'คำใช้บ่อย',ico:'⭐'}];
+
+const HIRA_ROWS=[
+{r:'สระ',items:[['あ','a','อะ/อา'],['い','i','อิ/อี'],['う','u','อุ'],['え','e','เอะ/เอ'],['お','o','โอะ/โอ']]},
+{r:'K',items:[['か','ka','คะ/คา'],['き','ki','คิ'],['く','ku','คุ'],['け','ke','เคะ'],['こ','ko','โคะ']]},
+{r:'S',items:[['さ','sa','ซะ'],['し','shi','ชิ'],['す','su','สุ'],['せ','se','เซะ'],['そ','so','โซะ']]},
+{r:'T',items:[['た','ta','ทะ/ตะ'],['ち','chi','จิ/ชิ'],['つ','tsu','สึ'],['て','te','เทะ'],['と','to','โทะ']]},
+{r:'N',items:[['な','na','นะ'],['に','ni','นิ'],['ぬ','nu','นุ'],['ね','ne','เนะ'],['の','no','โนะ']]},
+{r:'H',items:[['は','ha','ฮะ'],['ひ','hi','ฮิ'],['ふ','fu','ฟุ/ฮุ'],['へ','he','เฮะ'],['ほ','ho','โฮะ']]},
+{r:'M',items:[['ま','ma','มะ'],['み','mi','มิ'],['む','mu','มุ'],['め','me','เมะ'],['も','mo','โมะ']]},
+{r:'Y',items:[['や','ya','ยะ'],['ゆ','yu','ยุ'],['よ','yo','โยะ']]},
+{r:'R',items:[['ら','ra','ระ (ลิ้นแตะเร็ว)'],['り','ri','ริ'],['る','ru','รุ'],['れ','re','เระ'],['ろ','ro','โระ']]},
+{r:'W/N',items:[['わ','wa','วะ'],['を','o/wo','โอะ (คำช่วย)'],['ん','n','น/ง ตามเสียงถัดไป']]}
+];
+const KATA_ROWS=[
+{r:'สระ',items:[['ア','a','อะ/อา'],['イ','i','อิ/อี'],['ウ','u','อุ'],['エ','e','เอะ/เอ'],['オ','o','โอะ/โอ']]},
+{r:'K',items:[['カ','ka','คะ/คา'],['キ','ki','คิ'],['ク','ku','คุ'],['ケ','ke','เคะ'],['コ','ko','โคะ']]},
+{r:'S',items:[['サ','sa','ซะ'],['シ','shi','ชิ'],['ス','su','สุ'],['セ','se','เซะ'],['ソ','so','โซะ']]},
+{r:'T',items:[['タ','ta','ทะ/ตะ'],['チ','chi','จิ/ชิ'],['ツ','tsu','สึ'],['テ','te','เทะ'],['ト','to','โทะ']]},
+{r:'N',items:[['ナ','na','นะ'],['ニ','ni','นิ'],['ヌ','nu','นุ'],['ネ','ne','เนะ'],['ノ','no','โนะ']]},
+{r:'H',items:[['ハ','ha','ฮะ'],['ヒ','hi','ฮิ'],['フ','fu','ฟุ/ฮุ'],['ヘ','he','เฮะ'],['ホ','ho','โฮะ']]},
+{r:'M',items:[['マ','ma','มะ'],['ミ','mi','มิ'],['ム','mu','มุ'],['メ','me','เมะ'],['モ','mo','โมะ']]},
+{r:'Y',items:[['ヤ','ya','ยะ'],['ユ','yu','ยุ'],['ヨ','yo','โยะ']]},
+{r:'R',items:[['ラ','ra','ระ (ลิ้นแตะเร็ว)'],['リ','ri','ริ'],['ル','ru','รุ'],['レ','re','เระ'],['ロ','ro','โระ']]},
+{r:'W/N',items:[['ワ','wa','วะ'],['ヲ','o/wo','โอะ'],['ン','n','น/ง ตามเสียงถัดไป']]}
+];
+const SPECIAL=[
+{jp:'が ぎ ぐ げ ご',romaji:'ga gi gu ge go',thai:'เพิ่มจุด ゛ → เสียงก้อง',cue:'か→が, さ→ざ, た→だ, は→ば'},
+{jp:'ぱ ぴ ぷ ぺ ぽ',romaji:'pa pi pu pe po',thai:'เพิ่มวงกลม ゜ → p',cue:'ใช้กับแถว は เท่านั้น'},
+{jp:'きゃ きゅ きょ',romaji:'kya kyu kyo',thai:'เสียงควบ ゃゅょ ตัวเล็ก',cue:'ออกเป็น 1 จังหวะ ไม่ใช่ ki-ya'},
+{jp:'がっこう',romaji:'gakkou',thai:'っ ตัวเล็ก = หยุดเสียงสั้น',cue:'หยุดก่อนพยัญชนะถัดไป 1 จังหวะ'},
+{jp:'スーパー',romaji:'suupaa',thai:'ー ใน Katakana = ยืดสระ',cue:'ยืดเสียงอีก 1 จังหวะ'}
+];
+const KANJI=[
+{c:'一',on:'いち / ichi',th:'หนึ่ง',parts:['เส้นเดียว'],story:'เส้นเดียว = หนึ่ง'},
+{c:'人',on:'ひと / hito',th:'คน',parts:['ขาซ้าย','ขาขวา'],story:'เหมือนคนกำลังก้าวเดิน'},
+{c:'大',on:'おお / oo',th:'ใหญ่',parts:['人','กางแขน'],story:'คนกางแขนเต็มที่ = ใหญ่'},
+{c:'小',on:'しょう / shou',th:'เล็ก',parts:['เส้นกลาง','จุดข้าง'],story:'ของชิ้นเล็กกระจายรอบแกนกลาง'},
+{c:'山',on:'やま / yama',th:'ภูเขา',parts:['ยอด 3 ยอด'],story:'มองเป็นภูเขาหลายยอด'},
+{c:'川',on:'かわ / kawa',th:'แม่น้ำ',parts:['สายน้ำ 3 เส้น'],story:'สายน้ำไหลขนานกัน'},
+{c:'日',on:'ひ / hi',th:'วัน / ดวงอาทิตย์',parts:['กรอบ','กลาง'],story:'ช่องสี่เหลี่ยมแทนแสงอาทิตย์'},
+{c:'月',on:'つき / tsuki',th:'เดือน / ดวงจันทร์',parts:['กรอบโค้ง','เส้นใน'],story:'รูปพระจันทร์แบบอักษรจีน'},
+{c:'木',on:'き / ki',th:'ต้นไม้',parts:['ลำต้น','กิ่ง'],story:'เส้นตั้งเป็นลำต้น เส้นเฉียงเป็นกิ่ง'},
+{c:'口',on:'くち / kuchi',th:'ปาก',parts:['กรอบ'],story:'กรอบสี่เหลี่ยมเหมือนปากที่เปิด'}
+];
+const STROKES=[
+{char:'一',th:'หนึ่ง',kana:'いち',memory:'เส้นเดียว ซ้ายไปขวา',st:[{n:'横 よこ',dir:'ซ้าย → ขวา',d:'M25 60 L95 60',s:[25,60]}]},
+{char:'二',th:'สอง',kana:'に',memory:'เส้นบนสั้น เส้นล่างยาว',st:[{n:'横',dir:'ซ้าย → ขวา',d:'M32 42 L88 42',s:[32,42]},{n:'横',dir:'ซ้าย → ขวา',d:'M22 78 L98 78',s:[22,78]}]},
+{char:'三',th:'สาม',kana:'さん',memory:'สามเส้นนอน บนสั้น กลางสั้น ล่างยาว',st:[{n:'横',dir:'ซ้าย → ขวา',d:'M34 32 L86 32',s:[34,32]},{n:'横',dir:'ซ้าย → ขวา',d:'M30 59 L90 59',s:[30,59]},{n:'横',dir:'ซ้าย → ขวา',d:'M20 88 L100 88',s:[20,88]}]},
+{char:'十',th:'สิบ',kana:'じゅう',memory:'นอนก่อน ตั้งทีหลัง',st:[{n:'横',dir:'ซ้าย → ขวา',d:'M22 58 L98 58',s:[22,58]},{n:'竪',dir:'บน → ล่าง',d:'M60 24 L60 98',s:[60,24]}]},
+{char:'人',th:'คน',kana:'ひと',memory:'ซ้ายลงก่อน แล้วขวาลง',st:[{n:'撇',dir:'บน → ซ้ายล่าง',d:'M62 24 Q52 57 27 95',s:[62,24]},{n:'捺',dir:'บน → ขวาล่าง',d:'M62 24 Q71 61 98 94',s:[62,24]}]},
+{char:'大',th:'ใหญ่',kana:'おお',memory:'横 ก่อน แล้วคน 人',st:[{n:'横',dir:'ซ้าย → ขวา',d:'M24 49 L96 49',s:[24,49]},{n:'撇',dir:'กลาง → ซ้ายล่าง',d:'M61 25 Q55 63 27 95',s:[61,25]},{n:'捺',dir:'กลาง → ขวาล่าง',d:'M61 27 Q70 66 99 94',s:[61,27]}]},
+{char:'口',th:'ปาก',kana:'くち',memory:'ซ้ายลง → บนไปขวาแล้วลง → ปิดล่าง',st:[{n:'竪',dir:'บน → ล่าง',d:'M30 29 L30 91',s:[30,29]},{n:'横折',dir:'ซ้าย → ขวา → ลง',d:'M30 29 L91 29 L91 91',s:[30,29]},{n:'横',dir:'ซ้าย → ขวา',d:'M30 91 L91 91',s:[30,91]}]},
+{char:'日',th:'วัน/อาทิตย์',kana:'ひ',memory:'口 แล้วเพิ่มเส้นกลาง',st:[{n:'竪',dir:'บน → ล่าง',d:'M31 21 L31 99',s:[31,21]},{n:'横折',dir:'ซ้าย → ขวา → ลง',d:'M31 21 L90 21 L90 99',s:[31,21]},{n:'横',dir:'ซ้าย → ขวา',d:'M32 59 L89 59',s:[32,59]},{n:'横',dir:'ซ้าย → ขวา',d:'M31 99 L90 99',s:[31,99]}]}
+];
+const GRAMMAR=[
+{t:'です',th:'เป็น / คือ / ครับ-ค่ะ',f:'A は B です',ex:'わたしはタイ人です。',py:'Watashi wa Tai-jin desu.',et:'ฉันเป็นคนไทย',tip:'は ในประโยคนี้อ่านว่า “wa”'},
+{t:'は',th:'ทำเครื่องหมายหัวข้อ',f:'หัวข้อ + は + ข้อมูล',ex:'これは本です。',py:'Kore wa hon desu.',et:'นี่คือหนังสือ',tip:'ถามว่า “เรากำลังพูดเรื่องอะไร”'},
+{t:'の',th:'ของ / เชื่อมคำนาม',f:'A の B = B ของ A',ex:'わたしの本です。',py:'Watashi no hon desu.',et:'เป็นหนังสือของฉัน',tip:'ลำดับกลับจากภาษาไทยเล็กน้อย'},
+{t:'を',th:'กรรมของกริยา',f:'สิ่งของ + を + กริยา',ex:'水を飲みます。',py:'Mizu o nomimasu.',et:'ดื่มน้ำ',tip:'を มักอ่านว่า “o”'},
+{t:'に',th:'เวลา / จุดหมาย / ตำแหน่งเป้าหมาย',f:'เวลา/ที่ + に + กริยา',ex:'学校に行きます。',py:'Gakkou ni ikimasu.',et:'ไปโรงเรียน',tip:'คิดว่า に ชี้ “จุดเป้าหมาย”'},
+{t:'で',th:'สถานที่ที่ทำกิจกรรม',f:'สถานที่ + で + กริยา',ex:'家で勉強します。',py:'Ie de benkyou shimasu.',et:'เรียนที่บ้าน',tip:'ถ้ามีการ “ทำอะไร” ณ ที่นั้น มักเจอ で'},
+{t:'ます',th:'รูปสุภาพของกริยา',f:'กริยารูป ます',ex:'日本語を話します。',py:'Nihongo o hanashimasu.',et:'พูดภาษาญี่ปุ่น',tip:'ใช้ได้ปลอดภัยในบทสนทนาทั่วไป'},
+{t:'ません',th:'ไม่... (สุภาพ)',f:'ます → ません',ex:'肉を食べません。',py:'Niku o tabemasen.',et:'ไม่กินเนื้อ',tip:'เปลี่ยน ます เป็น ません'},
+{t:'か',th:'ทำประโยคคำถาม',f:'ประโยค + か',ex:'大丈夫ですか。',py:'Daijoubu desu ka.',et:'โอเคไหม?',tip:'เติม か ท้ายประโยคสุภาพ'}
+];
+
+const MISSIONS=[{"id":"daily_intro","goal":"daily","icon":"👋","title":"แนะนำตัวครั้งแรก","scene":"เจอคนญี่ปุ่นครั้งแรก","objective":"พูดให้สุภาพและเป็นธรรมชาติ","jp":"はじめまして。〇〇です。よろしくお願いします。","kana":"はじめまして。〇〇です。よろしく おねがいします。","romaji":"Hajimemashite. ○○ desu. Yoroshiku onegaishimasu.","th":"ยินดีที่ได้รู้จัก ผม/ฉันชื่อ... ฝากเนื้อฝากตัวด้วยครับ/ค่ะ","chunks":[["はじめまして","ยินดีที่ได้รู้จัก (ใช้ครั้งแรก)"],["〇〇です","ฉัน/ผมคือ..."],["よろしくお願いします","ขอฝากตัว / ฝากด้วยครับ-ค่ะ"]],"trap":"อย่าแปล よろしくお願いします ตรงคำเกินไป ให้จำเป็น “ประโยคปิดการแนะนำตัวแบบสุภาพ”","partner":"はじめまして。田中です。","partnerTh":"ยินดีที่ได้รู้จัก ผมทานากะครับ","opts":[["こちらこそ、よろしくお願いします。","เช่นกันครับ/ค่ะ ฝากตัวด้วย","1"],["ありがとう。","ขอบคุณ","0"],["いくらですか。","ราคาเท่าไร","0"]],"rescue":"もう一度お願いします。","rescueTh":"ขออีกครั้งครับ/ค่ะ"},{"id":"daily_buy","goal":"daily","icon":"🛍️","title":"ซื้อของง่าย ๆ","scene":"ชี้ของที่ต้องการในร้าน","objective":"ขอของได้โดยไม่ต้องแต่งประโยคยาว","jp":"これをください。","kana":"これを ください。","romaji":"Kore o kudasai.","th":"ขออันนี้ครับ/ค่ะ","chunks":[["これ","อันนี้"],["を","คำช่วยชี้กรรม"],["ください","กรุณาให้ / ขอ..."]],"trap":"を ในประโยคนี้อ่านใกล้ “โอะ” ไม่ใช่ “โวะ” แบบอ่านตัวอักษรเดี่ยว","partner":"こちらでいいですか。","partnerTh":"อันนี้ใช่ไหมครับ/คะ","opts":[["はい、お願いします。","ใช่ครับ/ค่ะ เอาอันนี้","1"],["駅はどこですか。","สถานีอยู่ไหน","0"],["大丈夫です。","ไม่เป็นไร/โอเค","0"]],"rescue":"いくらですか。","rescueTh":"ราคาเท่าไรครับ/คะ"},{"id":"daily_repeat","goal":"daily","icon":"🆘","title":"ฟังไม่ทัน ขอให้พูดอีกครั้ง","scene":"คุยจริงแล้วฟังไม่ทัน","objective":"เอาตัวรอดในการสนทนา","jp":"すみません、もう一度お願いします。","kana":"すみません、もう いちど おねがいします。","romaji":"Sumimasen, mou ichido onegaishimasu.","th":"ขอโทษครับ/ค่ะ ขออีกครั้งหนึ่ง","chunks":[["すみません","ขอโทษ / ขอรบกวน"],["もう一度","อีกครั้งหนึ่ง"],["お願いします","ขอรบกวน / กรุณา"]],"trap":"ประโยคนี้มีประโยชน์กว่าพยายามเดาทุกคำ ใช้จริงได้ตั้งแต่วันแรก","partner":"わかりました。ゆっくり話します。","partnerTh":"เข้าใจแล้ว จะพูดช้า ๆ","opts":[["ありがとうございます。","ขอบคุณครับ/ค่ะ","1"],["これをください。","ขออันนี้","0"],["いいえ。","ไม่ใช่","0"]],"rescue":"ゆっくりお願いします。","rescueTh":"กรุณาพูดช้า ๆ"},{"id":"work_stop","goal":"work","icon":"🏭","title":"รายงานว่าเครื่องจักรหยุด","scene":"หน้างาน / โรงงาน","objective":"รายงานปัญหาให้สั้นและชัด","jp":"機械が止まりました。","kana":"きかいが とまりました。","romaji":"Kikai ga tomarimashita.","th":"เครื่องจักรหยุดแล้วครับ/ค่ะ","chunks":[["機械","เครื่องจักร"],["が","ชี้สิ่งที่เกิดเหตุ"],["止まりました","หยุดแล้ว (สุภาพ)"]],"trap":"ใช้ประโยคสั้นชัดก่อน ไม่ต้องพยายามอธิบายสาเหตุถ้ายังไม่รู้","partner":"いつ止まりましたか。","partnerTh":"หยุดเมื่อไรครับ/คะ","opts":[["今、止まりました。","เพิ่งหยุดตอนนี้ครับ/ค่ะ","1"],["これをください。","ขออันนี้","0"],["おいしいです。","อร่อยครับ/ค่ะ","0"]],"rescue":"確認をお願いします。","rescueTh":"รบกวนตรวจสอบด้วยครับ/ค่ะ"},{"id":"work_check","goal":"work","icon":"✅","title":"ขอให้ตรวจอีกครั้ง","scene":"ยืนยันงาน / คุณภาพ","objective":"ขอให้ตรวจซ้ำอย่างสุภาพ","jp":"もう一度確認してください。","kana":"もう いちど かくにんして ください。","romaji":"Mou ichido kakunin shite kudasai.","th":"กรุณาตรวจสอบอีกครั้งครับ/ค่ะ","chunks":[["もう一度","อีกครั้ง"],["確認して","ตรวจสอบ"],["ください","กรุณา..."]],"trap":"してください = “กรุณาทำ...” เป็นรูปที่เจอบ่อยในคำสั่งงานสุภาพ","partner":"わかりました。確認します。","partnerTh":"เข้าใจแล้ว จะตรวจสอบครับ/ค่ะ","opts":[["お願いします。","รบกวนด้วยครับ/ค่ะ","1"],["こんばんは。","สวัสดีตอนเย็น","0"],["駅です。","เป็นสถานี","0"]],"rescue":"ここを見てください。","rescueTh":"กรุณาดูตรงนี้"},{"id":"work_defect","goal":"work","icon":"⚠️","title":"รายงานของเสีย / NG","scene":"Quality / Production","objective":"แจ้งว่ามีของเสียเกิดขึ้น","jp":"不良が出ました。","kana":"ふりょうが でました。","romaji":"Furyou ga demashita.","th":"มีของเสีย/NG เกิดขึ้นครับ/ค่ะ","chunks":[["不良","ของเสีย / NG / defect"],["が","ชี้สิ่งที่เกิดขึ้น"],["出ました","เกิด/ออกมาแล้ว"]],"trap":"ในงานโรงงาน 出ました ใช้รายงานว่า “เกิดขึ้น/ออกมา” ได้เป็นธรรมชาติกว่าการแปลไทยตรงตัว","partner":"何個ですか。","partnerTh":"กี่ชิ้นครับ/คะ","opts":[["三個です。","3 ชิ้นครับ/ค่ะ","1"],["三時です。","3 โมงครับ/ค่ะ","0"],["三人です。","3 คนครับ/ค่ะ","0"]],"rescue":"写真を見てください。","rescueTh":"กรุณาดูรูปนี้"},{"id":"travel_station","goal":"travel","icon":"🚉","title":"ถามหาสถานี","scene":"เดินทางในญี่ปุ่น","objective":"ถามทางแบบสั้นที่สุด","jp":"駅はどこですか。","kana":"えきは どこですか。","romaji":"Eki wa doko desu ka.","th":"สถานีอยู่ที่ไหนครับ/คะ","chunks":[["駅","สถานี"],["は","หัวข้อที่ถาม"],["どこ","ที่ไหน"],["ですか","...อยู่/คือไหม? รูปคำถามสุภาพ"]],"trap":"は ในประโยคนี้อ่าน “wa” แม้เขียนด้วย は","partner":"あそこです。","partnerTh":"อยู่ตรงโน้นครับ/ค่ะ","opts":[["ありがとうございます。","ขอบคุณครับ/ค่ะ","1"],["いくらですか。","ราคาเท่าไร","0"],["食べません。","ไม่กิน","0"]],"rescue":"地図を見せてください。","rescueTh":"กรุณาแสดงแผนที่ให้ดู"},{"id":"travel_train","goal":"travel","icon":"🚆","title":"เช็กรถไฟว่าถูกสายไหม","scene":"ก่อนขึ้นรถไฟ","objective":"ป้องกันขึ้นผิดขบวน","jp":"この電車は東京に行きますか。","kana":"この でんしゃは とうきょうに いきますか。","romaji":"Kono densha wa Toukyou ni ikimasu ka.","th":"รถไฟขบวนนี้ไปโตเกียวไหมครับ/คะ","chunks":[["この電車","รถไฟขบวนนี้"],["は","หัวข้อ"],["東京に","ไปยังโตเกียว"],["行きますか","ไปไหม?"]],"trap":"に ใช้ชี้ “จุดหมาย” จำเป็นภาพลูกศรไปยังสถานที่","partner":"はい、行きます。","partnerTh":"ใช่ครับ/ค่ะ ไปโตเกียว","opts":[["ありがとうございます。","ขอบคุณครับ/ค่ะ","1"],["いいえ、食べません。","ไม่ครับ ไม่กิน","0"],["仕事です。","เป็นงาน","0"]],"rescue":"何番線ですか。","rescueTh":"ชานชาลาหมายเลขเท่าไรครับ/คะ"},{"id":"travel_hotel","goal":"travel","icon":"🏨","title":"เช็กอินโรงแรม","scene":"หน้าเคาน์เตอร์โรงแรม","objective":"เริ่มเช็กอินได้ด้วยประโยคเดียว","jp":"チェックインをお願いします。","kana":"チェックインを おねがいします。","romaji":"Chekkuin o onegaishimasu.","th":"ขอเช็กอินครับ/ค่ะ","chunks":[["チェックイン","เช็กอิน"],["を","ชี้สิ่งที่ขอ"],["お願いします","รบกวนด้วยครับ/ค่ะ"]],"trap":"Katakana เจอบ่อยมากเวลาเที่ยว เช่น ホテル, バス, チェックイン","partner":"お名前をお願いします。","partnerTh":"ขอชื่อด้วยครับ/ค่ะ","opts":[["〇〇です。","ชื่อ...ครับ/ค่ะ","1"],["駅です。","เป็นสถานี","0"],["高いです。","แพงครับ/ค่ะ","0"]],"rescue":"予約があります。","rescueTh":"มีการจองไว้ครับ/ค่ะ"}];
+
+const KEY='hanasu_v1_free';
+const LEGACY_KEYS=['hanasu_jp_v1_free','hikari_jp_v1_free'];
+function readSavedState(){
+  let raw=localStorage.getItem(KEY);
+  if(raw)return raw;
+  for(const k of LEGACY_KEYS){
+    const legacy=localStorage.getItem(k);
+    if(legacy){
+      try{localStorage.setItem(KEY,legacy)}catch{}
+      return legacy;
+    }
+  }
+  return '{}';
+}
+const DEF={xp:0,streak:0,today:0,daily:5,srs:{},fav:[],goal:'daily',missionDone:[],skills:{kana:{ok:0,total:0},vocab:{ok:0,total:0},grammar:{ok:0,total:0},mission:{ok:0,total:0}},dark:false,lastDate:''};
+const clone=()=>JSON.parse(JSON.stringify(DEF));
+function load(){try{return {...clone(),...JSON.parse(readSavedState())}}catch{return clone()}}
+let state=load(),tab='today',mode=null,cat='all',idx=0,reveal=false,kanaMode='hira',kanaIndex=0,kanjiIndex=0,writeIndex=0,strokeIndex=0,grammarIndex=0,grammarQuiz=false,grammarResult=null,missionId=null,missionResult=null,missionStep=0,missionReading=false;
+let writingInk={};
+const NAV=[['today','🏠','วันนี้'],['learn','🧠','เรียน'],['review','🔁','ทบทวน'],['practice','🎯','ฝึก'],['progress','📊','พัฒนา']];
+
+function save(){localStorage.setItem(KEY,JSON.stringify(state));render()}
+function localDate(){return new Date().toISOString().slice(0,10)}
+function touchDay(){const d=localDate();if(state.lastDate!==d){state.today=0;state.lastDate=d}}
+touchDay();
+function speak(t,rate=.78){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='ja-JP';u.rate=rate;speechSynthesis.speak(u)}catch{}}
+function toggleDark(){state.dark=!state.dark;save()}
+function pctSkill(k){const x=state.skills[k]||{ok:0,total:0};return x.total?Math.round(x.ok/x.total*100):0}
+function srs(id){if(!state.srs[id])state.srs[id]={reps:0,due:0,lapses:0};return state.srs[id]}
+function dueWords(){const n=Date.now();return VOCAB.filter(w=>srs(w.id).reps>0&&srs(w.id).due<=n)}
+function learned(){return VOCAB.filter(w=>srs(w.id).reps>0).length}
+function mastered(){return VOCAB.filter(w=>srs(w.id).reps>=4).length}
+function go(t){tab=t;mode=null;reveal=false;render();scrollTo({top:0})}
+function openPractice(m){tab='practice';mode=m;render();scrollTo({top:0})}
+function closePractice(){mode=null;render()}
+function focusHead(t,s,d='practice'){return `<div class="focusHead"><button class="focusBack" onclick="go('${d}')">‹</button><div><h2>${t}</h2><p>${s}</p></div></div>`}
+function task(icon,t,d,act,right='→'){return `<button class="task" onclick="${act}"><span class="taskIcon">${icon}</span><span><b>${t}</b><span class="desc">${d}</span></span><span class="chev">${right}</span></button>`}
+function render(){
+ document.documentElement.classList.toggle('dark',state.dark);
+ const focus=(tab==='learn'||tab==='review'||(tab==='practice'&&mode));
+ document.body.classList.toggle('focus',focus);
+ const nav=document.getElementById('nav');nav.classList.toggle('hiddenFocus',focus);
+ nav.innerHTML=NAV.map(x=>`<button class="navBtn ${tab===x[0]?'on':''}" onclick="go('${x[0]}')"><span class="ico">${x[1]}</span>${x[2]}</button>`).join('');
+ document.getElementById('main').innerHTML=tab==='today'?today():tab==='learn'?learn():tab==='review'?review():tab==='practice'?practice():progress();
+ if(mode==='write')setTimeout(initCanvas,0);
+}
+
+function goalLabel(g){return g==='work'?'ทำงาน':g==='travel'?'เที่ยวญี่ปุ่น':'ชีวิตประจำวัน'}
+function goalIcon(g){return g==='work'?'🏭':g==='travel'?'🧳':'☕'}
+function goalMissions(g=state.goal){return MISSIONS.filter(m=>m.goal===g)}
+function currentMission(){
+  const list=goalMissions();
+  const first=list.find(m=>!state.missionDone.includes(m.id));
+  return first||list[0];
+}
+function setGoal(g){state.goal=g;missionId=null;missionResult=null;missionStep=0;missionReading=false;save()}
+function startMission(id=null){missionId=id||currentMission()?.id;missionResult=null;missionStep=0;missionReading=false;openPractice('mission')}
+function markMissionOption(correct){
+  state.skills.mission.total++;
+  if(correct){
+    state.skills.mission.ok++;
+    if(!state.missionDone.includes(missionId))state.missionDone.push(missionId);
+    state.xp+=10;
+    missionResult='correct';
+  }else{
+    state.xp+=1;
+    missionResult='wrong';
+  }
+  localStorage.setItem(KEY,JSON.stringify(state));
+  render();
+}
+function nextMission(){
+  const list=goalMissions(),i=Math.max(0,list.findIndex(m=>m.id===missionId));
+  missionId=list[(i+1)%list.length].id;missionResult=null;missionStep=0;missionReading=false;render();scrollTo({top:0})
+}
+
+function missionPrevStep(){
+  if(missionStep>0){missionStep--;render();scrollTo({top:0,behavior:'smooth'})}
+  else go('today');
+}
+function missionNextStep(){
+  if(missionStep===2 && missionResult!=='correct')return;
+  if(missionStep<3){missionStep++;render();scrollTo({top:0,behavior:'smooth'})}
+  else nextMission();
+}
+function toggleMissionReading(){missionReading=!missionReading;render()}
+
+function missionPractice(){
+  const m=MISSIONS.find(x=>x.id===missionId)||currentMission();
+  if(!m)return '';
+  const step=Math.max(0,Math.min(3,missionStep));
+  const pct=(step+1)*25;
+  const dots=[0,1,2,3].map(i=>`<span class="stepDot ${i===step?'on':''}"></span>`).join('');
+  let body='';
+
+  if(step===0){
+    body=`<div class="missionStepTitle">STEP 1 • ประโยคที่คุณจะใช้</div>
+      <div class="missionCore">
+        <div class="jp">${m.jp}</div>
+        <div class="th">${m.th}</div>
+        ${missionReading?`<div class="missionReading"><div class="kana">${m.kana}</div><div class="romaji">${m.romaji}</div></div>`:''}
+        <button class="btn soft readingToggle" onclick="toggleMissionReading()">${missionReading?'ซ่อนคำอ่าน':'ดูคำอ่าน'}</button>
+        <button class="btn primary full" style="margin-top:7px" onclick="speak('${m.jp}',.68)">🔊 ฟัง แล้วพูดตาม 3 รอบ</button>
+      </div>`;
+  }
+
+  if(step===1){
+    body=`<div class="missionStepTitle">STEP 2 • แยกประโยคให้จำง่าย</div>
+      <div class="stepChunkList">${m.chunks.map(c=>`<div class="stepChunk"><b>${c[0]}</b><span>${c[1]}</span></div>`).join('')}</div>
+      <div class="stepTrap">🇹🇭 <b>Thai Trap:</b> ${m.trap}</div>`;
+  }
+
+  if(step===2){
+    const correctOpt=m.opts.find(o=>o[2]==='1');
+    body=`<div class="missionStepTitle">STEP 3 • คุยโต้ตอบ</div>
+      <div class="convHow">
+        <div><b>① 🔊</b><span>ฟังอีกฝ่าย</span></div>
+        <div><b>② 🙋</b><span>ถึงตาคุณ</span></div>
+        <div><b>③ ✅</b><span>ตอบให้เหมาะ</span></div>
+      </div>
+      <div class="chatArea">
+        <div class="chatBubble other">
+          <div class="chatWho">🇯🇵 คนญี่ปุ่นพูด</div>
+          <div class="chatJP">${m.partner}</div>
+          <div class="chatTH">${m.partnerTh}</div>
+          <button class="btn soft" style="margin-top:7px;min-height:38px" onclick="speak('${m.partner}',.72)">🔊 ฟังอีกฝ่าย</button>
+        </div>
+        <div class="yourTurn">ถึงตาคุณแล้ว — จะตอบว่าอะไร?</div>
+        <div class="answerHelp">เลือกประโยคที่เหมาะกับสถานการณ์นี้</div>
+        <div class="roleOpts">
+          ${m.opts.map(o=>`<button class="convAnswer ${missionResult?(o[2]==='1'?'correct':(missionResult==='wrong'?'wrong':'')):''}" onclick="markMissionOption(${o[2]==='1'})"><b>${o[0]}</b><span>${o[1]}</span></button>`).join('')}
+        </div>
+        ${missionResult==='correct'&&correctOpt?`
+          <div class="chatBubble me">
+            <div class="chatWho">🙋 คุณตอบ</div>
+            <div class="chatJP">${correctOpt[0]}</div>
+            <div class="chatTH">${correctOpt[1]}</div>
+            <button class="btn soft" style="margin-top:7px;min-height:38px" onclick="speak('${correctOpt[0]}',.72)">🔊 ฟังคำตอบของคุณ</button>
+          </div>
+          <div class="convSuccess"><b>✓ สนทนารอบนี้ผ่านแล้ว</b><span>ไม่ต้องจำทุกคำ ให้จำว่า “สถานการณ์นี้ควรตอบแบบไหน”</span></div>
+        `:missionResult==='wrong'?`
+          <div class="roleFeedback no">ยังไม่เหมาะกับสถานการณ์นี้ครับ ลองเลือกใหม่ได้เลย</div>
+        `:''}
+      </div>`;
+  }
+
+  if(step===3){
+    body=`<div class="missionStepTitle">STEP 4 • ประโยคสำรอง + จบ Mission</div>
+      <div class="finishCard">
+        <div class="bigCheck">✅</div>
+        <h3>Mission นี้พร้อมใช้</h3>
+        <div class="small">${m.title}</div>
+        <div class="rescueCompact">
+          <div class="tiny muted">🆘 Rescue Phrase — ถ้าติดขัดให้ใช้ประโยคนี้</div>
+          <div class="jp">${m.rescue}</div>
+          <div class="small">${m.rescueTh}</div>
+          <button class="btn soft" style="margin-top:7px;min-height:40px" onclick="speak('${m.rescue}',.68)">🔊 ฟัง</button>
+        </div>
+      </div>`;
+  }
+
+  const nextLabel=step===0?'แยกประโยค →':step===1?'เริ่มคุยโต้ตอบ →':step===2?(missionResult==='correct'?'จบ Mission →':'เลือกคำตอบก่อน'): 'Mission ถัดไป →';
+  const disabled=step===2&&missionResult!=='correct';
+
+  return `<div class="missionShell">
+    ${focusHead('บทสนทนาใช้จริง',`${goalIcon(m.goal)} ${goalLabel(m.goal)} • ${m.title}`)}
+    <div class="missionProgress"><b>${step+1}/4</b><div class="bar"><i style="width:${pct}%"></i></div></div>
+    <div class="stepDots">${dots}</div>
+    <section class="missionStepCard">${body}</section>
+    <div class="missionStepNav">
+      <button class="btn soft" onclick="missionPrevStep()">${step===0?'กลับวันนี้':'‹ ก่อนหน้า'}</button>
+      <button class="btn next ${step===3?'goodNext':''}" onclick="missionNextStep()" ${disabled?'disabled':''}>${nextLabel}</button>
+    </div>
+  </div>`
+}
+
+function today(){
+ const due=dueWords().length,m=currentMission(),done=state.missionDone.length;
+ return `<div class="stack homeCompact">
+ <section class="card hero"><div class="tiny">HANASU • JAPANESE THAI BRIDGE • V1 FREE</div><h1>พูดญี่ปุ่นให้ใช้ได้จริง<br>ตั้งแต่วันแรก</h1><p>เลือกเป้าหมาย แล้วเรียนจากสถานการณ์จริง: ฟัง → เข้าใจ → คุยตอบกลับ</p><div class="row" style="margin-top:13px"><button class="btn" style="background:#fff;color:#991b1b" onclick="startMission()">▶ Mission วันนี้</button><button class="btn" style="background:rgba(0,0,0,.18);color:#fff" onclick="openPractice('kana')">あ ฝึก Kana</button></div></section>
+
+ <section class="card pad homeGoal"><div class="between"><div><b>คุณอยากใช้ภาษาญี่ปุ่นที่ไหน?</b><div class="tiny muted">เลือกครั้งเดียว แล้ว Hanasu จะจัด Mission ให้</div></div><span class="badge">${goalIcon(state.goal)} ${goalLabel(state.goal)}</span></div>
+ <div class="goalPick" style="margin-top:10px">
+ <button class="goalBtn ${state.goal==='daily'?'on':''}" onclick="setGoal('daily')"><b>☕</b><span>ชีวิตประจำวัน</span></button>
+ <button class="goalBtn ${state.goal==='work'?'on':''}" onclick="setGoal('work')"><b>🏭</b><span>ทำงาน</span></button>
+ <button class="goalBtn ${state.goal==='travel'?'on':''}" onclick="setGoal('travel')"><b>🧳</b><span>เที่ยวญี่ปุ่น</span></button>
+ </div></section>
+
+ ${m?`<section class="missionCard homeMission"><div class="missionTop"><div><span class="pathBadge">${m.icon} Mission แนะนำ</span><div class="title" style="margin-top:7px">${m.title}</div><div class="missionScene">${m.scene}</div><div class="tiny muted" style="margin-top:4px">วิธีเรียน: ฟังประโยค → เข้าใจ → คุยโต้ตอบ → จบ Mission</div></div><span class="badge">${state.missionDone.includes(m.id)?'✓ ผ่านแล้ว':'FREE'}</span></div>
+ <div class="missionPhrase"><div class="jp">${m.jp}</div><div class="th">${m.th}</div></div>
+ <button class="btn primary full" style="margin-top:10px" onclick="startMission('${m.id}')">เริ่ม Mission →</button></section>`:''}
+
+ <section class="bridge"><b>🌉 จุดเด่น Hanasu สำหรับคนไทย</b><div class="bridgeFlow"><div><b>🎭</b><span>เรียนจากสถานการณ์จริง</span></div><div><b>🇹🇭</b><span>Thai Trap จุดที่คนไทยพลาด</span></div><div><b>🆘</b><span>Rescue Phrase เอาตัวรอด</span></div><div><b>🎯</b><span>ทบทวนตามจุดอ่อน</span></div></div></section>
+
+ <section class="card">${task('🎭','บทสนทนาใช้จริง',`${done}/${MISSIONS.length} Mission ผ่านแล้ว`,"startMission()")}${task('🔤','อ่าน Hiragana / Katakana','ใช้เป็นเครื่องมืออ่าน ไม่ใช่กำแพงก่อนเริ่มพูด',"openPractice('kana')")}${task('🔁','ทบทวนคำใกล้ลืม',due?`${due} คำถึงกำหนด`:'วันนี้ยังไม่มีคำค้าง',"go('review')",due?due:'✓')}${task('🧠','เรียนคำศัพท์','เชื่อมคำกับสถานการณ์จริง',"go('learn')")}${task('✍️','เขียน Kanji','ตัวอย่างซ้าย + เขียนขวา',"openPractice('write')")}</section>
+
+ <section class="card pad"><b>V1 FREE ให้อะไรจริง</b><div class="freeValue" style="margin-top:10px"><div><b>${MISSIONS.length}</b><span>บทสนทนาใช้จริง</span></div><div><b>${VOCAB.length}</b><span>คำศัพท์เริ่มต้น</span></div><div><b>3</b><span>เส้นทางใช้งาน</span></div></div><div class="tiny muted" style="margin-top:8px">V1 FREE ตั้งใจให้เรียนจบ Mission แล้วเอาไปพูดได้จริง ไม่ใช่ Demo ที่ล็อกจนใช้ไม่ได้</div></section>
+ </div>`;
+}
+function filtered(){return VOCAB.filter(w=>cat==='all'||w.cat===cat)}
+function learn(){
+ const a=filtered();if(idx>=a.length)idx=0;const w=a[idx],p=Math.round((idx+1)/a.length*100);
+ return `<div class="studyShell">${focusHead('เรียนคำศัพท์','ฟัง → อ่าน Kana → นึกความหมาย','today')}
+ <div class="chips">${CATS.map(c=>`<button class="chip ${cat===c.id?'on':''}" onclick="cat='${c.id}';idx=0;reveal=false;render()">${c.ico} ${c.th}</button>`).join('')}</div>
+ <div class="row" style="margin:9px 0"><span class="tiny muted">${idx+1}/${a.length}</span><div class="progress" style="flex:1"><i style="width:${p}%"></i></div></div>
+ <section class="card studyCard"><div class="between"><span class="badge">${CATS.find(c=>c.id===w.cat)?.th||''}</span><button class="iconbtn" onclick="toggleFav(${w.id})">${state.fav.includes(w.id)?'★':'☆'}</button></div>
+ <div class="wordStage"><div class="jpBig">${w.jp}</div><div class="kanaLine">${w.kana}</div><div class="romaji">${w.romaji}</div><div class="listen"><button onclick="speak('${w.jp}',.62)">🐢</button><button onclick="speak('${w.jp}',.86)">🔊</button></div>${reveal?`<div class="meaning">${w.thai}</div>`:`<div class="cue">ลองนึกความหมายก่อน แล้วค่อยเปิด</div>`}</div>
+ ${reveal?`<div class="studyActions"><button class="btn soft" onclick="rate(${w.id},1)">↻ ยังไม่แม่น</button><button class="btn good" onclick="rate(${w.id},4)">✓ จำได้</button></div>`:`<button class="btn primary full" onclick="reveal=true;render()">ดูความหมาย</button><div class="studyActions"><button class="btn soft" onclick="prevWord()">‹ ก่อนหน้า</button><button class="btn soft" onclick="nextWord()">ถัดไป ›</button></div>`}
+ </section></div>`;
+}
+function toggleFav(id){state.fav=state.fav.includes(id)?state.fav.filter(x=>x!==id):[...state.fav,id];save()}
+function nextWord(){const a=filtered();idx=(idx+1)%a.length;reveal=false;render()}
+function prevWord(){const a=filtered();idx=(idx-1+a.length)%a.length;reveal=false;render()}
+function rate(id,q){
+ const x=srs(id);x.reps=(x.reps||0)+1;if(q<=1)x.lapses=(x.lapses||0)+1;
+ const days=q>=4?Math.min(30,[1,2,4,8,16,30][Math.min(5,x.reps-1)]):0;
+ x.due=Date.now()+days*86400000;state.xp+=q>=4?5:1;state.today++;save();nextWord();
+}
+function review(){
+ const a=dueWords();if(!a.length)return `<div class="studyShell">${focusHead('ทบทวน','SRS เลือกคำที่ถึงเวลา','today')}<section class="card pad"><div class="title">✓ วันนี้ทบทวนครบแล้ว</div><p class="subtitle">ไปเรียนคำใหม่หรือฝึก Kana ต่อได้เลย</p></section></div>`;
+ const w=a[0];return `<div class="studyShell">${focusHead('ทบทวน',`เหลือ ${a.length} คำ`,'today')}<section class="card studyCard"><div class="wordStage">${reveal?`<div class="jpBig">${w.jp}</div><div class="kanaLine">${w.kana}</div><div class="meaning">${w.thai}</div>`:`<div class="meaning">${w.thai}</div><div class="jpBig muted">？</div>`}<div class="listen"><button onclick="speak('${w.jp}',.72)">🔊</button></div></div>${reveal?`<div class="studyActions"><button class="btn soft" onclick="reviewRate(${w.id},1)">ลืม</button><button class="btn good" onclick="reviewRate(${w.id},4)">จำได้</button></div>`:`<button class="btn primary full" onclick="reveal=true;render()">เปิดคำตอบ</button>`}</section></div>`;
+}
+function reviewRate(id,q){const x=srs(id);if(q<=1){x.lapses++;x.due=Date.now()}else{x.reps++;x.due=Date.now()+Math.min(30,Math.pow(2,Math.max(0,x.reps-1)))*86400000}state.xp+=q>=4?4:1;reveal=false;save()}
+function practice(){
+ if(mode)return detail();
+ return `<div class="stack"><section class="bridge"><b>🎯 ฝึกแบบ Japanese Thai Bridge</b><div class="small muted" style="margin-top:4px">เริ่มจาก “อ่านเสียงให้เป็น” แล้วค่อยเชื่อมไปคำศัพท์ Kanji และประโยค</div></section>
+ <section class="practiceGrid">
+ ${skill('mission','🎭','คุยโต้ตอบ','ฟังอีกฝ่าย → ถึงตาคุณ → ตอบกลับ',pctSkill('mission'))}
+ ${skill('kana','🔤','อ่าน Kana','Hiragana + Katakana + เสียงพิเศษ',pctSkill('kana'))}
+ ${skill('kanji','漢','Kanji จำง่าย','ภาพจำ + ความหมาย + คำอ่าน',null)}
+ ${skill('write','✍️','เขียน Kanji','ตัวอย่างซ้าย + เขียนขวา + ขีดสะสม',null)}
+ ${skill('grammar','📖','ไวยากรณ์แบบไทย','เข้าใจไทย → สูตร → ตัวอย่าง',pctSkill('grammar'))}
+ ${skill('listen','🎧','ฟังคำศัพท์','ฟังญี่ปุ่นจริงจากคำที่เรียน',pctSkill('vocab'))}
+ ${skill('backup','💾','ข้อมูลของฉัน','Backup / Restore ความคืบหน้า',null)}
+ </section></div>`;
+}
+function skill(id,ic,t,d,score){return `<button class="card skill" onclick="openPractice('${id}')"><span class="icon">${ic}</span>${score!==null?`<span class="skillScore">${score}%</span>`:''}<h3>${t}</h3><p>${d}</p></button>`}
+function detail(){if(mode==='mission')return missionPractice();if(mode==='kana')return kanaPractice();if(mode==='kanji')return kanjiPractice();if(mode==='write')return writePractice();if(mode==='grammar')return grammarPractice();if(mode==='listen')return listenPractice();if(mode==='backup')return backupPractice();return ''}
+function kanaPractice(){
+ const tabs=[['hira','Hiragana'],['kata','Katakana'],['special','เสียงพิเศษ'],['vowel','5 สระ']];
+ let body='';
+ if(kanaMode==='special'){
+  const x=SPECIAL[kanaIndex%SPECIAL.length];body=`<div class="kanaHero"><div class="kanaBig" style="font-size:41px">${x.jp}</div><div class="romaji">${x.romaji}</div><div class="thaiSound">${x.thai}</div><div class="cue">${x.cue}</div><button class="btn primary full" style="margin-top:10px" onclick="speak('${x.jp}',.62)">🔊 ฟังญี่ปุ่นจริง</button></div>`;
+ }else if(kanaMode==='vowel'){
+  const a=HIRA_ROWS[0].items,x=a[kanaIndex%a.length];body=`<div class="kanaHero"><div class="kanaBig">${x[0]}</div><div class="romaji">${x[1]}</div><div class="thaiSound">ใกล้เสียงไทย: ${x[2]}</div><div class="cue">เสียงไทยเป็นเพียงสะพานเริ่มต้น ให้ยึดเสียงญี่ปุ่นจากปุ่มฟังเป็นหลัก</div><button class="btn primary full" style="margin-top:10px" onclick="speak('${x[0]}',.6)">🔊 ฟัง แล้วพูดตาม 3 รอบ</button></div>`;
+ }else{
+  const rows=kanaMode==='hira'?HIRA_ROWS:KATA_ROWS;const row=rows[kanaIndex%rows.length];
+  body=`<div class="kanaHero"><div class="thaiSound">แถว ${row.r}</div><div class="kanaGrid">${row.items.map(x=>`<button class="kanaCell" onclick="speak('${x[0]}',.62)"><b>${x[0]}</b><span>${x[1]}</span></button>`).join('')}</div><div class="cue">แตะตัวอักษรเพื่อฟัง • อ่านเป็นจังหวะสั้นเท่า ๆ กัน</div></div>`;
+ }
+ const total=kanaMode==='special'?SPECIAL.length:kanaMode==='vowel'?5:(kanaMode==='hira'?HIRA_ROWS.length:KATA_ROWS.length);
+ return `<div class="studyShell">${focusHead('อ่าน Kana','เสียงญี่ปุ่น → รูปตัวอักษร → พูดตาม')}
+ <section class="card pad"><div class="tabs4">${tabs.map(x=>`<button class="${kanaMode===x[0]?'on':''}" onclick="setKana('${x[0]}')">${x[1]}</button>`).join('')}</div>
+ <div class="row" style="margin:8px 0"><span class="tiny muted">${kanaIndex+1}/${total}</span><div class="progress" style="flex:1"><i style="width:${Math.round((kanaIndex+1)/total*100)}%"></i></div></div>
+ ${body}<div class="studyActions"><button class="btn soft" onclick="prevKana()">‹ ก่อนหน้า</button><button class="btn primary" onclick="nextKana()">ถัดไป ›</button></div></section></div>`;
+}
+function setKana(m){kanaMode=m;kanaIndex=0;render()}
+function kanaTotal(){return kanaMode==='special'?SPECIAL.length:kanaMode==='vowel'?5:kanaMode==='hira'?HIRA_ROWS.length:KATA_ROWS.length}
+function nextKana(){state.skills.kana.total++;state.skills.kana.ok++;kanaIndex=(kanaIndex+1)%kanaTotal();save()}
+function prevKana(){kanaIndex=(kanaIndex-1+kanaTotal())%kanaTotal();render()}
+function kanjiPractice(){
+ const x=KANJI[kanjiIndex%KANJI.length];
+ return `<div class="studyShell">${focusHead('Kanji จำง่าย','ความหมายก่อน → ภาพจำ → คำอ่าน')}<section class="card pad"><div class="memory"><div class="memoryChar">${x.c}</div><div><div class="title">${x.th}</div><div class="romaji">${x.on}</div><div class="row" style="margin-top:7px">${x.parts.map(p=>`<span class="badge">${p}</span>`).join('')}</div></div></div><div class="memoryStory">🧠 ${x.story}<div class="tiny muted" style="margin-top:4px">เป็นภาพช่วยจำ ไม่ใช่คำอธิบายรากศัพท์เชิงประวัติศาสตร์</div></div><button class="btn primary full" style="margin-top:10px" onclick="speak('${x.c}',.7)">🔊 ฟังคำอ่าน</button><div class="studyActions"><button class="btn soft" onclick="kanjiIndex=(kanjiIndex-1+KANJI.length)%KANJI.length;render()">‹</button><button class="btn good" onclick="kanjiIndex=(kanjiIndex+1)%KANJI.length;render()">ตัวถัดไป →</button></div></section></div>`;
+}
+function strokeSvg(pack){
+ const cur=Math.min(strokeIndex,pack.st.length-1);
+ const lines=pack.st.map((s,i)=>{const shown=i<=cur,active=i===cur;return `<g opacity="${shown?1:.14}"><path d="${s.d}" fill="none" stroke="${shown?(active?'#dc2626':'#b91c1c'):'#d4d4d8'}" stroke-width="${shown?(active?9:8):2}" stroke-linecap="round" stroke-linejoin="round" ${active?'marker-end="url(#arr)"':''}></path>${shown?`<circle cx="${s.s[0]}" cy="${s.s[1]}" r="${active?8:6.5}" fill="${active?'#dc2626':'#b91c1c'}"></circle><text x="${s.s[0]}" y="${s.s[1]+3}" text-anchor="middle" font-size="7.5" fill="#fff" font-weight="900">${i+1}</text>`:''}</g>`}).join('');
+ return `<svg viewBox="0 0 120 120"><defs><marker id="arr" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 Z" fill="#dc2626"></path></marker></defs><path d="M60 0V120 M0 60H120 M0 0L120 120 M120 0L0 120" stroke="var(--line)" stroke-width=".65" stroke-dasharray="3 3" fill="none"/>${lines}</svg>`;
+}
+function writePractice(){
+ const p=STROKES[writeIndex%STROKES.length];if(strokeIndex>=p.st.length)strokeIndex=p.st.length-1;const s=p.st[strokeIndex];
+ return `<div class="studyShell">${focusHead('เขียน Kanji','ตัวอย่างซ้าย • เขียนตามขวา • เส้นที่เขียนไม่หาย')}<section class="card pad"><div class="between"><button class="btn soft" onclick="prevChar()">‹</button><div style="text-align:center"><div class="title">${p.char} • ${p.th}</div><div class="subtitle">${p.kana} • ${p.st.length} ขีด</div></div><button class="btn soft" onclick="nextChar()">›</button></div><div class="writeDuo"><div><div class="writePaneTitle">ตัวอย่าง</div><div class="strokeBoard">${strokeSvg(p)}</div></div><div><div class="writePaneTitle">เขียนตาม</div><div class="canvasWrap cross"><div class="guideChar">${p.char}</div><canvas id="writeCanvas"></canvas></div></div></div><div class="writeStep"><button class="btn soft" onclick="prevStroke()">‹</button><div class="stepCenter"><b>ขีด ${strokeIndex+1}/${p.st.length} • ${s.n}</b><span>${s.dir} • เส้นเดิมคงอยู่</span></div><button class="btn primary" onclick="nextStroke()">›</button></div><div class="memoryStory">🧠 ${p.memory}</div><div class="studyActions"><button class="btn soft" onclick="clearCanvas()">ล้าง</button><button class="btn good" onclick="nextChar()">ตัวถัดไป →</button></div></section></div>`;
+}
+function inkKey(){return STROKES[writeIndex%STROKES.length].char}
+function initCanvas(){
+ const c=document.getElementById('writeCanvas');if(!c)return;const r=c.getBoundingClientRect(),dpr=Math.max(1,devicePixelRatio||1),w=r.width,h=r.height;c.width=Math.round(w*dpr);c.height=Math.round(h*dpr);const ctx=c.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);ctx.lineWidth=8;ctx.lineCap='round';ctx.lineJoin='round';ctx.strokeStyle='#dc2626';const k=inkKey();if(!writingInk[k])writingInk[k]=[];
+ const draw=p=>{if(!p.length)return;ctx.beginPath();ctx.moveTo(p[0].x*w,p[0].y*h);for(let i=1;i<p.length;i++)ctx.lineTo(p[i].x*w,p[i].y*h);ctx.stroke();ctx.closePath()};writingInk[k].forEach(draw);
+ let d=false,path=null,last=null;const pt=(x,y)=>{const rr=c.getBoundingClientRect(),px=Math.max(0,Math.min(rr.width,x-rr.left)),py=Math.max(0,Math.min(rr.height,y-rr.top));return{px,py,x:px/rr.width,y:py/rr.height}};
+ const begin=(x,y)=>{const p=pt(x,y);d=true;path=[{x:p.x,y:p.y}];writingInk[k].push(path);last={x:p.px,y:p.py};ctx.beginPath();ctx.moveTo(p.px,p.py);ctx.lineTo(p.px+.01,p.py+.01);ctx.stroke()};
+ const move=(x,y)=>{if(!d)return;const p=pt(x,y);if(last&&Math.hypot(p.px-last.x,p.py-last.y)<1.5)return;path.push({x:p.x,y:p.y});ctx.lineTo(p.px,p.py);ctx.stroke();last={x:p.px,y:p.py}};
+ const end=()=>{d=false;path=null;last=null;ctx.closePath()};
+ c.addEventListener('touchstart',e=>{e.preventDefault();const t=e.touches[0];begin(t.clientX,t.clientY)},{passive:false});c.addEventListener('touchmove',e=>{e.preventDefault();const t=e.touches[0];move(t.clientX,t.clientY)},{passive:false});c.addEventListener('touchend',e=>{e.preventDefault();end()},{passive:false});
+ c.addEventListener('mousedown',e=>begin(e.clientX,e.clientY));window.addEventListener('mousemove',e=>{if(d)move(e.clientX,e.clientY)});window.addEventListener('mouseup',end);
+}
+function clearCanvas(){writingInk[inkKey()]=[];const c=document.getElementById('writeCanvas');if(c){const x=c.getContext('2d');x.save();x.setTransform(1,0,0,1,0,0);x.clearRect(0,0,c.width,c.height);x.restore()}}
+function nextStroke(){const p=STROKES[writeIndex%STROKES.length];strokeIndex=Math.min(p.st.length-1,strokeIndex+1);render()}
+function prevStroke(){strokeIndex=Math.max(0,strokeIndex-1);render()}
+function nextChar(){writeIndex=(writeIndex+1)%STROKES.length;strokeIndex=0;render()}
+function prevChar(){writeIndex=(writeIndex-1+STROKES.length)%STROKES.length;strokeIndex=0;render()}
+function grammarPractice(){
+ const g=GRAMMAR[grammarIndex%GRAMMAR.length];
+ return `<div class="studyShell">${focusHead('ไวยากรณ์แบบไทย','เข้าใจความหมายก่อน แล้วค่อยจำรูปประโยค')}<section class="card pad"><div class="badge">บท ${grammarIndex+1}/${GRAMMAR.length}</div><div class="title" style="margin-top:8px">${g.t} = ${g.th}</div><div class="grammarBox" style="margin-top:10px"><div class="tiny muted">สูตร</div><div class="formula">${g.f}</div><div style="font-size:20px;font-weight:900">${g.ex}</div><div class="romaji" style="font-size:13px">${g.py}</div><div class="small">${g.et}</div><div class="cue">💡 ${g.tip}</div><button class="btn soft full" style="margin-top:9px" onclick="speak('${g.ex}',.7)">🔊 ฟังประโยค</button></div><div class="studyActions"><button class="btn soft" onclick="grammarIndex=(grammarIndex-1+GRAMMAR.length)%GRAMMAR.length;render()">‹</button><button class="btn good" onclick="state.skills.grammar.total++;state.skills.grammar.ok++;grammarIndex=(grammarIndex+1)%GRAMMAR.length;save()">เข้าใจแล้ว →</button></div></section></div>`;
+}
+function listenPractice(){
+ const w=VOCAB[Math.floor(Math.random()*VOCAB.length)];
+ return `<div class="studyShell">${focusHead('ฝึกฟังคำศัพท์','ฟังก่อน แล้วค่อยดูคำตอบ')}<section class="card pad"><div class="wordStage"><button class="btn primary" style="min-width:180px" onclick="speak('${w.jp}',.65)">🔊 ฟังคำ</button><div class="meaning" style="margin-top:15px">${w.thai}</div><div class="cue">คำตอบ: <b>${w.jp}</b> • ${w.kana} • ${w.romaji}</div></div><button class="btn good full" onclick="state.skills.vocab.total++;state.skills.vocab.ok++;render()">คำถัดไป →</button></section></div>`;
+}
+function backupPractice(){return `<div class="studyShell">${focusHead('ข้อมูลของฉัน','เก็บความคืบหน้าไว้กับตัวคุณ')}<section class="card pad"><div class="title">Backup / Restore</div><p class="subtitle">ข้อมูลเรียนเก็บใน Browser เครื่องนี้ ควรสำรองเป็นระยะ</p><div class="studyActions"><button class="btn primary" onclick="backup()">⬇ Backup</button><label class="btn soft" style="cursor:pointer">⬆ Restore<input type="file" accept="application/json" style="display:none" onchange="restoreFile(this.files[0])"></label></div><button class="btn soft full" style="margin-top:9px" onclick="if(confirm('ล้างข้อมูล Hanasu ทั้งหมด?')){localStorage.removeItem(KEY);location.reload()}">ล้างข้อมูล</button></section></div>`}
+function backup(){const blob=new Blob([JSON.stringify({schemaVersion:1,product:'hanasu',edition:'V1 FREE',exportedAt:new Date().toISOString(),state},null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`hanasu-v1-free-backup-${localDate()}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
+function restoreFile(f){if(!f)return;const r=new FileReader();r.onload=()=>{try{const x=JSON.parse(r.result);if(!x.state)throw 0;state={...clone(),...x.state};localStorage.setItem(KEY,JSON.stringify(state));alert('Restore สำเร็จ');render()}catch{alert('ไฟล์ Backup ไม่ถูกต้อง')}};r.readAsText(f)}
+function progress(){return `<div class="stack"><section class="card pad"><div class="title">พัฒนาการ</div><p class="subtitle">V1 FREE • ดูความคืบหน้าหลักแบบง่าย</p><div class="metrics" style="margin-top:12px"><div class="metric"><b>${learned()}</b><span>คำที่เรียน</span></div><div class="metric"><b>${mastered()}</b><span>จำมั่นคง</span></div><div class="metric"><b>${state.xp}</b><span>XP</span></div></div></section><section class="card pad"><b>ทักษะ</b><div style="margin-top:10px">คุยโต้ตอบ ${pctSkill('mission')}%</div><div class="progress"><i style="width:${pctSkill('mission')}%"></i></div><div style="margin-top:10px">Kana ${pctSkill('kana')}%</div><div class="progress"><i style="width:${pctSkill('kana')}%"></i></div><div style="margin-top:10px">คำศัพท์ ${pctSkill('vocab')}%</div><div class="progress"><i style="width:${pctSkill('vocab')}%"></i></div><div style="margin-top:10px">ไวยากรณ์ ${pctSkill('grammar')}%</div><div class="progress"><i style="width:${pctSkill('grammar')}%"></i></div></section></div>`}
+render();
+if(location.protocol==='http:'||location.protocol==='https:'){
+ const base=document.createElement('script');base.src='../../shared/notify/all-project-notice.js';base.onload=()=>{const p=document.createElement('script');p.src='./project-notice.js';p.onload=()=>{const c=document.createElement('script');c.src='../../shared/notify/measymate-notify-core.js';document.head.appendChild(c)};document.head.appendChild(p)};document.head.appendChild(base);
+}
+</script>
+</body></html>

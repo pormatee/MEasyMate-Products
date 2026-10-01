@@ -34,6 +34,8 @@ jobs:
           mkdir -p _site/report-pro
           mkdir -p _site/caption-studio
           mkdir -p _site/qingyun
+          mkdir -p _site/hanasu
+          mkdir -p _site/projects/hanasu
           mkdir -p _site/horajarn
           mkdir -p _site/projects/qingyun
           mkdir -p _site/projects/horajarn
@@ -59,6 +61,8 @@ jobs:
           cp projects/caption-studio/sw.js _site/caption-studio/sw.js
           cp projects/qingyun/index.html _site/qingyun/index.html
           cp projects/qingyun/project-notice.js _site/qingyun/project-notice.js
+          cp projects/hanasu/index.html _site/hanasu/index.html
+          cp projects/hanasu/project-notice.js _site/hanasu/project-notice.js
 
           # HORAJARN FREE V1
           cp -a projects/horajarn/. _site/horajarn/
@@ -108,6 +112,14 @@ jobs:
           <meta charset="utf-8">
           <meta http-equiv="refresh" content="0; url=/horajarn/">
           <script>location.replace('/horajarn/')</script>
+          HTML
+
+          # Old Hanasu project URL -> clean URL
+          cat > _site/projects/hanasu/index.html <<'HTML'
+          <!doctype html>
+          <meta charset="utf-8">
+          <meta http-equiv="refresh" content="0; url=/hanasu/">
+          <script>location.replace('/hanasu/')</script>
           HTML
 
           # PWA / shortcut assets
