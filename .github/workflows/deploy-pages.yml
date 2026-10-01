@@ -34,7 +34,9 @@ jobs:
           mkdir -p _site/report-pro
           mkdir -p _site/caption-studio
           mkdir -p _site/qingyun
+          mkdir -p _site/horajarn
           mkdir -p _site/projects/qingyun
+          mkdir -p _site/projects/horajarn
           mkdir -p _site/shared/brand
           mkdir -p _site/projects/contact-shift
           mkdir -p _site/projects/report-pro
@@ -57,6 +59,9 @@ jobs:
           cp projects/caption-studio/sw.js _site/caption-studio/sw.js
           cp projects/qingyun/index.html _site/qingyun/index.html
           cp projects/qingyun/project-notice.js _site/qingyun/project-notice.js
+
+          # HORAJARN FREE V1
+          cp -a projects/horajarn/. _site/horajarn/
 
           # Money project integration assets
           cp projects/money/analytics-config.js _site/money/analytics-config.js
@@ -95,6 +100,14 @@ jobs:
           <meta charset="utf-8">
           <meta http-equiv="refresh" content="0; url=/qingyun/">
           <script>location.replace('/qingyun/')</script>
+          HTML
+
+          # Old HORAJARN project URL -> clean URL
+          cat > _site/projects/horajarn/index.html <<'HTML'
+          <!doctype html>
+          <meta charset="utf-8">
+          <meta http-equiv="refresh" content="0; url=/horajarn/">
+          <script>location.replace('/horajarn/')</script>
           HTML
 
           # PWA / shortcut assets
