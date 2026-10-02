@@ -71,6 +71,7 @@ jobs:
           cp projects/hanasu/project-notice.js _site/hanasu/project-notice.js
           cp projects/hanasu/analytics-config.js _site/hanasu/analytics-config.js
           cp projects/talknow/index.html _site/talknow/index.html
+          cp projects/talknow/analytics-config.js _site/talknow/analytics-config.js
           cp projects/talknow/project-notice.js _site/talknow/project-notice.js
 
           # HORAJARN FREE V1
