@@ -174,7 +174,8 @@
   };
 
   async function loadCentral(){
-    const period=$("centralRange").value;\n    const project=$("centralProject").value;
+    const period=$("centralRange").value;
+    const project=$("centralProject").value;
     $("centralState").textContent="กำลังโหลดข้อมูลรวม...";
     try{
       const r=await fetch("/admin/api/analytics/summary?project_id="+encodeURIComponent(project)+"&period="+encodeURIComponent(period),{
@@ -223,7 +224,8 @@
     }
   }
 
-  $("centralProject").addEventListener("change",loadCentral);\n  $("centralRange").addEventListener("change",loadCentral);
+  $("centralProject").addEventListener("change",loadCentral);
+  $("centralRange").addEventListener("change",loadCentral);
   loadCentral();
 })();
 </script>
