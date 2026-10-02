@@ -14,7 +14,7 @@ from fastapi import FastAPI, HTTPException, Request, Query
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
-APP_VERSION = "0.2.0"
+APP_VERSION = "0.2.1"
 DATABASE_URL = os.getenv("DATABASE_URL", "").strip()
 ADMIN_TOKEN = os.getenv("ADMIN_TOKEN", "").strip()
 INSTALL_HASH_SALT = os.getenv("INSTALL_HASH_SALT", "").strip()
@@ -32,6 +32,7 @@ ALLOWED_PROJECTS = {
     "money",
     "qingyun",
     "report-pro",
+    "talknow",
 }
 
 # V2 baseline for every product. New integrations must send only anonymous app opens.
