@@ -59,6 +59,7 @@ jobs:
           cp projects/contact-shift/index.html _site/contact-shift/index.html
           cp projects/contact-shift/analytics-config.js _site/contact-shift/analytics-config.js
           cp projects/report-pro/index.html _site/report-pro/index.html
+          cp projects/report-pro/analytics-config.js _site/report-pro/analytics-config.js
           cp projects/report-pro/project-notice.js _site/report-pro/project-notice.js
           cp projects/caption-studio/index.html _site/caption-studio/index.html
           cp projects/caption-studio/sw.js _site/caption-studio/sw.js
