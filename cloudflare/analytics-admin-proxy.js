@@ -1,4 +1,5 @@
-/* MEasyMate Analytics Admin Proxy V2 */\nexport default {
+/* MEasyMate Analytics Admin Proxy V2 */
+export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
 
