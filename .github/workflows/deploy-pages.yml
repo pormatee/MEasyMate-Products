@@ -65,6 +65,7 @@ jobs:
           cp projects/qingyun/project-notice.js _site/qingyun/project-notice.js
           cp projects/hanasu/index.html _site/hanasu/index.html
           cp projects/hanasu/project-notice.js _site/hanasu/project-notice.js
+          cp projects/hanasu/analytics-config.js _site/hanasu/analytics-config.js
           cp projects/talknow/index.html _site/talknow/index.html
           cp projects/talknow/project-notice.js _site/talknow/project-notice.js
 
