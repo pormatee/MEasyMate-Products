@@ -14,7 +14,7 @@ from fastapi import FastAPI, HTTPException, Request, Query
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
-APP_VERSION = "0.1.0"
+APP_VERSION = "0.2.0"
 DATABASE_URL = os.getenv("DATABASE_URL", "").strip()
 ADMIN_TOKEN = os.getenv("ADMIN_TOKEN", "").strip()
 INSTALL_HASH_SALT = os.getenv("INSTALL_HASH_SALT", "").strip()
@@ -24,33 +24,51 @@ ALLOWED_ORIGINS = [
     if x.strip()
 ]
 
-ALLOWED_PROJECTS = {"money"}
-ALLOWED_EVENTS = {
-    "app_open",
+ALLOWED_PROJECTS = {
+    "caption-studio",
+    "contact-shift",
+    "hanasu",
+    "horajarn",
+    "money",
+    "qingyun",
+    "report-pro",
+}
+
+# V2 baseline for every product. New integrations must send only anonymous app opens.
+BASE_ALLOWED_EVENTS = {"app_open", "system_test"}
+
+# Backward compatibility for the existing Money pilot until its source-of-truth
+# integration issue is resolved. No other product may send these events.
+MONEY_LEGACY_EVENTS = {
     "nav_today", "nav_bills", "nav_future", "nav_overview", "nav_review",
     "onboarding_started", "onboarding_completed",
     "bill_saved", "expense_saved", "income_saved",
     "reserve_added", "reserve_used",
     "saving_added", "saving_withdrawn", "dream_updated", "week_closed",
     "backup_created", "backup_shared", "restore_used", "safety_restore_used",
-    "app_reset", "runtime_error", "system_test",
+    "app_reset", "runtime_error",
 }
+
 ALLOWED_DEVICE = {"mobile", "tablet", "desktop", "other"}
 ALLOWED_BROWSER = {"chrome", "samsung", "edge", "opera", "firefox", "safari", "other"}
 ALLOWED_OS = {"android", "ios", "windows", "macos", "linux", "other"}
+ALLOWED_PERIODS = {"1d", "7d", "30d", "90d", "all"}
 
 ID_RE = re.compile(r"^[A-Za-z0-9_.:-]{3,120}$")
-VER_RE = re.compile(r"^[A-Za-z0-9_.+-]{1,40}$")
+VER_RE = re.compile(r"^[A-Za-z0-9_.+ -]{1,40}$")
 
 RATE_WINDOW_SECONDS = 60
 RATE_MAX = 600
 _recent = deque()
 
+
 def utcnow():
     return datetime.now(timezone.utc)
 
+
 def db_ready():
     return bool(DATABASE_URL and INSTALL_HASH_SALT)
+
 
 def hash_id(value: str) -> str:
     return hmac.new(
@@ -59,10 +77,12 @@ def hash_id(value: str) -> str:
         hashlib.sha256,
     ).hexdigest()
 
+
 def connect():
     if not DATABASE_URL:
         raise RuntimeError("DATABASE_URL is not configured")
     return psycopg.connect(DATABASE_URL, autocommit=True)
+
 
 def init_db():
     if not db_ready():
@@ -100,6 +120,11 @@ def init_db():
                 "CREATE INDEX IF NOT EXISTS idx_analytics_project_event "
                 "ON analytics_events(project_id, event_name, received_at DESC)"
             )
+            cur.execute(
+                "CREATE INDEX IF NOT EXISTS idx_analytics_received "
+                "ON analytics_events(received_at DESC)"
+            )
+
 
 def cleanup_old():
     if not db_ready():
@@ -111,11 +136,13 @@ def cleanup_old():
                 "WHERE received_at < NOW() - INTERVAL '90 days'"
             )
 
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     init_db()
     cleanup_old()
     yield
+
 
 app = FastAPI(
     title="MEasyMate Central Analytics API",
@@ -133,6 +160,7 @@ app.add_middleware(
     allow_headers=["Content-Type", "Authorization", "X-MEasyMate-Synthetic"],
     max_age=600,
 )
+
 
 class EventIn(BaseModel):
     model_config = ConfigDict(extra="forbid")
@@ -158,8 +186,8 @@ class EventIn(BaseModel):
 
     @field_validator("event")
     @classmethod
-    def valid_event(cls, v):
-        if v not in ALLOWED_EVENTS:
+    def valid_event_name(cls, v):
+        if v not in BASE_ALLOWED_EVENTS and v not in MONEY_LEGACY_EVENTS:
             raise ValueError("event not allowed")
         return v
 
@@ -198,6 +226,29 @@ class EventIn(BaseModel):
             raise ValueError("invalid os")
         return v
 
+    @field_validator("meta")
+    @classmethod
+    def valid_meta(cls, v):
+        # Shared Core V1 always includes a meta object. V2 accepts only empty meta.
+        # This blocks free text or arbitrary payloads before they reach storage.
+        if v not in (None, {}):
+            raise ValueError("meta content not allowed")
+        return v
+
+    def validate_project_event_pair(self):
+        if self.project_id != "money" and self.event in MONEY_LEGACY_EVENTS:
+            raise ValueError("legacy event not allowed for this project")
+        return self
+
+
+
+def validate_event_policy(event: EventIn):
+    try:
+        event.validate_project_event_pair()
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+
+
 def enforce_rate_limit():
     now = time.monotonic()
     while _recent and now - _recent[0] > RATE_WINDOW_SECONDS:
@@ -205,6 +256,7 @@ def enforce_rate_limit():
     if len(_recent) >= RATE_MAX:
         raise HTTPException(status_code=429, detail="rate limit")
     _recent.append(now)
+
 
 def require_admin(request: Request):
     if not ADMIN_TOKEN:
@@ -215,6 +267,30 @@ def require_admin(request: Request):
     if not secrets.compare_digest(auth[7:], ADMIN_TOKEN):
         raise HTTPException(status_code=401, detail="unauthorized")
 
+
+def period_cutoff(period: str):
+    mapping = {
+        "1d": "NOW() - INTERVAL '1 day'",
+        "7d": "NOW() - INTERVAL '7 days'",
+        "30d": "NOW() - INTERVAL '30 days'",
+        "90d": "NOW() - INTERVAL '90 days'",
+        "all": None,
+    }
+    return mapping.get(period, "INVALID")
+
+
+def selected_project_where(project_id: str):
+    if project_id == "all":
+        return "is_test = FALSE", []
+    return "project_id = %s AND is_test = FALSE", [project_id]
+
+
+def active_project_where(project_id: str):
+    if project_id == "all":
+        return "is_test = FALSE", []
+    return "project_id = %s AND is_test = FALSE", [project_id]
+
+
 @app.get("/health")
 def health():
     return {
@@ -224,9 +300,13 @@ def health():
         "database_configured": bool(DATABASE_URL),
         "hash_salt_configured": bool(INSTALL_HASH_SALT),
         "admin_auth_configured": bool(ADMIN_TOKEN),
-        "analytics_content_policy": "behavior_only",
+        "analytics_content_policy": "anonymous_usage_only",
         "financial_content": "forbidden",
+        "free_text": "forbidden",
+        "allowed_projects": sorted(ALLOWED_PROJECTS),
+        "summary_scopes": ["all"] + sorted(ALLOWED_PROJECTS),
     }
+
 
 @app.post("/v1/events", status_code=202)
 async def ingest(request: Request, event: EventIn):
@@ -245,7 +325,9 @@ async def ingest(request: Request, event: EventIn):
     if origin and origin not in ALLOWED_ORIGINS:
         raise HTTPException(status_code=403, detail="origin not allowed")
 
+    validate_event_policy(event)
     enforce_rate_limit()
+
     now = utcnow()
     occurred = event.occurred_at
     if occurred.tzinfo is None:
@@ -257,7 +339,8 @@ async def ingest(request: Request, event: EventIn):
 
     synthetic = request.headers.get("x-measymate-synthetic") == "1" or event.event == "system_test"
 
-    # Privacy: Central V1 deliberately discards meta; it is never stored.
+    # Privacy: meta is validated as empty and is never stored.
+    # Raw install/session IDs are HMAC-hashed before persistence.
     with connect() as conn:
         with conn.cursor() as cur:
             cur.execute(
@@ -285,36 +368,28 @@ async def ingest(request: Request, event: EventIn):
             )
     return {"accepted": True}
 
-def period_cutoff(period: str):
-    mapping = {
-        "1d": "NOW() - INTERVAL '1 day'",
-        "7d": "NOW() - INTERVAL '7 days'",
-        "30d": "NOW() - INTERVAL '30 days'",
-        "90d": "NOW() - INTERVAL '90 days'",
-        "all": None,
-    }
-    return mapping.get(period, "INVALID")
 
 @app.get("/v1/summary")
 def summary(
     request: Request,
-    project_id: str = Query(default="money"),
+    project_id: str = Query(default="all"),
     period: str = Query(default="30d"),
 ):
     require_admin(request)
-    if project_id not in ALLOWED_PROJECTS:
-        raise HTTPException(status_code=400, detail="project not allowed")
 
-    cutoff = period_cutoff(period)
-    if cutoff == "INVALID":
+    if project_id != "all" and project_id not in ALLOWED_PROJECTS:
+        raise HTTPException(status_code=400, detail="project not allowed")
+    if period not in ALLOWED_PERIODS:
         raise HTTPException(status_code=400, detail="invalid period")
     if not db_ready():
         raise HTTPException(status_code=503, detail="analytics storage not ready")
 
-    where = "project_id = %s AND is_test = FALSE"
-    params = [project_id]
+    cutoff = period_cutoff(period)
+    where, params = selected_project_where(project_id)
     if cutoff:
         where += f" AND received_at >= {cutoff}"
+
+    active_where, active_params = active_project_where(project_id)
 
     with connect() as conn:
         with conn.cursor() as cur:
@@ -335,7 +410,7 @@ def summary(
             total, installs, sessions, opens, first_seen, last_seen = cur.fetchone()
 
             cur.execute(
-                """
+                f"""
                 SELECT
                     COUNT(DISTINCT install_hash)
                       FILTER (WHERE received_at >= NOW() - INTERVAL '1 day')::bigint,
@@ -344,9 +419,9 @@ def summary(
                     COUNT(DISTINCT install_hash)
                       FILTER (WHERE received_at >= NOW() - INTERVAL '30 days')::bigint
                 FROM analytics_events
-                WHERE project_id = %s AND is_test = FALSE
+                WHERE {active_where}
                 """,
-                (project_id,),
+                active_params,
             )
             active_1d, active_7d, active_30d = cur.fetchone()
 
@@ -362,17 +437,33 @@ def summary(
             )
             event_counts = {k: int(v) for k, v in cur.fetchall()}
 
-            cur.execute(
-                f"""
-                SELECT app_version, COUNT(DISTINCT install_hash)::bigint
-                FROM analytics_events
-                WHERE {where}
-                GROUP BY app_version
-                ORDER BY COUNT(DISTINCT install_hash) DESC, app_version
-                """,
-                params,
-            )
-            version_counts = {k: int(v) for k, v in cur.fetchall()}
+            if project_id == "all":
+                cur.execute(
+                    f"""
+                    SELECT project_id, app_version, COUNT(DISTINCT install_hash)::bigint
+                    FROM analytics_events
+                    WHERE {where}
+                    GROUP BY project_id, app_version
+                    ORDER BY project_id, COUNT(DISTINCT install_hash) DESC, app_version
+                    """,
+                    params,
+                )
+                version_counts = {
+                    f"{project}@{version}": int(v)
+                    for project, version, v in cur.fetchall()
+                }
+            else:
+                cur.execute(
+                    f"""
+                    SELECT app_version, COUNT(DISTINCT install_hash)::bigint
+                    FROM analytics_events
+                    WHERE {where}
+                    GROUP BY app_version
+                    ORDER BY COUNT(DISTINCT install_hash) DESC, app_version
+                    """,
+                    params,
+                )
+                version_counts = {k: int(v) for k, v in cur.fetchall()}
 
             cur.execute(
                 f"""
@@ -386,22 +477,54 @@ def summary(
             )
             device_counts = {k: int(v) for k, v in cur.fetchall()}
 
+            daily_where, daily_params = active_project_where(project_id)
             cur.execute(
-                """
+                f"""
                 SELECT DATE(received_at), COUNT(DISTINCT install_hash)::bigint
                 FROM analytics_events
-                WHERE project_id = %s
-                  AND is_test = FALSE
+                WHERE {daily_where}
                   AND received_at >= NOW() - INTERVAL '30 days'
                 GROUP BY DATE(received_at)
                 ORDER BY DATE(received_at)
                 """,
-                (project_id,),
+                daily_params,
             )
             daily_active = [
                 {"date": str(day), "active_installations": int(v)}
                 for day, v in cur.fetchall()
             ]
+
+            if project_id == "all":
+                cur.execute(
+                    f"""
+                    SELECT
+                        project_id,
+                        COUNT(*)::bigint,
+                        COUNT(DISTINCT install_hash)::bigint,
+                        COUNT(DISTINCT session_hash)::bigint,
+                        COUNT(*) FILTER (WHERE event_name='app_open')::bigint,
+                        MAX(received_at)
+                    FROM analytics_events
+                    WHERE {where}
+                    GROUP BY project_id
+                    ORDER BY project_id
+                    """,
+                    params,
+                )
+                project_breakdown = [
+                    {
+                        "project_id": project,
+                        "total_events": int(events),
+                        "unique_installations": int(project_installs),
+                        "unique_sessions": int(project_sessions),
+                        "app_opens": int(project_opens),
+                        "last_seen": project_last_seen.isoformat() if project_last_seen else None,
+                    }
+                    for project, events, project_installs, project_sessions, project_opens, project_last_seen
+                    in cur.fetchall()
+                ]
+            else:
+                project_breakdown = []
 
     return {
         "project_id": project_id,
@@ -422,9 +545,11 @@ def summary(
         "version_counts": version_counts,
         "device_counts": device_counts,
         "daily_active": daily_active,
+        "project_breakdown": project_breakdown,
         "privacy": {
             "financial_content_stored": False,
             "personal_identity_stored": False,
+            "free_text_stored": False,
             "ip_stored": False,
             "raw_install_id_stored": False,
             "raw_session_id_stored": False,
