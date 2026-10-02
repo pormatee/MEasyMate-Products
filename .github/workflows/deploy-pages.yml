@@ -35,6 +35,8 @@ jobs:
           mkdir -p _site/caption-studio
           mkdir -p _site/qingyun
           mkdir -p _site/hanasu
+          mkdir -p _site/talknow
+          mkdir -p _site/projects/talknow
           mkdir -p _site/projects/hanasu
           mkdir -p _site/horajarn
           mkdir -p _site/projects/qingyun
@@ -63,6 +65,8 @@ jobs:
           cp projects/qingyun/project-notice.js _site/qingyun/project-notice.js
           cp projects/hanasu/index.html _site/hanasu/index.html
           cp projects/hanasu/project-notice.js _site/hanasu/project-notice.js
+          cp projects/talknow/index.html _site/talknow/index.html
+          cp projects/talknow/project-notice.js _site/talknow/project-notice.js
 
           # HORAJARN FREE V1
           cp -a projects/horajarn/. _site/horajarn/
@@ -120,6 +124,14 @@ jobs:
           <meta charset="utf-8">
           <meta http-equiv="refresh" content="0; url=/hanasu/">
           <script>location.replace('/hanasu/')</script>
+          HTML
+
+          # Old TalkNow project URL -> clean URL
+          cat > _site/projects/talknow/index.html <<'HTML'
+          <!doctype html>
+          <meta charset="utf-8">
+          <meta http-equiv="refresh" content="0; url=/talknow/">
+          <script>location.replace('/talknow/')</script>
           HTML
 
           # PWA / shortcut assets
