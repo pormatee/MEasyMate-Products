@@ -1,4 +1,4 @@
-export default {
+/* MEasyMate Analytics Admin Proxy V2 */\nexport default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
 
@@ -42,9 +42,48 @@ export default {
       });
     }
 
+    const projects = new Set([
+      "all",
+      "caption-studio",
+      "contact-shift",
+      "hanasu",
+      "horajarn",
+      "money",
+      "qingyun",
+      "report-pro"
+    ]);
     const periods = new Set(["1d","7d","30d","90d","all"]);
-    const requested = url.searchParams.get("period");
-    const period = periods.has(requested) ? requested : "30d";
+
+    const projectId = url.searchParams.get("project_id") || "all";
+    const period = url.searchParams.get("period") || "30d";
+
+    if (!projects.has(projectId)) {
+      return new Response(
+        JSON.stringify({ok:false,error:"invalid_project"}),
+        {
+          status:400,
+          headers:{
+            "content-type":"application/json; charset=utf-8",
+            "cache-control":"no-store",
+            "x-content-type-options":"nosniff"
+          }
+        }
+      );
+    }
+
+    if (!periods.has(period)) {
+      return new Response(
+        JSON.stringify({ok:false,error:"invalid_period"}),
+        {
+          status:400,
+          headers:{
+            "content-type":"application/json; charset=utf-8",
+            "cache-control":"no-store",
+            "x-content-type-options":"nosniff"
+          }
+        }
+      );
+    }
 
     if (!env.RENDER_ADMIN_TOKEN) {
       return new Response("Proxy secret not configured", {
@@ -56,7 +95,7 @@ export default {
     const upstream = new URL(
       "https://measymate-central-analytics.onrender.com/v1/summary"
     );
-    upstream.searchParams.set("project_id", "money");
+    upstream.searchParams.set("project_id", projectId);
     upstream.searchParams.set("period", period);
 
     let response;
