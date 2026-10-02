@@ -64,6 +64,7 @@ jobs:
           cp projects/caption-studio/sw.js _site/caption-studio/sw.js
           cp projects/caption-studio/analytics-config.js _site/caption-studio/analytics-config.js
           cp projects/qingyun/index.html _site/qingyun/index.html
+          cp projects/qingyun/analytics-config.js _site/qingyun/analytics-config.js
           cp projects/qingyun/project-notice.js _site/qingyun/project-notice.js
           cp projects/hanasu/index.html _site/hanasu/index.html
           cp projects/hanasu/project-notice.js _site/hanasu/project-notice.js
