@@ -86,7 +86,8 @@ export default {
       );
     }
 
-    if (!env.RENDER_ADMIN_TOKEN) {
+    const renderToken = String(env.RENDER_ADMIN_TOKEN || "").trim();
+    if (!renderToken) {
       return new Response("Proxy secret not configured", {
         status: 503,
         headers: {"cache-control":"no-store"}
@@ -104,10 +105,10 @@ export default {
       response = await fetch(upstream.toString(), {
         method: "GET",
         headers: {
-          "authorization": "Bearer " + env.RENDER_ADMIN_TOKEN,
+          "authorization": "Bearer " + renderToken,
           "accept": "application/json"
         },
-        redirect: "error"
+        redirect: "follow"
       });
     } catch (_) {
       return new Response(
