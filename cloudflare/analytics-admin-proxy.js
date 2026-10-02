@@ -51,7 +51,8 @@ export default {
       "horajarn",
       "money",
       "qingyun",
-      "report-pro"
+      "report-pro",
+      "talknow"
     ]);
     const periods = new Set(["1d","7d","30d","90d","all"]);
 
