@@ -28,6 +28,7 @@
     includeInstallId:true,
     retentionDays:90,
     allowEvents:[],
+    transportAllowEvents:null,
     allowMetaKeys:[]
   };
 
@@ -171,6 +172,9 @@
   function init(config){
     cfg=Object.assign({},cfg,config||{});
     cfg.allowEvents=Array.isArray(cfg.allowEvents)?cfg.allowEvents:[];
+    cfg.transportAllowEvents=Array.isArray(cfg.transportAllowEvents)
+      ? cfg.transportAllowEvents
+      : null;
     // Accepted for backward-compatible configs, but V2 never transmits meta values.
     cfg.allowMetaKeys=[];
     global.MEasyMateAnalyticsConfig=Object.assign({},cfg);
@@ -181,7 +185,9 @@
       if(!event||!cfg.allowEvents.includes(event))return false;
       const now=new Date();
       updateLocal(event,now);
-      send(payload(event,now));
+      if(!cfg.transportAllowEvents || cfg.transportAllowEvents.includes(event)){
+        send(payload(event,now));
+      }
       return true;
     }catch(_){return false}
   }

@@ -14,7 +14,7 @@ from fastapi import FastAPI, HTTPException, Request, Query
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
-APP_VERSION = "0.2.1"
+APP_VERSION = "0.2.2"
 DATABASE_URL = os.getenv("DATABASE_URL", "").strip()
 ADMIN_TOKEN = os.getenv("ADMIN_TOKEN", "").strip()
 INSTALL_HASH_SALT = os.getenv("INSTALL_HASH_SALT", "").strip()
@@ -40,15 +40,7 @@ BASE_ALLOWED_EVENTS = {"app_open", "system_test"}
 
 # Backward compatibility for the existing Money pilot until its source-of-truth
 # integration issue is resolved. No other product may send these events.
-MONEY_LEGACY_EVENTS = {
-    "nav_today", "nav_bills", "nav_future", "nav_overview", "nav_review",
-    "onboarding_started", "onboarding_completed",
-    "bill_saved", "expense_saved", "income_saved",
-    "reserve_added", "reserve_used",
-    "saving_added", "saving_withdrawn", "dream_updated", "week_closed",
-    "backup_created", "backup_shared", "restore_used", "safety_restore_used",
-    "app_reset", "runtime_error",
-}
+MONEY_LEGACY_EVENTS = set()  # V2.1 policy closed: central accepts baseline events only.
 
 ALLOWED_DEVICE = {"mobile", "tablet", "desktop", "other"}
 ALLOWED_BROWSER = {"chrome", "samsung", "edge", "opera", "firefox", "safari", "other"}

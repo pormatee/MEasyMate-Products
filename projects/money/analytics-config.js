@@ -19,7 +19,8 @@
       "backup_created","backup_shared","restore_used","safety_restore_used",
       "app_reset","runtime_error","system_test"
     ],
-    allowMetaKeys:["view","action","result","kind"]
+    transportAllowEvents:["app_open","system_test"],
+    allowMetaKeys:[]
   };
   window.MEasyMateAnalyticsConfig=config;
   if(window.MEasyMateAnalytics)window.MEasyMateAnalytics.init(config);
