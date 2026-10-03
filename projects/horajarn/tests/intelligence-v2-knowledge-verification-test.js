@@ -1,0 +1,17 @@
+global.window=global;
+global.AstroSources={get:(id)=>({id,verification:id==='THAI-LUNAR-PYTHAIDATE'?'algorithm-reference':'cross-check-ready',authority:'secondary'}),has:()=>true};
+require('../v2/knowledge-verification-v2.js');
+require('../v2/knowledge-pack-v2.js');
+const assert=(x,m)=>{if(!x)throw new Error(m)};
+assert(HorajarnKnowledgeVerificationV2.validate().ok,'verification:'+HorajarnKnowledgeVerificationV2.validate().errors.join(','));
+assert(HorajarnKnowledgePackV2.validate().ok,'pack:'+HorajarnKnowledgePackV2.validate().errors.join(','));
+assert(HorajarnKnowledgeVerificationV2.claim('THAI-ASTRO-DAY-BOUNDARY-06').status==='CROSS_CHECKED_CONVENTION','day-boundary-status');
+assert(HorajarnKnowledgeVerificationV2.claim('WEDNESDAY-NIGHT-18').status==='CROSS_CHECKED_CONVENTION','wed-night-status');
+for(const id of ['MAHATAKSA-108-STRENGTHS','MAHATAKSA-SUBPERIOD-RATIO-108','MAHATAKSA-SUBPERIOD-ORDER'])assert(HorajarnKnowledgeVerificationV2.claim(id).status==='CROSS_CHECKED',id);
+assert(HorajarnKnowledgeVerificationV2.claim('MAHATAKSA-GREGORIAN-TIMELINE-MAPPING').status==='UNVERIFIED','timeline-must-remain-unverified');
+assert(HorajarnKnowledgeVerificationV2.claim('MAHATAKSA-108-DURATION-FORMULA').status==='PARTIAL_VERIFICATION','combined-method-partial');
+assert(HorajarnKnowledgeVerificationV2.allowedForCalculation('THAI-ASTRO-DAY-BOUNDARY-06')===true,'day-calculation-allowed');
+assert(HorajarnKnowledgeVerificationV2.allowedForCalculation('MAHATAKSA-GREGORIAN-TIMELINE-MAPPING')===false,'timeline-not-promoted');
+assert(HorajarnKnowledgeVerificationV2.claim('BASE4-PREDICTIVE-MEANING').status==='UNVERIFIED','base4-guard');
+assert(HorajarnKnowledgeVerificationV2.source('TEENEE-100Y-CALENDAR').quarantined===true,'calendar-quarantine-source');
+console.log('HORAJARN_INTELLIGENCE_V2_4_KNOWLEDGE_VERIFICATION=PASS');

@@ -1,0 +1,17 @@
+global.window=global;
+require('../v2/calculation-policy-v2.js');
+const assert=(x,m)=>{if(!x)throw new Error(m)};
+assert(HorajarnCalculationPolicyV2.validate().ok,'policy:'+HorajarnCalculationPolicyV2.validate().errors.join(','));
+assert(HorajarnCalculationPolicyV2.expectedBirthPlanet(2026,10,7,5)===3,'wed-before-dawn');
+assert(HorajarnCalculationPolicyV2.expectedBirthPlanet(2026,10,7,6)===4,'wed-day-start');
+assert(HorajarnCalculationPolicyV2.expectedBirthPlanet(2026,10,7,18)===8,'wed-night-start');
+assert(HorajarnCalculationPolicyV2.expectedBirthPlanet(2026,10,8,5)===8,'thu-before-dawn-rahu');
+assert(HorajarnCalculationPolicyV2.expectedBirthPlanet(2026,10,8,6)===5,'thu-day-start');
+assert(HorajarnCalculationPolicyV2.expectedBirthPlanet(2026,10,7,'')===4,'unknown-hour-no-shift');
+const sun=HorajarnCalculationPolicyV2.schedule(1);
+assert(sun.rows[0].months===4&&sun.rows[0].sub===1,'sun-self-4m');
+assert(sun.rows[1].months===10&&sun.rows[1].sub===2,'moon-in-sun-10m');
+assert(sun.rows[2].months===5&&sun.rows[2].days===10&&sun.rows[2].sub===3,'mars-in-sun-5m10d');
+assert(sun.rows[5].years===1&&sun.rows[5].days===20&&sun.rows[5].sub===5,'jupiter-in-sun-1y20d');
+assert(sun.totalYearsTraditional===6,'sun-period-total');
+console.log('HORAJARN_INTELLIGENCE_V2_4_CALCULATION_POLICY=PASS');

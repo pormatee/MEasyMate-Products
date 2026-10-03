@@ -1,0 +1,32 @@
+global.window=global;
+require('../core/astrology-core.js');
+require('../sources/source-registry.js');
+require('../knowledge/knowledge-base.js');
+require('../rules/rules-v1.js');
+require('../v2/contracts-v2.js');
+require('../v2/fact-engine-v2.js');
+require('../v2/knowledge-model-v2.js');
+require('../v2/evidence-engine-v2.js');
+require('../v2/accuracy-policy-v2.js');
+require('../v2/accuracy-engine-v2.js');
+require('../v2/interpretation-policy-v2.js');
+require('../v2/interpretation-engine-v2.js');
+require('../v2/intelligence-engine-v2.js');
+const assert=(x,m)=>{if(!x)throw new Error(m)};
+const p={name:'Tester',day:1,month:3,year:2516,hour:12,minute:0,place:'Thailand'};
+for(const service of ['career','finance','love']){
+ const a=HorajarnIntelligenceV2.audit(service,p,new Date(2026,9,1));
+ assert(a.engineVersion==='2.2.0-interpretation',service+':version');
+ const ids=new Set(a.accuracy.rankedEvidence.map(e=>e.evidenceId));
+ assert(a.interpretation.version==='2.2.0-interpretation',service+':interpretation-version');
+ assert(a.interpretation.claims.length>0,service+':claims');
+ assert(a.interpretation.claims.every(c=>c.evidenceRefs.length&&c.evidenceRefs.every(id=>ids.has(id))),service+':claim-trace');
+ assert(a.interpretation.confidence.scoreIsPredictiveProbability===false,service+':probability');
+ const pub=HorajarnIntelligenceV2.analyze(service,p,new Date(2026,9,1));
+ assert(!('profile' in pub),service+':profile-leak');
+ assert(pub.interpretation.separation.fact&&pub.interpretation.separation.evidence&&pub.interpretation.separation.interpretation&&pub.interpretation.separation.advice,service+':separation');
+}
+const a=HorajarnIntelligenceV2.audit('career',p,new Date(2026,9,1));
+const b=HorajarnIntelligenceV2.audit('career',p,new Date(2026,9,1));
+assert(JSON.stringify(a)===JSON.stringify(b),'integration-determinism');
+console.log('HORAJARN_INTELLIGENCE_V2_2_INTERPRETATION_INTEGRATION=PASS');

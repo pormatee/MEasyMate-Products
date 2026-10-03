@@ -1,0 +1,25 @@
+global.window=global;
+require('../core/astrology-core.js');
+require('../sources/source-registry.js');
+require('../knowledge/knowledge-base.js');
+require('../rules/rules-v1.js');
+require('../v2/contracts-v2.js');
+require('../v2/calculation-policy-v2.js');
+require('../v2/knowledge-verification-v2.js');
+require('../v2/knowledge-pack-v2.js');
+require('../v2/reference-calendar-v2.js');
+require('../v2/calculation-verification-v2.js');
+require('../v2/fact-engine-v2.js');
+require('../v2/knowledge-model-v2.js');
+require('../v2/evidence-engine-v2.js');
+require('../v2/accuracy-policy-v2.js');
+require('../v2/accuracy-engine-v2.js');
+require('../v2/interpretation-policy-v2.js');
+require('../v2/interpretation-engine-v2.js');
+require('../v2/intelligence-engine-v2.js');
+const assert=(x,m)=>{if(!x)throw new Error(m)};
+const vr=HorajarnCalculationVerificationV2.run();if(!vr.pass)console.error(JSON.stringify(vr,null,2));assert(vr.pass,'calc-verification');assert(vr.timelineMappingStatus==='UNVERIFIED_TIMELINE_MAPPING','timeline-guard');
+const p={name:'Tester',day:1,month:3,year:2516,hour:12,minute:0,place:'Thailand'};
+for(const service of ['career','finance','love']){const a=HorajarnIntelligenceV2.audit(service,p,new Date(2026,9,1));const t=a.evidence.filter(e=>e.methodClaimRef==='MAHATAKSA-108-DURATION-FORMULA');assert(t.length===2,service+':transit-count');assert(t.every(e=>e.methodVerification==='PARTIAL_VERIFICATION'),service+':method-partial');assert(t.every(e=>e.methodStructureVerification==='CROSS_CHECKED'),service+':structure-crosschecked');assert(t.every(e=>e.timelineVerification==='UNVERIFIED'),service+':timeline-unverified');assert(t.every(e=>e.knowledgeVerification==='PROVISIONAL'),service+':evidence-stays-provisional');assert(a.interpretation.claims.every(c=>c.evidenceRefs.length),service+':claim-trace')}
+const f=HorajarnFactEngineV2.build({name:'Boundary',day:8,month:10,year:2569,hour:5,minute:59},new Date(2026,9,8));const ad=f.facts.find(x=>x.factId==='FACT-ASTRO-DATE'),bp=f.facts.find(x=>x.factId==='FACT-BIRTH-PLANET'),mt=f.facts.find(x=>x.factId==='FACT-MAHATAKSA-MAIN'),b4=f.facts.find(x=>x.factId==='FACT-BASE4-C1');assert(ad.policyVerification==='CROSS_CHECKED_CONVENTION','day-policy');assert(bp.value===8&&bp.methodVerification==='CROSS_CHECKED_CONVENTION','rahu-boundary');assert(mt.structureVerification==='CROSS_CHECKED'&&mt.timelineVerification==='UNVERIFIED','maha-fact-separation');assert(b4.predictiveMeaningVerification==='UNVERIFIED'&&b4.knowledgeAttached===false,'base4-guard');
+console.log('HORAJARN_INTELLIGENCE_V2_4_CALCULATION_INTEGRATION=PASS');

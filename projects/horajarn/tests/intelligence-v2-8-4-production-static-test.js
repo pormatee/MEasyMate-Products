@@ -1,0 +1,14 @@
+const fs=require('fs'),path=require('path');
+const root=path.resolve(__dirname,'..');
+const html=fs.readFileSync(path.join(root,'horoscope.html'),'utf8');
+const ui=fs.readFileSync(path.join(root,'v2/horoscope-interpretation-ui-v2.js'),'utf8');
+const assert=(x,m)=>{if(!x)throw new Error(m)};
+assert(html.includes('INTELLIGENCE V2.8.4'),'version');
+assert(html.includes('HORAJARN_V2_8_3_VOICE_COPY_HOOK'),'existing-voice-copy-hook');
+assert(ui.includes("el('button','speak-one hi284-speak','🔊 ฟังสรุปนี้')"),'overview-speak-button');
+assert(ui.includes('speak.dataset.speech=encodeURIComponent(overviewText(models))'),'overview-speech-data');
+assert(ui.includes("const intelligenceKeys=new Set(['work','money','partner'])"),'summary-dedupe');
+assert(ui.includes('out.push(overviewText(lastModels))'),'full-voice-overview');
+assert(ui.includes('function overviewText(models)'),'overview-text');
+for(const marker of ['fetch(','XMLHttpRequest','sendBeacon('])assert(!ui.includes(marker),'network:'+marker);
+console.log('HORAJARN_INTELLIGENCE_V2_8_4_PRODUCTION_STATIC=PASS');

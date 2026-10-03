@@ -1,0 +1,11 @@
+global.window=global;
+require('../v2/natural-voice-v2.js');
+const assert=(x,m)=>{if(!x)throw new Error(m)};
+const src='การงาน • กัมมะมีดาวอังคาร (3) เป็นแกนสำคัญของการงาน จึงเด่นกับงานแก้ปัญหาและการตัดสินใจ. คำแนะนำ: ควรตรวจข้อมูลก่อนตัดสินใจ';
+const n=HorajarnNaturalVoiceV2.normalizeForSpeech(src);
+assert(n.includes('ดาวอังคาร เลขสาม'),'planet-number-spoken');
+assert(!n.includes('(3)'),'paren-number-removed');
+assert(!n.includes('•'),'bullet-removed');
+const seg=HorajarnNaturalVoiceV2.segmentText(src);assert(seg.length>=2,'segmentation');
+const plan=HorajarnNaturalVoiceV2.plan(src,1);assert(plan.length===seg.length,'plan-length');assert(plan.every(x=>x.rate>=.70&&x.rate<=1.12),'rate-range');assert(plan.some(x=>x.kind==='heading'),'heading-kind');assert(plan.some(x=>x.kind==='caution'),'caution-kind');assert(plan.find(x=>x.kind==='caution').rate<=plan.find(x=>x.kind==='heading').rate,'caution-not-faster');
+console.log('HORAJARN_INTELLIGENCE_V2_8_5_VOICE_UNIT=PASS');

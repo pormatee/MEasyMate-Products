@@ -1,0 +1,12 @@
+const fs=require('fs'),path=require('path');
+const file=path.join(__dirname,'..','horoscope.html');
+const src=fs.readFileSync(file,'utf8');
+const assert=(x,m)=>{if(!x)throw new Error(m)};
+const duplicated=['thaiLunar','astroDate','birthPlanet','thaksaFor','mahasatta','positionRecords','mahaTaksaAt'];
+const found=duplicated.filter(name=>new RegExp('function\\s+'+name+'\\s*\\(').test(src));
+assert(found.length===duplicated.length,'legacy-baseline-changed:'+found.join(','));
+assert(/<option value="civil"[^>]*>/.test(src),'legacy-civil-option-missing');
+assert(!/src=["'][^"']*core\/astrology-core\.js/.test(src),'legacy-page-already-switched-review-required');
+console.log('HORAJARN_LEGACY_DUAL_BRAIN_BASELINE=PASS');
+console.log('LEGACY_DUPLICATED_CALCULATORS='+found.length);
+console.log('PRODUCTION_SINGLE_BRAIN=NOT_YET');

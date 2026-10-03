@@ -1,0 +1,11 @@
+global.window=global;
+global.localStorage={_:{},getItem(k){return this._[k]||null},setItem(k,v){this._[k]=String(v)}};
+require('../v2/natural-voice-v2.js');
+const assert=(x,m)=>{if(!x)throw new Error(m)};
+const n=HorajarnNaturalVoiceV2.normalizeForSpeech('ฉันชอบ ดาวอังคาร (3)');
+assert(n.includes('ชอบ'),'thai-word-intact');
+assert(!n.includes('ชอ ออ บอ'),'no-spelling-transform');
+assert(n.includes('ดาวอังคาร เลขสาม'),'number-normalization');
+HorajarnNaturalVoiceV2.savePref({mode:'system',voiceId:''});
+assert(HorajarnNaturalVoiceV2.loadPref().mode==='system','system-default');
+console.log('HORAJARN_INTELLIGENCE_V2_8_6_VOICE_UNIT=PASS');

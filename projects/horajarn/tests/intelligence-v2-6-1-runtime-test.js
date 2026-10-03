@@ -1,0 +1,12 @@
+const fs=require('fs'),path=require('path');
+const root=path.resolve(__dirname,'..'),p=path.join(root,'horoscope-v2-candidate.html');
+const assert=(x,m)=>{if(!x)throw new Error(m)};
+const s=fs.readFileSync(p,'utf8');
+assert(s.includes("const name=AstroCore.roleOfPlanet(t,p),i=t.indexOf(p)"),'role-contract');
+assert(s.includes("desc:THAKSA_DESC[i]"),'role-desc');
+assert(s.includes("col:x.col-1"),'position-col-contract');
+assert(s.includes("HORAJARN_V2_RUNTIME"),'runtime-guard');
+assert(s.includes("HORAJARN_V2_SELFTEST"),'selftest-guard');
+assert(s.includes('INTELLIGENCE V2.6.1'),'label');
+assert(!s.includes('value="civil"'),'civil-rule');
+console.log('HORAJARN_INTELLIGENCE_V2_6_1_RUNTIME_STATIC=PASS');

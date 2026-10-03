@@ -1,0 +1,31 @@
+global.window=global;
+require('../core/astrology-core.js');
+require('../sources/source-registry.js');
+require('../knowledge/knowledge-base.js');
+require('../rules/rules-v1.js');
+require('../v2/contracts-v2.js');
+require('../v2/fact-engine-v2.js');
+require('../v2/knowledge-model-v2.js');
+require('../v2/evidence-engine-v2.js');
+require('../v2/accuracy-policy-v2.js');
+require('../v2/accuracy-engine-v2.js');
+require('../v2/intelligence-engine-v2.js');
+const assert=(x,m)=>{if(!x)throw new Error(m)};
+const p={name:'Tester',day:1,month:3,year:2516,hour:12,minute:0,place:'Thailand'};
+for(const service of ['career','finance','love']){
+ const a=HorajarnIntelligenceV2.audit(service,p,new Date(2026,9,1));
+ assert(a.engineVersion==='2.1.0-accuracy',service+':version');
+ assert(a.accuracy.policyVersion==='2.1.0-accuracy',service+':policy');
+ assert(a.accuracy.scoreIsPredictiveProbability===false,service+':probability');
+ assert(Array.isArray(a.accuracy.rankedEvidence)&&a.accuracy.rankedEvidence.length>=3,service+':ranking');
+ assert(a.accuracy.rankedEvidence.every((e,i)=>e.rank===i+1),service+':rank-sequence');
+ assert(a.accuracy.conflict&&Array.isArray(a.accuracy.conflict.groups),service+':conflict-contract');
+ const pub=HorajarnIntelligenceV2.analyze(service,p,new Date(2026,9,1));
+ assert(!('profile' in pub),service+':profile-leak');
+ assert(pub.confidence.scoreIsPredictiveProbability===false,service+':public-probability');
+ assert(pub.interpretation.claimEvidenceRefs.length>0,service+':claim-trace');
+}
+const a=HorajarnIntelligenceV2.audit('career',p,new Date(2026,9,1));
+const b=HorajarnIntelligenceV2.audit('career',p,new Date(2026,9,1));
+assert(JSON.stringify(a)===JSON.stringify(b),'integration-determinism');
+console.log('HORAJARN_INTELLIGENCE_V2_1_ACCURACY_INTEGRATION=PASS');

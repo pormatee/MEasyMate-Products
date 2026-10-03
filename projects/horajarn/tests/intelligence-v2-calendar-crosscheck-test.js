@@ -1,0 +1,10 @@
+global.window=global;
+require('../core/astrology-core.js');
+require('../v2/reference-calendar-v2.js');
+const assert=(x,m)=>{if(!x)throw new Error(m)};
+const v=HorajarnReferenceCalendarV2.validate();assert(v.ok,'calendar-policy:'+v.errors.join(','));
+const r=HorajarnReferenceCalendarV2.run();if(!r.pass)console.error(JSON.stringify(r,null,2));
+assert(r.pass,'calendar-vector-mismatch');assert(r.total===8,'calendar-vector-count');
+assert(r.results.some(x=>x.id.includes('ATHIKAMAT')&&x.pass),'athikamat-vector');
+assert(r.quarantined.every(x=>x.useAsGolden===false),'quarantine-golden-guard');
+console.log('HORAJARN_INTELLIGENCE_V2_4_CALENDAR_CROSSCHECK=PASS');

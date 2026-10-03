@@ -1,0 +1,23 @@
+global.window=global;
+require('../v2/contracts-v2.js');
+require('../v2/accuracy-policy-v2.js');
+require('../v2/accuracy-engine-v2.js');
+const assert=(x,m)=>{if(!x)throw new Error(m)};
+const rule={primary:['กัมมะ']};
+const e=(id,direction,weightish={},group='career:current')=>({evidenceId:id,topic:'career',factRefs:['F-'+id],ruleRef:'R1',knowledgeRefs:['K-'+id],role:weightish.role||'CONTEXT',direction,timeScope:weightish.timeScope||'CURRENT_MAIN',sourceRefs:['S1'],sourceQuality:weightish.sourceQuality??.9,knowledgeVerification:weightish.verification||'VERIFIED',specificity:weightish.specificity??1,conflictGroup:group});
+function bundle(ev){return{rule,evidence:ev}}
+const support=HorajarnAccuracyV2.analyze(bundle([e('S1','SUPPORT'),e('S2','SUPPORT',{timeScope:'CURRENT_SUB'})]));
+assert(!support.conflict.detected,'support-no-conflict');assert(support.conclusion==='SUPPORT'||support.conclusion==='PARTIAL_SUPPORT','support-conclusion');
+const mixed=HorajarnAccuracyV2.analyze(bundle([e('S','SUPPORT'),e('C','CAUTION') ]));
+assert(mixed.conflict.detected,'mixed-conflict');assert(mixed.conclusion==='MIXED','mixed-conclusion');assert(mixed.uncertainty==='CONFLICTED','mixed-uncertainty');
+const separate=HorajarnAccuracyV2.analyze(bundle([e('S','SUPPORT',{},'career:current'),e('C','CAUTION',{},'career:other') ]));
+assert(!separate.conflict.detected,'group-scoped-conflict');
+const neutral=HorajarnAccuracyV2.analyze(bundle([e('N','NEUTRAL',{role:'PRIMARY',timeScope:'NATAL'})]));
+assert(neutral.conclusion==='CONTEXT_ONLY','neutral-context');
+const low=HorajarnAccuracyV2.analyze(bundle([e('L','SUPPORT',{sourceQuality:.25,verification:'UNKNOWN'})]));
+assert(low.qualityScore<support.qualityScore,'quality-sensitive');
+assert(support.scoreIsPredictiveProbability===false,'probability-guard');
+assert(support.rankedEvidence[0].rank===1,'ranking');
+const again=HorajarnAccuracyV2.analyze(bundle([e('S1','SUPPORT'),e('S2','SUPPORT',{timeScope:'CURRENT_SUB'})]));
+assert(JSON.stringify(support)===JSON.stringify(again),'determinism');
+console.log('HORAJARN_INTELLIGENCE_V2_1_ACCURACY_UNIT=PASS');

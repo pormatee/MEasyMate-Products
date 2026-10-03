@@ -1,0 +1,11 @@
+const fs=require('fs'),path=require('path');
+const root=path.resolve(__dirname,'..'),html=fs.readFileSync(path.join(root,'horoscope.html'),'utf8'),voice=fs.readFileSync(path.join(root,'v2/natural-voice-v2.js'),'utf8');
+const assert=(x,m)=>{if(!x)throw new Error(m)};
+assert(html.includes('INTELLIGENCE V2.8.6'),'version');
+assert(voice.includes("mode:'system'"),'system-default');
+assert(voice.includes('System Thai — ให้ Android เลือกเสียงไทย'),'system-option');
+assert(voice.includes('🔊 ทดสอบคำว่า “ชอบ”'),'test-button');
+assert(voice.includes("if(voice)u.voice=voice"),'system-no-forced-voice');
+assert(voice.includes('thaiVoices()'),'thai-voice-list');
+for(const m of ['fetch(','XMLHttpRequest','sendBeacon('])assert(!voice.includes(m),'network:'+m);
+console.log('HORAJARN_INTELLIGENCE_V2_8_6_PRODUCTION_STATIC=PASS');

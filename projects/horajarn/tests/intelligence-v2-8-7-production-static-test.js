@@ -1,0 +1,11 @@
+const fs=require('fs'),path=require('path');
+const root=path.resolve(__dirname,'..');
+const html=fs.readFileSync(path.join(root,'horoscope.html'),'utf8');
+const voice=fs.readFileSync(path.join(root,'v2/natural-voice-v2.js'),'utf8');
+const assert=(x,m)=>{if(!x)throw new Error(m)};
+assert(html.includes('INTELLIGENCE V2.8.7'),'version');
+assert(voice.includes("return 'คำว่า '+m[1]+m[2]"),'standalone-context');
+assert(voice.includes('/เลข\\s*(\\d{1,2})/g'),'number-rule');
+assert(voice.includes("test.onclick=()=>speak('คำว่า ชอบ. ฉันชอบเรียนรู้. ดาวอังคาร, เลขสาม.'"),'natural-test');
+for(const m of ['fetch(','XMLHttpRequest','sendBeacon('])assert(!voice.includes(m),'network:'+m);
+console.log('HORAJARN_INTELLIGENCE_V2_8_7_PRODUCTION_STATIC=PASS');

@@ -1,0 +1,32 @@
+global.window=global;
+require('../core/astrology-core.js');
+require('../sources/source-registry.js');
+require('../knowledge/knowledge-base.js');
+require('../rules/rules-v1.js');
+require('../v2/contracts-v2.js');
+require('../v2/fact-engine-v2.js');
+require('../v2/knowledge-verification-v2.js');
+require('../v2/knowledge-model-v2.js');
+require('../v2/accuracy-policy-v2.js');
+require('../v2/evidence-engine-v2.js');
+require('../v2/accuracy-engine-v2.js');
+require('../v2/interpretation-policy-v2.js');
+require('../v2/interpretation-engine-v2.js');
+require('../v2/intelligence-engine-v2.js');
+require('../v2/profile-adapter-v2.js');
+require('../v2/interpretation-quality-v2.js');
+const assert=(x,m)=>{if(!x)throw new Error(m)};
+const p={name:'Tester',day:1,month:3,year:2516,hour:6,minute:0,place:'Thailand'};
+const a=HorajarnInterpretationQualityV2.build(p,new Date(2026,9,3,12,0));
+const b=HorajarnInterpretationQualityV2.build(p,new Date(2026,9,3,12,0));
+assert(JSON.stringify(a)===JSON.stringify(b),'determinism');
+for(const k of ['work','money','partner']){
+ const m=a[k],v=HorajarnInterpretationQualityV2.validateModel(m);
+ assert(v.ok,k+':'+v.errors.join(','));
+ assert(m.body.length>30,k+':body');
+ assert(m.traceRefs.length>0,k+':trace');
+ assert(m.scoreIsPredictiveProbability===false,k+':probability');
+ assert(HorajarnInterpretationQualityV2.spokenText(m).length>m.body.length,k+':spoken');
+}
+assert(new Set([a.work.body,a.money.body,a.partner.body]).size===3,'three-topic-distinct');
+console.log('HORAJARN_INTELLIGENCE_V2_8_3_POLISH_INTEGRATION=PASS');
