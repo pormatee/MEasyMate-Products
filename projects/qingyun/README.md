@@ -44,3 +44,11 @@ Do not label this build `PRODUCTION_READY` until real Android/Chrome field valid
 5. user-written strokes persist while stepping stroke order
 6. Backup/Restore
 7. live HTTPS Notice test with `?test=1`
+
+
+## Conversation Mission V1
+
+- 9 missions / 3 paths: daily, work, travel
+- 4 steps: target phrase → Thai Bridge → conversation → Rescue Phrase
+- progress persists inside `qingyun_v1_free`
+- existing Pinyin/Hanzi/Writing/SRS/Grammar are preserved
