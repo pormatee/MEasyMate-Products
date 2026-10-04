@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HORAJARN V2.18 Knowledge V1 Inspector</title>
+<style>
+body{font-family:system-ui,sans-serif;margin:0;background:#f5f2eb;color:#222}
+main{max-width:760px;margin:auto;padding:18px}
+.card{background:#fff;border-radius:16px;padding:16px;margin:12px 0}
+.pass{background:#dff7e7;color:#075d2b;padding:12px;border-radius:12px;font-weight:700}
+.fail{background:#ffe2e2;color:#8a1111;padding:12px;border-radius:12px;font-weight:700}
+select{width:100%;padding:12px;font-size:16px}
+pre{white-space:pre-wrap;word-break:break-word;background:#f3f3f3;padding:12px;border-radius:10px}
+small{opacity:.7}
+</style>
+</head>
+<body>
+<main>
+<h1>HORAJARN • Knowledge V1 Inspector V2.18</h1>
+<p id="gate"></p>
+
+<section class="card">
+<h2>Primary Source</h2>
+<p id="source"></p>
+<p><b id="status"></b></p>
+<small>ยังห้ามอ้างว่า ingest ตำราครบ จนกว่าจะมี pageRefs และ verification ราย knowledge item</small>
+</section>
+
+<section class="card">
+<h2>Knowledge Categories</h2>
+<ul id="categories"></ul>
+</section>
+
+<section class="card">
+<h2>Owner Verified Rules</h2>
+<ul id="rules"></ul>
+</section>
+
+<section class="card">
+<h2>Career Policy</h2>
+<select id="mode">
+<option value="general">การงานทั่วไป</option>
+<option value="new_job">งานใหม่ / กิจการใหม่</option>
+<option value="authority">หัวหน้า / ผู้ใหญ่ / อำนาจ</option>
+</select>
+<pre id="policy"></pre>
+</section>
+</main>
+
+<script src="v2/knowledge-v1-foundation.js"></script>
+<script src="knowledge-v1-inspector-v2.js"></script>
+</body>
+</html>
