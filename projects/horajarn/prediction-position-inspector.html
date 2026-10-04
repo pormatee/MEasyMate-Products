@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HORAJARN V2.17 Prediction Position Inspector</title>
+<style>
+body{font-family:system-ui,-apple-system,sans-serif;margin:0;background:#f4f5f7;color:#202124}
+main{max-width:820px;margin:auto;padding:16px}
+.card{background:white;border-radius:14px;padding:16px;margin:12px 0;box-shadow:0 1px 4px #0002}
+h1{font-size:20px;margin:0 0 6px} h2{font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+label{font-size:13px;color:#555;display:block}
+input{width:100%;box-sizing:border-box;padding:10px;border:1px solid #bbb;border-radius:9px;font-size:16px}
+button{padding:11px 13px;border:0;border-radius:10px;font-size:15px;margin:4px 4px 4px 0}
+.run{background:#111;color:white}.case{background:#e9eef7}
+.badge{display:inline-block;padding:5px 8px;border-radius:999px;background:#eee;margin-right:5px;font-size:12px}
+pre{white-space:pre-wrap;word-break:break-word;background:#111;color:#e8eaed;padding:12px;border-radius:10px;font-size:12px}
+.good{background:#dff4e5}.warn{background:#fff0c7}.fail{background:#ffd9d9}
+@media(max-width:540px){.grid{grid-template-columns:1fr}}
+</style>
+<script src="knowledge/knowledge-base.js"></script>
+<script src="core/astrology-core.js"></script>
+<script src="rules/rules-v1.js"></script>
+<script src="v2/prediction-position-v2.js"></script>
+</head>
+<body>
+<main>
+<div class="card">
+<h1>HORAJARN • Prediction Position Inspector V2.17</h1>
+<div>Android Field Gate • ยังไม่สร้างคำพยากรณ์</div>
+</div>
+
+<div class="card">
+<h2>ข้อมูลทดสอบ</h2>
+<div class="grid">
+<div><label>วันเกิด</label><input id="day" type="number" value="1"></div>
+<div><label>เดือน</label><input id="month" type="number" value="3"></div>
+<div><label>ปี พ.ศ.</label><input id="year" type="number" value="2516"></div>
+<div><label>ชั่วโมง</label><input id="hour" type="number" value="12"></div>
+<div><label>นาที</label><input id="minute" type="number" value="0"></div>
+<div><label>ปีเป้าหมาย พ.ศ.</label><input id="targetYear" type="number" value="2569"></div>
+</div>
+</div>
+
+<div class="card">
+<h2>เลือกกรณีทดสอบ</h2>
+<button class="case" data-case="career">งานใหม่</button>
+<button class="case" data-case="finance">การเงิน</button>
+<button class="case" data-case="love">ความรัก/หุ้นส่วน</button>
+<button class="case" data-case="health">สุขภาพตนเอง</button>
+<button class="case" data-case="mother">สุขภาพแม่</button>
+<button class="case" data-case="timing">เมื่อไหร่จะเปลี่ยนงาน</button>
+<div style="margin-top:8px"><button class="run" id="run">วิเคราะห์ตำแหน่ง</button></div>
+</div>
+
+<div class="card">
+<h2>Field Result</h2>
+<div id="status"><span class="badge">ยังไม่ได้ทดสอบ</span></div>
+<div id="summary"></div>
+<pre id="raw">{}</pre>
+</div>
+</main>
+<script src="prediction-position-inspector-v2.js"></script>
+</body>
+</html>
