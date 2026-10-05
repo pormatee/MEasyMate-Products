@@ -18,7 +18,9 @@ assert s.count('"path":"work"')==10
 assert "missionStep>=5" in s and "STEP 5 • Review" in s and "seedMissionSrs" in s
 assert "ttsSpeaking" in s and "450" in s and "speechSynthesis.cancel()" in s
 assert "qingyun-commercial-v1-backup-" in s
-assert 'allowEvents:["app_open"]' in a
+for event in ["app_open","mission_start","mission_complete","trial_started","buy_click","activation_success"]:
+    assert f'"{event}"' in a
+assert "allowMetaKeys:[]" in a
 status=subprocess.check_output(["git","status","--porcelain"],cwd=root,text=True).splitlines()
 paths=[x[3:] for x in status if len(x)>=4]
 assert all(p.startswith("projects/qingyun/commercial/") or p.startswith("projects/qingyun/tests/") or p.startswith("projects/qingyun/seller/") for p in paths),paths

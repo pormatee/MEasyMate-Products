@@ -27,8 +27,10 @@
   let state=null;
   let entitlement=null;
   let status="CHECKING";
+  let trialCreated=false;
 
   function now(){return Date.now()}
+  function saleTrack(event){try{return !!window.MEasyMateAnalytics?.track(event)}catch(_){return false}}
   function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
   function uuid(){
     if(crypto&&typeof crypto.randomUUID==="function")return crypto.randomUUID();
@@ -47,6 +49,7 @@
       if(v&&typeof v==="object"&&v.installId)return v;
     }catch(_){}
     const t=now();
+    trialCreated=true;
     return {schemaVersion:1,installId:uuid(),trialStartedAt:t,trialExpiresAt:t+CFG.trialDays*DAY,lastSeenAt:t,clockRollbackDetected:false,activationCode:""};
   }
   function save(){localStorage.setItem(CFG.storageKey,JSON.stringify(state))}
@@ -90,6 +93,7 @@
       try{entitlement=await verifyActivation(state.activationCode)}catch(_){entitlement=null}
     }
     status=entitlement?"ACTIVATED":trialIsActive()?"TRIAL":"EXPIRED";
+    if(!testMode&&status==="EXPIRED"&&!state.trialExpiredTrackedAt){if(saleTrack("trial_expired")){state.trialExpiredTrackedAt=now();save()}}
     render();
     return status;
   }
@@ -138,7 +142,7 @@
       <div style="font-size:12px;font-weight:900;margin:12px 0 6px">Installation ID</div><div class="id">${esc(state.installId)}</div>
       <div class="row"><button class="soft" id="qyCopyId">คัดลอก ID</button><button class="soft" id="qyCopyOrder">คัดลอกข้อความสั่งซื้อ</button></div>
       ${activated?`<div id="qySaleMsg" class="ok">✓ V1 ถาวร • V2 Upgrade Entitlement = ${entitlement?.freeV2Upgrade===true?"YES":"NO"}</div>`:
-      `<a class="btn primary full" style="margin-top:12px" href="${esc(CFG.buyUrl)}" target="_blank" rel="noopener">ติดต่อซื้อผ่าน LINE • ${CFG.priceTHB} บาท</a>
+      `<a class="btn primary full" id="qyBuyLink" style="margin-top:12px" href="${esc(CFG.buyUrl)}" target="_blank" rel="noopener">ติดต่อซื้อผ่าน LINE • ${CFG.priceTHB} บาท</a>
        <div style="font-size:12px;font-weight:900;margin:15px 0 6px">มี Activation Code แล้ว</div>
        <textarea id="qyActivationInput" placeholder="วาง Activation Code ที่ได้รับหลังชำระเงิน"></textarea>
        <button class="primary full" id="qyActivateBtn" style="margin-top:8px">Activate QingYun</button>
@@ -149,13 +153,14 @@
     document.body.appendChild(ov);
     document.getElementById("qyCopyId")?.addEventListener("click",()=>copyText(state.installId,"คัดลอก Installation ID แล้ว"));
     document.getElementById("qyCopyOrder")?.addEventListener("click",()=>copyText(orderMessage(),"คัดลอกข้อความสั่งซื้อแล้ว"));
+    document.getElementById("qyBuyLink")?.addEventListener("click",()=>saleTrack("buy_click"));
     document.getElementById("qyCloseSale")?.addEventListener("click",removeOverlay);
     document.getElementById("qyActivateBtn")?.addEventListener("click",async()=>{
       const input=document.getElementById("qyActivationInput"),msg=document.getElementById("qySaleMsg"),code=input.value.trim();
       msg.className="";msg.textContent="กำลังตรวจสอบ...";
       try{
         const ent=await verifyActivation(code);
-        state.activationCode=code;save();entitlement=ent;status="ACTIVATED";msg.className="ok";msg.textContent="✓ Activate สำเร็จ • V1 ถาวร + V2 ฟรี";
+        state.activationCode=code;save();entitlement=ent;status="ACTIVATED";saleTrack("activation_success");msg.className="ok";msg.textContent="✓ Activate สำเร็จ • V1 ถาวร + V2 ฟรี";
         setTimeout(()=>{removeOverlay();render()},500);
       }catch(e){msg.className="err";msg.textContent=e?.message||"Activation ไม่สำเร็จ"}
     });
@@ -169,7 +174,7 @@
     }else{
       bar.innerHTML=`<div class="txt"><b>ทดลองเต็มระบบ • เหลือ ${daysRemaining()} วัน</b>${CFG.priceTHB} บาทครั้งเดียว • ซื้อ V1 รับ V2 ฟรี</div><button type="button">ปลดล็อก</button>`;
     }
-    bar.querySelector("button").addEventListener("click",()=>openPanel(false));
+    bar.querySelector("button").addEventListener("click",()=>{if(status!=="ACTIVATED")saleTrack("unlock_open");openPanel(false)});
     document.body.appendChild(bar);
   }
   function render(){injectStyle();renderBar()}
@@ -178,7 +183,7 @@
   }
 
   async function init(){
-    injectStyle();state=load();updateClock();await refreshEntitlement();
+    injectStyle();state=load();updateClock();if(trialCreated)saleTrack("trial_started");await refreshEntitlement();if(status==="ACTIVATED")saleTrack("licensed_open");
     window.QingYunSale=Object.freeze({open:()=>openPanel(status==="EXPIRED"),status:publicStatus,installId:()=>state.installId,refresh:refreshEntitlement});
   }
   if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init,{once:true});else init();

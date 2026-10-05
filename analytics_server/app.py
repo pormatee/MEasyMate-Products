@@ -35,8 +35,27 @@ ALLOWED_PROJECTS = {
     "talknow",
 }
 
-# V2 baseline for every product. New integrations must send only anonymous app opens.
+# V2 baseline for every product.
 BASE_ALLOWED_EVENTS = {"app_open", "system_test"}
+
+# QingYun Behavior Analytics V1: fixed anonymous event names only.
+QINGYUN_BEHAVIOR_EVENTS = {
+    "mission_start",
+    "mission_complete",
+    "mission_answer_retry",
+    "level_1_complete",
+    "level_2_complete",
+    "level_3_complete",
+    "level_4_complete",
+    "practice_open",
+    "weak_review_start",
+    "trial_started",
+    "trial_expired",
+    "unlock_open",
+    "buy_click",
+    "activation_success",
+    "licensed_open",
+}
 
 # Backward compatibility for the existing Money pilot until its source-of-truth
 # integration issue is resolved. No other product may send these events.
@@ -180,7 +199,7 @@ class EventIn(BaseModel):
     @field_validator("event")
     @classmethod
     def valid_event_name(cls, v):
-        if v not in BASE_ALLOWED_EVENTS and v not in MONEY_LEGACY_EVENTS:
+        if v not in BASE_ALLOWED_EVENTS and v not in MONEY_LEGACY_EVENTS and v not in QINGYUN_BEHAVIOR_EVENTS:
             raise ValueError("event not allowed")
         return v
 
@@ -231,6 +250,8 @@ class EventIn(BaseModel):
     def validate_project_event_pair(self):
         if self.project_id != "money" and self.event in MONEY_LEGACY_EVENTS:
             raise ValueError("legacy event not allowed for this project")
+        if self.project_id != "qingyun" and self.event in QINGYUN_BEHAVIOR_EVENTS:
+            raise ValueError("QingYun behavior event not allowed for this project")
         return self
 
 
@@ -298,6 +319,7 @@ def health():
         "free_text": "forbidden",
         "allowed_projects": sorted(ALLOWED_PROJECTS),
         "summary_scopes": ["all"] + sorted(ALLOWED_PROJECTS),
+        "qingyun_behavior_events": sorted(QINGYUN_BEHAVIOR_EVENTS),
     }
 
 
@@ -430,6 +452,18 @@ def summary(
             )
             event_counts = {k: int(v) for k, v in cur.fetchall()}
 
+            cur.execute(
+                f"""
+                SELECT event_name, COUNT(DISTINCT install_hash)::bigint
+                FROM analytics_events
+                WHERE {where}
+                GROUP BY event_name
+                ORDER BY event_name
+                """,
+                params,
+            )
+            event_unique_installations = {k: int(v) for k, v in cur.fetchall()}
+
             if project_id == "all":
                 cur.execute(
                     f"""
@@ -535,6 +569,7 @@ def summary(
             "last_seen": last_seen.isoformat() if last_seen else None,
         },
         "event_counts": event_counts,
+        "event_unique_installations": event_unique_installations,
         "version_counts": version_counts,
         "device_counts": device_counts,
         "daily_active": daily_active,

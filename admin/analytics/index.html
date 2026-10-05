@@ -60,6 +60,22 @@
   <div class="item"><b>Product Breakdown</b><p id="cProducts">—</p></div>
   <div class="item"><b>Privacy</b><p>Aggregate anonymous usage only • ไม่มีจำนวนเงิน • ไม่มีชื่อ/อีเมล User • ไม่มี Raw Install ID</p></div>
 </div>
+<div class="card" id="qingyunBehavior" style="display:none">
+  <div class="title"><h2>🧭 QingYun Behavior V1</h2><span>Anonymous Journey + Sale Funnel</span></div>
+  <div class="centralgrid">
+    <div class="item"><b>Trial Started</b><p id="qyTrial">—</p></div>
+    <div class="item"><b>Mission Started</b><p id="qyMissionStart">—</p></div>
+    <div class="item"><b>Mission Completed</b><p id="qyMissionComplete">—</p></div>
+    <div class="item"><b>Unlock Open</b><p id="qyUnlock">—</p></div>
+    <div class="item"><b>Buy Click</b><p id="qyBuy">—</p></div>
+    <div class="item"><b>Activation Success</b><p id="qyActivated">—</p></div>
+  </div>
+  <div class="item"><b>Mission Funnel</b><p id="qyMissionRate">—</p></div>
+  <div class="item"><b>Level Completion</b><p id="qyLevels">—</p></div>
+  <div class="item"><b>Learning Signals</b><p id="qyLearningSignals">—</p></div>
+  <div class="item"><b>Buyer Activity</b><p id="qyBuyerActivity">—</p></div>
+  <div class="item"><b>Privacy Boundary</b><p>Fixed event names + hashed anonymous installation • ไม่เก็บข้อความ คำตอบ เสียง หรือ Raw Installation ID</p></div>
+</div>
 <div class="card testbox" id="centralSyntheticTest">
   <div class="title"><h2>🧪 Central Analytics Synthetic Test</h2><span>ไม่ใช้ข้อมูลผู้ใช้จริง</span></div>
   <div class="item"><b>ทดสอบอะไร</b><p>Health → เขียน Event จำลองเข้า Database → ตรวจว่า Event ที่ไม่อยู่ใน Allowlist ถูกปฏิเสธ</p></div>
@@ -171,7 +187,11 @@
     restore_used:"Restore",
     safety_restore_used:"Safety Restore",
     app_reset:"Reset App",
-    runtime_error:"Runtime Error"
+    runtime_error:"Runtime Error",
+    mission_start:"QY Mission Start",mission_complete:"QY Mission Complete",mission_answer_retry:"QY Answer Retry",
+    level_1_complete:"QY Level 1 Complete",level_2_complete:"QY Level 2 Complete",level_3_complete:"QY Level 3 Complete",level_4_complete:"QY Level 4 Complete",
+    practice_open:"QY Practice Open",weak_review_start:"QY Weak Review",trial_started:"QY Trial Started",trial_expired:"QY Trial Expired",
+    unlock_open:"QY Unlock Open",buy_click:"QY Buy Click",activation_success:"QY Activation",licensed_open:"QY Licensed Open"
   };
 
   async function loadCentral(){
@@ -188,6 +208,18 @@
 
       const d=await r.json();
       const m=d.metrics||{};
+      const qc=d.event_counts||{},qu=d.event_unique_installations||{};
+      const qp=$("qingyunBehavior");qp.style.display=project==="qingyun"?"block":"none";
+      if(project==="qingyun"){
+        const show=e=>fmt(qu[e]||0)+" เครื่อง / "+fmt(qc[e]||0)+" ครั้ง";
+        const pct=(a,b)=>b?Math.round(a/b*100)+"%":"—";
+        $("qyTrial").textContent=show("trial_started");$("qyMissionStart").textContent=show("mission_start");$("qyMissionComplete").textContent=show("mission_complete");
+        $("qyUnlock").textContent=show("unlock_open");$("qyBuy").textContent=show("buy_click");$("qyActivated").textContent=show("activation_success");
+        $("qyMissionRate").textContent=pct(qu.mission_complete||0,qu.mission_start||0)+" • complete "+fmt(qu.mission_complete||0)+" / start "+fmt(qu.mission_start||0)+" เครื่อง";
+        $("qyLevels").textContent=[1,2,3,4].map(n=>"L"+n+" "+fmt(qu["level_"+n+"_complete"]||0)+" เครื่อง").join(" • ");
+        $("qyLearningSignals").textContent="ตอบใหม่ "+fmt(qc.mission_answer_retry||0)+" • Practice "+fmt(qc.practice_open||0)+" • Weak Review "+fmt(qc.weak_review_start||0);
+        $("qyBuyerActivity").textContent=show("licensed_open");
+      }
       $("cInstalls").textContent=fmt(m.unique_installations);
       $("cDau").textContent=fmt(m.active_1d);
       $("cWau").textContent=fmt(m.active_7d);
