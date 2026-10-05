@@ -1,6 +1,6 @@
 (function(root){'use strict';
 
-const VERSION='2.23.2-shadow-worker';
+const VERSION='2.25.0-shadow-worker';
 const DOMAINS=['career','finance','love'];
 
 function normalizeRecords(records){
@@ -15,6 +15,8 @@ function normalizeRecords(records){
 }
 
 function summarize(x){
+  const career=x.domain==='career';
+
   return {
     domain:x.domain,
     changed:x.changed,
@@ -24,7 +26,32 @@ function summarize(x){
     linkCount:x.rc.samePlanetHouseLinks.length,
     sourceCount:x.rc.trace.sourceRefs.length,
     added:[...x.added],
-    removed:[...x.removed]
+    removed:[...x.removed],
+
+    /*
+      V2.25 controlled cutover payload:
+      structural fact only.
+      No provisional planet/house prose is sent to UI.
+    */
+    positions:career
+      ? x.rc.positions.map(p=>({
+          house:p.house,
+          role:p.role,
+          planet:p.planet
+        }))
+      : [],
+
+    samePlanetHouseLinks:career
+      ? x.rc.samePlanetHouseLinks.map(l=>({
+          planet:l.planet,
+          houses:[...l.houses],
+          verification:l.verification
+        }))
+      : [],
+
+    sourceRefs:career
+      ? [...x.rc.trace.sourceRefs]
+      : []
   };
 }
 
