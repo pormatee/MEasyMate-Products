@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HORAJARN V2.19 Multi-source Inspector</title>
+<style>
+body{font-family:system-ui,sans-serif;margin:0;background:#f5f2eb;color:#222}
+main{max-width:760px;margin:auto;padding:18px}
+.card{background:#fff;border-radius:16px;padding:16px;margin:12px 0}
+.pass{background:#dff7e7;color:#075d2b;padding:12px;border-radius:12px;font-weight:700}
+.fail{background:#ffe2e2;color:#8a1111;padding:12px;border-radius:12px;font-weight:700}
+select{width:100%;padding:12px;font-size:16px}
+pre{white-space:pre-wrap;word-break:break-word;background:#f3f3f3;padding:12px;border-radius:10px}
+</style>
+</head>
+<body>
+<main>
+<h1>HORAJARN • Multi-source Knowledge Inspector V2.19</h1>
+
+<p id="gate"></p>
+<p id="status"></p>
+
+<section class="card">
+<h2>Conflict Test</h2>
+
+<select id="mode">
+<option value="same">2 แหล่งสนับสนุนกัน</option>
+<option value="conflict">2 แหล่งขัดกัน</option>
+</select>
+
+<p><b id="summary"></b></p>
+<pre id="result"></pre>
+</section>
+
+</main>
+
+<script src="v2/multisource-knowledge-registry-v2.js"></script>
+<script src="multisource-knowledge-inspector-v2.js"></script>
+</body>
+</html>
