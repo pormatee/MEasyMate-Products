@@ -34,6 +34,7 @@ jobs:
           mkdir -p _site/report-pro
           mkdir -p _site/caption-studio
           mkdir -p _site/qingyun
+          mkdir -p _site/qingyun/commercial
           mkdir -p _site/hanasu
           mkdir -p _site/talknow
           mkdir -p _site/projects/talknow
@@ -67,6 +68,11 @@ jobs:
           cp projects/qingyun/index.html _site/qingyun/index.html
           cp projects/qingyun/analytics-config.js _site/qingyun/analytics-config.js
           cp projects/qingyun/project-notice.js _site/qingyun/project-notice.js
+          # QingYun Commercial V1
+          cp projects/qingyun/commercial/index.html _site/qingyun/commercial/index.html
+          cp projects/qingyun/commercial/analytics-config.js _site/qingyun/commercial/analytics-config.js
+          cp projects/qingyun/commercial/project-notice.js _site/qingyun/commercial/project-notice.js
+          cp projects/qingyun/commercial/sale-gate.js _site/qingyun/commercial/sale-gate.js
           cp projects/hanasu/index.html _site/hanasu/index.html
           cp projects/hanasu/project-notice.js _site/hanasu/project-notice.js
           cp projects/hanasu/analytics-config.js _site/hanasu/analytics-config.js
