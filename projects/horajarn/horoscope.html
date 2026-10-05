@@ -196,7 +196,22 @@ try{
   console.error('HORAJARN_V2_8_INTERPRETATION',e);
   showError('V2.8 interpretation: '+(e&&e.message?e.message:String(e)));
 }
-setTab('natal');setPage('result');updateVoiceStatus()}
+setTab('natal');setPage('result');updateVoiceStatus();
+/* HORAJARN_V2_23_PRODUCTION_SHADOW_HOOK */
+try{
+  const shadowPayload={records};
+  if(window.HorajarnProductionShadowV223){
+    HorajarnProductionShadowV223.capture(shadowPayload);
+  }else{
+    window.__HorajarnV223PendingShadow=shadowPayload;
+  }
+}catch(e){
+  console.warn(
+    'HORAJARN_V2_23_SHADOW',
+    e&&e.message?e.message:String(e)
+  );
+}
+}
 function focusSummary(items){return items.map(x=>`${x.title}: ดาว ${x.planet} ${x.planetName} เป็น${x.role}, จุดหลัก ${x.pos}. ${x.text} ช่วงเวลา ${x.when}`).join('\n')}
 function summaryText(){if(!current)return'';const {v,l,bp,t,records,mt,yearFocus,day}=current,yearD=periodDomains(v,t,'year'),monthD=periodDomains(v,t,'month');return `HORAJARN INTELLIGENCE V2.8.7\n${v.name} | ${v.d}/${v.m}/${v.yRaw}\n${lunarString(l)}\nดาวเกิด ${bp.planet} ${P[bp.planet].name}\n\nพื้นดวง: ${natalProSummary(current.natalPro)}\n\nดวงปีนี้: ${dominantNarrative(yearD)}\n${focusSummary(yearFocus)}\n\nเดือนนี้: ${dominantNarrative(monthD)}\n\nวันนี้: ${day.intro}\n${day.items.slice(1).map(x=>`${x.title}: ${x.text}`).join('\n')}\n\nดาวเสวยปัจจุบัน ${mt.main} ${P[mt.main].name} / ดาวแทรก ${mt.sub} ${P[mt.sub].name}\nเลขส่งเสริม: ${luckyNumbers(t,mt,records).join(', ')}\n\nใช้เพื่อการทบทวนตนเอง ข้อความสุขภาพไม่ใช่การวินิจฉัยหรือคำแนะนำทางการแพทย์`}
 async function copyResult(){const s=summaryText();if(!s)return;try{await navigator.clipboard.writeText(s)}catch{const ta=document.createElement('textarea');ta.value=s;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove()}const b=$('copyResult'),o=b.textContent;b.textContent='คัดลอกแล้ว ✓';setTimeout(()=>b.textContent=o,1200)}
@@ -210,5 +225,6 @@ function init(){buildSelectors();$('todayBadge').textContent=new Intl.DateTimeFo
 init();
 })();
 </script>
+<script src="v2/production-shadow-v2.js"></script>
 <script src="v2/horoscope-ui-adapter-v2.js"></script>
 </body></html>
