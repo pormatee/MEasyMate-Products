@@ -1,0 +1,1 @@
+(function(){"use strict";const TEST=new URLSearchParams(location.search).get("test")==="1";window.MEasyMateProjectNotices=[{id:"QINGYUN-COMMERCIAL-V1-TEST-001",scope:"qingyun",type:"info",title:"QingYun Commercial V1",message:"Commercial test mode • ยังไม่ใช่ Customer Release",start_at:null,end_at:null,priority:99,dismissible:true,test_only:true,enabled:TEST}]})();

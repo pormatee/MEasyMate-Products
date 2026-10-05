@@ -1,0 +1,2 @@
+/* QingYun Commercial V1 - anonymous app-open only */
+(function(global){"use strict";const A=global.MEasyMateAnalytics;if(!A)return;A.init({projectId:"qingyun",appVersion:"COMMERCIAL V1",dataSchemaVersion:null,localStatsEnabled:true,transportEnabled:true,endpoint:"https://measymate-central-analytics.onrender.com/v1/events",includeInstallId:true,retentionDays:90,allowEvents:["app_open"],allowMetaKeys:[]});A.track("app_open")})(window);
