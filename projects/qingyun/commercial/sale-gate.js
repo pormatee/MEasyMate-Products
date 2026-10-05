@@ -21,7 +21,8 @@
 
   const DAY=24*60*60*1000;
   const qs=new URLSearchParams(location.search);
-  const testMode=qs.get("test")==="1";
+  const LOCAL_TEST_HOSTS=new Set(["127.0.0.1","localhost","::1"]);
+  const testMode=LOCAL_TEST_HOSTS.has(location.hostname)&&qs.get("test")==="1";
   const forcedTrial=testMode?qs.get("trial"):null;
   let state=null;
   let entitlement=null;

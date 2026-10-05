@@ -70,8 +70,10 @@ else:
     print("SALE_GATE_JS_SYNTAX=PREVALIDATED_TEMPLATE")
 
 # Scope: dirty/untracked files must stay inside QingYun for this worktree.
-status=run("git","status","--porcelain").splitlines()
-paths=[x[3:] for x in status if len(x)>=4]
+# Do not parse porcelain columns because leading spaces can be stripped.
+modified=run("git","diff","--name-only").splitlines()
+untracked=run("git","ls-files","--others","--exclude-standard").splitlines()
+paths=[p for p in modified+untracked if "__pycache__/" not in p and not p.endswith(".pyc")]
 assert all(p.startswith("projects/qingyun/") for p in paths), paths
 
 print("QINGYUN_SALE_READY_STATIC_GATE=PASS")
@@ -85,3 +87,8 @@ print("FREE_BASELINE_UNTOUCHED=PASS")
 print("TTS_CORE_UNTOUCHED=PASS")
 print("SALE_LICENSE_ANDROID_GATE=UNVERIFIED")
 print("CUSTOMER_RELEASE=NO")
+
+# Production must not accept test query override.
+assert 'LOCAL_TEST_HOSTS=new Set([\"127.0.0.1\",\"localhost\",\"::1\"])' in j
+assert 'LOCAL_TEST_HOSTS.has(location.hostname)&&qs.get(\"test\")===\"1\"' in j
+print("PRODUCTION_TRIAL_OVERRIDE_GUARD=PASS")

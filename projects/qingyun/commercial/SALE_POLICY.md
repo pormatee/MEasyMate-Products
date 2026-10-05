@@ -22,6 +22,7 @@ KEY_ID: 5cfd0fb222332b17
 - License verification works offline after activation.
 - The first commercial release uses a local trial clock. Clearing all site data can restart a local-only trial; server-backed trial registry is deferred because it adds backend risk and is not required for the 79 THB launch.
 - Static-web licensing is a commercial deterrent, not tamper-proof DRM.
+- Trial override query parameters are accepted only on localhost / 127.0.0.1 field-test hosts; production URLs ignore them.
 
 ## Release rule
 Branch push is not Customer Release.
