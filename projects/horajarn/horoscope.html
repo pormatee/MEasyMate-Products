@@ -199,6 +199,12 @@ try{
 setTab('natal');setPage('result');updateVoiceStatus();
 /* HORAJARN_V2_23_PRODUCTION_SHADOW_HOOK */
 try{
+  window.__HorajarnLatestFactPayload={records,natalPro};
+  try{
+    window.dispatchEvent(
+      new CustomEvent('horajarn:facts-ready')
+    );
+  }catch(_){}
   const shadowPayload={records};
   if(window.HorajarnProductionShadowV223){
     HorajarnProductionShadowV223.capture(shadowPayload);
@@ -208,6 +214,44 @@ try{
 }catch(e){
   console.warn(
     'HORAJARN_V2_23_SHADOW',
+    e&&e.message?e.message:String(e)
+  );
+}
+
+/* HORAJARN_V2_26_NARRATIVE_FIELD_PREVIEW */
+try{
+  if(
+    location.search.includes('narrativeV226=1') ||
+    location.search.includes('narrativeV227=1')
+  ){
+    const narrativePayload={records};
+
+    if(window.HorajarnNarrativeFieldPreviewV2261){
+      window.HorajarnNarrativeFieldPreviewV2261.capture(
+        narrativePayload
+      );
+    }else{
+      window.__HorajarnV2261PendingNarrative=
+        narrativePayload;
+
+      if(
+        !document.getElementById(
+          'horajarn-v2261-preview-loader'
+        )
+      ){
+        const ns=document.createElement('script');
+
+        ns.id='horajarn-v2261-preview-loader';
+        ns.src=
+          'v2/narrative-field-preview-v2.js?v=2270';
+
+        document.body.appendChild(ns);
+      }
+    }
+  }
+}catch(e){
+  console.warn(
+    'HORAJARN_V2_26_1_PREVIEW',
     e&&e.message?e.message:String(e)
   );
 }
@@ -226,5 +270,142 @@ init();
 })();
 </script>
 <script src="v2/production-shadow-v2.js"></script>
+<!-- HORAJARN_V2_27_DIRECT_PREVIEW_LOADER -->
+<script>
+(function(){
+  const q=new URLSearchParams(location.search);
+
+  if(q.get('narrativeV227')!=='1')
+    return;
+
+  let applied=false;
+  let tries=0;
+
+  function badge(text,fail){
+    let b=document.getElementById('v227-loader-status');
+
+    if(!b){
+      b=document.createElement('div');
+      b.id='v227-loader-status';
+      b.style.cssText=[
+        'position:fixed',
+        'right:8px',
+        'top:8px',
+        'z-index:99999',
+        'padding:6px 9px',
+        'border-radius:9px',
+        'font:700 10px system-ui',
+        'background:'+(fail?'#ffdede':'#e8ffe9'),
+        'color:#222'
+      ].join(';');
+
+      document.body.appendChild(b);
+    }
+
+    b.textContent=text;
+  }
+
+  function ensurePreviewScript(){
+    if(window.HorajarnNarrativeFieldPreviewV227)
+      return;
+
+    if(document.getElementById('horajarn-v227-direct-loader'))
+      return;
+
+    const sc=document.createElement('script');
+    sc.id='horajarn-v227-direct-loader';
+    sc.src='v2/narrative-field-preview-v2.js?v=2273';
+
+    sc.onload=()=>{
+      badge('V2.27 LOADER READY',false);
+    };
+
+    sc.onerror=()=>{
+      badge('V2.27 SCRIPT FAIL',true);
+    };
+
+    document.body.appendChild(sc);
+  }
+
+  function tick(){
+    tries++;
+
+    ensurePreviewScript();
+
+    const api=window.HorajarnNarrativeFieldPreviewV227;
+    const facts=window.__HorajarnLatestFactPayload;
+
+    if(api && facts && !applied){
+      applied=true;
+
+      Promise.resolve(
+        api.capture(facts)
+      ).then(()=>{
+        badge('V2.27 PREVIEW APPLIED',false);
+      }).catch(e=>{
+        applied=false;
+        badge(
+          'V2.27 APPLY FAIL: '+(e&&e.message?e.message:e),
+          true
+        );
+      });
+    }
+
+    if(!applied && tries<120){
+      setTimeout(tick,250);
+    }else if(!applied){
+      badge('V2.27 WAIT FACTS TIMEOUT',true);
+    }
+  }
+
+  badge('V2.27 WAITING...',false);
+  tick();
+})();
+</script>
+
+<!-- HORAJARN_V2_28_FULL_NATAL_LOADER -->
+<script>
+(function(){
+  const q=new URLSearchParams(location.search);
+  if(q.get('natalV228')!=='1')return;
+  let loading=false;
+  function badge(text,fail){
+    let b=document.getElementById('v228-loader-status');
+    if(!b){
+      b=document.createElement('div');
+      b.id='v228-loader-status';
+      b.style.cssText='position:fixed;right:8px;top:8px;z-index:99999;padding:6px 9px;border-radius:9px;font:700 10px system-ui;color:#222';
+      document.body.appendChild(b);
+    }
+    b.style.background=fail?'#ffdede':'#e8ffe9';
+    b.textContent=text;
+  }
+  function ensure(){
+    if(window.HorajarnFullNatalFieldPreviewV228||loading)return;
+    loading=true;
+    const sc=document.createElement('script');
+    sc.src='v2/full-natal-field-preview-v2.js?v=2284';
+    sc.onload=()=>{loading=false;badge('V2.28.3 READY',false);apply();};
+    sc.onerror=()=>{loading=false;badge('V2.28.3 SCRIPT FAIL',true);};
+    document.body.appendChild(sc);
+  }
+  function apply(){
+    ensure();
+    const api=window.HorajarnFullNatalFieldPreviewV228;
+    const facts=window.__HorajarnLatestFactPayload;
+    if(api&&facts){
+      Promise.resolve(api.capture(facts)).then(()=>badge('V2.28.3 APPLIED',false)).catch(e=>badge('V2.28.3 APPLY FAIL: '+(e&&e.message?e.message:e),true));
+    }
+  }
+  window.addEventListener('horajarn:facts-ready',()=>setTimeout(apply,0));
+  badge('V2.28.3 WAITING...',false);
+  ensure();
+  let tries=0;
+  const timer=setInterval(()=>{
+    tries++; apply();
+    if(window.HorajarnFullNatalFieldPreviewV228&&window.__HorajarnLatestFactPayload||tries>120)clearInterval(timer);
+  },250);
+})();
+</script>
 <script src="v2/horoscope-ui-adapter-v2.js"></script>
 </body></html>

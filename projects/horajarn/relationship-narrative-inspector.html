@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+ content="width=device-width,initial-scale=1">
+<title>HORAJARN V2.26 Narrative Inspector</title>
+<style>
+body{
+  margin:0;
+  font-family:system-ui,sans-serif;
+  background:#f5f2eb;
+  color:#29222f
+}
+main{
+  max-width:760px;
+  margin:auto;
+  padding:18px
+}
+.card{
+  background:#fff;
+  border-radius:18px;
+  padding:16px;
+  margin:10px 0;
+  line-height:1.75
+}
+.pass{
+  padding:12px;
+  border-radius:14px;
+  background:#dff7e7;
+  color:#075d2b;
+  font-weight:800
+}
+.evidence{
+  font-size:12px;
+  color:#716977
+}
+p{
+  margin:0 0 16px
+}
+</style>
+</head>
+<body>
+<main>
+
+<h1>HORAJARN • V2.26.1</h1>
+<h2>Relationship Narrative Inspector</h2>
+
+<div id="gate"></div>
+
+<article class="card">
+  <h3>คำพยากรณ์ที่ผู้ใช้จะเห็น</h3>
+  <div id="reading"></div>
+</article>
+
+<article class="card evidence">
+  <h3>Evidence / Debug</h3>
+  <pre id="evidence"
+    style="white-space:pre-wrap"></pre>
+</article>
+
+</main>
+
+<script src="v2/knowledge-v1-foundation.js"></script>
+<script src="v2/multisource-knowledge-registry-v2.js"></script>
+<script src="v2/knowledge-source-registry-v2.js"></script>
+<script src="v2/knowledge-planets-batch1-v2.js"></script>
+<script src="v2/knowledge-source-registry-v2.1.js"></script>
+<script src="v2/knowledge-mega-batch2-v2.js"></script>
+<script src="rules/rules-v1.js"></script>
+<script src="v2/integrated-prediction-engine-v2.js"></script>
+<script src="v2/relationship-narrative-v2.js"></script>
+<script src="v2/natural-narrative-v2.js"></script>
+
+<script>
+(function(){
+  const H=[
+    'อัตตะ','หินะ','ธนัง','ปิตา','มาตา','โภคา','มัชฌิมา',
+    'ตนุ','กดุมภะ','สหัชชะ','พันธุ','ปุตตะ','อริ','ปัตนิ',
+    'มรณะ','ศุภะ','กัมมะ','ลาภะ','พยายะ','ทาสี','ทาสา'
+  ];
+
+  const palette=[1,2,4,5,8,9];
+
+  const o={
+    'โภคา':3,
+    'ตนุ':3,
+    'กัมมะ':3,
+
+    'หินะ':6,
+    'พันธุ':6,
+    'ทาสา':6,
+
+    'ธนัง':7,
+    'ปุตตะ':7,
+    'ทาสี':7
+  };
+
+  const facts={
+    records:H.map((name,i)=>({
+      name,
+      num:Object.prototype.hasOwnProperty.call(o,name)
+        ? o[name]
+        : palette[i%palette.length],
+      base:Math.floor(i/7)+1,
+      col:(i%7)+1
+    }))
+  };
+
+  const N=window.HorajarnNaturalNarrativeV2261;
+  const r=N.composeCareer(facts);
+
+  const gate=document.getElementById('gate');
+  gate.className='pass';
+  gate.textContent=
+    r.ok
+      ? 'FIELD PREVIEW READY • PUBLIC ASTRO TERMS HIDDEN'
+      : 'FIELD PREVIEW FAIL';
+
+  document.getElementById('reading').innerHTML=
+    r.paragraphs.map(
+      x=>'<p>'+x+'</p>'
+    ).join('');
+
+  document.getElementById('evidence').textContent=
+    JSON.stringify({
+      policy:r.analysis.policyMode,
+      primary:r.analysis.primary,
+      supports:r.analysis.supports,
+      primaryLinks:r.analysis.primaryLinks,
+      pairs:r.analysis.pairs,
+      examples:r.analysis.examples,
+      provenance:r.analysis.provenance,
+      productionCutover:r.productionCutover
+    },null,2);
+})();
+</script>
+
+</body>
+</html>
