@@ -66,6 +66,10 @@ run_test \
   "projects/horajarn/tests/customer-language-v2-test.js" \
   "V2284_REGRESSION"
 
+run_test \
+  "projects/horajarn/tests/full-natal-production-cutover-v2-test.js" \
+  "V229_REGRESSION"
+
 echo
 echo "=== AUTO QA MATRIX ==="
 node projects/horajarn/qa/horajarn-auto-qa-v2.js --report "$REPORT"
