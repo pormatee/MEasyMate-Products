@@ -387,6 +387,50 @@ main{
   .qyLevelCompact>.stack .small{font-size:8px!important}
 }
 
+
+/* QingYun ONE APP — Mobile readability typography */
+@media(max-width:760px){
+  /* Trial / access: readable but still compact */
+  #qyAccessBar .qyTrialBarText b{font-size:13px!important;font-weight:900}
+  #qyAccessBar .qyTrialBarText span{font-size:10.5px!important}
+  #qyAccessBar button{font-size:12px!important;font-weight:900}
+
+  /* Hero: keep headline strong, raise supporting text */
+  .homeCompact .homeHero .eyebrow{font-size:10.5px!important;letter-spacing:.04em}
+  .homeCompact .homeHero h1{font-size:22px!important;line-height:1.06!important}
+  .homeCompact .homeHero p{font-size:11.5px!important;line-height:1.3!important}
+  .homeCompact .homeHero .btn{font-size:13px!important;font-weight:900}
+
+  /* Current level: important labels must be readable at a glance */
+  .qyLevelCompact .title{font-size:17px!important;font-weight:950!important}
+  .qyLevelCompact>.between .tiny{font-size:10.5px!important}
+  .qyLevelCompact>.stack .small{font-size:10.5px!important;line-height:1.18!important;font-weight:850}
+  .qyLevelCompact>.stack .tiny{font-size:9.5px!important;line-height:1.15!important}
+
+  /* Mission card: Chinese stays dominant, Pinyin/Thai must remain comfortably readable */
+  .qyMissionKicker{font-size:10px!important;font-weight:900}
+  .qyHomeMission h2{font-size:20px!important;font-weight:950!important}
+  .qyMissionScene{font-size:11.5px!important;line-height:1.25!important}
+  .qyMissionPhrase .zh{font-size:22px!important;line-height:1.2!important;font-weight:950!important}
+  .qyMissionPhrase .py{font-size:12px!important;line-height:1.25!important;font-weight:800!important}
+  .qyMissionPhrase .th{font-size:13px!important;line-height:1.25!important;font-weight:800!important}
+  .qyMissionActions .btn{font-size:13px!important;font-weight:900!important}
+
+  /* Other important home headings */
+  .homeCompact section .sectionHead h2,
+  .homeCompact .card h2{font-size:18px!important}
+  .homeCompact .sectionHead span,
+  .homeCompact .subtitle{font-size:11px!important;line-height:1.3!important}
+}
+
+@media(max-width:390px){
+  .homeCompact .homeHero h1{font-size:21px!important}
+  .qyLevelCompact>.stack .small{font-size:10px!important}
+  .qyMissionPhrase .zh{font-size:21px!important}
+  .qyMissionPhrase .py{font-size:11.5px!important}
+  .qyMissionPhrase .th{font-size:12.5px!important}
+}
+
 </style>
 </head>
 <body>
