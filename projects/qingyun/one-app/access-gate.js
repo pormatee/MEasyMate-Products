@@ -116,12 +116,12 @@ function renderBar(){
   document.getElementById("qyAccessBar")?.remove();
   if(status==="FULL_LICENSED")return;
   const b=document.createElement("div");b.id="qyAccessBar";
-  b.style.cssText="position:fixed;z-index:1180;left:50%;transform:translateX(-50%);bottom:calc(max(env(safe-area-inset-bottom),10px) + 76px);width:min(900px,calc(100% - 20px));padding:8px 10px;border:1px solid var(--line,#ddd);border-radius:15px;background:color-mix(in srgb,var(--surface,#fff) 96%,transparent);box-shadow:0 10px 30px rgba(0,0,0,.16);display:flex;align-items:center;justify-content:space-between;gap:8px;font:11px system-ui";
+  b.style.cssText="position:relative;z-index:100;width:min(900px,calc(100% - 20px));margin:7px auto 2px;padding:7px 10px;border:1px solid var(--line,#ddd);border-radius:15px;background:color-mix(in srgb,var(--surface,#fff) 96%,transparent);box-shadow:0 10px 30px rgba(0,0,0,.16);display:flex;align-items:center;justify-content:space-between;gap:8px;font:11px system-ui";
   b.innerHTML=status==="FULL_TRIAL"
     ?`<div><b>ทดลองเต็มระบบ • เหลือ ${daysRemaining()} วัน</b><br><span style="color:var(--muted,#71717a)">1,200 คำ • 180 Missions • 150 ตัวอักษรจีน</span></div><button>ปลดล็อก</button>`
     :`<div><b>ใช้พื้นฐานต่อได้ตามปกติ</b><br><span style="color:var(--muted,#71717a)">185 คำ • 9 Missions • 30 ตัวอักษรจีน</span></div><button>Full Pack</button>`;
   const btn=b.querySelector("button");btn.style.cssText="border:0;border-radius:11px;padding:8px 10px;background:#b91c1c;color:#fff;font-weight:900";
-  btn.onclick=()=>{track("unlock_open");openPanel()};document.body.appendChild(b);
+  btn.onclick=()=>{track("unlock_open");openPanel()};const topbar=document.querySelector(".topbar");if(topbar)topbar.insertAdjacentElement("afterend",b);else document.body.appendChild(b);
 }
 const ready=(async()=>{
   state=load();updateClock();if(trialCreated)track("trial_started");
