@@ -1,0 +1,44 @@
+{
+  "product": "QingYun • 青云",
+  "model": "ONE_APP",
+  "baseMain": "1b508a7288870467b302f17fb2f22c7ada8b637a",
+  "trialDays": 7,
+  "full": {
+    "vocab": 1200,
+    "missions": 180,
+    "hanzi": 150
+  },
+  "limited": {
+    "vocab": 185,
+    "missions": 9,
+    "hanzi": 30
+  },
+  "missionTracks": {
+    "general": 54,
+    "travel": 54,
+    "work": 72
+  },
+  "learningCurve": [
+    "BASIC",
+    "PRACTICAL",
+    "REAL"
+  ],
+  "existingLicenseStorage": "qingyun_commercial_license_v1",
+  "progressStorage": "qingyun_one_app_v1",
+  "contentSource": {
+    "name": "sawcordwell/HSK-Vocab",
+    "license": "CC0-1.0",
+    "commit": "bd786242a80ca3af65515712b70493c39d369393",
+    "use": "Chinese/pinyin baseline"
+  },
+  "pinyinFallbackSource": {
+    "name": "mozillazg/pinyin-data",
+    "license": "MIT",
+    "commit": "9193766130af24d2ac54230be979b2e98ac66223",
+    "use": "single-character tone-marked fallback"
+  },
+  "release": {
+    "androidRealGate": "UNVERIFIED",
+    "customerRelease": false
+  }
+}
