@@ -116,10 +116,8 @@ function renderBar(){
   document.getElementById("qyAccessBar")?.remove();
   if(status==="FULL_LICENSED")return;
   const b=document.createElement("div");b.id="qyAccessBar";
-  b.style.cssText="position:static;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:10px;width:min(900px,calc(100% - 20px));margin:8px auto 6px;padding:6px 10px;border:1px solid rgba(170,0,0,.12);border-radius:18px;background:rgba(255,250,250,.96);box-shadow:0 10px 30px rgba(0,0,0,.08);backdrop-filter:blur(8px);font-family:inherit";
-  b.innerHTML=status==="FULL_TRIAL"
-    ?`<div><b>ทดลองเต็มระบบ • เหลือ ${daysRemaining()} วัน</b><br><span style="color:var(--muted,#71717a)">1,200 คำ • 180 Missions • 150 ตัวอักษรจีน</span></div><button>ปลดล็อก</button>`
-    :`<div><b>ใช้พื้นฐานต่อได้ตามปกติ</b><br><span style="color:var(--muted,#71717a)">185 คำ • 9 Missions • 30 ตัวอักษรจีน</span></div><button>Full Pack</button>`;
+  b.style.cssText="position:static;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:8px;width:min(900px,calc(100% - 20px));margin:5px auto 4px;padding:5px 8px;border:1px solid rgba(170,0,0,.10);border-radius:14px;background:rgba(255,250,250,.97);box-shadow:0 6px 16px rgba(0,0,0,.06);backdrop-filter:blur(8px);font-family:inherit";
+  b.innerHTML=status==="FULL_TRIAL"?`<div class="qyTrialBarText"><b>ทดลองเต็ม • เหลือ ${daysRemaining()} วัน</b><span>Full Access</span></div><button>ปลดล็อก</button>`:`<div class="qyTrialBarText"><b>โหมดพื้นฐาน</b><span>185 คำ • 9 Missions • 30 Hanzi</span></div><button>Full Pack</button>`;
   const btn=b.querySelector("button");btn.style.cssText="border:0;border-radius:11px;padding:8px 10px;background:#b91c1c;color:#fff;font-weight:900";
   btn.onclick=()=>{track("unlock_open");openPanel()};const mountBar=()=>{const topbar=document.querySelector(".topbar");if(topbar&&topbar.parentNode){topbar.insertAdjacentElement("afterend",b);return true}const main=document.querySelector("main");if(main&&main.parentNode){main.parentNode.insertBefore(b,main);return true}return false};const bootMount=()=>{if(!mountBar()){requestAnimationFrame(()=>{if(!mountBar())document.body.insertBefore(b,document.body.firstChild)})}};if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",bootMount,{once:true});else bootMount();
 }
