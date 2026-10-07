@@ -431,6 +431,30 @@ main{
   .qyMissionPhrase .th{font-size:12.5px!important}
 }
 
+
+/* QingYun ONE APP — Focus mode: no sales UI while actively learning */
+body.focusMode #qyAccessBar{
+  display:none!important;
+}
+body.focusMode main{
+  padding-top:10px!important;
+  padding-bottom:calc(28px + env(safe-area-inset-bottom))!important;
+}
+body.focusMode .focusHead,
+body.focusMode .missionTop{
+  scroll-margin-top:8px;
+}
+@media(max-width:760px){
+  body.focusMode main{
+    padding-bottom:calc(20px + env(safe-area-inset-bottom))!important;
+  }
+  body.focusMode .studyShell,
+  body.focusMode .missionShell,
+  body.focusMode .practiceShell{
+    margin-top:0!important;
+  }
+}
+
 </style>
 </head>
 <body>
