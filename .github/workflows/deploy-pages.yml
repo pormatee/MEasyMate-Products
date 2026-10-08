@@ -66,6 +66,10 @@ jobs:
           cp projects/caption-studio/sw.js _site/caption-studio/sw.js
           cp projects/caption-studio/analytics-config.js _site/caption-studio/analytics-config.js
           cp projects/qingyun/index.html _site/qingyun/index.html
+          cp projects/qingyun/access-gate.js _site/qingyun/access-gate.js
+          cp projects/qingyun/vocab-data.js _site/qingyun/vocab-data.js
+          cp projects/qingyun/missions-data.js _site/qingyun/missions-data.js
+          cp projects/qingyun/hanzi-data.js _site/qingyun/hanzi-data.js
           cp projects/qingyun/analytics-config.js _site/qingyun/analytics-config.js
           cp projects/qingyun/project-notice.js _site/qingyun/project-notice.js
           # QingYun Commercial V1
