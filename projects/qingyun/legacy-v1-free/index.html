@@ -6,8 +6,8 @@
 <meta name="theme-color" content="#991b1b" />
 <meta name="measymate-project-id" content="qingyun" />
 <meta name="application-name" content="QingYun - ชิงยุน (青云) by MEasyMate" />
-<meta name="description" content="QingYun - ชิงยุน (青云) — เรียนจีนสำหรับคนไทย เน้นชีวิตประจำวัน ท่องเที่ยว และการทำงาน ด้วย QingYun Thai Bridge" />
-<title>QingYun • 青云 — เรียนจีนสำหรับคนไทย</title>
+<meta name="description" content="QingYun - ชิงยุน (青云) V1 FREE — เรียนจีนสำหรับคนไทยด้วย QingYun Thai Bridge: Pinyin, โทน, อักษรจำง่าย, ลำดับขีด และทบทวนจุดอ่อน" />
+<title>QingYun - ชิงยุน (青云) • V1 FREE</title>
 <style>
 :root{
   --bg:#f7f7f8;--surface:#fff;--surface2:#fafafa;--ink:#18181b;--muted:#71717a;--line:#e4e4e7;
@@ -49,7 +49,7 @@ main{max-width:920px;margin:auto;padding:18px 14px calc(var(--navh) + 62px + env
 @media(max-width:420px){.strokeDemo{grid-template-columns:100px 1fr}.strokeSvg{width:100px;height:84px}.readZh{font-size:27px}}
 
 
-/* QingYun Thai Bridge — One App UX Core */
+/* QingYun Thai Bridge — V1 FREE UX Core */
 .bridgeBand{padding:14px;border-radius:18px;background:linear-gradient(135deg,var(--brandSoft),var(--surface));border:1px solid color-mix(in srgb,var(--brand) 20%,var(--line))}
 .bridgeTitle{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:950}
 .bridgeFlow{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:11px}
@@ -189,7 +189,7 @@ body.focusMode main{padding-top:8px;padding-bottom:14px}
 }
 
 
-/* QingYun Writing Fix 2 — cumulative strokes + no vertical look-back */
+/* V1 FREE Writing Fix 2 — cumulative strokes + no vertical look-back */
 .writeDuo{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:9px}
 .writePane{min-width:0}
 .writePaneTitle{text-align:center;font-size:11px;font-weight:900;color:var(--muted);margin-bottom:5px}
@@ -314,169 +314,21 @@ main{
   .qyMissionPhrase .th{font-size:11.5px}
 }
 
-
-/* QingYun ONE APP Android UX hotfix */
-@media(max-width:760px){
-  main{padding-bottom:calc(var(--navh) + 28px + env(safe-area-inset-bottom))}
-  .homeCompact{gap:7px}
-  .homeCompact .homeHero{padding:10px 13px}
-  .homeCompact .homeHero h1{font-size:23px;line-height:1.08;margin:3px 0}
-  .homeCompact .homeHero p{font-size:11px;line-height:1.3;margin:3px 0}
-  .homeCompact .homeHero .row{margin-top:7px!important}
-  .homeCompact .homeHero .btn{min-height:38px;padding:6px 11px}
-  .qyLevelCompact{padding:9px 11px}
-  .qyLevelCompact .title{font-size:17px}
-  .qyLevelCompact>.stack{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px!important;margin-top:8px!important}
-  .qyLevelCompact>.stack>div{min-width:0;padding:7px 6px;border:1px solid var(--line);border-radius:12px;background:var(--surface2)}
-  .qyLevelCompact>.stack .between{display:block}
-  .qyLevelCompact>.stack .small{display:block;font-size:9.5px;line-height:1.2}
-  .qyLevelCompact>.stack .tiny{display:block;font-size:9px;margin-top:3px}
-  .qyLevelCompact>.stack .progress{height:5px;margin-top:5px!important}
-  .qyHomeMission{padding:11px}
-  .qyHomeMission h2{font-size:20px;margin:5px 0 1px}
-  .qyMissionPhrase{margin-top:7px;padding:8px}
-  .qyMissionPhrase .zh{font-size:19px;line-height:1.25}
-  .qyMissionPhrase .py{font-size:10px}
-  .qyMissionPhrase .th{font-size:11px}
-  .qyMissionActions{margin-top:7px}
-}
-
-
-/* QingYun ONE APP — Mission-first mobile viewport V2 */
-@media(max-width:760px){
-  #qyAccessBar{min-height:38px!important}
-  #qyAccessBar .qyTrialBarText{display:flex;align-items:center;gap:6px;min-width:0;white-space:nowrap}
-  #qyAccessBar .qyTrialBarText b{font-size:11.5px;line-height:1}
-  #qyAccessBar .qyTrialBarText span{font-size:9px;color:var(--muted,#71717a)}
-  #qyAccessBar button{padding:6px 9px!important;border-radius:9px!important;font-size:10.5px!important}
-
-  .homeCompact{gap:5px!important}
-  .homeCompact .homeHero{padding:7px 11px!important;border-radius:20px}
-  .homeCompact .homeHero .eyebrow{font-size:9px!important}
-  .homeCompact .homeHero h1{font-size:20px!important;line-height:1.02!important;margin:2px 0!important}
-  .homeCompact .homeHero p{font-size:9.5px!important;line-height:1.18!important;margin:2px 0!important}
-  .homeCompact .homeHero .row{margin-top:5px!important}
-  .homeCompact .homeHero .btn{min-height:32px!important;padding:5px 9px!important;font-size:11.5px!important}
-
-  .qyLevelCompact{padding:6px 8px!important;border-radius:18px}
-  .qyLevelCompact>.between>.badge{padding:3px 6px!important;font-size:9px!important}
-  .qyLevelCompact .title{font-size:14px!important;line-height:1.05}
-  .qyLevelCompact>.between .tiny{font-size:8.5px!important}
-  .qyLevelCompact>.stack{gap:4px!important;margin-top:5px!important}
-  .qyLevelCompact>.stack>div{padding:4px 5px!important;border-radius:9px!important}
-  .qyLevelCompact>.stack .small{font-size:8.3px!important;line-height:1.08!important}
-  .qyLevelCompact>.stack .tiny{font-size:7.8px!important;margin-top:1px!important}
-  .qyLevelCompact>.stack .progress{height:3px!important;margin-top:3px!important}
-
-  .qyHomeMission{padding:8px!important;border-radius:18px}
-  .qyMissionKicker{font-size:8.3px!important;padding:3px 6px!important}
-  .qyHomeMission h2{font-size:17px!important;line-height:1.03!important;margin:3px 0 1px!important}
-  .qyMissionScene{font-size:9px!important}
-  .qyMissionPhrase{margin-top:5px!important;padding:6px!important;border-radius:13px!important}
-  .qyMissionPhrase .zh{font-size:17px!important;line-height:1.15!important}
-  .qyMissionPhrase .py{font-size:8.7px!important;margin-top:2px!important}
-  .qyMissionPhrase .th{font-size:9.5px!important;margin-top:2px!important}
-  .qyMissionActions{margin-top:5px!important;gap:5px!important}
-  .qyMissionActions .btn{min-height:36px!important;padding:5px 7px!important;font-size:11px!important}
-
-  main{padding-bottom:calc(var(--navh) + 90px + env(safe-area-inset-bottom))!important}
-}
-@media(max-width:390px){
-  #qyAccessBar .qyTrialBarText span{display:none}
-  .homeCompact .homeHero h1{font-size:19px!important}
-  .qyLevelCompact>.stack .small{font-size:8px!important}
-}
-
-
-/* QingYun ONE APP — Mobile readability typography */
-@media(max-width:760px){
-  /* Trial / access: readable but still compact */
-  #qyAccessBar .qyTrialBarText b{font-size:13px!important;font-weight:900}
-  #qyAccessBar .qyTrialBarText span{font-size:10.5px!important}
-  #qyAccessBar button{font-size:12px!important;font-weight:900}
-
-  /* Hero: keep headline strong, raise supporting text */
-  .homeCompact .homeHero .eyebrow{font-size:10.5px!important;letter-spacing:.04em}
-  .homeCompact .homeHero h1{font-size:22px!important;line-height:1.06!important}
-  .homeCompact .homeHero p{font-size:11.5px!important;line-height:1.3!important}
-  .homeCompact .homeHero .btn{font-size:13px!important;font-weight:900}
-
-  /* Current level: important labels must be readable at a glance */
-  .qyLevelCompact .title{font-size:17px!important;font-weight:950!important}
-  .qyLevelCompact>.between .tiny{font-size:10.5px!important}
-  .qyLevelCompact>.stack .small{font-size:10.5px!important;line-height:1.18!important;font-weight:850}
-  .qyLevelCompact>.stack .tiny{font-size:9.5px!important;line-height:1.15!important}
-
-  /* Mission card: Chinese stays dominant, Pinyin/Thai must remain comfortably readable */
-  .qyMissionKicker{font-size:10px!important;font-weight:900}
-  .qyHomeMission h2{font-size:20px!important;font-weight:950!important}
-  .qyMissionScene{font-size:11.5px!important;line-height:1.25!important}
-  .qyMissionPhrase .zh{font-size:22px!important;line-height:1.2!important;font-weight:950!important}
-  .qyMissionPhrase .py{font-size:12px!important;line-height:1.25!important;font-weight:800!important}
-  .qyMissionPhrase .th{font-size:13px!important;line-height:1.25!important;font-weight:800!important}
-  .qyMissionActions .btn{font-size:13px!important;font-weight:900!important}
-
-  /* Other important home headings */
-  .homeCompact section .sectionHead h2,
-  .homeCompact .card h2{font-size:18px!important}
-  .homeCompact .sectionHead span,
-  .homeCompact .subtitle{font-size:11px!important;line-height:1.3!important}
-}
-
-@media(max-width:390px){
-  .homeCompact .homeHero h1{font-size:21px!important}
-  .qyLevelCompact>.stack .small{font-size:10px!important}
-  .qyMissionPhrase .zh{font-size:21px!important}
-  .qyMissionPhrase .py{font-size:11.5px!important}
-  .qyMissionPhrase .th{font-size:12.5px!important}
-}
-
-
-/* QingYun ONE APP — Focus mode: no sales UI while actively learning */
-body.focusMode #qyAccessBar{
-  display:none!important;
-}
-body.focusMode main{
-  padding-top:10px!important;
-  padding-bottom:calc(28px + env(safe-area-inset-bottom))!important;
-}
-body.focusMode .focusHead,
-body.focusMode .missionTop{
-  scroll-margin-top:8px;
-}
-@media(max-width:760px){
-  body.focusMode main{
-    padding-bottom:calc(20px + env(safe-area-inset-bottom))!important;
-  }
-  body.focusMode .studyShell,
-  body.focusMode .missionShell,
-  body.focusMode .practiceShell{
-    margin-top:0!important;
-  }
-}
-
 </style>
 </head>
 <body>
 <div id="app" class="app">
   <header class="topbar"><div class="topin">
-    <div class="brand"><div class="logo"><img src="/shared/brand/measymate-logo.jpg" alt="MEasyMate" onerror="if(!this.dataset.fallback){this.dataset.fallback='1';this.src='https://raw.githubusercontent.com/pormatee/MEasyMate-Products/main/shared/brand/measymate-logo.jpg'}else{this.style.display='none';this.nextElementSibling.style.display='grid'}"><div class="logoFallback">M</div></div><div><div class="brandName">QingYun </div><div class="brandSub">ชิงยุน (青云) • ชีวิต • ท่องเที่ยว • การทำงาน</div></div></div>
+    <div class="brand"><div class="logo"><img src="../../shared/brand/measymate-logo.jpg" alt="MEasyMate" onerror="if(!this.dataset.fallback){this.dataset.fallback='1';this.src='https://raw.githubusercontent.com/pormatee/MEasyMate-Products/main/shared/brand/measymate-logo.jpg'}else{this.style.display='none';this.nextElementSibling.style.display='grid'}"><div class="logoFallback">M</div></div><div><div class="brandName">QingYun <span style="font-size:9px;padding:3px 6px;border-radius:999px;background:var(--brandSoft);color:var(--brand);vertical-align:middle">FREE</span></div><div class="brandSub">ชิงยุน (青云) • V1 FREE • by MEasyMate</div></div></div>
     <div class="row"><span id="topXp" class="topXp"></span><button id="themeBtn" class="iconbtn" aria-label="เปลี่ยนธีม">🌙</button></div>
   </div></header>
   <main id="view"></main>
   <nav id="bottomNav" class="bottomNav" aria-label="เมนูหลัก"></nav>
   <div id="toast" class="toast hidden"></div>
 </div>
-<script src="./access-gate.js"></script>
-<script src="./vocab-data.js"></script>
-<script src="./missions-data.js"></script>
-<script src="./hanzi-data.js"></script>
 <script>
-QingYunAccess.ready.then(()=>{
-
-const RAW_VOCAB = (window.QingYunAccess.isFull()?window.QingYunVocab:window.QingYunVocab.slice(0,185));
-
-const CATEGORIES = [{"id":"general","th":"ชีวิตประจำวัน","icon":"🏠"},{"id":"travel","th":"ท่องเที่ยว","icon":"✈️"},{"id":"work","th":"การทำงาน","icon":"🏭"}];
+const RAW_VOCAB = [["你好", "nǐ hǎo", "สวัสดี", "greet", 1, 7], ["您好", "nín hǎo", "สวัสดี (สุภาพ)", "greet", 2, 8], ["谢谢", "xièxie", "ขอบคุณ", "greet", 1, 12], ["不客气", "bú kèqi", "ไม่เป็นไร ยินดี", "greet", 2, 12], ["再见", "zàijiàn", "ลาก่อน", "greet", 1, 12], ["对不起", "duìbuqǐ", "ขอโทษ", "greet", 2, 10], ["没关系", "méi guānxi", "ไม่เป็นไร", "greet", 2, 12], ["请问", "qǐngwèn", "ขอถามหน่อย", "greet", 2, 12], ["你叫什么名字", "nǐ jiào shénme míngzì", "คุณชื่ออะไร", "greet", 1, 14], ["我叫...", "wǒ jiào...", "ฉันชื่อ...", "greet", 1, 8], ["很高兴认识你", "hěn gāoxìng rènshi nǐ", "ยินดีที่ได้รู้จัก", "greet", 2, 18], ["你好吗", "nǐ hǎo ma", "สบายดีไหม", "greet", 1, 8], ["我很好", "wǒ hěn hǎo", "ฉันสบายดี", "greet", 1, 9], ["早上好", "zǎoshang hǎo", "อรุณสวัสดิ์", "greet", 2, 12], ["晚上好", "wǎnshang hǎo", "สวัสดีตอนเย็น", "greet", 2, 14], ["好久不见", "hǎo jiǔ bú jiàn", "ไม่ได้เจอกันนาน", "greet", 3, 12], ["欢迎", "huānyíng", "ยินดีต้อนรับ", "greet", 3, 14], ["祝你生日快乐", "zhù nǐ shēngrì kuàilè", "สุขสันต์วันเกิด", "greet", 3, 16], ["没问题", "méi wèntí", "ไม่มีปัญหา", "greet", 2, 12], ["请", "qǐng", "เชิญ/กรุณา", "greet", 2, 10], ["一", "yī", "หนึ่ง", "numbers", 1, 1], ["二", "èr", "สอง", "numbers", 1, 2], ["三", "sān", "สาม", "numbers", 1, 3], ["四", "sì", "สี่", "numbers", 1, 5], ["五", "wǔ", "ห้า", "numbers", 1, 4], ["六", "liù", "หก", "numbers", 1, 4], ["七", "qī", "เจ็ด", "numbers", 1, 2], ["八", "bā", "แปด", "numbers", 1, 2], ["九", "jiǔ", "เก้า", "numbers", 1, 2], ["十", "shí", "สิบ", "numbers", 1, 2], ["零", "líng", "ศูนย์", "numbers", 1, 13], ["百", "bǎi", "ร้อย", "numbers", 2, 6], ["千", "qiān", "พัน", "numbers", 2, 3], ["现在几点", "xiànzài jǐ diǎn", "ตอนนี้กี่โมง", "numbers", 2, 14], ["今天", "jīntiān", "วันนี้", "numbers", 1, 8], ["明天", "míngtiān", "พรุ่งนี้", "numbers", 1, 8], ["昨天", "zuótiān", "เมื่อวาน", "numbers", 1, 9], ["年", "nián", "ปี", "numbers", 1, 6], ["月", "yuè", "เดือน", "numbers", 1, 4], ["星期", "xīngqī", "สัปดาห์", "numbers", 2, 16], ["家", "jiā", "บ้าน/ครอบครัว", "family", 1, 10], ["爸爸", "bàba", "พ่อ", "family", 1, 8], ["妈妈", "māma", "แม่", "family", 1, 8], ["哥哥", "gēge", "พี่ชาย", "family", 2, 10], ["姐姐", "jiějie", "พี่สาว", "family", 2, 10], ["弟弟", "dìdi", "น้องชาย", "family", 2, 7], ["妹妹", "mèimei", "น้องสาว", "family", 2, 8], ["朋友", "péngyou", "เพื่อน", "family", 2, 12], ["孩子", "háizi", "ลูก", "family", 2, 9], ["老公", "lǎogōng", "สามี", "family", 3, 16], ["老婆", "lǎopo", "ภรรยา", "family", 3, 16], ["爷爷", "yéye", "ปู่/ตา", "family", 3, 12], ["奶奶", "nǎinai", "ย่า/ยาย", "family", 3, 10], ["爱", "ài", "รัก", "family", 2, 10], ["人", "rén", "คน", "family", 1, 2], ["水", "shuǐ", "น้ำ", "food", 1, 4], ["茶", "chá", "ชา", "food", 1, 9], ["咖啡", "kāfēi", "กาแฟ", "food", 3, 14], ["米饭", "mǐfàn", "ข้าวสวย", "food", 2, 12], ["面条", "miàntiáo", "บะหมี่", "food", 2, 14], ["好吃", "hǎo chī", "อร่อย", "food", 2, 12], ["喝", "hē", "ดื่ม", "food", 1, 12], ["吃", "chī", "กิน", "food", 1, 6], ["饿", "è", "หิว", "food", 2, 10], ["饱", "bǎo", "อิ่ม", "food", 3, 8], ["辣", "là", "เผ็ด", "food", 3, 14], ["甜", "tián", "หวาน", "food", 3, 11], ["啤酒", "píjiǔ", "เบียร์", "food", 3, 16], ["鸡蛋", "jīdàn", "ไข่ไก่", "food", 2, 14], ["肉", "ròu", "เนื้อ", "food", 2, 6], ["鱼", "yú", "ปลา", "food", 2, 8], ["菜", "cài", "กับข้าว/ผัก", "food", 2, 11], ["筷子", "kuàizi", "ตะเกียบ", "food", 3, 18], ["买单", "mǎidān", "เช็คบิล", "food", 3, 16], ["菜单", "càidān", "เมนู", "food", 3, 18], ["多少钱", "duōshao qián", "ราคาเท่าไหร่", "shopping", 2, 14], ["便宜", "piányi", "ถูก", "shopping", 2, 12], ["贵", "guì", "แพง", "shopping", 2, 9], ["买", "mǎi", "ซื้อ", "shopping", 1, 6], ["卖", "mài", "ขาย", "shopping", 2, 8], ["可以便宜一点吗", "kěyǐ piányi yìdiǎn ma", "ลดได้อีกไหม", "shopping", 3, 18], ["我要这个", "wǒ yào zhège", "ฉันเอาอันนี้", "shopping", 2, 10], ["付款", "fùkuǎn", "จ่ายเงิน", "shopping", 3, 12], ["太贵了", "tài guì le", "แพงเกินไป", "shopping", 2, 10], ["打折", "dǎzhé", "ลดราคา", "shopping", 3, 10], ["钱", "qián", "เงิน", "shopping", 2, 10], ["商店", "shāngdiàn", "ร้านค้า", "shopping", 3, 16], ["试试", "shìshi", "ลองดู", "shopping", 3, 10], ["大", "dà", "ใหญ่", "shopping", 1, 3], ["小", "xiǎo", "เล็ก", "shopping", 1, 3], ["厕所在哪里", "cèsuǒ zài nǎlǐ", "ห้องน้ำอยู่ไหน", "travel", 2, 16], ["地铁", "dìtiě", "รถไฟใต้ดิน", "travel", 2, 14], ["酒店", "jiǔdiàn", "โรงแรม", "travel", 2, 16], ["怎么走", "zěnme zǒu", "ไปอย่างไร", "travel", 2, 10], ["车站", "chēzhàn", "สถานี", "travel", 2, 14], ["票", "piào", "ตั๋ว", "travel", 2, 11], ["护照", "hùzhào", "พาสปอร์ต", "travel", 3, 18], ["飞机", "fēijī", "เครื่องบิน", "travel", 2, 18], ["出租车", "chūzūchē", "แท็กซี่", "travel", 2, 14], ["左边", "zuǒbiān", "ซ้าย", "travel", 2, 10], ["右边", "yòubiān", "ขวา", "travel", 2, 10], ["前面", "qiánmiàn", "ข้างหน้า", "travel", 2, 12], ["后面", "hòumiàn", "ข้างหลัง", "travel", 2, 12], ["附近", "fùjìn", "ใกล้ๆ", "travel", 3, 12], ["地图", "dìtú", "แผนที่", "travel", 3, 14], ["学习", "xuéxí", "เรียน", "study", 2, 16], ["工作", "gōngzuò", "ทำงาน", "study", 2, 14], ["学校", "xuéxiào", "โรงเรียน", "study", 2, 16], ["老师", "lǎoshī", "คุณครู", "study", 1, 12], ["学生", "xuésheng", "นักเรียน", "study", 1, 12], ["中文", "Zhōngwén", "ภาษาจีน", "study", 2, 8], ["英文", "Yīngwén", "ภาษาอังกฤษ", "study", 2, 8], ["书", "shū", "หนังสือ", "study", 1, 4], ["电脑", "diànnǎo", "คอมพิวเตอร์", "study", 2, 14], ["手机", "shǒujī", "มือถือ", "study", 2, 12], ["公司", "gōngsī", "บริษัท", "study", 3, 12], ["会议", "huìyì", "ประชุม", "study", 3, 16], ["忙", "máng", "ยุ่ง", "study", 2, 6], ["休息", "xiūxi", "พักผ่อน", "study", 3, 12], ["会", "huì", "จะ/สามารถ", "study", 2, 6], ["高兴", "gāoxìng", "ดีใจ", "emotion", 2, 18], ["生气", "shēngqì", "โกรธ", "emotion", 2, 12], ["累", "lèi", "เหนื่อย", "emotion", 2, 10], ["生病", "shēngbìng", "ป่วย", "emotion", 3, 14], ["头", "tóu", "หัว", "emotion", 2, 5], ["手", "shǒu", "มือ", "emotion", 1, 4], ["心", "xīn", "หัวใจ", "emotion", 2, 4], ["喜欢", "xǐhuan", "ชอบ", "emotion", 1, 14], ["想", "xiǎng", "คิดถึง/อยาก", "emotion", 2, 13], ["怕", "pà", "กลัว", "emotion", 2, 8], ["开心", "kāixīn", "มีความสุข", "emotion", 2, 12], ["难过", "nánguò", "เศร้า", "emotion", 3, 18], ["身体", "shēntǐ", "ร่างกาย", "emotion", 3, 14], ["眼睛", "yǎnjing", "ตา", "emotion", 3, 16], ["笑", "xiào", "ยิ้ม/หัวเราะ", "emotion", 2, 10], ["我", "wǒ", "ฉัน", "hsk1", 1, 7], ["你", "nǐ", "คุณ", "hsk1", 1, 7], ["他", "tā", "เขา (ชาย)", "hsk1", 1, 5], ["她", "tā", "เขา (หญิง)", "hsk1", 1, 6], ["们", "men", "พวก", "hsk1", 1, 5], ["这", "zhè", "นี่", "hsk1", 1, 7], ["那", "nà", "นั่น", "hsk1", 1, 6], ["哪", "nǎ", "ไหน", "hsk1", 1, 9], ["谁", "shéi", "ใคร", "hsk1", 1, 10], ["什么", "shénme", "อะไร", "hsk1", 1, 14], ["怎么", "zěnme", "อย่างไร", "hsk1", 1, 12], ["为什么", "wèishénme", "ทำไม", "hsk1", 1, 9], ["吗", "ma", "ไหม (คำถาม)", "hsk1", 1, 6], ["呢", "ne", "ล่ะ", "hsk1", 1, 8], ["也", "yě", "ก็ด้วย", "hsk1", 1, 3], ["都", "dōu", "ทั้งหมด", "hsk1", 1, 10], ["很", "hěn", "มาก", "hsk1", 1, 9], ["太", "tài", "เกินไป", "hsk1", 1, 4], ["和", "hé", "และ", "hsk1", 1, 8], ["但是", "dànshì", "แต่", "hsk1", 1, 10], ["的", "de", "ของ", "hsk1", 1, 8], ["了", "le", "แล้ว", "hsk1", 1, 2], ["过", "guò", "เคย", "hsk1", 1, 6], ["在", "zài", "อยู่ที่", "hsk1", 1, 6], ["有", "yǒu", "มี", "hsk1", 1, 6], ["是", "shì", "คือ/เป็น", "hsk1", 1, 9], ["不", "bù", "ไม่", "hsk1", 1, 4], ["没", "méi", "ไม่ (อดีต)", "hsk1", 1, 7], ["要", "yào", "ต้องการ/จะ", "hsk1", 1, 9], ["会", "huì", "จะ/เป็น", "hsk1", 1, 6], ["就", "jiù", "ก็/แล้วก็", "hsk2", 2, 12], ["才", "cái", "เพิ่งจะ/ถึงจะ", "hsk2", 2, 3], ["还", "hái", "ยัง", "hsk2", 2, 7], ["已经", "yǐjīng", "...แล้ว", "hsk2", 2, 10], ["正在", "zhèngzài", "กำลัง...อยู่", "hsk2", 2, 12], ["一起", "yìqǐ", "ด้วยกัน", "hsk2", 2, 10], ["一下", "yíxià", "แป๊บหนึ่ง", "hsk2", 2, 6], ["一些", "yìxiē", "บางส่วน", "hsk2", 2, 8], ["比如", "bǐrú", "เช่น", "hsk2", 2, 10], ["除了", "chúle", "นอกจาก", "hsk2", 2, 12], ["虽然", "suīrán", "ถึงแม้ว่า", "hsk2", 2, 16], ["如果", "rúguǒ", "ถ้า", "hsk2", 2, 14], ["因为", "yīnwèi", "เพราะว่า", "hsk2", 2, 12], ["所以", "suǒyǐ", "ดังนั้น", "hsk2", 2, 12], ["觉得", "juéde", "รู้สึกว่า", "hsk2", 2, 16], ["知道", "zhīdào", "รู้", "hsk2", 2, 12], ["认识", "rènshi", "รู้จัก", "hsk2", 2, 14], ["希望", "xīwàng", "หวังว่า", "hsk2", 2, 16], ["准备", "zhǔnbèi", "เตรียม", "hsk2", 2, 14], ["开始", "kāishǐ", "เริ่ม", "hsk2", 2, 12]];
+const CATEGORIES = [{"id": "greet", "th": "ทักทาย", "icon": "👋"}, {"id": "numbers", "th": "ตัวเลข-เวลา", "icon": "🔢"}, {"id": "family", "th": "ครอบครัว", "icon": "👨‍👩‍👧"}, {"id": "food", "th": "อาหาร", "icon": "🍜"}, {"id": "shopping", "th": "ช้อปปิ้ง", "icon": "🛍️"}, {"id": "travel", "th": "เดินทาง", "icon": "✈️"}, {"id": "study", "th": "เรียน-ทำงาน", "icon": "💼"}, {"id": "emotion", "th": "อารมณ์-ร่างกาย", "icon": "💖"}, {"id": "hsk1", "th": "HSK 1", "icon": "📘"}, {"id": "hsk2", "th": "HSK 2", "icon": "📚"}];
 const CURATED_EXAMPLES = {"你好": [["你好，很高兴认识你！", "Nǐ hǎo, hěn gāoxìng rènshi nǐ!", "สวัสดี ยินดีที่ได้รู้จัก"], ["你好吗？", "Nǐ hǎo ma?", "คุณสบายดีไหม"]], "谢谢": [["谢谢你的帮助。", "Xièxie nǐ de bāngzhù.", "ขอบคุณสำหรับความช่วยเหลือ"], ["谢谢！", "Xièxie!", "ขอบคุณ!"]], "再见": [["明天见，再见！", "Míngtiān jiàn, zàijiàn!", "พรุ่งนี้เจอกัน ลาก่อน"], ["再见！", "Zàijiàn!", "ลาก่อน!"]], "学习": [["我每天学习中文。", "Wǒ měitiān xuéxí Zhōngwén.", "ฉันเรียนภาษาจีนทุกวัน"], ["我们一起学习吧。", "Wǒmen yìqǐ xuéxí ba.", "มาเรียนด้วยกันเถอะ"]], "工作": [["我在公司工作。", "Wǒ zài gōngsī gōngzuò.", "ฉันทำงานที่บริษัท"], ["今天工作很忙。", "Jīntiān gōngzuò hěn máng.", "วันนี้งานยุ่งมาก"]], "多少钱": [["这个多少钱？", "Zhège duōshao qián?", "อันนี้ราคาเท่าไหร่"], ["一共多少钱？", "Yígòng duōshao qián?", "ทั้งหมดเท่าไหร่"]], "厕所在哪里": [["请问，厕所在哪里？", "Qǐngwèn, cèsuǒ zài nǎlǐ?", "ขอถามหน่อย ห้องน้ำอยู่ที่ไหน"], ["厕所在前面。", "Cèsuǒ zài qiánmiàn.", "ห้องน้ำอยู่ข้างหน้า"]]};
 const PHRASES = [
  {zh:'你好，很高兴认识你！',py:'Nǐ hǎo, hěn gāoxìng rènshi nǐ!',th:'สวัสดี ยินดีที่ได้รู้จัก'},
@@ -560,7 +412,18 @@ const PINYIN_TONES = [
 ];
 
 
-const HANZI_MEMORY=(window.QingYunAccess.isFull()?window.QingYunHanzi:window.QingYunHanzi.slice(0,30));
+const HANZI_MEMORY = [
+ {char:'人',py:'rén',th:'คน',structure:'อักษรเดี่ยว',parts:['人 = คน'],story:'มองเป็นคนสองขากำลังก้าวเดิน',note:'ภาพจำเพื่อการเรียน ไม่ใช่คำอธิบายรากศัพท์เต็มรูปแบบ'},
+ {char:'大',py:'dà',th:'ใหญ่',structure:'อักษรเดี่ยว',parts:['人 + กางแขน'],story:'คนกางแขนออกกว้าง ๆ → “ใหญ่”',note:'ใช้รูปร่างช่วยจำ'},
+ {char:'木',py:'mù',th:'ต้นไม้/ไม้',structure:'อักษรเดี่ยว',parts:['เส้นตั้ง = ลำต้น','เส้นเฉียง = กิ่ง'],story:'เห็นลำต้นตรงกลางและกิ่งแผ่ออกสองข้าง → ต้นไม้',note:'ใช้ภาพโครงสร้างช่วยจำ'},
+ {char:'林',py:'lín',th:'ป่าเล็ก/ดง',structure:'ซ้าย–ขวา',parts:['木 ต้นไม้','木 ต้นไม้'],story:'ต้นไม้ 2 ต้นอยู่ด้วยกัน → 林 = ดง/ป่า',note:'การประกอบตัวช่วยให้จำความหมาย'},
+ {char:'休',py:'xiū',th:'พัก',structure:'ซ้าย–ขวา',parts:['亻 คน','木 ต้นไม้'],story:'คนเอนอยู่ข้างต้นไม้ → พัก',note:'เป็น mnemonic ที่ช่วยจำส่วนประกอบ'},
+ {char:'明',py:'míng',th:'สว่าง',structure:'ซ้าย–ขวา',parts:['日 ดวงอาทิตย์','月 ดวงจันทร์'],story:'อาทิตย์ + จันทร์ → สว่าง',note:'ใช้ส่วนประกอบเป็นภาพจำ'},
+ {char:'好',py:'hǎo',th:'ดี',structure:'ซ้าย–ขวา',parts:['女','子'],story:'จำเป็นคู่ 女 + 子 = 好 แล้วผูกกับคำว่า “ดี”',note:'ใช้เป็น mnemonic; ไม่อ้างว่าเป็นที่มาทางประวัติศาสตร์ทั้งหมด'},
+ {char:'看',py:'kàn',th:'ดู/มอง',structure:'บน–ล่าง',parts:['手 มือ','目 ตา'],story:'เอามือบังเหนือดวงตาเพื่อมองไกล → 看',note:'ภาพจำจากส่วนประกอบ'},
+ {char:'问',py:'wèn',th:'ถาม',structure:'นอก–ใน',parts:['门 ประตู','口 ปาก'],story:'ปากอยู่ที่ประตู → เปิดปากถาม',note:'ภาพจำเพื่อการเรียน'},
+ {char:'家',py:'jiā',th:'บ้าน/ครอบครัว',structure:'บน–ล่าง',parts:['宀 หลังคา','豕 ส่วนล่าง'],story:'จำรูปหลังคาไว้ก่อน → 家 คือบ้าน',note:'ไม่ใช้ mnemonic แทนการอธิบายรากศัพท์เชิงวิชาการ'}
+];
 
 const STROKE_PACK = [
  {char:'一',py:'yī',th:'หนึ่ง',memory:'เส้นเดียวจากซ้ายไปขวา',strokes:[
@@ -626,49 +489,51 @@ const GRAMMAR = [
  {name:'因为...所以...',level:'ต่อยอด 2',meaning:'เพราะว่า...ดังนั้น...',formula:'因为 + เหตุผล， 所以 + ผลลัพธ์',thai:'ใช้เชื่อมเหตุและผล ค่อยเรียนหลังจากพื้นฐานด้านบน',exampleZh:'因为下雨，所以我不去。',examplePy:'Yīnwèi xià yǔ, suǒyǐ wǒ bú qù.',exampleTh:'เพราะฝนตก ดังนั้นฉันไม่ไป',tip:'คิดเป็น 2 ช่อง: เพราะอะไร? → ผลคืออะไร?',quiz:'___下雨，所以我不去。',answer:'因为',choices:['因为','但是','如果'],why:'ด้านหลังมี 所以 = ดังนั้น ด้านหน้าจึงใช้ 因为 = เพราะว่า'}
 ];
 
-const COMMERCIAL_LEVELS=[{"id":1,"key":"BASIC","title":"พื้นฐาน","sub":"เริ่มจากประโยคสั้นที่ใช้บ่อย"},{"id":2,"key":"PRACTICAL","title":"ใช้จริง","sub":"ต่อยอดในสถานการณ์ประจำวัน"},{"id":3,"key":"REAL","title":"สถานการณ์จริง","sub":"แก้ปัญหาและสนทนาต่อเนื่อง"}];
-const MISSIONS=(window.QingYunAccess.isFull()?window.QingYunMissions:window.QingYunMissions.filter(m=>m.limited));
-
+const MISSIONS=[
+{id:'d1',path:'daily',icon:'👋',title:'แนะนำตัว',scene:'พบคนจีนครั้งแรก',target:['你好，我叫____。很高兴认识你。','Nǐ hǎo, wǒ jiào ____. Hěn gāoxìng rènshi nǐ.','สวัสดี ฉันชื่อ____ ยินดีที่ได้รู้จัก'],chunks:[['你好','Nǐ hǎo','สวัสดี'],['我叫____','Wǒ jiào ____','ฉันชื่อ____'],['很高兴认识你','Hěn gāoxìng rènshi nǐ','ยินดีที่ได้รู้จัก']],trap:'叫 jiào = ชื่อว่า และเป็นเสียง 4',npc:['你好！你叫什么名字？','Nǐ hǎo! Nǐ jiào shénme míngzi?','สวัสดี คุณชื่ออะไร'],choices:[['我叫____。很高兴认识你。','ฉันชื่อ____ ยินดีที่ได้รู้จัก'],['我要这个。','ฉันเอาอันนี้'],['厕所在哪里？','ห้องน้ำอยู่ที่ไหน']],rescue:['请再说一遍。','Qǐng zài shuō yí biàn.','กรุณาพูดอีกครั้ง']},
+{id:'d2',path:'daily',icon:'☕',title:'สั่งเครื่องดื่ม',scene:'สั่งกาแฟในร้าน',target:['我要一杯咖啡，谢谢。','Wǒ yào yì bēi kāfēi, xièxie.','ฉันเอากาแฟหนึ่งแก้ว ขอบคุณ'],chunks:[['我要','Wǒ yào','ฉันต้องการ'],['一杯咖啡','Yì bēi kāfēi','กาแฟหนึ่งแก้ว'],['谢谢','Xièxie','ขอบคุณ']],trap:'一杯 อ่าน yì bēi เพราะ 一 เปลี่ยนเสียงตามคำถัดไป',npc:['你好，请问你要什么？','Nǐ hǎo, qǐngwèn nǐ yào shénme?','สวัสดี รับอะไรดี'],choices:[['我要一杯咖啡，谢谢。','ฉันเอากาแฟหนึ่งแก้ว ขอบคุณ'],['我在公司工作。','ฉันทำงานที่บริษัท'],['明天见。','พรุ่งนี้เจอกัน']],rescue:['这个怎么说？','Zhège zěnme shuō?','อันนี้พูดว่าอย่างไร']},
+{id:'d3',path:'daily',icon:'🔁',title:'ขอให้พูดอีกครั้ง',scene:'อีกฝ่ายพูดเร็วเกินไป',target:['不好意思，请再说一遍。','Bù hǎoyìsi, qǐng zài shuō yí biàn.','ขอโทษนะ กรุณาพูดอีกครั้ง'],chunks:[['不好意思','Bù hǎoyìsi','ขอโทษ/ขออภัย'],['请','Qǐng','กรุณา'],['再说一遍','Zài shuō yí biàn','พูดอีกครั้ง']],trap:'一遍 อ่าน yí biàn เพราะ 遍 เป็นเสียง 4',npc:['下一站是人民广场，请提前准备下车。','Xià yí zhàn shì Rénmín Guǎngchǎng, qǐng tíqián zhǔnbèi xià chē.','สถานีถัดไปคือจัตุรัสประชาชน กรุณาเตรียมลงรถ'],choices:[['不好意思，请再说一遍。','ขอโทษนะ กรุณาพูดอีกครั้ง'],['我很高兴。','ฉันดีใจมาก'],['太贵了。','แพงเกินไป']],rescue:['请说慢一点。','Qǐng shuō màn yìdiǎn.','กรุณาพูดช้าลงหน่อย']},
+{id:'w1',path:'work',icon:'⚙️',title:'เครื่องจักรหยุด',scene:'แจ้งปัญหาในไลน์ผลิต',target:['机器停了，请检查一下。','Jīqì tíng le, qǐng jiǎnchá yíxià.','เครื่องจักรหยุดแล้ว กรุณาตรวจสอบหน่อย'],chunks:[['机器','Jīqì','เครื่องจักร'],['停了','Tíng le','หยุดแล้ว'],['请检查一下','Qǐng jiǎnchá yíxià','กรุณาตรวจสอบหน่อย']],trap:'了 le บอกการเปลี่ยนสภาพว่า “หยุดแล้ว”',npc:['怎么了？','Zěnme le?','เกิดอะไรขึ้น'],choices:[['机器停了，请检查一下。','เครื่องจักรหยุดแล้ว กรุณาตรวจสอบหน่อย'],['我要一杯茶。','ฉันเอาชาหนึ่งแก้ว'],['我家在前面。','บ้านฉันอยู่ข้างหน้า']],rescue:['这里有问题。','Zhèlǐ yǒu wèntí.','ตรงนี้มีปัญหา']},
+{id:'w2',path:'work',icon:'🔎',title:'ขอให้ตรวจอีกครั้ง',scene:'ตรวจงานซ้ำก่อนส่งต่อ',target:['请再检查一下。','Qǐng zài jiǎnchá yíxià.','กรุณาตรวจอีกครั้งหน่อย'],chunks:[['请','Qǐng','กรุณา'],['再检查','Zài jiǎnchá','ตรวจอีกครั้ง'],['一下','Yíxià','สักหน่อย']],trap:'一下 ทำให้คำขอนุ่มลง ไม่ฟังเป็นคำสั่งแข็ง ๆ',npc:['需要我做什么？','Xūyào wǒ zuò shénme?','ต้องการให้ฉันทำอะไร'],choices:[['请再检查一下。','กรุณาตรวจอีกครั้งหน่อย'],['我不认识他。','ฉันไม่รู้จักเขา'],['我想休息。','ฉันอยากพัก']],rescue:['请看这里。','Qǐng kàn zhèlǐ.','กรุณาดูตรงนี้']},
+{id:'w3',path:'work',icon:'⚠️',title:'พบชิ้นงานเสีย',scene:'รายงานผลตรวจในงานผลิต',target:['我们发现了不良品。','Wǒmen fāxiàn le bùliángpǐn.','พวกเราพบชิ้นงานเสีย'],chunks:[['我们','Wǒmen','พวกเรา'],['发现了','Fāxiàn le','พบแล้ว'],['不良品','Bùliángpǐn','ชิ้นงานเสีย']],trap:'不良品 เป็นคำงานผลิต หมายถึงชิ้นงานที่ไม่ผ่านเกณฑ์',npc:['检查结果怎么样？','Jiǎnchá jiéguǒ zěnmeyàng?','ผลตรวจเป็นอย่างไร'],choices:[['我们发现了不良品。','พวกเราพบชิ้นงานเสีย'],['这个很好吃。','อันนี้อร่อยมาก'],['我去酒店。','ฉันไปโรงแรม']],rescue:['请确认一下。','Qǐng quèrèn yíxià.','กรุณายืนยัน/ตรวจให้แน่ใจหน่อย']},
+{id:'t1',path:'travel',icon:'🚉',title:'ถามทางไปสถานี',scene:'ถามคนในพื้นที่',target:['请问，车站在哪里？','Qǐngwèn, chēzhàn zài nǎlǐ?','ขอถามหน่อย สถานีอยู่ที่ไหน'],chunks:[['请问','Qǐngwèn','ขอถามหน่อย'],['车站','Chēzhàn','สถานี'],['在哪里','Zài nǎlǐ','อยู่ที่ไหน']],trap:'请问 เป็นคำเปิดประโยคสุภาพ ใช้ก่อนถามคนแปลกหน้า',npc:['你好，需要帮忙吗？','Nǐ hǎo, xūyào bāngmáng ma?','สวัสดี ต้องการความช่วยเหลือไหม'],choices:[['请问，车站在哪里？','ขอถามหน่อย สถานีอยู่ที่ไหน'],['我有一本书。','ฉันมีหนังสือหนึ่งเล่ม'],['我很忙。','ฉันยุ่งมาก']],rescue:['可以帮我吗？','Kěyǐ bāng wǒ ma?','ช่วยฉันได้ไหม']},
+{id:'t2',path:'travel',icon:'🚆',title:'รถขบวนนี้ไปสนามบินไหม',scene:'เช็กเส้นทางก่อนขึ้นรถ',target:['请问，这趟车去机场吗？','Qǐngwèn, zhè tàng chē qù jīchǎng ma?','ขอถามหน่อย รถขบวนนี้ไปสนามบินไหม'],chunks:[['请问','Qǐngwèn','ขอถามหน่อย'],['这趟车','Zhè tàng chē','รถขบวนนี้'],['去机场吗','Qù jīchǎng ma','ไปสนามบินไหม']],trap:'趟 tàng ใช้เป็นลักษณนามของเที่ยว/ขบวนการเดินทาง',npc:['你好，你要去哪里？','Nǐ hǎo, nǐ yào qù nǎlǐ?','สวัสดี คุณจะไปไหน'],choices:[['请问，这趟车去机场吗？','รถขบวนนี้ไปสนามบินไหม'],['我要这个。','ฉันเอาอันนี้'],['我会说中文。','ฉันพูดภาษาจีนเป็น']],rescue:['机场怎么走？','Jīchǎng zěnme zǒu?','ไปสนามบินอย่างไร']},
+{id:'t3',path:'travel',icon:'🏨',title:'เช็กอินโรงแรม',scene:'มาถึงโรงแรมที่จองไว้',target:['你好，我有预订。我要办理入住。','Nǐ hǎo, wǒ yǒu yùdìng. Wǒ yào bànlǐ rùzhù.','สวัสดี ฉันมีการจองไว้ ฉันต้องการเช็กอิน'],chunks:[['我有预订','Wǒ yǒu yùdìng','ฉันมีการจองไว้'],['我要','Wǒ yào','ฉันต้องการ'],['办理入住','Bànlǐ rùzhù','ดำเนินการเช็กอิน']],trap:'办理入住 คือทำขั้นตอนเช็กอิน ส่วน 入住 หมายถึงเข้าพัก',npc:['您好，欢迎光临。请问有预订吗？','Nín hǎo, huānyíng guānglín. Qǐngwèn yǒu yùdìng ma?','สวัสดี ยินดีต้อนรับ มีการจองไว้ไหม'],choices:[['我有预订。我要办理入住。','ฉันมีการจองไว้ ฉันต้องการเช็กอิน'],['我想喝水。','ฉันอยากดื่มน้ำ'],['这个多少钱？','อันนี้ราคาเท่าไหร่']],rescue:['我不会说中文。','Wǒ bú huì shuō Zhōngwén.','ฉันพูดภาษาจีนไม่เป็น']}
+];
 const MISSION_PATHS=[
-{id:'daily',icon:'☀️',title:'ชีวิตประจำวัน',sub:'ชีวิตประจำวัน • จากพื้นฐานสู่สถานการณ์จริง'},
-{id:'work',icon:'🏭',title:'การทำงาน',sub:'โรงงาน • Production • Quality • Safety • Maintenance'},
-{id:'travel',icon:'✈️',title:'การเดินทาง',sub:'สนามบิน • โรงแรม • เดินทาง • แก้ปัญหา'}];
+{id:'daily',icon:'☀️',title:'ชีวิตประจำวัน',sub:'ทักทาย • สั่งของ • ฟังไม่ทัน'},
+{id:'work',icon:'🏭',title:'การทำงาน',sub:'เครื่องจักร • ตรวจงาน • ของเสีย'},
+{id:'travel',icon:'✈️',title:'การเดินทาง',sub:'ถามทาง • รถ • โรงแรม'}];
 
 function missionDone(id){return !!(state.missions&&state.missions[id]&&state.missions[id].done)}
 function missionDoneCount(){return MISSIONS.filter(m=>missionDone(m.id)).length}
-function qyTrack(event){try{return !!window.MEasyMateAnalytics?.track(event)}catch(_){return false}}
 function nextMissionId(){return (MISSIONS.find(m=>!missionDone(m.id))||MISSIONS[0]).id}
-function missionLevelDone(level){return MISSIONS.filter(m=>m.level===level&&missionDone(m.id)).length}
-function missionLevelTotal(level){return MISSIONS.filter(m=>m.level===level).length}
-function currentCommercialLevel(){return (COMMERCIAL_LEVELS.find(l=>missionLevelDone(l.id)<missionLevelTotal(l.id))||COMMERCIAL_LEVELS[COMMERCIAL_LEVELS.length-1])}
-function openMission(id){stopSpeech();qyTrack('mission_start');activeMissionId=id;missionStep=1;missionSelected=null;tab='mission';renderAll();scrollTo({top:0,behavior:'smooth'})}
+function openMission(id){stopSpeech();activeMissionId=id;missionStep=1;missionSelected=null;tab='mission';renderAll();scrollTo({top:0,behavior:'smooth'})}
 function closeMission(){stopSpeech();activeMissionId=null;missionStep=1;missionSelected=null;renderAll();scrollTo({top:0,behavior:'smooth'})}
 function missionPrev(){stopSpeech();if(missionStep<=1)return closeMission();missionStep--;missionSelected=null;renderAll();scrollTo({top:0,behavior:'smooth'})}
-function answerMission(i){if(i!==0)qyTrack('mission_answer_retry');missionSelected=i;renderAll();toast(i===0?'ถูกต้อง • ไปต่อได้เลย':'ยังไม่ตรงสถานการณ์ ลองอีกครั้ง')}
-function missionNext(){stopSpeech();if(missionStep===3&&missionSelected!==0){toast('เลือกคำตอบที่เหมาะกับสถานการณ์ก่อน');return}if(missionStep>=5)return completeMission();missionStep++;missionSelected=null;renderAll();scrollTo({top:0,behavior:'smooth'})}
-function seedMissionSrs(m){if(!m||!Array.isArray(m.vocab))return;m.vocab.forEach(h=>{const w=VOCAB.find(v=>v.hanzi===h);if(!w)return;const old=state.srs[w.id];if(!old||old.reps===0)state.srs[w.id]={reps:1,interval:1,ease:2.5,due:dateOffset(1),lapses:old?.lapses||0}})}
-function completeMission(){const m=MISSIONS.find(x=>x.id===activeMissionId);if(!m)return;const old=missionDone(m.id);state.missions=state.missions||{};state.missions[m.id]={done:true,completedAt:new Date().toISOString(),flow:"COMMERCIAL_5_STEP"};seedMissionSrs(m);if(!old){qyTrack('mission_complete');if([1,2,3,4].includes(Number(m.level))&&missionLevelDone(m.level)===missionLevelTotal(m.level))qyTrack(`level_${m.level}_complete`);activity(true,25,'general')}else save(false);activeMissionId=null;missionStep=1;missionSelected=null;renderAll();scrollTo({top:0,behavior:'smooth'});toast(old?'Mission นี้ผ่านแล้ว':'ผ่าน Mission แล้ว • คำสำคัญเข้า SRS')}
+function answerMission(i){missionSelected=i;renderAll();toast(i===0?'ถูกต้อง • ไปต่อได้เลย':'ยังไม่ตรงสถานการณ์ ลองอีกครั้ง')}
+function missionNext(){stopSpeech();if(missionStep===3&&missionSelected!==0){toast('เลือกคำตอบที่เหมาะกับสถานการณ์ก่อน');return}if(missionStep>=4)return completeMission();missionStep++;missionSelected=null;renderAll();scrollTo({top:0,behavior:'smooth'})}
+function completeMission(){const m=MISSIONS.find(x=>x.id===activeMissionId);if(!m)return;const old=missionDone(m.id);state.missions=state.missions||{};state.missions[m.id]={done:true,completedAt:new Date().toISOString()};if(!old)activity(true,25,'general');else save(false);activeMissionId=null;missionStep=1;missionSelected=null;renderAll();scrollTo({top:0,behavior:'smooth'});toast(old?'Mission นี้ผ่านแล้ว':'ผ่าน Mission แล้ว • +25 XP')}
 function mission(){
  if(activeMissionId)return missionDetail();
  const done=missionDoneCount(),next=nextMissionId();
- return `<div class="stack"><section class="missionHero"><div class="between"><div><div class="eyebrow">QINGYUN MISSION PATH</div><h1>ชีวิต • ท่องเที่ยว • การทำงาน</h1></div><div class="missionScore">${done}<small>/${MISSIONS.length}</small></div></div><p>ทุกกลุ่มเริ่มจากพื้นฐาน → ใช้จริง → สถานการณ์จริง • 5 ขั้น: ฟัง → Thai Bridge → ตอบ → พูด/เอาตัวรอด → SRS</p><button class="btn" style="background:#fff;color:#991b1b;margin-top:14px" onclick="openMission('${next}')">▶ Mission ถัดไป</button></section>
- ${MISSION_PATHS.map(p=>{const pm=MISSIONS.filter(m=>m.path===p.id);if(!pm.length)return'';const pd=pm.filter(m=>missionDone(m.id)).length;return `<section><div class="sectionHead"><div><h2>${p.icon} ${p.title}</h2><span>${p.sub}</span></div><b class="small">${pd}/${pm.length}</b></div>${COMMERCIAL_LEVELS.map(l=>{const ms=pm.filter(m=>m.level===l.id);if(!ms.length)return'';return `<div style="margin:10px 0 16px"><div class="between" style="margin-bottom:7px"><b class="small">${l.key} • ${l.title}</b><span class="tiny muted">${ms.filter(m=>missionDone(m.id)).length}/${ms.length}</span></div><div class="missionGrid">${ms.map((m,i)=>`<button class="card missionCard ${missionDone(m.id)?'done':''}" onclick="openMission('${m.id}')"><div class="missionNum">${missionDone(m.id)?'✓':i+1}</div><div><b>${m.icon} ${m.title}</b><p>${m.scene}</p></div><span class="chev">›</span></button>`).join('')}</div></div>`}).join('')}</section>`}).join('')}</div>`;
+ return `<div class="stack"><section class="missionHero"><div class="between"><div><div class="eyebrow">QingYun Conversation Mission V1</div><h1>พูดจีนให้สำเร็จ<br>ทีละสถานการณ์</h1></div><div class="missionScore">${done}<small>/9</small></div></div><p>4 ขั้น: ประโยคจริง → แยกให้คนไทยเข้าใจ → ตอบในบทสนทนา → Rescue Phrase</p><button class="btn" style="background:#fff;color:#991b1b;margin-top:14px" onclick="openMission('${next}')">▶ Mission ถัดไป</button></section>
+ ${MISSION_PATHS.map(p=>{const ms=MISSIONS.filter(m=>m.path===p.id),pc=ms.filter(m=>missionDone(m.id)).length;return `<section><div class="sectionHead"><div><h2>${p.icon} ${p.title}</h2><span>${p.sub}</span></div><b class="small">${pc}/${ms.length}</b></div><div class="missionGrid">${ms.map((m,i)=>`<button class="card missionCard ${missionDone(m.id)?'done':''}" onclick="openMission('${m.id}')"><div class="missionNum">${missionDone(m.id)?'✓':i+1}</div><div><b>${m.title}</b><p>${m.scene}</p></div><span class="chev">›</span></button>`).join('')}</div></section>`}).join('')}</div>`
 }
 function missionDetail(){
  const m=MISSIONS.find(x=>x.id===activeMissionId);if(!m)return mission();
  let body='';
- if(missionStep===1)body=`<div class="missionLabel">STEP 1 • ฟังจริง → ฟังช้า → พูดตาม</div><div class="missionTarget"><div class="zh missionZh">${m.target[0]}</div><div class="pinyin">${m.target[1]}</div><div class="missionThai">${m.target[2]}</div></div><div class="listenRow"><button class="roundAudio" onclick="speak('${safeJs(m.target[0])}',.9)">🔊</button><button class="roundAudio" onclick="speak('${safeJs(m.target[0])}',.6)">🐢</button></div><div class="missionTip">ฟังปกติก่อน → ฟังช้า → พูดตามทั้งประโยค</div>`;
- else if(missionStep===2)body=`<div class="missionLabel">STEP 2 • Thai Bridge</div><div class="chunkList">${m.chunks.map(c=>`<button class="chunk" onclick="speak('${safeJs(c[0])}',.68)"><span class="zh">${c[0]}</span><b>${c[1]}</b><small>${c[2]}</small><em>🔊</em></button>`).join('')}</div><div class="trapBox"><b>🇹🇭 Thai Trap / Tone</b><p>${m.trap}</p></div><div class="missionTip"><b>ออกเสียงที่คนไทยควรระวัง:</b> ${m.pronounce}</div>`;
- else if(missionStep===3)body=`<div class="missionLabel">STEP 3 • ฟังคนจีน → เลือกคำตอบ</div><div class="chatBubble npc"><div class="tiny muted">อีกฝ่ายพูด</div><div class="zh">${m.npc[0]}</div><div class="tiny">${m.npc[1]}</div><div class="tiny muted">${m.npc[2]}</div><button class="btn smallbtn softbtn" style="margin-top:8px" onclick="speak('${safeJs(m.npc[0])}',.82)">🔊 ฟัง</button></div><div class="missionChoices">${m.choices.map((c,i)=>`<button class="missionChoice ${missionSelected===i?(i===0?'correct':'wrong'):''}" onclick="answerMission(${i})"><span class="zh">${c[0]}</span><em>${c[1]}</em></button>`).join('')}</div>${missionSelected===0?'<div class="missionOK">✓ ตอบได้ตรงสถานการณ์แล้ว</div>':missionSelected!==null?'<div class="missionRetry">ลองดูความหมายแล้วเลือกใหม่</div>':''}`;
- else if(missionStep===4)body=`<div class="missionLabel">STEP 4 • พูดตอบ + Rescue Phrase</div><div class="rescueCard"><div class="rescueIcon">🗣️</div><div class="tiny muted">พูด Target Phrase อีกครั้ง แล้วจำประโยคช่วยชีวิตนี้</div><div class="zh missionZh">${m.rescue[0]}</div><div class="pinyin">${m.rescue[1]}</div><div class="missionThai">${m.rescue[2]}</div><div class="listenRow"><button class="roundAudio" onclick="speak('${safeJs(m.target[0])}',.82)">🎯</button><button class="roundAudio" onclick="speak('${safeJs(m.rescue[0])}',.72)">🛟</button></div></div><div class="missionTip">Speech Recognition เป็นโบนัสเท่านั้น • Core Mission จบได้แบบ Local-first</div>`;
- else body=`<div class="missionLabel">STEP 5 • Review → Vocab / Grammar / SRS</div><div class="rescueCard"><div class="tiny muted">คำสำคัญของ Mission</div><div class="componentChips" style="justify-content:center">${m.vocab.map(v=>`<span>${v}</span>`).join('')}</div><div class="missionTip" style="text-align:left"><b>Grammar / Pattern</b><br>${m.grammar}</div><div class="missionTip">เมื่อกด “ผ่าน Mission” คำที่มีในคลังคำศัพท์จะถูกส่งเข้าคิว SRS สำหรับวันถัดไปอัตโนมัติ</div></div>`;
- const pct=missionStep*20;
- return `<div class="studyShell"><div class="focusHead compact"><button class="focusBack" onclick="missionPrev()">‹</button><div class="focusHeadText"><h2>${m.icon} ${m.title}</h2><p>LEVEL ${m.level} • ${m.scene}</p></div></div><div class="sessionBar"><span class="tiny muted">${missionStep}/5</span><div class="progress"><i style="width:${pct}%"></i></div><span class="tiny muted">${pct}%</span></div><section class="card missionStage">${body}</section><div class="missionNav"><button class="btn softbtn" onclick="missionPrev()">${missionStep===1?'กลับรายการ':'ย้อนกลับ'}</button><button class="btn primary" onclick="missionNext()">${missionStep===5?(missionDone(m.id)?'กลับรายการ':'✓ ผ่าน Mission'):'ต่อไป →'}</button></div></div>`
+ if(missionStep===1)body=`<div class="missionLabel">STEP 1 • ประโยคที่จะใช้จริง</div><div class="missionTarget"><div class="zh missionZh">${m.target[0]}</div><div class="pinyin">${m.target[1]}</div><div class="missionThai">${m.target[2]}</div></div><div class="listenRow"><button class="roundAudio" onclick="speak('${safeJs(m.target[0])}',.6)">🐢</button><button class="roundAudio" onclick="speak('${safeJs(m.target[0])}',.9)">🔊</button></div><div class="missionTip">ฟัง → อ่าน Pinyin → พูดตามทั้งประโยค</div>`;
+ else if(missionStep===2)body=`<div class="missionLabel">STEP 2 • แยกให้คนไทยเข้าใจ</div><div class="chunkList">${m.chunks.map(c=>`<button class="chunk" onclick="speak('${safeJs(c[0])}',.68)"><span class="zh">${c[0]}</span><b>${c[1]}</b><small>${c[2]}</small><em>🔊</em></button>`).join('')}</div><div class="trapBox"><b>🇹🇭 Thai Trap</b><p>${m.trap}</p></div>`;
+ else if(missionStep===3)body=`<div class="missionLabel">STEP 3 • คนจีนพูด → ถึงตาคุณ</div><div class="chatBubble npc"><div class="tiny muted">อีกฝ่ายพูด</div><div class="zh">${m.npc[0]}</div><div class="tiny">${m.npc[1]}</div><div class="tiny muted">${m.npc[2]}</div><button class="btn smallbtn softbtn" style="margin-top:8px" onclick="speak('${safeJs(m.npc[0])}',.82)">🔊 ฟัง</button></div><div class="missionChoices">${m.choices.map((c,i)=>`<button class="missionChoice ${missionSelected===i?(i===0?'correct':'wrong'):''}" onclick="answerMission(${i})"><span class="zh">${c[0]}</span><em>${c[1]}</em></button>`).join('')}</div>${missionSelected===0?'<div class="missionOK">✓ ตอบได้ตรงสถานการณ์แล้ว</div>':missionSelected!==null?'<div class="missionRetry">ลองดูความหมายแล้วเลือกใหม่</div>':''}`;
+ else body=`<div class="missionLabel">STEP 4 • Rescue Phrase</div><div class="rescueCard"><div class="rescueIcon">🛟</div><div class="tiny muted">ถ้าติดขัด ใช้ประโยคนี้</div><div class="zh missionZh">${m.rescue[0]}</div><div class="pinyin">${m.rescue[1]}</div><div class="missionThai">${m.rescue[2]}</div><button class="btn softbtn" style="margin-top:12px" onclick="speak('${safeJs(m.rescue[0])}',.75)">🔊 ฟัง</button></div><div class="missionTip">เป้าหมายคือทำให้บทสนทนาเดินต่อได้ ไม่ต้องพูดสมบูรณ์แบบ</div>`;
+ const pct=missionStep*25;
+ return `<div class="studyShell"><div class="focusHead compact"><button class="focusBack" onclick="missionPrev()">‹</button><div class="focusHeadText"><h2>${m.icon} ${m.title}</h2><p>${m.scene}</p></div></div><div class="sessionBar"><span class="tiny muted">${missionStep}/4</span><div class="progress"><i style="width:${pct}%"></i></div><span class="tiny muted">${pct}%</span></div><section class="card missionStage">${body}</section><div class="missionNav"><button class="btn softbtn" onclick="missionPrev()">${missionStep===1?'กลับรายการ':'ย้อนกลับ'}</button><button class="btn primary" onclick="missionNext()">${missionStep===4?(missionDone(m.id)?'กลับรายการ':'✓ ผ่าน Mission'):'ต่อไป →'}</button></div></div>`
 }
 
 const VOCAB=RAW_VOCAB.map((x,i)=>({id:i+1,hanzi:x[0],pinyin:x[1],thai:x[2],cat:x[3],hsk:x[4],strokes:x[5]}));
-const KEY='qingyun_one_app_v1';
-const LEGACY_KEYS=['qingyun_commercial_v1','qingyun_v1_free','nihao_max_advanced_v1'];
+const KEY='qingyun_v1_free';
+const LEGACY_KEYS=['nihao_max_advanced_v1'];
 function readSavedState(){
   let raw=localStorage.getItem(KEY);
   if(raw)return raw;
@@ -683,7 +548,7 @@ function readSavedState(){
 }
 const DEFAULT={xp:0,streak:0,lastStudyDate:null,todayDate:null,todayCompleted:0,totalAnswered:0,totalCorrect:0,toneCorrect:0,dictationCorrect:0,shadowingCorrect:0,dailyGoal:20,srs:{},favorites:[],theme:'light',history:{},skillStats:{tone:{attempts:0,correct:0},dictation:{attempts:0,correct:0},shadowing:{attempts:0,correct:0},reading:{attempts:0,correct:0},grammar:{attempts:0,correct:0}},showPinyin:true,missions:{},missionGoal:'daily'};
 let state=loadState();
-let tab='today',cat='general',learnIndex=0,revealed=false,query='',practiceMode=null,toneWord=null,toneResult=null,dictWord=null,dictResult=null,grammarIndex=0,grammarResult=null,grammarShowQuiz=false,pinyinMode='blend',pinyinIndex=0,readingResult=null,readingShowPinyin=false,hanziMemoryIndex=0,writeCharIndex=0,strokeStepIndex=0,strokeGuideIndex=0,shadowPhrase=PHRASES[0],recognition=null,writeWord=VOCAB[0],reviewQueue=null,reviewLabel='ถึงกำหนด',activeMissionId=null,missionStep=1,missionSelected=null;
+let tab='today',cat='greet',learnIndex=0,revealed=false,query='',practiceMode=null,toneWord=null,toneResult=null,dictWord=null,dictResult=null,grammarIndex=0,grammarResult=null,grammarShowQuiz=false,pinyinMode='blend',pinyinIndex=0,readingResult=null,readingShowPinyin=false,hanziMemoryIndex=0,writeCharIndex=0,strokeStepIndex=0,strokeGuideIndex=0,shadowPhrase=PHRASES[0],recognition=null,writeWord=VOCAB[0],reviewQueue=null,reviewLabel='ถึงกำหนด',activeMissionId=null,missionStep=1,missionSelected=null;
 let swipeStart=null;
 // เก็บลายมือที่ผู้ใช้เขียนแยกตามตัวอักษร เพื่อไม่ให้หายเมื่อกดขีดถัดไป
 let writingInk={};
@@ -785,29 +650,72 @@ function missionPathDone(goal=state.missionGoal||'daily'){
   return MISSIONS.filter(m=>m.path===goal&&missionDone(m.id)).length;
 }
 
-function commercialLevelPct(l){const total=missionLevelTotal(l),done=missionLevelDone(l);return total?Math.round(done/total*100):0}
 function today(){
   const due=dueWords().length,newc=newWords().length,pct=dayGoalPct();
-  const next=MISSIONS.find(m=>m.id===nextMissionId())||MISSIONS[0],lv=currentCommercialLevel();
+  const goal=state.missionGoal||'daily',hm=nextMissionForGoal(goal),goalDone=missionPathDone(goal);
+  const goalNames={daily:'ชีวิตประจำวัน',work:'ทำงาน',travel:'เดินทาง'};
   return `<div class="stack homeCompact">
-    <section class="card hero homeHero"><div class="eyebrow">QINGYUN • THAI BRIDGE</div><h1>พูดจีนให้ใช้ได้จริง<br>จนถึงงานโรงงาน</h1><p>ระบบพาเรียนตามลำดับ • ไม่ต้องเลือกเองว่าจะเรียนอะไรต่อ</p><div class="row"><button class="btn" style="background:#fff;color:#991b1b" onclick="openMission('${next.id}')">▶ เรียนต่อ: ${next.title}</button></div></section>
-    <section class="card pad qyLevelCompact"><div class="between"><div><div class="title">ตอนนี้คุณอยู่ระดับ ${lv.id}</div><div class="tiny muted">${lv.key} • ${lv.title}</div></div><span class="badge good">${missionDoneCount()}/${MISSIONS.length}</span></div><div class="stack" style="margin-top:12px">${COMMERCIAL_LEVELS.map(l=>`<div><div class="between"><span class="small"><b>${l.id}. ${l.key}</b> • ${l.title}</span><span class="tiny muted">${missionLevelDone(l.id)}/${missionLevelTotal(l.id)}</span></div><div class="progress" style="margin-top:5px"><i style="width:${commercialLevelPct(l.id)}%"></i></div></div>`).join('')}</div></section>
-    <section class="qyHomeMission"><div class="qyMissionTop"><div><span class="qyMissionKicker">NEXT MISSION • LEVEL ${next.level}</span><h2>${next.icon} ${next.title}</h2><div class="qyMissionScene">${next.scene}</div></div></div><div class="qyMissionPhrase"><div class="zh">${next.target[0]}</div><div class="py">${next.target[1]}</div><div class="th">${next.target[2]}</div></div><div class="qyMissionActions"><button class="btn primary full" onclick="openMission('${next.id}')">เริ่ม Mission →</button><button class="btn softbtn qyMiniLink" onclick="go('mission')">${MISSIONS.length} Mission</button></div></section>
-    <section class="card pad"><div class="sectionHead" style="margin-bottom:9px"><div><h2>🌉 ทุก Mission เชื่อมกัน</h2><span>ฟัง • Thai Bridge • ตอบ • พูด • SRS</span></div></div><div class="qyValue"><div><b>🗣️</b><span>Conversation<br>ใช้จริง</span></div><div><b>🇹🇭</b><span>Thai Trap<br>ออกเสียงถูก</span></div><div><b>🏭</b><span>Work Chinese<br>10 Mission</span></div></div></section>
-    <section class="card qyDailyBar"><div class="between"><div><b>ทบทวนวันนี้</b><div class="tiny muted">${due?`${due} คำถึงกำหนด`:'ไม่มีคำค้าง'} • ${newc} คำยังใหม่</div></div><b>${state.todayCompleted}/${state.dailyGoal}</b></div><div class="progress" style="margin-top:9px"><i style="width:${pct}%"></i></div></section>
+    <section class="card hero homeHero">
+      <div class="eyebrow">QINGYUN • CHINESE THAI BRIDGE • V1 FREE</div>
+      <h1>พูดจีนให้ใช้ได้จริง</h1>
+      <p>ตั้งแต่วันแรก • ฟัง → เข้าใจ → พูดตอบกลับ</p>
+      <div class="row">
+        <button class="btn" style="background:#fff;color:#991b1b" onclick="openMission('${hm.id}')">▶ Mission วันนี้</button>
+        <button class="btn" style="background:rgba(0,0,0,.18);color:#fff" onclick="goPractice('reading')">🔤 Pinyin</button>
+      </div>
+    </section>
+
+    <section class="card qyGoalCard">
+      <div class="between">
+        <div><div class="title" style="font-size:18px">เป้าหมายของฉัน</div><div class="tiny muted">เลือกสถานการณ์ที่อยากใช้ภาษาจีน</div></div>
+        <span class="badge good">${goalDone}/3</span>
+      </div>
+      <div class="qyGoalPick">
+        <button class="qyGoalBtn ${goal==='daily'?'on':''}" onclick="setMissionGoal('daily')"><b>☕</b><span>ชีวิตประจำวัน</span></button>
+        <button class="qyGoalBtn ${goal==='work'?'on':''}" onclick="setMissionGoal('work')"><b>🏭</b><span>ทำงาน</span></button>
+        <button class="qyGoalBtn ${goal==='travel'?'on':''}" onclick="setMissionGoal('travel')"><b>✈️</b><span>เดินทาง</span></button>
+      </div>
+    </section>
+
+    <section class="qyHomeMission">
+      <div class="qyMissionTop">
+        <div>
+          <span class="qyMissionKicker">👋 Mission แนะนำ</span>
+          <h2>${hm.title}</h2>
+          <div class="qyMissionScene">${hm.scene}</div>
+        </div>
+        <span class="badge">FREE</span>
+      </div>
+      <div class="qyMissionPhrase">
+        <div class="zh">${hm.target[0]}</div>
+        <div class="py">${hm.target[1]}</div>
+        <div class="th">${hm.target[2]}</div>
+      </div>
+      <div class="qyMissionActions">
+        <button class="btn primary full" onclick="openMission('${hm.id}')">เริ่ม Mission →</button>
+        <button class="btn softbtn qyMiniLink" onclick="go('mission')">ดูทั้งหมด</button>
+      </div>
+      <div class="tiny muted" style="text-align:center;margin-top:8px">${goalNames[goal]} • ผ่านทั้งหมด ${missionDoneCount()}/9 Mission</div>
+    </section>
+
+    <section class="card pad">
+      <div class="sectionHead" style="margin-bottom:9px"><div><h2>🌉 จุดเด่น QingYun สำหรับคนไทย</h2><span>ฝึกสิ่งที่ต้องใช้จริงก่อน</span></div></div>
+      <div class="qyValue">
+        <div><b>🔤</b><span>Pinyin + โทน<br>อ่านออกเสียง</span></div>
+        <div><b>🧠</b><span>Thai Trap<br>เข้าใจแบบคนไทย</span></div>
+        <div><b>🗣️</b><span>Conversation<br>พูดตอบกลับ</span></div>
+      </div>
+    </section>
+
+    <section class="card qyDailyBar">
+      <div class="between"><div><b>วันนี้</b><div class="tiny muted">${due?`ทบทวน ${due} คำ`:'ไม่มีคำค้าง'} • ${newc} คำยังใหม่</div></div><b>${state.todayCompleted}/${state.dailyGoal}</b></div>
+      <div class="progress" style="margin-top:9px"><i style="width:${pct}%"></i></div>
+    </section>
   </div>`
 }
-
 function actionRow(icon,title,desc,action,right){return `<button class="task" style="width:100%;border:0;background:transparent;color:inherit;text-align:left" onclick="${action}"><span class="taskIcon">${icon}</span><span><b>${title}</b><div class="desc">${desc}</div></span><span class="chev">${right}</span></button>`}
 function taskRow(icon,title,desc,dest,right){return `<button class="task" style="width:100%;border:0;background:transparent;color:inherit;text-align:left" onclick="go('${dest}')"><span class="taskIcon">${icon}</span><span><b>${title}</b><div class="desc">${desc}</div></span><span class="chev">${right}</span></button>`}
-function learn(){const a=filteredLearn();if(learnIndex>=a.length)learnIndex=0;const w=a[learnIndex],s=srsFor(w.id),ex=exFor(w),pct=Math.round((learnIndex+1)/a.length*100);return `<div class="studyShell">${focusHead('เรียนคำศัพท์',`${catName(cat)} • ทีละคำ ไม่ต้องรีบ`)}<div class="between" style="margin-bottom:10px"><div></div><button class="iconbtn" onclick="toggleSearch()">⌕</button></div><div id="searchArea" class="${query?'':'hidden'}" style="margin-bottom:10px"><input id="searchInput" class="search" placeholder="ค้นหา 汉字 / pinyin / ไทย" value="${esc(query)}" oninput="setLearnQuery(this.value)"></div><div class="chips">${[{id:'all',th:'ทั้งหมด',icon:'🗂️'},...CATEGORIES].map(c=>`<button class="chip ${cat===c.id?'on':''}" onclick="setCat('${c.id}')">${c.icon} ${c.th}</button>`).join('')}</div><div class="sessionBar" style="margin-top:12px"><span class="tiny muted">${learnIndex+1}/${a.length}</span><div class="progress"><i style="width:${pct}%"></i></div><span class="tiny muted">${s.reps?`Lv.${Math.min(5,s.reps)}`:'ใหม่'}</span></div><section id="learnCard" class="card studyCard compactStudy" data-swipe="learn"><div class="studyTop"><span class="badge">HSK ${w.hsk} • ${w.strokes} ขีด</span><div class="row"><button class="iconbtn" style="width:36px;height:36px" onclick="toggleFav(${w.id})">${state.favorites.includes(w.id)?'★':'☆'}</button></div></div><div class="wordStage"><div class="hanzi zh">${w.hanzi}</div>${state.showPinyin?`<div class="pinyin">${w.pinyin}</div>`:''}<div class="listenRow"><button class="roundAudio" onclick="speak('${w.hanzi}',.62)" aria-label="ฟังช้า">🐢</button><button class="roundAudio" onclick="speak('${w.hanzi}',.92)" aria-label="ฟังปกติ">🔊</button></div>${revealed?`<div class="thai">${esc(w.thai)}</div>`:`<div class="studyHint">ลองนึกความหมายก่อน แล้วค่อยเปิดคำตอบ</div>`}</div>${revealed?`<div class="answer"><div class="exampleZh zh">${ex[0][0]} <button class="iconbtn" style="width:34px;height:34px;display:inline-grid" onclick="speak('${safeJs(ex[0][0])}',.8)">🔊</button></div><div class="examplePy">${ex[0][1]}</div><div class="exampleTh">${ex[0][2]}</div></div><div><div class="studyActions"><button class="btn softbtn" onclick="rateSrsById(${w.id},1,'learn')">↻ ยังไม่แม่น</button><button class="btn good" onclick="rateSrsById(${w.id},4,'learn')">✓ จำได้</button></div><div class="studyHint">ตอบแล้วระบบเลื่อนไปคำถัดไปอัตโนมัติ</div></div>`:`<div><button class="btn primary full" onclick="showAnswer()">ดูความหมาย</button><div class="nextRow"><button class="btn softbtn" onclick="prevLearn()">‹</button><button class="btn ghost" onclick="nextLearn()">ข้ามไปคำถัดไป →</button><button class="btn softbtn" onclick="nextLearn()">›</button></div><div class="studyHint">ปัดซ้าย = คำถัดไป • ปัดขวา = คำก่อนหน้า</div></div>`}</section></div>`}
-function showAnswer(){revealed=true;renderAll()}
-function setLearnQuery(v){query=String(v||'');learnIndex=0;renderAll()}
-function rateSrsById(id,q,origin){const w=VOCAB.find(x=>x.id===Number(id));if(!w){toast('ไม่พบคำศัพท์');return}rateSrs(w,q,origin)}
-function speakShadow(rate){speak(shadowPhrase.zh,rate)}
-function retryGrammar(){grammarResult=null;renderAll()}
-function setDailyGoal(v){const n=Number(v);if([10,15,20,30].includes(n)){state.dailyGoal=n;save()}else toast('ค่าเป้าหมายไม่ถูกต้อง')}
-function togglePinyin(){state.showPinyin=!state.showPinyin;save()}
+function learn(){const a=filteredLearn();if(learnIndex>=a.length)learnIndex=0;const w=a[learnIndex],s=srsFor(w.id),ex=exFor(w),pct=Math.round((learnIndex+1)/a.length*100);return `<div class="studyShell">${focusHead('เรียนคำศัพท์',`${catName(cat)} • ทีละคำ ไม่ต้องรีบ`)}<div class="between" style="margin-bottom:10px"><div></div><button class="iconbtn" onclick="toggleSearch()">⌕</button></div><div id="searchArea" class="${query?'':'hidden'}" style="margin-bottom:10px"><input id="searchInput" class="search" placeholder="ค้นหา 汉字 / pinyin / ไทย" value="${esc(query)}" oninput="query=this.value;learnIndex=0;renderAll()"></div><div class="chips">${[{id:'all',th:'ทั้งหมด',icon:'🗂️'},...CATEGORIES].map(c=>`<button class="chip ${cat===c.id?'on':''}" onclick="setCat('${c.id}')">${c.icon} ${c.th}</button>`).join('')}</div><div class="sessionBar" style="margin-top:12px"><span class="tiny muted">${learnIndex+1}/${a.length}</span><div class="progress"><i style="width:${pct}%"></i></div><span class="tiny muted">${s.reps?`Lv.${Math.min(5,s.reps)}`:'ใหม่'}</span></div><section id="learnCard" class="card studyCard compactStudy" data-swipe="learn"><div class="studyTop"><span class="badge">HSK ${w.hsk} • ${w.strokes} ขีด</span><div class="row"><button class="iconbtn" style="width:36px;height:36px" onclick="toggleFav(${w.id})">${state.favorites.includes(w.id)?'★':'☆'}</button></div></div><div class="wordStage"><div class="hanzi zh">${w.hanzi}</div>${state.showPinyin?`<div class="pinyin">${w.pinyin}</div>`:''}<div class="listenRow"><button class="roundAudio" onclick="speak('${w.hanzi}',.62)" aria-label="ฟังช้า">🐢</button><button class="roundAudio" onclick="speak('${w.hanzi}',.92)" aria-label="ฟังปกติ">🔊</button></div>${revealed?`<div class="thai">${esc(w.thai)}</div>`:`<div class="studyHint">ลองนึกความหมายก่อน แล้วค่อยเปิดคำตอบ</div>`}</div>${revealed?`<div class="answer"><div class="exampleZh zh">${ex[0][0]} <button class="iconbtn" style="width:34px;height:34px;display:inline-grid" onclick="speak('${safeJs(ex[0][0])}',.8)">🔊</button></div><div class="examplePy">${ex[0][1]}</div><div class="exampleTh">${ex[0][2]}</div></div><div><div class="studyActions"><button class="btn softbtn" onclick="rateSrs(VOCAB[${w.id-1}],1,'learn')">↻ ยังไม่แม่น</button><button class="btn good" onclick="rateSrs(VOCAB[${w.id-1}],4,'learn')">✓ จำได้</button></div><div class="studyHint">ตอบแล้วระบบเลื่อนไปคำถัดไปอัตโนมัติ</div></div>`:`<div><button class="btn primary full" onclick="revealed=true;renderAll()">ดูความหมาย</button><div class="nextRow"><button class="btn softbtn" onclick="prevLearn()">‹</button><button class="btn ghost" onclick="nextLearn()">ข้ามไปคำถัดไป →</button><button class="btn softbtn" onclick="nextLearn()">›</button></div><div class="studyHint">ปัดซ้าย = คำถัดไป • ปัดขวา = คำก่อนหน้า</div></div>`}</section></div>`}
 function safeJs(s){return String(s).replace(/\\/g,'\\\\').replace(/'/g,"\\'").replace(/\n/g,' ')}
 function toggleSearch(){const a=document.getElementById('searchArea');a?.classList.toggle('hidden');if(a&&!a.classList.contains('hidden'))setTimeout(()=>document.getElementById('searchInput')?.focus(),0)}
 function setCat(c){cat=c;query='';learnIndex=0;revealed=false;renderAll()}
@@ -815,9 +723,9 @@ function nextLearn(render=true){const a=filteredLearn();learnIndex=(learnIndex+1
 function prevLearn(){const a=filteredLearn();learnIndex=(learnIndex-1+a.length)%a.length;revealed=false;renderAll()}
 function toggleFav(id){state.favorites=state.favorites.includes(id)?state.favorites.filter(x=>x!==id):[...state.favorites,id];save()}
 function reviewWords(){if(reviewQueue&&reviewQueue.length)return reviewQueue.map(id=>VOCAB.find(w=>w.id===id)).filter(Boolean);return dueWords()}
-function review(){const due=dueWords(),weak=weakWords(6),items=reviewWords();if(!items.length)return `<div class="stack"><section class="reviewHero"><div class="badge good">✓ ทบทวนครบแล้ว</div><div class="reviewNumber" style="margin-top:10px">0</div><div class="title">ไม่มีคำค้างทบทวน</div><p class="subtitle">ไปเรียนคำใหม่ หรือฝึกฟัง–พูดต่อได้เลย</p><div class="row" style="margin-top:14px"><button class="btn primary" onclick="go('learn')">เรียนคำใหม่</button><button class="btn softbtn" onclick="go('practice')">ไปฝึกทักษะ</button></div></section>${weak.length?weakSection(weak):''}</div>`;const w=items[0],s=srsFor(w.id),ex=exFor(w);return `<div class="studyShell">${focusHead('ทบทวน','ทบทวนเฉพาะคำที่ถึงเวลา')}<div class="reviewHero" style="margin-bottom:12px"><div class="between"><div><span class="badge amber">${reviewLabel}</span><div class="title" style="margin-top:8px">เหลือ ${items.length} คำ</div></div><div class="reviewNumber">${items.length}</div></div></div><section class="card studyCard compactStudy"><div class="studyTop"><span class="pill">พลาด ${s.lapses||0} ครั้ง • รอบ ${s.reps||0}</span><button class="iconbtn" style="width:36px;height:36px" onclick="toggleFav(${w.id})">${state.favorites.includes(w.id)?'★':'☆'}</button></div><div class="wordStage">${revealed?`<div class="hanzi zh">${w.hanzi}</div><div class="pinyin">${w.pinyin}</div><div class="thai">${esc(w.thai)}</div>`:`<div class="big" style="margin-bottom:12px">${esc(w.thai)}</div><div class="hanzi zh" style="color:var(--muted)">？</div><div class="studyHint">นึกตัวจีนหรือฟังก่อนเปิดคำตอบ</div>`}<div class="listenRow"><button class="roundAudio" onclick="speak('${w.hanzi}',.7)">🔊</button></div></div>${revealed?`<div class="answer"><div class="exampleZh zh">${ex[0][0]}</div><div class="examplePy">${ex[0][1]}</div><div class="exampleTh">${ex[0][2]}</div></div><div class="studyActions three"><button class="btn softbtn" onclick="rateSrsById(${w.id},1,'review')">ลืม</button><button class="btn warn" onclick="rateSrsById(${w.id},3,'review')">ยาก</button><button class="btn good" onclick="rateSrsById(${w.id},4,'review')">จำได้</button></div>`:`<button class="btn primary full" onclick="showAnswer()">เปิดคำตอบ</button>`}</section></div>`}
+function review(){const due=dueWords(),weak=weakWords(6),items=reviewWords();if(!items.length)return `<div class="stack"><section class="reviewHero"><div class="badge good">✓ ทบทวนครบแล้ว</div><div class="reviewNumber" style="margin-top:10px">0</div><div class="title">ไม่มีคำค้างทบทวน</div><p class="subtitle">ไปเรียนคำใหม่ หรือฝึกฟัง–พูดต่อได้เลย</p><div class="row" style="margin-top:14px"><button class="btn primary" onclick="go('learn')">เรียนคำใหม่</button><button class="btn softbtn" onclick="go('practice')">ไปฝึกทักษะ</button></div></section>${weak.length?weakSection(weak):''}</div>`;const w=items[0],s=srsFor(w.id),ex=exFor(w);return `<div class="studyShell">${focusHead('ทบทวน','ทบทวนเฉพาะคำที่ถึงเวลา')}<div class="reviewHero" style="margin-bottom:12px"><div class="between"><div><span class="badge amber">${reviewLabel}</span><div class="title" style="margin-top:8px">เหลือ ${items.length} คำ</div></div><div class="reviewNumber">${items.length}</div></div></div><section class="card studyCard compactStudy"><div class="studyTop"><span class="pill">พลาด ${s.lapses||0} ครั้ง • รอบ ${s.reps||0}</span><button class="iconbtn" style="width:36px;height:36px" onclick="toggleFav(${w.id})">${state.favorites.includes(w.id)?'★':'☆'}</button></div><div class="wordStage">${revealed?`<div class="hanzi zh">${w.hanzi}</div><div class="pinyin">${w.pinyin}</div><div class="thai">${esc(w.thai)}</div>`:`<div class="big" style="margin-bottom:12px">${esc(w.thai)}</div><div class="hanzi zh" style="color:var(--muted)">？</div><div class="studyHint">นึกตัวจีนหรือฟังก่อนเปิดคำตอบ</div>`}<div class="listenRow"><button class="roundAudio" onclick="speak('${w.hanzi}',.7)">🔊</button></div></div>${revealed?`<div class="answer"><div class="exampleZh zh">${ex[0][0]}</div><div class="examplePy">${ex[0][1]}</div><div class="exampleTh">${ex[0][2]}</div></div><div class="studyActions three"><button class="btn softbtn" onclick="rateSrs(VOCAB[${w.id-1}],1,'review')">ลืม</button><button class="btn warn" onclick="rateSrs(VOCAB[${w.id-1}],3,'review')">ยาก</button><button class="btn good" onclick="rateSrs(VOCAB[${w.id-1}],4,'review')">จำได้</button></div>`:`<button class="btn primary full" onclick="revealed=true;renderAll()">เปิดคำตอบ</button>`}</section></div>`}
 function weakSection(weak){return `<section><div class="sectionHead"><h2>คำที่ควรกลับมาฝึก</h2><span>เรียงจากพลาดบ่อย</span></div><div class="card pad">${weak.map(x=>`<div class="wordRow"><div class="wordHz zh">${x.w.hanzi}</div><div><b>${esc(x.w.thai)}</b><div class="tiny muted">${x.w.pinyin} • พลาด ${x.s.lapses||0}</div></div><button class="btn smallbtn softbtn" onclick="startWeakReview(${x.w.id})">ทบทวน</button></div>`).join('')}</div></section>`}
-function startWeakReview(id=null){qyTrack('weak_review_start');const ids=id?[id]:weakWords(8).map(x=>x.w.id);reviewQueue=ids;reviewLabel='จุดอ่อน';tab='review';revealed=false;renderAll();scrollTo({top:0,behavior:'smooth'})}
+function startWeakReview(id=null){const ids=id?[id]:weakWords(8).map(x=>x.w.id);reviewQueue=ids;reviewLabel='จุดอ่อน';tab='review';revealed=false;renderAll();scrollTo({top:0,behavior:'smooth'})}
 function practice(){
   if(practiceMode)return practiceDetail();
   const scores={tone:skillPct('tone'),dictation:skillPct('dictation'),shadowing:skillPct('shadowing'),reading:skillPct('reading'),grammar:skillPct('grammar')};
@@ -840,7 +748,7 @@ function practice(){
   </div>`
 }
 function skillCard(id,icon,title,desc,score,reco){return `<button class="card skill ${reco?'recommend':''}" onclick="${id==='weak'?'startWeakReview()':`openPractice('${id}')`}"><span class="icon">${icon}</span>${score!==null?`<span class="skillScore">${score}%</span>`:''}<h3>${title}</h3><p>${desc}</p></button>`}
-function openPractice(m){qyTrack('practice_open');practiceMode=m;if(m==='tone'&&!toneWord)newTone();if(m==='dictation'&&!dictWord)newDict();if(m==='reading'){readingResult=null;pinyinIndex=0}if(m==='hanzi')hanziMemoryIndex=Math.min(hanziMemoryIndex,HANZI_MEMORY.length-1);if(m==='write'){writeCharIndex=Math.min(writeCharIndex,STROKE_PACK.length-1);strokeStepIndex=0}if(m==='grammar'){grammarShowQuiz=false;grammarResult=null}renderAll();scrollTo({top:0,behavior:'smooth'})}
+function openPractice(m){practiceMode=m;if(m==='tone'&&!toneWord)newTone();if(m==='dictation'&&!dictWord)newDict();if(m==='reading'){readingResult=null;pinyinIndex=0}if(m==='hanzi')hanziMemoryIndex=Math.min(hanziMemoryIndex,HANZI_MEMORY.length-1);if(m==='write'){writeCharIndex=Math.min(writeCharIndex,STROKE_PACK.length-1);strokeStepIndex=0}if(m==='grammar'){grammarShowQuiz=false;grammarResult=null}renderAll();scrollTo({top:0,behavior:'smooth'})}
 function closePractice(){practiceMode=null;renderAll()}
 function focusHead(title,sub='',dest='today',compact=false){
   return `<div class="focusHead ${compact?'compact':''}"><button class="focusBack" onclick="go('${dest}')">‹</button><div class="focusHeadText"><h2>${title}</h2>${sub?`<p>${sub}</p>`:''}</div></div>`
@@ -954,7 +862,7 @@ function answerTone(n){const ok=n===toneOf(toneWord.pinyin);toneResult=ok;if(ok)
 function newDict(){dictWord=VOCAB[Math.floor(Math.random()*VOCAB.length)];dictResult=null}
 function dictationPractice(){if(!dictWord)newDict();return `<div class="studyShell">${focusHead('ฟังแล้วเขียน','ฟังซ้ำได้ ไม่ต้องรีบ','practice')}<section class="card pad"><div style="text-align:center;padding:18px 0"><button class="roundAudio" style="width:64px;height:64px;font-size:27px" onclick="speak('${dictWord.hanzi}',.72)">🔊</button><div class="subtitle" style="margin-top:10px">ฟังซ้ำได้ ไม่ต้องรีบ</div></div><input id="dictInput" class="search" placeholder="พิมพ์ตัวจีนที่ได้ยิน" autocomplete="off" onkeydown="if(event.key==='Enter')checkDict()"><button class="btn primary full" style="margin-top:10px" onclick="checkDict()">ตรวจคำตอบ</button>${dictResult!==null?`<div class="answer" style="margin-top:12px"><b>${dictResult?'✓ ถูกต้อง':'คำตอบที่ถูกคือ'}</b><div class="hanzi zh" style="font-size:48px">${dictWord.hanzi}</div><div class="pinyin">${dictWord.pinyin}</div><div>${esc(dictWord.thai)}</div></div>`:''}</section></div>`}
 function checkDict(){const ans=(document.getElementById('dictInput')?.value||'').replace(/\s/g,'');const ok=ans===dictWord.hanzi.replace(/\s/g,'');dictResult=ok;if(ok)state.dictationCorrect++;activity(ok,ok?12:1,'dictation');save(false);renderAll();toast(ok?'ถูกต้อง +12 XP':'ฟังซ้ำแล้วลองใหม่ได้');if(ok)setTimeout(()=>{newDict();renderAll()},900)}
-function shadowPractice(){return `<div class="studyShell">${focusHead('พูดตาม','ฟัง → พูดตาม','practice')}<section class="card pad"><div class="bubble"><div class="exampleZh zh">${shadowPhrase.zh}</div><div class="examplePy">${shadowPhrase.py}</div><div class="exampleTh">${shadowPhrase.th}</div></div><div class="grid2" style="margin-top:12px"><button class="btn softbtn" onclick="speakShadow(.68)">1. ฟังช้า</button><button class="btn dark" onclick="speakShadow(.95)">2. ฟังปกติ</button></div><button class="btn primary full" style="margin-top:10px" onclick="startShadow()">3. 🎙️ พูดตาม</button><div id="shadowResult" class="answer" style="margin-top:12px">พูดตามให้ใกล้จังหวะและโทนของต้นฉบับ หาก Browser รองรับ ระบบจะช่วยถอดเสียงให้</div><button class="btn softbtn full" style="margin-top:10px" onclick="nextPhrase()">ประโยคถัดไป →</button></section></div>`}
+function shadowPractice(){return `<div class="studyShell">${focusHead('พูดตาม','ฟัง → พูดตาม','practice')}<section class="card pad"><div class="bubble"><div class="exampleZh zh">${shadowPhrase.zh}</div><div class="examplePy">${shadowPhrase.py}</div><div class="exampleTh">${shadowPhrase.th}</div></div><div class="grid2" style="margin-top:12px"><button class="btn softbtn" onclick="speak(shadowPhrase.zh,.68)">1. ฟังช้า</button><button class="btn dark" onclick="speak(shadowPhrase.zh,.95)">2. ฟังปกติ</button></div><button class="btn primary full" style="margin-top:10px" onclick="startShadow()">3. 🎙️ พูดตาม</button><div id="shadowResult" class="answer" style="margin-top:12px">พูดตามให้ใกล้จังหวะและโทนของต้นฉบับ หาก Browser รองรับ ระบบจะช่วยถอดเสียงให้</div><button class="btn softbtn full" style="margin-top:10px" onclick="nextPhrase()">ประโยคถัดไป →</button></section></div>`}
 function nextPhrase(){const i=PHRASES.indexOf(shadowPhrase);shadowPhrase=PHRASES[(i+1)%PHRASES.length];renderAll()}
 function startShadow(){const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){toast('Browser นี้ยังไม่รองรับการถอดเสียงจีน');return}try{recognition&&recognition.abort()}catch{}recognition=new SR();recognition.lang='zh-CN';recognition.interimResults=false;recognition.maxAlternatives=3;const box=document.getElementById('shadowResult');box.textContent='กำลังฟัง…';recognition.onresult=e=>{const heard=e.results[0][0].transcript.replace(/[，。！？\s]/g,''),target=shadowPhrase.zh.replace(/[，。！？\s]/g,'');const ok=heard===target||target.includes(heard)||heard.includes(target.slice(0,Math.max(2,target.length-2)));box.innerHTML=`ได้ยิน: <b>${esc(heard)}</b><br>${ok?'✓ ใกล้เคียง/ถูกต้อง':'↻ ลองพูดตามอีกครั้ง'}`;if(ok)state.shadowingCorrect++;activity(ok,ok?15:1,'shadowing');save(false)};recognition.onerror=()=>box.textContent='ไมค์หรือการถอดเสียงใช้ไม่ได้ในรอบนี้';recognition.start()}
 function strokeSvg(pack){
@@ -1166,7 +1074,7 @@ function grammarPractice(){
     ${grammarResult?`<div style="margin-top:12px;padding:12px;border-radius:14px;background:var(--surface)">
       <b>${grammarResult.ok?'✓ ถูกต้อง':'ยังไม่ถูก ลองดูเหตุผลก่อน'}</b>
       <div class="small muted" style="margin-top:5px">${g.why}</div>
-      ${grammarResult.ok?`<button class="btn primary" style="width:100%;margin-top:12px" onclick="nextGrammar()">เข้าใจแล้ว • บทถัดไป →</button>`:`<button class="btn softbtn" style="width:100%;margin-top:12px" onclick="retryGrammar()">ลองอีกครั้ง</button>`}
+      ${grammarResult.ok?`<button class="btn primary" style="width:100%;margin-top:12px" onclick="nextGrammar()">เข้าใจแล้ว • บทถัดไป →</button>`:`<button class="btn softbtn" style="width:100%;margin-top:12px" onclick="grammarResult=null;renderAll()">ลองอีกครั้ง</button>`}
     </div>`:''}
   </div>`:`<button class="btn primary" style="width:100%;margin-top:16px;min-height:54px" onclick="startGrammarQuiz()">เข้าใจแล้ว • ลองตอบ 1 ข้อ</button>`;
   return `<div class="studyShell">${focusHead('ไวยากรณ์','เข้าใจไทยก่อน แล้วค่อยตอบ','practice')}
@@ -1229,10 +1137,10 @@ function prevGrammar(){
   renderAll();
   scrollTo({top:0,behavior:'smooth'});
 }
-function progress(){const weak=weakWords(8),learned=learnedCount(),mastered=masteredCount(),learning=Math.max(0,learned-mastered),fresh=Math.max(0,VOCAB.length-learned);const days=last7Days();const max=Math.max(1,...days.map(d=>state.history[d.date]||0));return `<div class="stack"><section class="grid3"><div class="metric"><b>${state.streak}</b><div class="label">🔥 วันต่อเนื่อง</div></div><div class="metric"><b>${accuracy()}%</b><div class="label">ความแม่นรวม</div></div><div class="metric"><b>${dueWords().length}</b><div class="label">ต้องทบทวนวันนี้</div></div></section><section class="card pad"><div class="sectionHead"><h2>7 วันที่ผ่านมา</h2><span>จำนวนกิจกรรม</span></div><div class="week">${days.map(d=>{const n=state.history[d.date]||0;const h=Math.max(5,Math.round(n/max*100));return `<div class="dayCol"><b class="tiny">${n||''}</b><div class="dayBar" style="height:${h}px;opacity:${n?1:.18}"></div><div class="dayLabel">${d.label}</div></div>`}).join('')}</div></section><section class="card pad"><div class="sectionHead"><h2>สถานะคำศัพท์</h2><span>${VOCAB.length} คำในชุดทดลอง</span></div><div class="mastery"><div><b>${fresh}</b><div class="tiny muted">ยังใหม่</div></div><div><b>${learning}</b><div class="tiny muted">กำลังจำ</div></div><div><b>${mastered}</b><div class="tiny muted">มั่นคง</div></div></div><div class="progress" style="margin-top:14px"><i style="width:${Math.round(mastered/VOCAB.length*100)}%"></i></div></section>${weakSection(weak)}<section class="card pad"><div class="sectionHead"><h2>ทักษะ</h2><span>QingYun • ทักษะที่ระบบติดตามได้</span></div>${skillLine('อ่าน Pinyin',skillPct('reading'))}${skillLine('โทนเสียง',skillPct('tone'))}${skillLine('ฟังแล้วเขียน',skillPct('dictation'))}${skillLine('พูดตาม',skillPct('shadowing'))}${skillLine('ไวยากรณ์',skillPct('grammar'))}</section><section class="card pad"><div class="between"><div><b>เป้าหมายต่อวัน</b><div class="tiny muted">แนะนำ 10–20 กิจกรรมสั้น ๆ</div></div><select onchange="setDailyGoal(this.value)">${[10,15,20,30].map(n=>`<option value="${n}" ${state.dailyGoal===n?'selected':''}>${n}</option>`).join('')}</select></div><div class="divider"></div><div class="row"><button class="btn softbtn smallbtn" onclick="exportBackup()">⬇ Backup</button><label class="btn softbtn smallbtn">⬆ Restore<input type="file" accept="application/json" style="display:none" onchange="importBackup(this.files[0])"></label><button class="btn ghost smallbtn" onclick="togglePinyin()">${state.showPinyin?'ซ่อน':'แสดง'} Pinyin</button><button class="btn smallbtn" style="background:#fff1f2;color:#9f1239" onclick="resetProgress()">รีเซ็ต</button></div></section></div>`}
+function progress(){const weak=weakWords(8),learned=learnedCount(),mastered=masteredCount(),learning=Math.max(0,learned-mastered),fresh=Math.max(0,VOCAB.length-learned);const days=last7Days();const max=Math.max(1,...days.map(d=>state.history[d.date]||0));return `<div class="stack"><section class="grid3"><div class="metric"><b>${state.streak}</b><div class="label">🔥 วันต่อเนื่อง</div></div><div class="metric"><b>${accuracy()}%</b><div class="label">ความแม่นรวม</div></div><div class="metric"><b>${dueWords().length}</b><div class="label">ต้องทบทวนวันนี้</div></div></section><section class="card pad"><div class="sectionHead"><h2>7 วันที่ผ่านมา</h2><span>จำนวนกิจกรรม</span></div><div class="week">${days.map(d=>{const n=state.history[d.date]||0;const h=Math.max(5,Math.round(n/max*100));return `<div class="dayCol"><b class="tiny">${n||''}</b><div class="dayBar" style="height:${h}px;opacity:${n?1:.18}"></div><div class="dayLabel">${d.label}</div></div>`}).join('')}</div></section><section class="card pad"><div class="sectionHead"><h2>สถานะคำศัพท์</h2><span>${VOCAB.length} คำในชุดทดลอง</span></div><div class="mastery"><div><b>${fresh}</b><div class="tiny muted">ยังใหม่</div></div><div><b>${learning}</b><div class="tiny muted">กำลังจำ</div></div><div><b>${mastered}</b><div class="tiny muted">มั่นคง</div></div></div><div class="progress" style="margin-top:14px"><i style="width:${Math.round(mastered/VOCAB.length*100)}%"></i></div></section>${weakSection(weak)}<section class="card pad"><div class="sectionHead"><h2>ทักษะ</h2><span>V1 FREE • ทักษะที่ระบบติดตามได้</span></div>${skillLine('อ่าน Pinyin',skillPct('reading'))}${skillLine('โทนเสียง',skillPct('tone'))}${skillLine('ฟังแล้วเขียน',skillPct('dictation'))}${skillLine('พูดตาม',skillPct('shadowing'))}${skillLine('ไวยากรณ์',skillPct('grammar'))}</section><section class="card pad"><div class="between"><div><b>เป้าหมายต่อวัน</b><div class="tiny muted">แนะนำ 10–20 กิจกรรมสั้น ๆ</div></div><select onchange="state.dailyGoal=Number(this.value);save()">${[10,15,20,30].map(n=>`<option value="${n}" ${state.dailyGoal===n?'selected':''}>${n}</option>`).join('')}</select></div><div class="divider"></div><div class="row"><button class="btn softbtn smallbtn" onclick="exportBackup()">⬇ Backup</button><label class="btn softbtn smallbtn">⬆ Restore<input type="file" accept="application/json" style="display:none" onchange="importBackup(this.files[0])"></label><button class="btn ghost smallbtn" onclick="state.showPinyin=!state.showPinyin;save()">${state.showPinyin?'ซ่อน':'แสดง'} Pinyin</button><button class="btn smallbtn" style="background:#fff1f2;color:#9f1239" onclick="resetProgress()">รีเซ็ต</button></div></section></div>`}
 function skillLine(name,pct){return `<div style="margin-top:12px"><div class="between"><span class="small">${name}</span><b class="small">${pct}%</b></div><div class="progress" style="margin-top:6px"><i style="width:${pct}%"></i></div></div>`}
 function last7Days(){const labels=['อา','จ','อ','พ','พฤ','ศ','ส'];return Array.from({length:7},(_,i)=>{const d=new Date();d.setDate(d.getDate()-(6-i));return{date:localDate(d),label:labels[d.getDay()]}})}
-function exportBackup(){const blob=new Blob([JSON.stringify({schemaVersion:2,product:'qingyun',edition:'QingYun',exportedAt:new Date().toISOString(),state},null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`qingyun-backup-${localDate()}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
+function exportBackup(){const blob=new Blob([JSON.stringify({schemaVersion:2,product:'qingyun',edition:'V1 FREE',exportedAt:new Date().toISOString(),state},null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`qingyun-v1-free-backup-${localDate()}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
 function importBackup(file){if(!file)return;const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result),raw=d.state||d;state={...DEFAULT,...raw,srs:raw.srs||{},favorites:raw.favorites||[],history:raw.history||{},missions:raw.missions||{},skillStats:{...DEFAULT.skillStats,...(raw.skillStats||{})}};save();toast('นำเข้าความคืบหน้าสำเร็จ')}catch{toast('ไฟล์ Backup ไม่ถูกต้อง')}};r.readAsText(file)}
 function resetProgress(){if(confirm('ล้าง XP, SRS และสถิติทั้งหมดหรือไม่?')){const theme=state.theme;state=cloneDefault();state.theme=theme;save();toast('รีเซ็ตแล้ว')}}
 function go(t){stopSpeech();tab=t;if(t!=='mission')activeMissionId=null;practiceMode=null;revealed=false;reviewQueue=null;reviewLabel='ถึงกำหนด';renderAll();scrollTo({top:0,behavior:'smooth'})}
@@ -1242,10 +1150,8 @@ function renderAll(){normalizeDay();renderNav();topStats();applyTheme();const v=
 window.addEventListener('pagehide',stopSpeech);
 document.addEventListener('visibilitychange',()=>{if(document.hidden)stopSpeech()});
 document.getElementById('themeBtn').onclick=()=>{state.theme=state.theme==='dark'?'light':'dark';save()};
-Object.assign(window,{togglePinyin,setDailyGoal,retryGrammar,speakShadow,rateSrsById,setLearnQuery,showAnswer,go,goPractice,setCat,nextLearn,prevLearn,toggleFav,rateSrs,speak,toggleSearch,startWeakReview,openPractice,closePractice,setPinyinMode,nextPinyin,prevPinyin,markPinyinPractice,nextHanziMemory,prevHanziMemory,openWriteChar,selectWriteChar,nextStrokeStep,prevStrokeStep,prevWriteChar,nextWriteChar,answerTone,checkDict,startShadow,nextPhrase,clearCanvas,nextWrite,startGrammarQuiz,answerGrammar,nextGrammar,prevGrammar,exportBackup,importBackup,resetProgress,openMission,closeMission,missionPrev,missionNext,answerMission,completeMission,nextMissionId,setMissionGoal});
+Object.assign(window,{go,goPractice,setCat,nextLearn,prevLearn,toggleFav,rateSrs,speak,toggleSearch,startWeakReview,openPractice,closePractice,setPinyinMode,nextPinyin,prevPinyin,markPinyinPractice,nextHanziMemory,prevHanziMemory,openWriteChar,selectWriteChar,nextStrokeStep,prevStrokeStep,prevWriteChar,nextWriteChar,answerTone,checkDict,startShadow,nextPhrase,clearCanvas,nextWrite,startGrammarQuiz,answerGrammar,nextGrammar,prevGrammar,exportBackup,importBackup,resetProgress,openMission,closeMission,missionPrev,missionNext,answerMission,completeMission,nextMissionId,setMissionGoal});
 normalizeDay();renderAll();
-
-});
 </script>
 <script src="/shared/analytics/measymate-analytics.js"></script>
 <script src="./analytics-config.js"></script>
@@ -1253,7 +1159,7 @@ normalizeDay();renderAll();
 <script>
 /* MEasyMate Script Architecture V1.1 — Notice / Promotion integration.
    Disabled automatically for file:// field-test mode. */
-(function(){"use strict";if(location.protocol==="file:")return;const sources=["/shared/notify/all-project-notice.js","./project-notice.js","/shared/notify/measymate-notify-core.js"];const load=src=>new Promise(resolve=>{const el=document.createElement("script");el.src=src;el.async=false;el.onload=resolve;el.onerror=()=>resolve();document.body.appendChild(el)});(async()=>{for(const src of sources)await load(src)})()})();
+(function(){"use strict";if(location.protocol==="file:")return;const sources=["../../shared/notify/all-project-notice.js","./project-notice.js","../../shared/notify/measymate-notify-core.js"];const load=src=>new Promise(resolve=>{const el=document.createElement("script");el.src=src;el.async=false;el.onload=resolve;el.onerror=()=>resolve();document.body.appendChild(el)});(async()=>{for(const src of sources)await load(src)})()})();
 </script>
 </body>
 </html>
