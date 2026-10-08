@@ -2,7 +2,7 @@
 (function(global){
 "use strict";
 const A=global.MEasyMateAnalytics;if(!A)return;
-const EVENTS=["app_open","mission_start","mission_complete","mission_answer_retry","level_1_complete","level_2_complete","level_3_complete","level_4_complete","practice_open","weak_review_start","trial_started","trial_expired","unlock_open","buy_click","activation_success","licensed_open"];
+const EVENTS=["app_open","mission_start","mission_complete","mission_answer_retry","level_1_complete","level_2_complete","level_3_complete","practice_open","weak_review_start","trial_started","trial_expired","unlock_open","buy_click","activation_success","licensed_open"];
 A.init({projectId:"qingyun",appVersion:"ONE APP",dataSchemaVersion:1,localStatsEnabled:true,transportEnabled:true,endpoint:"https://measymate-central-analytics.onrender.com/v1/events",includeInstallId:true,retentionDays:90,allowEvents:EVENTS,allowMetaKeys:[]});
 A.track("app_open");
 try{
