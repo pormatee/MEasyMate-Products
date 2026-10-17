@@ -40,6 +40,7 @@ jobs:
           mkdir -p _site/projects/talknow
           mkdir -p _site/projects/hanasu
           mkdir -p _site/horajarn
+          mkdir -p _site/manpower
           mkdir -p _site/projects/qingyun
           mkdir -p _site/projects/horajarn
           mkdir -p _site/shared/brand
@@ -83,6 +84,7 @@ jobs:
           cp projects/talknow/index.html _site/talknow/index.html
           cp projects/talknow/analytics-config.js _site/talknow/analytics-config.js
           cp projects/talknow/project-notice.js _site/talknow/project-notice.js
+          cp projects/manpower/index.html _site/manpower/index.html
 
           # HORAJARN FREE V1
           cp -a projects/horajarn/. _site/horajarn/
