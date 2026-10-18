@@ -181,9 +181,134 @@ function serveStatic(req,res){
   });
 }
 
+
+// MEASYMATE_MANPOWER_PROXY_V141
+const MANPOWER_GAS_URL=String(process.env.MANPOWER_GAS_URL||"").trim();
+const MANPOWER_BRIDGE_KEY=String(process.env.MANPOWER_BRIDGE_KEY||"").trim();
+const MANPOWER_ORIGIN="https://app.measymate.com";
+const MANPOWER_ALLOWED=new Set([
+  "__health",
+  "adminCreateUser",
+  "adminFinalizeDay",
+  "adminGetUsers",
+  "adminReopenDay",
+  "adminResetUserCode",
+  "adminUpdateUser",
+  "changeMyCode",
+  "getBootstrap",
+  "getChangeHistory",
+  "getDay",
+  "getMasterConfig",
+  "listHistory",
+  "login",
+  "logout",
+  "mpV140SaveMaster",
+  "saveEntry"
+]);
+const manpowerLoginAttempts=new Map();
+
+function manpowerCors(){
+  return {
+    "Access-Control-Allow-Origin":MANPOWER_ORIGIN,
+    "Access-Control-Allow-Methods":"POST, OPTIONS",
+    "Access-Control-Allow-Headers":"Content-Type",
+    "Access-Control-Max-Age":"600",
+    "Vary":"Origin"
+  };
+}
+
+function manpowerCanTryLogin(ip){
+  const now=Date.now();
+  const recent=(manpowerLoginAttempts.get(ip)||[]).filter(t=>now-t<10*60*1000);
+  manpowerLoginAttempts.set(ip,recent);
+  return recent.length<15;
+}
+
+function manpowerBadLogin(ip){
+  const a=manpowerLoginAttempts.get(ip)||[];
+  a.push(Date.now());
+  manpowerLoginAttempts.set(ip,a);
+}
+
+async function manpowerGasCall(fn,args){
+  if(!MANPOWER_GAS_URL||!MANPOWER_BRIDGE_KEY){
+    throw new Error("MANPOWER_PROXY_NOT_CONFIGURED");
+  }
+
+  const r=await fetch(MANPOWER_GAS_URL,{
+    method:"POST",
+    headers:{
+      "Content-Type":"text/plain;charset=UTF-8",
+      "Accept":"application/json"
+    },
+    body:JSON.stringify({bridgeKey:MANPOWER_BRIDGE_KEY,fn,args}),
+    redirect:"follow"
+  });
+
+  const body=await r.text();
+  let data;
+  try{data=JSON.parse(body)}
+  catch{throw new Error("INVALID_MANPOWER_BACKEND_RESPONSE")}
+  return data;
+}
+
+async function manpowerRpc(req,res){
+  const origin=String(req.headers.origin||"");
+  if(origin!==MANPOWER_ORIGIN){
+    return json(res,403,{ok:false,error:"ORIGIN_REJECTED"});
+  }
+
+  const body=await readJson(req,200000);
+  const fn=String(body.fn||"");
+  const args=Array.isArray(body.args)?body.args:[];
+
+  if(!MANPOWER_ALLOWED.has(fn)){
+    return json(res,403,{ok:false,error:"API_NOT_ALLOWED"},manpowerCors());
+  }
+
+  const ip=clientIp(req);
+  if(fn==="login"&&!manpowerCanTryLogin(ip)){
+    return json(res,429,{ok:false,error:"TOO_MANY_LOGIN_ATTEMPTS"},manpowerCors());
+  }
+
+  let payload;
+  try{
+    payload=await manpowerGasCall(fn,args);
+  }catch(e){
+    return json(res,502,{ok:false,error:(e&&e.message)||"MANPOWER_BACKEND_UNAVAILABLE"},manpowerCors());
+  }
+
+  if(fn==="login"){
+    if(payload&&payload.ok===true) manpowerLoginAttempts.delete(ip);
+    else manpowerBadLogin(ip);
+  }
+
+  return json(res,200,payload,manpowerCors());
+}
+
 const server=http.createServer(async(req,res)=>{
   try{
     const url=new URL(req.url,"http://localhost");
+
+    if(url.pathname==="/api/manpower/rpc"){
+      const origin=String(req.headers.origin||"");
+
+      if(origin!==MANPOWER_ORIGIN){
+        return json(res,403,{ok:false,error:"ORIGIN_REJECTED"});
+      }
+
+      if(req.method==="OPTIONS"){
+        res.writeHead(204,securityHeaders(manpowerCors()));
+        return res.end();
+      }
+
+      if(req.method!=="POST"){
+        return json(res,405,{ok:false,error:"METHOD_NOT_ALLOWED"},manpowerCors());
+      }
+
+      return await manpowerRpc(req,res);
+    }
+
     if(url.pathname.startsWith("/api/") && req.method!=="GET" && !sameOrigin(req)) return json(res,403,{ok:false,error:"ORIGIN_REJECTED"});
 
     if(url.pathname==="/api/health" && req.method==="GET"){
