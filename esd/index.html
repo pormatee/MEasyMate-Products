@@ -38,8 +38,13 @@
  .person{padding:9px 10px}.person .minor{margin-top:2px}
 }
 @media(max-width:350px){#stats.grid3{grid-template-columns:repeat(2,minmax(0,1fr))}.date-row{grid-template-columns:1fr 1fr}.date-row .third{grid-column:1/-1}}
+
+.brand-with-logo{display:flex;align-items:center;gap:10px}
+.brand-logo{width:38px;height:38px;object-fit:contain;border-radius:8px;background:#fff;padding:2px;flex:0 0 auto}
+.brand-title{display:flex;flex-direction:column;line-height:1.1}
+
 </style></head><body>
-<header><div><div class="brand">🛡️ MEasyMate ESD Confirm</div><div class="sub">Daily Footwear Check · V1.2.4 Clean UI Candidate</div></div><div class="row"><span id="clock" class="small"></span><button id="logout" class="header-btn hide" onclick="signout()">ออกจากระบบ</button></div></header>
+<header><div><div class="brand brand-with-logo"><img src="assets/measymate-logo.png" alt="MEasyMate Logo" class="brand-logo"><div class="brand-title"><span>MEasyMate ESD Confirm</span></div></div><div class="sub">Daily Footwear Check · V1.2.4 Clean UI Candidate</div></div><div class="row"><span id="clock" class="small"></span><button id="logout" class="header-btn hide" onclick="signout()">ออกจากระบบ</button></div></header>
 <main>
   <nav class="tabs" aria-label="เมนูหลัก"><button class="tab active" id="nav-check" onclick="switchTab('check')">✓ บันทึก ESD</button><button class="tab hide" id="nav-dashboard" onclick="switchTab('dashboard')">▥ Dashboard</button><button class="tab hide" id="nav-master" onclick="switchTab('master')">♙ Master พนักงาน</button><button class="tab hide" id="nav-settings" onclick="switchTab('settings')">⚙ จัดการ Group / หัวหน้า</button><button class="tab" id="nav-login" onclick="switchTab('login')">🔐 Leader / SV</button></nav>
   <div id="messages" class="status" role="status"></div>
