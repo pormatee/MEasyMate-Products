@@ -66,6 +66,7 @@ jobs:
           cp projects/report-pro/project-notice.js _site/report-pro/project-notice.js
           cp projects/caption-studio/index.html _site/caption-studio/index.html
           cp esd/index.html _site/esd/index.html
+          cp esd/api-config.js _site/esd/api-config.js
           cp projects/caption-studio/sw.js _site/caption-studio/sw.js
           cp projects/caption-studio/analytics-config.js _site/caption-studio/analytics-config.js
           cp projects/qingyun/index.html _site/qingyun/index.html
