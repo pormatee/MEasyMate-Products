@@ -33,6 +33,7 @@ jobs:
           mkdir -p _site/contact-shift
           mkdir -p _site/report-pro
           mkdir -p _site/caption-studio
+          mkdir -p _site/esd
           mkdir -p _site/qingyun
           mkdir -p _site/qingyun/commercial
           mkdir -p _site/hanasu
@@ -64,6 +65,7 @@ jobs:
           cp projects/report-pro/analytics-config.js _site/report-pro/analytics-config.js
           cp projects/report-pro/project-notice.js _site/report-pro/project-notice.js
           cp projects/caption-studio/index.html _site/caption-studio/index.html
+          cp esd/index.html _site/esd/index.html
           cp projects/caption-studio/sw.js _site/caption-studio/sw.js
           cp projects/caption-studio/analytics-config.js _site/caption-studio/analytics-config.js
           cp projects/qingyun/index.html _site/qingyun/index.html
