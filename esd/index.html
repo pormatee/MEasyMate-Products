@@ -44,8 +44,16 @@
 .brand-title{display:flex;flex-direction:column;line-height:1.1}
 
 @media(max-width:660px){header .brand-with-logo{gap:9px;font-size:16px}.brand-logo{width:66px;height:66px;flex-basis:66px;border-radius:14px}header .brand-title{min-width:0}}
+
+/* ESD APPROVED BRAND BANNER — presentation only; no application logic changed. */
+.esd-banner-header{display:block!important;padding:0!important;position:relative;background:#003551;overflow:hidden;line-height:normal}
+.esd-header-banner{display:block;width:100%;height:auto;max-height:220px;object-fit:cover;object-position:center}
+.esd-banner-controls{position:absolute;right:8px;bottom:7px;display:flex;gap:8px;align-items:center}
+.esd-banner-controls #clock{display:none}
+.esd-banner-controls #logout{font-size:12px;min-height:34px;padding:6px 10px;background:#003551df;color:white;border:1px solid #ffffff88;box-shadow:0 1px 8px #001c2a66}
+@media(max-width:660px){.esd-banner-header{padding:0!important}.esd-header-banner{width:100%;height:auto;max-height:none;object-fit:contain}.esd-banner-controls{bottom:4px;right:4px}}
 </style></head><body>
-<header><div><div class="brand brand-with-logo"><img src="assets/measymate-logo.png?v=0e18c142233f" alt="MEasyMate Logo" class="brand-logo"><div class="brand-title"><span>MEasyMate ESD Confirm</span></div></div><div class="sub">Daily Footwear Check · V1.2.4 Clean UI Candidate</div></div><div class="row"><span id="clock" class="small"></span><button id="logout" class="header-btn hide" onclick="signout()">ออกจากระบบ</button></div></header>
+<header class="esd-banner-header"><img class="esd-header-banner" src="assets/measymate-logo.png?v=c3285d660d207a" alt="MEasyMate ESD Confirm - Daily Footwear Check"><div class="esd-banner-controls"><span id="clock" class="small"></span><button id="logout" class="header-btn hide" onclick="signout()">ออกจากระบบ</button></div></header>
 <main>
   <nav class="tabs" aria-label="เมนูหลัก"><button class="tab active" id="nav-check" onclick="switchTab('check')">✓ บันทึก ESD</button><button class="tab hide" id="nav-dashboard" onclick="switchTab('dashboard')">▥ Dashboard</button><button class="tab hide" id="nav-master" onclick="switchTab('master')">♙ Master พนักงาน</button><button class="tab hide" id="nav-settings" onclick="switchTab('settings')">⚙ จัดการ Group / หัวหน้า</button><button class="tab" id="nav-login" onclick="switchTab('login')">🔐 Leader / SV</button></nav>
   <div id="messages" class="status" role="status"></div>
