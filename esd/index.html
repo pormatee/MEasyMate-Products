@@ -84,7 +84,7 @@
   </section>
   <section id="adminLocked" class="panel hide"><h2>เข้าสู่ระบบหัวหน้างาน</h2><p class="muted small">Leader เข้าดู Dashboard เท่านั้น • SV ดู Dashboard และแก้ Master • Admin หลักจัดการบัญชีได้</p><label for="admin-id">รหัสหัวหน้างาน (Admin หลักเว้นว่าง)</label><input id="admin-id" autocomplete="username" placeholder="เช่น lead-a"><label for="admin-pass" style="margin-top:10px">รหัสผ่าน</label><input type="password" id="admin-pass" autocomplete="current-password" placeholder="Admin 8 ตัวขึ้นไป / Leader-SV PIN 6 หลัก" onkeydown="if(event.key==='Enter')login()"><div class="button-row"><button class="primary" onclick="login()">เข้าสู่ระบบ Leader / SV</button><button class="ghost" onclick="switchTab('check')">กลับหน้าบันทึก</button></div></section>
   <section id="screen-dashboard" class="hide">
-   <div class="panel"><div class="row-between"><div><h2>Dashboard การตรวจ ESD</h2><div class="small muted" id="last-update">ยังไม่ได้โหลด</div></div><div class="row"><button class="ghost" onclick="refreshDashboard()">↻ Refresh</button><button class="outline" onclick="window.print()">พิมพ์ / PDF</button></div></div>
+   <div class="panel"><div class="row-between"><div><h2>Dashboard การตรวจ ESD</h2><div class="small muted" id="last-update">ยังไม่ได้โหลด</div></div><div class="row"><button type="button" class="ghost" onclick="refreshDashboard()">↻ Refresh</button><button class="outline" onclick="window.print()">พิมพ์ / PDF</button></div></div>
     <div class="date-row" style="margin-top:13px"><div><label for="dash-date">วันที่</label><input type="date" id="dash-date" onchange="refreshDashboard()"></div><div><label for="dash-shift">Shift</label><select id="dash-shift" onchange="setShift()"><option value="ALL">ทั้งหมด</option><option value="A">Shift A</option><option value="B">Shift B</option><option value="DAY">Group Day</option></select></div><div class="third"><label for="dash-group">Group</label><select id="dash-group" onchange="refreshDashboard()"><option value="ALL">ทุกกลุ่ม</option></select></div></div>
     <div class="grid3" id="stats" style="margin-top:14px"></div>
     <div class="row-between" style="margin-top:14px"><strong>ความคืบหน้าการตรวจ</strong><strong id="progress-txt">0%</strong></div><div class="bar"><div class="fill" id="progress-bar" style="width:0%"></div></div><p class="small muted" id="progress-sub"></p>
@@ -106,6 +106,18 @@
 <script>
 'use strict';
 var state={tab:'check',token:null,role:null,public:null,lookup:null,lookupSeq:0,lookupTimer:null,searchResults:[],dashboard:null,master:null,masterLimit:100,interval:null};
+// Restore login only within the same browser tab; never save passwords/PINs.
+var ESD_SESSION_KEY='measymate.esd.v124.session.v1';
+var ESD_SESSION_MAX_AGE_MS=2*60*60*1000;
+function saveSession_(){try{if(state.token&&state.role)sessionStorage.setItem(ESD_SESSION_KEY,JSON.stringify({token:state.token,role:state.role,savedAt:Date.now()}))}catch(e){}}
+function clearSession_(){try{sessionStorage.removeItem(ESD_SESSION_KEY)}catch(e){}}
+function restoreSession_(){
+ try{var raw=sessionStorage.getItem(ESD_SESSION_KEY);if(!raw)return false;
+ var v=JSON.parse(raw),now=Date.now();
+ if(!v||typeof v.token!=='string'||!v.token||v.token.length>4096||!['ADMIN','SUPERVISOR','LEADER'].includes(v.role)||!Number.isFinite(v.savedAt)||v.savedAt>now||now-v.savedAt>ESD_SESSION_MAX_AGE_MS){clearSession_();return false}
+ state.token=v.token;state.role=v.role;return true;
+ }catch(e){clearSession_();return false}
+}
 function el(id){return document.getElementById(id)}
 function esc(s){return String(s===null||s===undefined?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
 function invoke(name,args){
@@ -143,7 +155,7 @@ function switchTab(tab){
  if((tab==='master'||tab==='settings')&&!state.master)loadAdminMaster();
 }
 function showCheckResult(s,ok){el('check-result').className='status '+(ok?'good':'error');el('check-result').textContent=s}
-async function startup(){try{state.public=await invoke('getPublicData');el('dash-date').value=state.public.today;renderMachinesSelect()}catch(e){message('ยังเชื่อม Google Sheets ไม่สำเร็จ: '+e.message,'error')}}
+async function startup(){var restored=restoreSession_();try{state.public=await invoke('getPublicData');el('dash-date').value=state.public.today;renderMachinesSelect()}catch(e){message('ยังเชื่อม Google Sheets ไม่สำเร็จ: '+e.message,'error')}if(restored){el('logout').classList.remove('hide');refreshRoleNav_();switchTab('dashboard')}}
 function renderMachinesSelect(){var sel=el('check-machine');sel.innerHTML='<option value="">เลือกเครื่องตรวจ ESD</option>'+(state.public.machines||[]).map(function(m){return '<option value="'+esc(m.id)+'">'+esc(m.id)+' '+esc(m.location||'')+'</option>'}).join('')+'<option value="NO_MACHINE">ไม่มีเครื่องให้ตรวจ (เฉพาะตรวจไม่ได้)</option>';updateCheckReady()}
 // Debounced and race-safe lookup: no explicit search button or stale employee details.
 function updateCheckReady(){
@@ -213,8 +225,8 @@ async function submitCheck(){
   el('check-reason').value='';document.querySelectorAll('input[name="esd-result"]').forEach(function(x){x.checked=false});changeResult();
  }catch(e){showCheckResult(e.message,false)}finally{busy(btn,false);updateCheckReady()}
 }
-async function login(){var pwd=el('admin-pass').value;try{var res=await invoke('adminLogin',[pwd,el('admin-id').value.trim()]);state.token=res.token;state.role=res.role;el('admin-pass').value='';el('logout').classList.remove('hide');state.master=null;refreshRoleNav_();toast('เข้าสู่ระบบสำเร็จ: '+(state.role==='LEADER'?'Leader':state.role==='SUPERVISOR'?'SV':'Admin'));switchTab('dashboard')}catch(e){message(e.message,'error')}}
-async function signout(){try{if(state.token)await invoke('adminLogout',[state.token])}catch(e){}state.token=null;state.role=null;state.master=null;state.dashboard=null;el('logout').classList.add('hide');refreshRoleNav_();switchTab('check');toast('ออกจากระบบแล้ว')}
+async function login(){var pwd=el('admin-pass').value;try{var res=await invoke('adminLogin',[pwd,el('admin-id').value.trim()]);state.token=res.token;state.role=res.role;saveSession_();el('admin-pass').value='';el('logout').classList.remove('hide');state.master=null;refreshRoleNav_();toast('เข้าสู่ระบบสำเร็จ: '+(state.role==='LEADER'?'Leader':state.role==='SUPERVISOR'?'SV':'Admin'));switchTab('dashboard')}catch(e){message(e.message,'error')}}
+async function signout(){try{if(state.token)await invoke('adminLogout',[state.token])}catch(e){}state.token=null;state.role=null;clearSession_();state.master=null;state.dashboard=null;el('logout').classList.add('hide');refreshRoleNav_();switchTab('check');toast('ออกจากระบบแล้ว')}
 // V1.2.1: stable process-first ordering with unassigned Process always last.
 function processLabel(p){return String(p&&p.process||'').trim()}
 function processSort(a,b){
